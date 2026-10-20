@@ -2,14 +2,47 @@
 
 // ACZ / BF3 photographic-reference baseline.
 // Reimplements the clean-room BF3-Render-Stack tone-curve + 32^3 LUT core.
-// This is intentionally SDR-oriented for A/B calibration; HDR preservation
-// will be handled in a later ACZ-specific split.
+// Includes both the exact SDR-oriented reference path and an ACZ HDR-safe
+// path that keeps BF3 chroma/crosstalk while preserving source luminance.
 
 uniform float BF3ExposureEV <
     ui_label = "Exposure EV";
     ui_type = "drag";
     ui_min = -4.0; ui_max = 4.0; ui_step = 0.01;
 > = 0.0;
+
+uniform int BF3Mode <
+    ui_label = "Mode";
+    ui_type = "combo";
+    ui_items = "Exact BF3 Reference\0HDR-Safe BF3 Character\0";
+> = 1;
+
+uniform float BF3ColorCharacter <
+    ui_label = "HDR-Safe Color Character";
+    ui_tooltip = "How much BF3 hue/saturation/channel-crosstalk character to keep while preserving ACZ luminance.";
+    ui_type = "slider";
+    ui_min = 0.0; ui_max = 1.0;
+> = 1.0;
+
+uniform float BF3ToneCharacter <
+    ui_label = "HDR-Safe Tone Character";
+    ui_tooltip = "0 preserves ACZ luminance/HDR. 1 uses BF3 reference luminance response while keeping the HDR-safe chroma split.";
+    ui_type = "slider";
+    ui_min = 0.0; ui_max = 1.0;
+> = 0.0;
+
+uniform float BF3HighlightPreserve <
+    ui_label = "Highlight Preserve";
+    ui_tooltip = "Blends bright HDR regions back toward the ACZ source to protect highlight energy and gamut.";
+    ui_type = "slider";
+    ui_min = 0.0; ui_max = 1.0;
+> = 0.85;
+
+uniform float BF3HighlightStart <
+    ui_label = "Highlight Preserve Start";
+    ui_type = "slider";
+    ui_min = 0.0; ui_max = 1.0;
+> = 0.55;
 
 uniform float BF3Strength <
     ui_label = "Overall Strength";
@@ -110,30 +143,125 @@ float3 ApplyBF3Vignette(float3 color, float2 uv)
     return color * (1.0 + amount * (vignetteColor - 1.0));
 }
 
+float ACZLuminance(float3 color)
+{
+    return dot(color, float3(0.2126, 0.7152, 0.0722));
+}
+
+float3 BuildHDRSafeBF3(
+    float3 sourceHDR,
+    float3 exactBF3)
+{
+    const float epsilon = 1e-4;
+
+    const float sourceLuma =
+        max(ACZLuminance(sourceHDR), epsilon);
+    const float bf3Luma =
+        max(ACZLuminance(exactBF3), epsilon);
+
+    // Split each image into luminance and normalized chroma direction.
+    // The BF3 term retains the 3D LUT's hue shifts, saturation compression
+    // and channel crosstalk without inheriting its SDR luminance compression.
+    float3 sourceChroma =
+        sourceHDR / sourceLuma;
+    float3 bf3Chroma =
+        exactBF3 / bf3Luma;
+
+    // Guard pathological ratios in almost-black texels.
+    sourceChroma = min(sourceChroma, 8.0);
+    bf3Chroma = min(bf3Chroma, 8.0);
+
+    const float3 chroma =
+        lerp(
+            sourceChroma,
+            bf3Chroma,
+            BF3ColorCharacter);
+
+    // ToneCharacter=0 is the true HDR-preserving baseline.
+    const float outLuma =
+        lerp(
+            sourceLuma,
+            bf3Luma,
+            BF3ToneCharacter);
+
+    float3 result = chroma * outLuma;
+
+    // Protect the brightest ACZ regions from gamut excursions/clipping.
+    // This is deliberately based on the source domain rather than BF3's
+    // already-compressed result.
+    const float highlightSignal =
+        max(sourceHDR.r, max(sourceHDR.g, sourceHDR.b));
+    const float highlightMask =
+        smoothstep(
+            BF3HighlightStart,
+            1.0,
+            highlightSignal) *
+        BF3HighlightPreserve;
+
+    result = lerp(
+        result,
+        sourceHDR,
+        highlightMask);
+
+    return max(result, 0.0);
+}
+
 float4 PS_ACZBF3Reference(
     float4 position : SV_Position,
     float2 texcoord : TEXCOORD) : SV_Target
 {
-    const float3 source = tex2D(ReShade::BackBuffer, texcoord).rgb;
+    const float3 source =
+        tex2D(ReShade::BackBuffer, texcoord).rgb;
 
     // BF3 captured colorScale is essentially unity.
     const float exposure = exp2(BF3ExposureEV);
-    const float3 hdr = max(source * exposure * 1.0000065565, 0.0);
+    const float3 hdr =
+        max(
+            source * exposure * 1.0000065565,
+            0.0);
 
-    const float3 lutCoord = BF3ToneCurve(hdr);
-    const float3 lutColor = SampleBF3LUT(lutCoord);
+    const float3 lutCoord =
+        BF3ToneCurve(hdr);
+    const float3 lutColor =
+        SampleBF3LUT(lutCoord);
 
-    // "Tone only" is useful as a baseline when LUT Strength = 0.
-    float3 graded = lerp(saturate(lutCoord), lutColor, BF3LUTStrength);
+    // Exact recovered BF3 photographic result before vignette.
+    const float3 exactBF3 =
+        lerp(
+            saturate(lutCoord),
+            lutColor,
+            BF3LUTStrength);
+
+    float3 graded;
+
+    if (BF3Mode == 0)
+    {
+        graded = exactBF3;
+    }
+    else
+    {
+        graded =
+            BuildHDRSafeBF3(
+                hdr,
+                exactBF3);
+    }
 
     if (BF3Vignette)
-        graded = ApplyBF3Vignette(graded, texcoord);
+        graded =
+            ApplyBF3Vignette(
+                graded,
+                texcoord);
 
-    return float4(lerp(source, graded, BF3Strength), 1.0);
+    return float4(
+        lerp(
+            source,
+            graded,
+            BF3Strength),
+        1.0);
 }
 
 technique ACZBF3Reference <
-    ui_tooltip = "BF3 photographic-reference baseline: tone curve + 32^3 LUT + recovered vignette. Intentionally SDR-oriented for A/B calibration.";
+    ui_tooltip = "BF3 photographic grade. Exact mode reproduces the recovered SDR-oriented reference path; HDR-Safe mode preserves ACZ luminance while retaining BF3 color character.";
 >
 {
     pass
