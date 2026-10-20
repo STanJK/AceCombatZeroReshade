@@ -179,6 +179,8 @@ namespace
 		uint64_t ordinal = 0;
 		std::optional<draw_record> prev2;
 		std::optional<draw_record> prev1;
+		std::vector<draw_record> recent;
+		uint32_t draws_since_anchor = 0;
 	};
 
 	struct __declspec(uuid("a8e9c0be-1464-4a7c-9f70-ecbf0702a97f")) bridge_device_data
@@ -192,6 +194,7 @@ namespace
 		std::vector<resource> retired;
 		std::vector<resource_view> retired_views;
 		uint64_t copies = 0;
+		uint64_t anchor_hits = 0;
 		bool unsupported_logged = false;
 	};
 
@@ -284,12 +287,54 @@ namespace
 		return record;
 	}
 
+	void dump_recent_anchor_context(command_list *cmd_list)
+	{
+		auto &state = *cmd_list->get_private_data<bridge_command_list_data>();
+		if (state.recent.empty())
+			return;
+
+		reshade::log::message(
+			reshade::log::level::warning,
+			"ACZRenderBridge: HUD anchor not reacquired; recent main-target draw context follows.");
+
+		for (const draw_record &d : state.recent)
+		{
+			if (d.rtv0 == 0 || d.dsv == 0)
+				continue;
+
+			std::ostringstream line;
+			line
+				<< "ACZRenderBridge: CTX "
+				<< (d.indexed ? "IDX" : "DRAW")
+				<< " count=" << d.count
+				<< " ordinal=" << d.ordinal
+				<< " stable=0x" << std::hex << d.fp.stable
+				<< " vs=0x" << d.fp.vs
+				<< " ps=0x" << d.fp.ps
+				<< " topology=0x" << d.topology
+				<< " rtv=0x" << d.rtv0.handle
+				<< " dsv=0x" << d.dsv.handle;
+			reshade::log::message(
+				reshade::log::level::warning,
+				line.str().c_str());
+		}
+	}
+
 	void remember_draw(command_list *cmd_list, const draw_record &record)
 	{
 		auto &state = *cmd_list->get_private_data<bridge_command_list_data>();
 		state.prev2 = state.prev1;
 		state.prev1 = record;
+
+		state.recent.push_back(record);
+		if (state.recent.size() > 32)
+			state.recent.erase(state.recent.begin());
+
+		++state.draws_since_anchor;
 		++state.ordinal;
+
+		if (state.draws_since_anchor == 1200)
+			dump_recent_anchor_context(cmd_list);
 	}
 
 	bool ensure_scene_clean(
@@ -610,7 +655,16 @@ namespace
 		auto &state = *cmd_list->get_private_data<bridge_command_list_data>();
 
 		if (is_first_hud_anchor(state, current))
+		{
+			state.draws_since_anchor = 0;
+			if (device *dev = cmd_list->get_device())
+			{
+				auto *data = dev->get_private_data<bridge_device_data>();
+				if (data != nullptr)
+					++data->anchor_hits;
+			}
 			copy_scene_clean(cmd_list, current);
+		}
 
 		remember_draw(cmd_list, current);
 		return false;
