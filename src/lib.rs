@@ -65,6 +65,7 @@ static CAPTURE_TARGET_FRAME: AtomicU64 = AtomicU64::new(0);
 static CAPTURE_REQUESTED: AtomicBool = AtomicBool::new(false);
 static HUD_DRAW_COUNT: AtomicU64 = AtomicU64::new(0);
 static FIRST_HUD_DRAW_SEEN: AtomicBool = AtomicBool::new(false);
+static HUD_BUILDER_DEPTH_GLOBAL: AtomicUsize = AtomicUsize::new(0);
 
 #[derive(Clone, Copy, Debug)]
 struct Span {
@@ -94,7 +95,6 @@ struct DrawSnapshot {
 
 thread_local! {
     static HUD_PARSE_DEPTH: Cell<u32> = const { Cell::new(0) };
-    static HUD_BUILDER_DEPTH: Cell<u32> = const { Cell::new(0) };
     static CURRENT_PSO: Cell<usize> = const { Cell::new(0) };
     static CURRENT_TOPOLOGY: Cell<u32> = const { Cell::new(0) };
     static CURRENT_RTV0: Cell<usize> = const { Cell::new(0) };
@@ -375,7 +375,7 @@ unsafe extern "system" fn hk_modern_draw_builder(
             a1 as usize, a2, a3 as usize, a4, a5, a6, a7, a8, a9, a10, a11,
             a12, a14 as usize, a15
         );
-        HUD_BUILDER_DEPTH.with(|d| d.set(d.get() + 1));
+        HUD_BUILDER_DEPTH_GLOBAL.fetch_add(1, Ordering::AcqRel);
     }
 
     ORIG_MODERN_DRAW_BUILDER.unwrap()(
@@ -383,7 +383,7 @@ unsafe extern "system" fn hk_modern_draw_builder(
     );
 
     if tagged {
-        HUD_BUILDER_DEPTH.with(|d| d.set(d.get().saturating_sub(1)));
+        HUD_BUILDER_DEPTH_GLOBAL.fetch_sub(1, Ordering::AcqRel);
     }
 }
 
@@ -779,7 +779,7 @@ pub extern "system" fn ACZOracleScopeFlags() -> u32 {
     if HUD_PARSE_DEPTH.with(|d| d.get() != 0) {
         flags |= 2;
     }
-    if HUD_BUILDER_DEPTH.with(|d| d.get() != 0) {
+    if HUD_BUILDER_DEPTH_GLOBAL.load(Ordering::Acquire) != 0 {
         flags |= 4;
     }
     flags
