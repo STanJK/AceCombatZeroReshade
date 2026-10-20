@@ -416,7 +416,7 @@ type CreateGraphicsPso = unsafe extern "system" fn(
 type SetPipelineState = unsafe extern "system" fn(*mut c_void, *mut c_void);
 type IaSetPrimitiveTopology = unsafe extern "system" fn(*mut c_void, u32);
 type OmSetRenderTargets = unsafe extern "system" fn(
-    *mut c_void, u32, *const CpuDescriptorHandle, BOOL, *const CpuDescriptorHandle,
+    *mut c_void, u32, *const CpuDescriptorHandle, i32, *const CpuDescriptorHandle,
 );
 type DrawInstanced = unsafe extern "system" fn(*mut c_void, u32, u32, u32, u32);
 type DrawIndexedInstanced = unsafe extern "system" fn(*mut c_void, u32, u32, u32, i32, u32);
