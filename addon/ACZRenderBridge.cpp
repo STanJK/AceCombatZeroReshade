@@ -3,6 +3,7 @@
 
 #include <atomic>
 #include <cstdint>
+#include <cstring>
 #include <mutex>
 #include <optional>
 #include <shared_mutex>
@@ -190,6 +191,11 @@ namespace
 	};
 
 	thread_local bridge_stream_state g_stream;
+
+	struct __declspec(uuid("6bc7483f-d102-4acd-96d3-6f247f6b298e")) bridge_runtime_data
+	{
+		uint64_t last_seen_copies = 0;
+	};
 
 	struct __declspec(uuid("a8e9c0be-1464-4a7c-9f70-ecbf0702a97f")) bridge_device_data
 	{
@@ -550,6 +556,16 @@ namespace
 		device->destroy_private_data<bridge_device_data>();
 	}
 
+	void on_init_effect_runtime(effect_runtime *runtime)
+	{
+		runtime->create_private_data<bridge_runtime_data>();
+	}
+
+	void on_destroy_effect_runtime(effect_runtime *runtime)
+	{
+		runtime->destroy_private_data<bridge_runtime_data>();
+	}
+
 	void update_effect_runtime(effect_runtime *runtime)
 	{
 		device *device = runtime->get_device();
@@ -557,12 +573,19 @@ namespace
 			return;
 
 		auto *data = device->get_private_data<bridge_device_data>();
-		if (data == nullptr)
+		auto *runtime_data = runtime->get_private_data<bridge_runtime_data>();
+		if (data == nullptr || runtime_data == nullptr)
 			return;
 
 		std::lock_guard lock(data->mutex);
+
+		const bool fresh =
+			data->scene_shader_ready &&
+			data->scene_clean_srv != 0 &&
+			data->copies != runtime_data->last_seen_copies;
+
 		const resource_view srv =
-			(data->scene_shader_ready && data->scene_clean_srv != 0)
+			data->scene_clean_srv != 0
 				? data->scene_clean_srv
 				: resource_view { 0 };
 
@@ -570,6 +593,23 @@ namespace
 			"ACZ_SCENE_CLEAN",
 			srv,
 			srv);
+
+		runtime->enumerate_uniform_variables(
+			nullptr,
+			[fresh](effect_runtime *rt, effect_uniform_variable variable)
+			{
+				char source[64] = {};
+				if (rt->get_annotation_string_from_uniform_variable(
+						variable,
+						"source",
+						source) &&
+					std::strcmp(source, "acz_scene_clean_fresh") == 0)
+				{
+					rt->set_uniform_value_bool(variable, fresh);
+				}
+			});
+
+		runtime_data->last_seen_copies = data->copies;
 	}
 
 	void on_reshade_begin_effects(
@@ -786,6 +826,8 @@ BOOL APIENTRY DllMain(HMODULE module, DWORD reason, LPVOID)
 		reshade::register_event<reshade::addon_event::draw_indexed>(on_draw_indexed);
 		reshade::register_event<reshade::addon_event::present>(on_present);
 
+		reshade::register_event<reshade::addon_event::init_effect_runtime>(on_init_effect_runtime);
+		reshade::register_event<reshade::addon_event::destroy_effect_runtime>(on_destroy_effect_runtime);
 		reshade::register_event<reshade::addon_event::reshade_begin_effects>(on_reshade_begin_effects);
 		reshade::register_event<reshade::addon_event::reshade_reloaded_effects>(update_effect_runtime);
 
