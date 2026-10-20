@@ -132,6 +132,104 @@ namespace
 		return hash;
 	}
 
+	uint64_t hash_sampler_desc(uint64_t hash, const sampler_desc &value)
+	{
+		hash = fnv_enum(hash, value.filter);
+		hash = fnv_enum(hash, value.address_u);
+		hash = fnv_enum(hash, value.address_v);
+		hash = fnv_enum(hash, value.address_w);
+		hash = fnv_value(hash, value.mip_lod_bias);
+		hash = fnv_value(hash, value.max_anisotropy);
+		hash = fnv_enum(hash, value.compare_op);
+		for (float component : value.border_color)
+			hash = fnv_value(hash, component);
+		hash = fnv_value(hash, value.min_lod);
+		hash = fnv_value(hash, value.max_lod);
+		return hash;
+	}
+
+	uint64_t hash_constant_range(uint64_t hash, const constant_range &value)
+	{
+		hash = fnv_value(hash, value.binding);
+		hash = fnv_value(hash, value.dx_register_index);
+		hash = fnv_value(hash, value.dx_register_space);
+		hash = fnv_value(hash, value.count);
+		hash = fnv_enum(hash, value.visibility);
+		return hash;
+	}
+
+	uint64_t hash_descriptor_range(uint64_t hash, const descriptor_range &value)
+	{
+		hash = fnv_value(hash, value.binding);
+		hash = fnv_value(hash, value.dx_register_index);
+		hash = fnv_value(hash, value.dx_register_space);
+		hash = fnv_value(hash, value.count);
+		hash = fnv_enum(hash, value.visibility);
+		hash = fnv_value(hash, value.array_size);
+		hash = fnv_enum(hash, value.type);
+		return hash;
+	}
+
+	uint64_t hash_descriptor_range_with_flags(
+		uint64_t hash,
+		const descriptor_range_with_flags &value)
+	{
+		hash = hash_descriptor_range(
+			hash,
+			static_cast<const descriptor_range &>(value));
+		hash = fnv_enum(hash, value.flags);
+
+		const bool has_static_samplers = value.static_samplers != nullptr;
+		hash = fnv_value(hash, has_static_samplers);
+
+		if (has_static_samplers && value.count != UINT32_MAX)
+		{
+			for (uint32_t i = 0; i < value.count; ++i)
+				hash = hash_sampler_desc(hash, value.static_samplers[i]);
+		}
+
+		return hash;
+	}
+
+	uint64_t hash_pipeline_layout_param(
+		uint64_t hash,
+		const pipeline_layout_param &param)
+	{
+		hash = fnv_enum(hash, param.type);
+
+		switch (param.type)
+		{
+		case pipeline_layout_param_type::push_constants:
+			return hash_constant_range(hash, param.push_constants);
+
+		case pipeline_layout_param_type::push_descriptors:
+			return hash_descriptor_range(hash, param.push_descriptors);
+
+		case pipeline_layout_param_type::descriptor_table:
+		case pipeline_layout_param_type::push_descriptors_with_ranges:
+			hash = fnv_value(hash, param.descriptor_table.count);
+			if (param.descriptor_table.ranges != nullptr)
+				for (uint32_t i = 0; i < param.descriptor_table.count; ++i)
+					hash = hash_descriptor_range(
+						hash,
+						param.descriptor_table.ranges[i]);
+			return hash;
+
+		case pipeline_layout_param_type::descriptor_table_with_flags:
+		case pipeline_layout_param_type::push_descriptors_with_ranges_and_flags:
+			hash = fnv_value(hash, param.descriptor_table_with_flags.count);
+			if (param.descriptor_table_with_flags.ranges != nullptr)
+				for (uint32_t i = 0; i < param.descriptor_table_with_flags.count; ++i)
+					hash = hash_descriptor_range_with_flags(
+						hash,
+						param.descriptor_table_with_flags.ranges[i]);
+			return hash;
+
+		default:
+			return hash;
+		}
+	}
+
 	uint64_t hash_shader(const shader_desc &shader)
 	{
 		if (shader.code == nullptr || shader.code_size == 0)
@@ -146,8 +244,9 @@ namespace
 	struct pipeline_fingerprint
 	{
 		uint64_t stable = 0;   // Legacy calibration hash.
-		uint64_t full_pso = 0; // Normalized graphics PSO hash.
-		uint64_t layout_handle = 0; // Diagnostic only; not part of full_pso.
+		uint64_t full_pso = 0; // Normalized root signature + graphics PSO hash.
+		uint64_t layout_hash = 0;
+		uint64_t layout_handle = 0; // Diagnostic only; never hashed.
 
 		uint64_t vs = 0;
 		uint64_t hs = 0;
@@ -165,6 +264,39 @@ namespace
 		uint32_t sample_mask = 0;
 	};
 
+	std::unordered_map<uint64_t, uint64_t> g_pipeline_layouts;
+	std::shared_mutex g_pipeline_layout_mutex;
+
+	uint64_t lookup_pipeline_layout(uint64_t handle)
+	{
+		std::shared_lock lock(g_pipeline_layout_mutex);
+		const auto it = g_pipeline_layouts.find(handle);
+		return it != g_pipeline_layouts.end() ? it->second : 0;
+	}
+
+	void on_init_pipeline_layout(
+		device *,
+		uint32_t param_count,
+		const pipeline_layout_param *params,
+		pipeline_layout layout)
+	{
+		uint64_t hash = fnv_offset;
+		hash = fnv_value(hash, param_count);
+
+		if (params != nullptr)
+			for (uint32_t i = 0; i < param_count; ++i)
+				hash = hash_pipeline_layout_param(hash, params[i]);
+
+		std::unique_lock lock(g_pipeline_layout_mutex);
+		g_pipeline_layouts[layout.handle] = hash;
+	}
+
+	void on_destroy_pipeline_layout(device *, pipeline_layout layout)
+	{
+		std::unique_lock lock(g_pipeline_layout_mutex);
+		g_pipeline_layouts.erase(layout.handle);
+	}
+
 	std::unordered_map<uint64_t, pipeline_fingerprint> g_pipelines;
 	std::shared_mutex g_pipeline_mutex;
 
@@ -181,9 +313,11 @@ namespace
 	{
 		pipeline_fingerprint fp;
 		fp.layout_handle = layout.handle;
+		fp.layout_hash = lookup_pipeline_layout(layout.handle);
 
 		uint64_t stable = fnv_offset;
 		uint64_t full = fnv_offset;
+		full = fnv_value(full, fp.layout_hash);
 
 		for (uint32_t i = 0; i < subobject_count; ++i)
 		{
@@ -957,6 +1091,7 @@ namespace
 				<< " pipeline=0x" << std::hex << d.pipeline
 				<< " stable=0x" << d.fp.stable
 				<< " full_pso=0x" << d.fp.full_pso
+				<< " layout_hash=0x" << d.fp.layout_hash
 				<< " layout=0x" << d.fp.layout_handle
 				<< " vs=0x" << d.fp.vs
 				<< " ps=0x" << d.fp.ps
@@ -1025,6 +1160,7 @@ namespace
 				<< " runtime_pipeline=0x" << std::hex << current.pipeline
 				<< " stable=0x" << current.fp.stable
 				<< " full_pso=0x" << current.fp.full_pso
+				<< " layout_hash=0x" << current.fp.layout_hash
 				<< " layout=0x" << current.fp.layout_handle
 				<< " vs=0x" << current.fp.vs
 				<< " ps=0x" << current.fp.ps;
@@ -1089,6 +1225,8 @@ BOOL APIENTRY DllMain(HMODULE module, DWORD reason, LPVOID)
 		reshade::register_event<reshade::addon_event::init_device>(on_init_device);
 		reshade::register_event<reshade::addon_event::destroy_device>(on_destroy_device);
 
+		reshade::register_event<reshade::addon_event::init_pipeline_layout>(on_init_pipeline_layout);
+		reshade::register_event<reshade::addon_event::destroy_pipeline_layout>(on_destroy_pipeline_layout);
 		reshade::register_event<reshade::addon_event::init_pipeline>(on_init_pipeline);
 		reshade::register_event<reshade::addon_event::destroy_pipeline>(on_destroy_pipeline);
 		reshade::register_event<reshade::addon_event::bind_pipeline>(on_bind_pipeline);
