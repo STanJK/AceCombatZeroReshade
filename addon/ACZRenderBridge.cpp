@@ -58,7 +58,7 @@ namespace
 	std::shared_mutex g_pipeline_mutex;
 
 	std::atomic<uint64_t> g_present_serial { 0 };
-	std::atomic<uint64_t> g_latched_hud_pipeline { 0 };
+	std::atomic_bool g_hud_bootstrapped { false };
 
 	void on_init_pipeline(
 		device *,
@@ -609,40 +609,27 @@ namespace
 	{
 		const draw_record current = make_record(indexed, count);
 
-		uint64_t hud_pipeline =
-			g_latched_hud_pipeline.load(std::memory_order_acquire);
-
-		if (hud_pipeline == 0 &&
+		if (!g_hud_bootstrapped.load(std::memory_order_acquire) &&
 			is_first_hud_anchor(g_stream, current))
 		{
-			uint64_t expected = 0;
-			if (g_latched_hud_pipeline.compare_exchange_strong(
-					expected,
-					current.pipeline,
-					std::memory_order_acq_rel))
-			{
-				hud_pipeline = current.pipeline;
+			g_hud_bootstrapped.store(true, std::memory_order_release);
 
-				std::ostringstream message;
-				message
-					<< "ACZRenderBridge: latched first-HUD runtime pipeline=0x"
-					<< std::hex << hud_pipeline
-					<< " from bootstrap sequence [IDX64,DRAW4,IDX89]";
-				reshade::log::message(
-					reshade::log::level::info,
-					message.str().c_str());
-			}
-			else
-			{
-				hud_pipeline = expected;
-			}
+			std::ostringstream message;
+			message
+				<< "ACZRenderBridge: bootstrapped first-HUD fingerprint"
+				<< " runtime_pipeline=0x" << std::hex << current.pipeline
+				<< " stable=0x" << current.fp.stable
+				<< " vs=0x" << current.fp.vs
+				<< " ps=0x" << current.fp.ps;
+			reshade::log::message(
+				reshade::log::level::info,
+				message.str().c_str());
 		}
 
 		const bool direct_hud_match =
-			hud_pipeline != 0 &&
+			g_hud_bootstrapped.load(std::memory_order_acquire) &&
 			current.indexed &&
 			current.count == 89 &&
-			current.pipeline == hud_pipeline &&
 			is_main_hud_pipeline(current);
 
 		const uint64_t present_serial =
