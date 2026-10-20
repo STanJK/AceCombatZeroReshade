@@ -15,8 +15,8 @@ jobs:
       - name: Verify output
         shell: pwsh
         run: |
-          if (-not (Test-Path 'target\release\winmm.dll')) { throw 'winmm.dll missing' }
+          if (-not (Test-Path 'target\release\xinput1_4.dll')) { throw 'xinput1_4.dll missing' }
       - uses: actions/upload-artifact@v4
         with:
-          name: ACZRenderOracle-winmm
-          path: target/release/winmm.dll
+          name: ACZRenderOracle-xinput1_4
+          path: target/release/xinput1_4.dll
