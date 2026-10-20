@@ -184,6 +184,9 @@ namespace
 		std::optional<draw_record> prev2;
 		std::optional<draw_record> prev1;
 		uint64_t last_copied_present = UINT64_MAX;
+		uint64_t frame_serial = UINT64_MAX;
+		std::vector<draw_record> frame_draws;
+		uint32_t miss_dump_budget = 3;
 	};
 
 	thread_local bridge_stream_state g_stream;
@@ -591,6 +594,59 @@ namespace
 		g_stream.dsv = dsv;
 	}
 
+	void dump_missed_frame(uint64_t present_serial)
+	{
+		if (g_stream.frame_draws.empty() || g_stream.miss_dump_budget == 0)
+			return;
+
+		std::ostringstream head;
+		head
+			<< "ACZRenderBridge: MISS FRAME present=" << present_serial
+			<< " draws=" << g_stream.frame_draws.size()
+			<< " (compact main-target candidates follow)";
+		reshade::log::message(
+			reshade::log::level::warning,
+			head.str().c_str());
+
+		for (const draw_record &d : g_stream.frame_draws)
+		{
+			if (d.rtv0 == 0 || d.dsv == 0)
+				continue;
+
+			// Keep the dump compact: target small/medium HUD-like draws and anything
+			// using the previously known HUD shader fingerprint.
+			const bool hud_like_count =
+				d.count <= 128 ||
+				(d.indexed && d.count <= 192);
+
+			const bool known_hud_shader =
+				d.fp.vs == 0x70848fc93426bb4eull ||
+				d.fp.ps == 0xae6370c8685b4894ull;
+
+			if (!hud_like_count && !known_hud_shader)
+				continue;
+
+			std::ostringstream line;
+			line
+				<< "ACZRenderBridge: FD "
+				<< (d.indexed ? "IDX" : "DRAW")
+				<< " count=" << d.count
+				<< " ordinal=" << d.ordinal
+				<< " pipeline=0x" << std::hex << d.pipeline
+				<< " stable=0x" << d.fp.stable
+				<< " vs=0x" << d.fp.vs
+				<< " ps=0x" << d.fp.ps
+				<< " topo=0x" << d.topology
+				<< " rtv=0x" << d.rtv0.handle
+				<< " dsv=0x" << d.dsv.handle;
+			reshade::log::message(
+				reshade::log::level::warning,
+				line.str().c_str());
+		}
+
+		--g_stream.miss_dump_budget;
+	}
+
 	void on_present(
 		command_queue *,
 		swapchain *,
@@ -599,8 +655,19 @@ namespace
 		uint32_t,
 		const rect *)
 	{
+		const uint64_t finished =
+			g_present_serial.load(std::memory_order_acquire);
+
+		if (g_hud_bootstrapped.load(std::memory_order_acquire) &&
+			g_stream.frame_serial == finished &&
+			g_stream.last_copied_present != finished)
+		{
+			dump_missed_frame(finished);
+		}
+
 		g_present_serial.fetch_add(1, std::memory_order_release);
 	}
+
 
 	bool process_draw(
 		command_list *cmd_list,
@@ -608,6 +675,17 @@ namespace
 		uint32_t count)
 	{
 		const draw_record current = make_record(indexed, count);
+
+		const uint64_t current_present =
+			g_present_serial.load(std::memory_order_acquire);
+
+		if (g_stream.frame_serial != current_present)
+		{
+			g_stream.frame_serial = current_present;
+			g_stream.frame_draws.clear();
+		}
+
+		g_stream.frame_draws.push_back(current);
 
 		if (!g_hud_bootstrapped.load(std::memory_order_acquire) &&
 			is_first_hud_anchor(g_stream, current))
@@ -640,6 +718,7 @@ namespace
 		{
 			copy_scene_clean(cmd_list, current);
 			g_stream.last_copied_present = present_serial;
+			g_stream.miss_dump_budget = 3;
 		}
 
 		remember_draw(current);
