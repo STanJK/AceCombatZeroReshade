@@ -1,10 +1,13 @@
 $ErrorActionPreference = "Stop"
 
 cargo build --release
+if ($LASTEXITCODE -ne 0) {
+    throw "cargo build --release failed with exit code $LASTEXITCODE."
+}
 
 $src = Join-Path $PSScriptRoot "target\release\winmm.dll"
 if (-not (Test-Path $src)) {
-    throw "Build succeeded but $src was not found."
+    throw "Build returned success, but $src was not found."
 }
 
 Write-Host ""
