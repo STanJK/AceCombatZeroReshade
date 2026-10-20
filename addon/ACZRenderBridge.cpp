@@ -592,6 +592,8 @@ namespace
 	struct __declspec(uuid("6bc7483f-d102-4acd-96d3-6f247f6b298e")) bridge_runtime_data
 	{
 		uint64_t last_seen_copies = 0;
+		bool technique_gate_active = false;
+		std::vector<effect_technique> gated_techniques;
 	};
 
 	struct __declspec(uuid("a8e9c0be-1464-4a7c-9f70-ecbf0702a97f")) bridge_device_data
@@ -810,7 +812,7 @@ namespace
 
 		device *device = cmd_list->get_device();
 		if (device == nullptr)
-			return;
+			return false;
 
 		resource source = device->get_resource_from_view(anchor.rtv0);
 		if (source == 0)
@@ -967,7 +969,7 @@ namespace
 		runtime->destroy_private_data<bridge_runtime_data>();
 	}
 
-	void update_effect_runtime(effect_runtime *runtime)
+	bool update_effect_runtime(effect_runtime *runtime)
 	{
 		device *device = runtime->get_device();
 		if (device == nullptr)
@@ -976,7 +978,7 @@ namespace
 		auto *data = device->get_private_data<bridge_device_data>();
 		auto *runtime_data = runtime->get_private_data<bridge_runtime_data>();
 		if (data == nullptr || runtime_data == nullptr)
-			return;
+			return false;
 
 		std::lock_guard lock(data->mutex);
 
@@ -1011,8 +1013,75 @@ namespace
 			});
 
 		runtime_data->last_seen_copies = data->copies;
+		return fresh;
 	}
 
+
+	void apply_technique_gate(
+		effect_runtime *runtime,
+		bool scene_clean_fresh)
+	{
+		auto *runtime_data =
+			runtime->get_private_data<bridge_runtime_data>();
+		if (runtime_data == nullptr)
+			return;
+
+		if (!scene_clean_fresh)
+		{
+			if (runtime_data->technique_gate_active)
+				return;
+
+			runtime_data->gated_techniques.clear();
+
+			runtime->enumerate_techniques(
+				nullptr,
+				[runtime_data](
+					effect_runtime *rt,
+					effect_technique technique)
+				{
+					if (!rt->get_technique_state(technique))
+						return;
+
+					runtime_data->gated_techniques.push_back(technique);
+					rt->set_technique_state(technique, false);
+				});
+
+			runtime_data->technique_gate_active = true;
+
+			std::ostringstream message;
+			message
+				<< "ACZRenderBridge: effect gate OFF; no fresh SceneClean"
+				<< " techniques=" << runtime_data->gated_techniques.size();
+			reshade::log::message(
+				reshade::log::level::info,
+				message.str().c_str());
+			return;
+		}
+
+		if (!runtime_data->technique_gate_active)
+			return;
+
+		for (effect_technique technique :
+			 runtime_data->gated_techniques)
+		{
+			if (technique != 0)
+				runtime->set_technique_state(technique, true);
+		}
+
+		const size_t restored =
+			runtime_data->gated_techniques.size();
+
+		runtime_data->gated_techniques.clear();
+		runtime_data->technique_gate_active = false;
+
+		std::ostringstream message;
+		message
+			<< "ACZRenderBridge: effect gate ON; fresh SceneClean"
+			<< " restored=" << restored;
+		reshade::log::message(
+			reshade::log::level::info,
+			message.str().c_str());
+	}
 
 	void on_reshade_begin_effects(
 		effect_runtime *runtime,
@@ -1020,10 +1089,28 @@ namespace
 		resource_view,
 		resource_view)
 	{
-		// Only publish SceneClean and freshness here.
-		// Format conversion/routing is performed by ACZRouteSceneClean.fx as
-		// the first ReShade technique, rather than by an incompatible GPU copy.
-		update_effect_runtime(runtime);
+		// Publish SceneClean and obtain this frame's freshness before the
+		// technique list is rendered.
+		const bool fresh = update_effect_runtime(runtime);
+
+		// Keep ReShade's global effects state enabled so this callback
+		// continues to run every frame. Only gate individual techniques.
+		apply_technique_gate(runtime, fresh);
+	}
+
+	void on_reshade_reloaded_effects(
+		effect_runtime *runtime)
+	{
+		auto *runtime_data =
+			runtime->get_private_data<bridge_runtime_data>();
+		if (runtime_data != nullptr)
+		{
+			runtime_data->gated_techniques.clear();
+			runtime_data->technique_gate_active = false;
+		}
+
+		const bool fresh = update_effect_runtime(runtime);
+		apply_technique_gate(runtime, fresh);
 	}
 
 	void on_bind_pipeline(
@@ -1252,7 +1339,7 @@ BOOL APIENTRY DllMain(HMODULE module, DWORD reason, LPVOID)
 		reshade::register_event<reshade::addon_event::init_effect_runtime>(on_init_effect_runtime);
 		reshade::register_event<reshade::addon_event::destroy_effect_runtime>(on_destroy_effect_runtime);
 		reshade::register_event<reshade::addon_event::reshade_begin_effects>(on_reshade_begin_effects);
-		reshade::register_event<reshade::addon_event::reshade_reloaded_effects>(update_effect_runtime);
+		reshade::register_event<reshade::addon_event::reshade_reloaded_effects>(on_reshade_reloaded_effects);
 
 		reshade::log::message(
 			reshade::log::level::info,
