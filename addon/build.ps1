@@ -1,3 +1,8 @@
+param(
+    [ValidateSet("All", "Calibrate", "Bridge")]
+    [string]$Target = "All"
+)
+
 $ErrorActionPreference = "Stop"
 
 $root = Split-Path -Parent $PSScriptRoot
@@ -77,11 +82,25 @@ function Build-Addon {
     Write-Host "Built: $output"
 }
 
-Build-Addon "ACZCalibrate"
-Build-Addon "ACZRenderBridge"
+switch ($Target) {
+    "Calibrate" {
+        Build-Addon "ACZCalibrate"
+    }
+    "Bridge" {
+        Build-Addon "ACZRenderBridge"
+    }
+    default {
+        Build-Addon "ACZCalibrate"
+        Build-Addon "ACZRenderBridge"
+    }
+}
 
 Write-Host ""
-Write-Host "Calibration: addon\bin\ACZCalibrate.addon64"
-Write-Host "Production:  addon\bin\ACZRenderBridge.addon64"
+if ($Target -eq "All" -or $Target -eq "Calibrate") {
+    Write-Host "Calibration: addon\bin\ACZCalibrate.addon64"
+}
+if ($Target -eq "All" -or $Target -eq "Bridge") {
+    Write-Host "Production:  addon\bin\ACZRenderBridge.addon64"
+}
 Write-Host ""
 Write-Host "For SceneClean Phase 1 testing, install only ACZRenderBridge.addon64 next to acz.exe / ReShade."
