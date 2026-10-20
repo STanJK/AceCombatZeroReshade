@@ -185,9 +185,12 @@ namespace
 	{
 		std::mutex mutex;
 		resource scene_clean = { 0 };
+		resource_view scene_clean_srv = { 0 };
 		resource_desc scene_desc = {};
 		bool scene_desc_valid = false;
+		bool scene_shader_ready = false;
 		std::vector<resource> retired;
+		std::vector<resource_view> retired_views;
 		uint64_t copies = 0;
 		bool unsupported_logged = false;
 	};
@@ -317,12 +320,33 @@ namespace
 
 		device->set_resource_name(replacement, "ACZ SceneClean");
 
+		resource_view replacement_srv = { 0 };
+		const resource_view_desc srv_desc(
+			format_to_default_typed(desired.texture.format));
+
+		if (!device->create_resource_view(
+				replacement,
+				resource_usage::shader_resource,
+				srv_desc,
+				&replacement_srv))
+		{
+			device->destroy_resource(replacement);
+			reshade::log::message(
+				reshade::log::level::error,
+				"ACZRenderBridge: failed to create SceneClean SRV.");
+			return false;
+		}
+
+		if (data.scene_clean_srv != 0)
+			data.retired_views.push_back(data.scene_clean_srv);
 		if (data.scene_clean != 0)
 			data.retired.push_back(data.scene_clean);
 
 		data.scene_clean = replacement;
+		data.scene_clean_srv = replacement_srv;
 		data.scene_desc = desired;
 		data.scene_desc_valid = true;
+		data.scene_shader_ready = false;
 
 		std::ostringstream message;
 		message
@@ -330,8 +354,8 @@ namespace
 			<< desired.texture.width << 'x' << desired.texture.height
 			<< " format=" << static_cast<uint32_t>(desired.texture.format)
 			<< " samples=" << desired.texture.samples
-			<< " resource=0x" << std::hex << desired.texture.width
-			<< ':' << replacement.handle;
+			<< " resource=0x" << std::hex << replacement.handle
+			<< " srv=0x" << replacement_srv.handle;
 		reshade::log::message(
 			reshade::log::level::info,
 			message.str().c_str());
@@ -382,6 +406,14 @@ namespace
 		if (!ensure_scene_clean(device, data, source_desc))
 			return;
 
+		if (data.scene_shader_ready)
+		{
+			cmd_list->barrier(
+				data.scene_clean,
+				resource_usage::shader_resource,
+				resource_usage::copy_dest);
+		}
+
 		cmd_list->barrier(
 			source,
 			resource_usage::render_target,
@@ -391,6 +423,12 @@ namespace
 			source,
 			resource_usage::copy_source,
 			resource_usage::render_target);
+
+		cmd_list->barrier(
+			data.scene_clean,
+			resource_usage::copy_dest,
+			resource_usage::shader_resource);
+		data.scene_shader_ready = true;
 
 		++data.copies;
 
@@ -423,6 +461,13 @@ namespace
 		auto *data = device->get_private_data<bridge_device_data>();
 		if (data != nullptr)
 		{
+			if (data->scene_clean_srv != 0)
+				device->destroy_resource_view(data->scene_clean_srv);
+
+			for (resource_view retired_view : data->retired_views)
+				if (retired_view != 0)
+					device->destroy_resource_view(retired_view);
+
 			if (data->scene_clean != 0)
 				device->destroy_resource(data->scene_clean);
 
@@ -432,6 +477,37 @@ namespace
 		}
 
 		device->destroy_private_data<bridge_device_data>();
+	}
+
+	void update_effect_runtime(effect_runtime *runtime)
+	{
+		device *device = runtime->get_device();
+		if (device == nullptr)
+			return;
+
+		auto *data = device->get_private_data<bridge_device_data>();
+		if (data == nullptr)
+			return;
+
+		std::lock_guard lock(data->mutex);
+		const resource_view srv =
+			(data->scene_shader_ready && data->scene_clean_srv != 0)
+				? data->scene_clean_srv
+				: resource_view { 0 };
+
+		runtime->update_texture_bindings(
+			"ACZ_SCENE_CLEAN",
+			srv,
+			srv);
+	}
+
+	void on_reshade_begin_effects(
+		effect_runtime *runtime,
+		command_list *,
+		resource_view,
+		resource_view)
+	{
+		update_effect_runtime(runtime);
 	}
 
 	void on_init_command_list(command_list *cmd_list)
@@ -539,6 +615,9 @@ BOOL APIENTRY DllMain(HMODULE module, DWORD reason, LPVOID)
 		reshade::register_event<reshade::addon_event::bind_render_targets_and_depth_stencil>(on_bind_render_targets);
 		reshade::register_event<reshade::addon_event::draw>(on_draw);
 		reshade::register_event<reshade::addon_event::draw_indexed>(on_draw_indexed);
+
+		reshade::register_event<reshade::addon_event::reshade_begin_effects>(on_reshade_begin_effects);
+		reshade::register_event<reshade::addon_event::reshade_reloaded_effects>(update_effect_runtime);
 
 		reshade::log::message(
 			reshade::log::level::info,
