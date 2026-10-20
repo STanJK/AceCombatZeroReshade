@@ -8,6 +8,7 @@
 #include <optional>
 #include <shared_mutex>
 #include <sstream>
+#include <type_traits>
 #include <unordered_map>
 #include <vector>
 
@@ -36,6 +37,101 @@ namespace
 		return fnv1a(hash, &value, sizeof(value));
 	}
 
+	uint64_t fnv_string(uint64_t hash, const char *value)
+	{
+		if (value == nullptr)
+		{
+			const uint32_t length = 0;
+			return fnv_value(hash, length);
+		}
+
+		const uint32_t length = static_cast<uint32_t>(std::strlen(value));
+		hash = fnv_value(hash, length);
+		return fnv1a(hash, value, length);
+	}
+
+	template <typename Enum>
+	uint64_t fnv_enum(uint64_t hash, Enum value)
+	{
+		using raw_type = std::underlying_type_t<Enum>;
+		return fnv_value(hash, static_cast<raw_type>(value));
+	}
+
+	uint64_t hash_input_element(uint64_t hash, const input_element &value)
+	{
+		hash = fnv_value(hash, value.location);
+		hash = fnv_string(hash, value.semantic);
+		hash = fnv_value(hash, value.semantic_index);
+		hash = fnv_enum(hash, value.format);
+		hash = fnv_value(hash, value.buffer_binding);
+		hash = fnv_value(hash, value.offset);
+		hash = fnv_value(hash, value.stride);
+		hash = fnv_value(hash, value.instance_step_rate);
+		return hash;
+	}
+
+	uint64_t hash_blend_desc(uint64_t hash, const blend_desc &value)
+	{
+		hash = fnv_value(hash, value.alpha_to_coverage_enable);
+		for (uint32_t i = 0; i < 8; ++i)
+		{
+			hash = fnv_value(hash, value.blend_enable[i]);
+			hash = fnv_value(hash, value.logic_op_enable[i]);
+			hash = fnv_enum(hash, value.source_color_blend_factor[i]);
+			hash = fnv_enum(hash, value.dest_color_blend_factor[i]);
+			hash = fnv_enum(hash, value.color_blend_op[i]);
+			hash = fnv_enum(hash, value.source_alpha_blend_factor[i]);
+			hash = fnv_enum(hash, value.dest_alpha_blend_factor[i]);
+			hash = fnv_enum(hash, value.alpha_blend_op[i]);
+			hash = fnv_enum(hash, value.logic_op[i]);
+			hash = fnv_value(hash, value.render_target_write_mask[i]);
+		}
+		for (float component : value.blend_constant)
+			hash = fnv_value(hash, component);
+		return hash;
+	}
+
+	uint64_t hash_rasterizer_desc(uint64_t hash, const rasterizer_desc &value)
+	{
+		hash = fnv_enum(hash, value.fill_mode);
+		hash = fnv_enum(hash, value.cull_mode);
+		hash = fnv_value(hash, value.front_counter_clockwise);
+		hash = fnv_value(hash, value.depth_bias);
+		hash = fnv_value(hash, value.depth_bias_clamp);
+		hash = fnv_value(hash, value.slope_scaled_depth_bias);
+		hash = fnv_value(hash, value.depth_clip_enable);
+		hash = fnv_value(hash, value.scissor_enable);
+		hash = fnv_value(hash, value.multisample_enable);
+		hash = fnv_value(hash, value.antialiased_line_enable);
+		hash = fnv_value(hash, value.conservative_rasterization);
+		return hash;
+	}
+
+	uint64_t hash_depth_stencil_desc(uint64_t hash, const depth_stencil_desc &value)
+	{
+		hash = fnv_value(hash, value.depth_enable);
+		hash = fnv_value(hash, value.depth_write_mask);
+		hash = fnv_enum(hash, value.depth_func);
+		hash = fnv_value(hash, value.stencil_enable);
+
+		hash = fnv_value(hash, value.front_stencil_read_mask);
+		hash = fnv_value(hash, value.front_stencil_write_mask);
+		hash = fnv_value(hash, value.front_stencil_reference_value);
+		hash = fnv_enum(hash, value.front_stencil_func);
+		hash = fnv_enum(hash, value.front_stencil_pass_op);
+		hash = fnv_enum(hash, value.front_stencil_fail_op);
+		hash = fnv_enum(hash, value.front_stencil_depth_fail_op);
+
+		hash = fnv_value(hash, value.back_stencil_read_mask);
+		hash = fnv_value(hash, value.back_stencil_write_mask);
+		hash = fnv_value(hash, value.back_stencil_reference_value);
+		hash = fnv_enum(hash, value.back_stencil_func);
+		hash = fnv_enum(hash, value.back_stencil_pass_op);
+		hash = fnv_enum(hash, value.back_stencil_fail_op);
+		hash = fnv_enum(hash, value.back_stencil_depth_fail_op);
+		return hash;
+	}
+
 	uint64_t hash_shader(const shader_desc &shader)
 	{
 		if (shader.code == nullptr || shader.code_size == 0)
@@ -49,10 +145,24 @@ namespace
 
 	struct pipeline_fingerprint
 	{
-		uint64_t stable = 0;
+		uint64_t stable = 0;   // Legacy calibration hash.
+		uint64_t full_pso = 0; // Normalized graphics PSO hash.
+		uint64_t layout_handle = 0; // Diagnostic only; not part of full_pso.
+
 		uint64_t vs = 0;
+		uint64_t hs = 0;
+		uint64_t ds = 0;
+		uint64_t gs = 0;
 		uint64_t ps = 0;
+		uint64_t as = 0;
+		uint64_t ms = 0;
+
 		uint32_t static_topology = 0;
+		uint32_t rt_count = 0;
+		uint32_t rt0_format = 0;
+		uint32_t ds_format = 0;
+		uint32_t sample_count = 0;
+		uint32_t sample_mask = 0;
 	};
 
 	std::unordered_map<uint64_t, pipeline_fingerprint> g_pipelines;
@@ -60,84 +170,236 @@ namespace
 
 	std::atomic<uint64_t> g_present_serial { 0 };
 	std::atomic_bool g_hud_bootstrapped { false };
+	std::atomic<uint64_t> g_bootstrap_full_pso { 0 };
 
 	void on_init_pipeline(
 		device *,
-		pipeline_layout,
+		pipeline_layout layout,
 		uint32_t subobject_count,
 		const pipeline_subobject *subobjects,
 		pipeline pipeline)
 	{
 		pipeline_fingerprint fp;
+		fp.layout_handle = layout.handle;
+
 		uint64_t stable = fnv_offset;
+		uint64_t full = fnv_offset;
 
 		for (uint32_t i = 0; i < subobject_count; ++i)
 		{
 			const pipeline_subobject &sub = subobjects[i];
+
+			// Preserve the legacy calibration hash exactly for compatibility.
 			stable = fnv_value(stable, sub.type);
 			stable = fnv_value(stable, sub.count);
+
+			// Full PSO hash uses explicit scalar values only: no pointers or
+			// structure padding are hashed.
+			full = fnv_enum(full, sub.type);
+			full = fnv_value(full, sub.count);
 
 			switch (sub.type)
 			{
 			case pipeline_subobject_type::vertex_shader:
+			case pipeline_subobject_type::hull_shader:
+			case pipeline_subobject_type::domain_shader:
 			case pipeline_subobject_type::geometry_shader:
 			case pipeline_subobject_type::pixel_shader:
+			case pipeline_subobject_type::amplification_shader:
+			case pipeline_subobject_type::mesh_shader:
 			{
-				const auto *shaders = static_cast<const shader_desc *>(sub.data);
+				const auto *shaders =
+					static_cast<const shader_desc *>(sub.data);
+
+				if (shaders == nullptr)
+					break;
+
 				for (uint32_t n = 0; n < sub.count; ++n)
 				{
 					const uint64_t shader_hash = hash_shader(shaders[n]);
 					stable = fnv_value(stable, shader_hash);
+					full = fnv_value(full, shader_hash);
 
-					if (n == 0)
+					if (n != 0)
+						continue;
+
+					switch (sub.type)
 					{
-						if (sub.type == pipeline_subobject_type::vertex_shader)
-							fp.vs = shader_hash;
-						else if (sub.type == pipeline_subobject_type::pixel_shader)
-							fp.ps = shader_hash;
+					case pipeline_subobject_type::vertex_shader: fp.vs = shader_hash; break;
+					case pipeline_subobject_type::hull_shader: fp.hs = shader_hash; break;
+					case pipeline_subobject_type::domain_shader: fp.ds = shader_hash; break;
+					case pipeline_subobject_type::geometry_shader: fp.gs = shader_hash; break;
+					case pipeline_subobject_type::pixel_shader: fp.ps = shader_hash; break;
+					case pipeline_subobject_type::amplification_shader: fp.as = shader_hash; break;
+					case pipeline_subobject_type::mesh_shader: fp.ms = shader_hash; break;
+					default: break;
 					}
 				}
 				break;
 			}
 
-			case pipeline_subobject_type::primitive_topology:
-				if (sub.count != 0 && sub.data != nullptr)
-				{
-					const auto *values = static_cast<const primitive_topology *>(sub.data);
-					fp.static_topology = static_cast<uint32_t>(values[0]);
+			case pipeline_subobject_type::input_layout:
+			{
+				const auto *values =
+					static_cast<const input_element *>(sub.data);
+				if (values != nullptr)
 					for (uint32_t n = 0; n < sub.count; ++n)
-					{
-						const uint32_t value = static_cast<uint32_t>(values[n]);
-						stable = fnv_value(stable, value);
-					}
-				}
+						full = hash_input_element(full, values[n]);
 				break;
+			}
 
-			case pipeline_subobject_type::render_target_formats:
-				if (sub.data != nullptr)
+			case pipeline_subobject_type::stream_output_state:
+			{
+				const auto *values =
+					static_cast<const stream_output_desc *>(sub.data);
+				if (values != nullptr)
+					for (uint32_t n = 0; n < sub.count; ++n)
+						full = fnv_value(full, values[n].rasterized_stream);
+				break;
+			}
+
+			case pipeline_subobject_type::blend_state:
+			{
+				const auto *values =
+					static_cast<const blend_desc *>(sub.data);
+				if (values != nullptr)
+					for (uint32_t n = 0; n < sub.count; ++n)
+						full = hash_blend_desc(full, values[n]);
+				break;
+			}
+
+			case pipeline_subobject_type::rasterizer_state:
+			{
+				const auto *values =
+					static_cast<const rasterizer_desc *>(sub.data);
+				if (values != nullptr)
+					for (uint32_t n = 0; n < sub.count; ++n)
+						full = hash_rasterizer_desc(full, values[n]);
+				break;
+			}
+
+			case pipeline_subobject_type::depth_stencil_state:
+			{
+				const auto *values =
+					static_cast<const depth_stencil_desc *>(sub.data);
+				if (values != nullptr)
+					for (uint32_t n = 0; n < sub.count; ++n)
+						full = hash_depth_stencil_desc(full, values[n]);
+				break;
+			}
+
+			case pipeline_subobject_type::primitive_topology:
+			{
+				const auto *values =
+					static_cast<const primitive_topology *>(sub.data);
+				if (values != nullptr)
 				{
-					const auto *values = static_cast<const format *>(sub.data);
+					if (sub.count != 0)
+						fp.static_topology = static_cast<uint32_t>(values[0]);
+
 					for (uint32_t n = 0; n < sub.count; ++n)
 					{
-						const uint32_t value = static_cast<uint32_t>(values[n]);
+						const uint32_t value =
+							static_cast<uint32_t>(values[n]);
 						stable = fnv_value(stable, value);
+						full = fnv_value(full, value);
 					}
 				}
 				break;
+			}
 
 			case pipeline_subobject_type::depth_stencil_format:
-				if (sub.count != 0 && sub.data != nullptr)
-				{
-					const uint32_t value =
-						static_cast<uint32_t>(*static_cast<const format *>(sub.data));
-					stable = fnv_value(stable, value);
-				}
+			{
+				const auto *values = static_cast<const format *>(sub.data);
+				if (values != nullptr)
+					for (uint32_t n = 0; n < sub.count; ++n)
+					{
+						const uint32_t value =
+							static_cast<uint32_t>(values[n]);
+						if (n == 0)
+							fp.ds_format = value;
+						stable = fnv_value(stable, value);
+						full = fnv_value(full, value);
+					}
 				break;
+			}
+
+			case pipeline_subobject_type::render_target_formats:
+			{
+				const auto *values = static_cast<const format *>(sub.data);
+				fp.rt_count = sub.count;
+				if (values != nullptr)
+					for (uint32_t n = 0; n < sub.count; ++n)
+					{
+						const uint32_t value =
+							static_cast<uint32_t>(values[n]);
+						if (n == 0)
+							fp.rt0_format = value;
+						stable = fnv_value(stable, value);
+						full = fnv_value(full, value);
+					}
+				break;
+			}
+
+			case pipeline_subobject_type::sample_mask:
+			{
+				const auto *values =
+					static_cast<const uint32_t *>(sub.data);
+				if (values != nullptr)
+					for (uint32_t n = 0; n < sub.count; ++n)
+					{
+						if (n == 0)
+							fp.sample_mask = values[n];
+						full = fnv_value(full, values[n]);
+					}
+				break;
+			}
 
 			case pipeline_subobject_type::sample_count:
-				if (sub.count != 0 && sub.data != nullptr)
-					stable = fnv_value(stable, *static_cast<const uint32_t *>(sub.data));
+			{
+				const auto *values =
+					static_cast<const uint32_t *>(sub.data);
+				if (values != nullptr)
+					for (uint32_t n = 0; n < sub.count; ++n)
+					{
+						if (n == 0)
+							fp.sample_count = values[n];
+						stable = fnv_value(stable, values[n]);
+						full = fnv_value(full, values[n]);
+					}
 				break;
+			}
+
+			case pipeline_subobject_type::viewport_count:
+			case pipeline_subobject_type::max_vertex_count:
+			{
+				const auto *values =
+					static_cast<const uint32_t *>(sub.data);
+				if (values != nullptr)
+					for (uint32_t n = 0; n < sub.count; ++n)
+						full = fnv_value(full, values[n]);
+				break;
+			}
+
+			case pipeline_subobject_type::dynamic_pipeline_states:
+			{
+				const auto *values =
+					static_cast<const dynamic_state *>(sub.data);
+				if (values != nullptr)
+					for (uint32_t n = 0; n < sub.count; ++n)
+						full = fnv_enum(full, values[n]);
+				break;
+			}
+
+			case pipeline_subobject_type::flags:
+			{
+				const auto *values =
+					static_cast<const pipeline_flags *>(sub.data);
+				if (values != nullptr)
+					for (uint32_t n = 0; n < sub.count; ++n)
+						full = fnv_enum(full, values[n]);
+				break;
+			}
 
 			default:
 				break;
@@ -145,6 +407,7 @@ namespace
 		}
 
 		fp.stable = stable;
+		fp.full_pso = full;
 
 		std::unique_lock lock(g_pipeline_mutex);
 		g_pipelines[pipeline.handle] = fp;
@@ -514,6 +777,8 @@ namespace
 				<< "ACZRenderBridge: SceneClean copied before first HUD draw"
 				<< " copies=" << data.copies
 				<< " ordinal=" << anchor.ordinal
+				<< " full_pso=0x" << std::hex << anchor.fp.full_pso
+				<< " pipeline=0x" << anchor.pipeline
 				<< " source=0x" << std::hex << source.handle
 				<< " dest=0x" << data.scene_clean.handle
 				<< " rtv=0x" << anchor.rtv0.handle
@@ -691,6 +956,8 @@ namespace
 				<< " ordinal=" << d.ordinal
 				<< " pipeline=0x" << std::hex << d.pipeline
 				<< " stable=0x" << d.fp.stable
+				<< " full_pso=0x" << d.fp.full_pso
+				<< " layout=0x" << d.fp.layout_handle
 				<< " vs=0x" << d.fp.vs
 				<< " ps=0x" << d.fp.ps
 				<< " topo=0x" << d.topology
@@ -747,6 +1014,9 @@ namespace
 		if (!g_hud_bootstrapped.load(std::memory_order_acquire) &&
 			is_first_hud_anchor(g_stream, current))
 		{
+			g_bootstrap_full_pso.store(
+				current.fp.full_pso,
+				std::memory_order_release);
 			g_hud_bootstrapped.store(true, std::memory_order_release);
 
 			std::ostringstream message;
@@ -754,6 +1024,8 @@ namespace
 				<< "ACZRenderBridge: bootstrapped first-HUD fingerprint"
 				<< " runtime_pipeline=0x" << std::hex << current.pipeline
 				<< " stable=0x" << current.fp.stable
+				<< " full_pso=0x" << current.fp.full_pso
+				<< " layout=0x" << current.fp.layout_handle
 				<< " vs=0x" << current.fp.vs
 				<< " ps=0x" << current.fp.ps;
 			reshade::log::message(
