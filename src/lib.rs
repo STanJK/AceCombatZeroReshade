@@ -6,11 +6,11 @@ use sha2::{Digest, Sha256};
 use std::{
     cell::{Cell, RefCell},
     collections::HashMap,
-    ffi::{c_char, c_void, CStr},
+    ffi::{c_void, CStr},
     fmt,
     fs::{File, OpenOptions},
     io::{Read, Write},
-    mem::{self, size_of},
+    mem,
     path::PathBuf,
     ptr::{null, null_mut},
     slice,
@@ -20,10 +20,10 @@ use std::{
     },
 };
 use windows_sys::Win32::{
-    Foundation::{BOOL, HINSTANCE},
+    Foundation::{CloseHandle, HINSTANCE},
     System::{
         LibraryLoader::{GetModuleHandleW, GetProcAddress, LoadLibraryW},
-        Threading::{CloseHandle, CreateThread, Sleep},
+        Threading::{CreateThread, Sleep},
     },
     UI::Input::KeyboardAndMouse::GetAsyncKeyState,
 };
@@ -479,7 +479,7 @@ unsafe extern "system" fn hk_om_set_render_targets(
     cmd: *mut c_void,
     count: u32,
     rtvs: *const CpuDescriptorHandle,
-    single_range: BOOL,
+    single_range: i32,
     dsv: *const CpuDescriptorHandle,
 ) {
     let rtv0 = if count != 0 && !rtvs.is_null() { (*rtvs).ptr } else { 0 };
@@ -808,7 +808,7 @@ pub unsafe extern "system" fn DllMain(
     instance: HINSTANCE,
     reason: u32,
     _: *mut c_void,
-) -> BOOL {
+) -> i32 {
     if reason == DLL_PROCESS_ATTACH {
         OWN_MODULE.store(instance as usize, Ordering::Release);
         let thread = CreateThread(
