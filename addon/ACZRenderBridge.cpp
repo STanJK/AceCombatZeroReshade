@@ -1,6 +1,7 @@
 #include <Windows.h>
 #include <reshade.hpp>
 
+#include <atomic>
 #include <cstdint>
 #include <mutex>
 #include <optional>
@@ -55,6 +56,9 @@ namespace
 
 	std::unordered_map<uint64_t, pipeline_fingerprint> g_pipelines;
 	std::shared_mutex g_pipeline_mutex;
+
+	std::atomic<uint64_t> g_present_serial { 0 };
+	std::atomic<uint64_t> g_latched_hud_pipeline { 0 };
 
 	void on_init_pipeline(
 		device *,
@@ -179,6 +183,7 @@ namespace
 		uint64_t ordinal = 0;
 		std::optional<draw_record> prev2;
 		std::optional<draw_record> prev1;
+		uint64_t last_copied_present = UINT64_MAX;
 	};
 
 	thread_local bridge_stream_state g_stream;
@@ -586,6 +591,17 @@ namespace
 		g_stream.dsv = dsv;
 	}
 
+	void on_present(
+		command_queue *,
+		swapchain *,
+		const rect *,
+		const rect *,
+		uint32_t,
+		const rect *)
+	{
+		g_present_serial.fetch_add(1, std::memory_order_release);
+	}
+
 	bool process_draw(
 		command_list *cmd_list,
 		bool indexed,
@@ -593,8 +609,51 @@ namespace
 	{
 		const draw_record current = make_record(indexed, count);
 
-		if (is_first_hud_anchor(g_stream, current))
+		uint64_t hud_pipeline =
+			g_latched_hud_pipeline.load(std::memory_order_acquire);
+
+		if (hud_pipeline == 0 &&
+			is_first_hud_anchor(g_stream, current))
+		{
+			uint64_t expected = 0;
+			if (g_latched_hud_pipeline.compare_exchange_strong(
+					expected,
+					current.pipeline,
+					std::memory_order_acq_rel))
+			{
+				hud_pipeline = current.pipeline;
+
+				std::ostringstream message;
+				message
+					<< "ACZRenderBridge: latched first-HUD runtime pipeline=0x"
+					<< std::hex << hud_pipeline
+					<< " from bootstrap sequence [IDX64,DRAW4,IDX89]";
+				reshade::log::message(
+					reshade::log::level::info,
+					message.str().c_str());
+			}
+			else
+			{
+				hud_pipeline = expected;
+			}
+		}
+
+		const bool direct_hud_match =
+			hud_pipeline != 0 &&
+			current.indexed &&
+			current.count == 89 &&
+			current.pipeline == hud_pipeline &&
+			is_main_hud_pipeline(current);
+
+		const uint64_t present_serial =
+			g_present_serial.load(std::memory_order_acquire);
+
+		if (direct_hud_match &&
+			g_stream.last_copied_present != present_serial)
+		{
 			copy_scene_clean(cmd_list, current);
+			g_stream.last_copied_present = present_serial;
+		}
 
 		remember_draw(current);
 		return false;
@@ -644,6 +703,7 @@ BOOL APIENTRY DllMain(HMODULE module, DWORD reason, LPVOID)
 		reshade::register_event<reshade::addon_event::bind_render_targets_and_depth_stencil>(on_bind_render_targets);
 		reshade::register_event<reshade::addon_event::draw>(on_draw);
 		reshade::register_event<reshade::addon_event::draw_indexed>(on_draw_indexed);
+		reshade::register_event<reshade::addon_event::present>(on_present);
 
 		reshade::register_event<reshade::addon_event::reshade_begin_effects>(on_reshade_begin_effects);
 		reshade::register_event<reshade::addon_event::reshade_reloaded_effects>(update_effect_runtime);
