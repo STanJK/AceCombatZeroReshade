@@ -3,3 +3,6 @@ ACZRenderOracle.log
 /.deps/
 /addon/bin/
 ACZCalibrate.log
+
+*.exp
+*.lib

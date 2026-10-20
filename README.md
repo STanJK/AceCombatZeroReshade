@@ -1,132 +1,162 @@
 # AceCombatZeroReshade
 
-Experimental rendering bridge research for the 2026 Windows port of **ACE COMBAT ZERO THE BELKAN WAR**.
+Experimental rendering-bridge research for the 2026 Windows port of **ACE COMBAT ZERO THE BELKAN WAR**.
 
-## Current stage: one-shot render oracle
+The current production path is a **pure ReShade add-on**. It does not require ACZ game-RVA hooks after one-time GPU bootstrap. The add-on identifies the first combat-HUD graphics PSO in the D3D12 draw stream, resolves the clean pre-HUD MSAA render target into `SceneClean`, and exposes that texture to ReShade effects as `ACZ_SCENE_CLEAN`.
 
-The current `xinput1_4.dll` build is **not the final ReShade add-on**. It is a short-lived diagnostic oracle used to map the already identified ACZ HUD/display-list seam onto stable D3D12 draw/pipeline fingerprints.
+> `xinput1_4.dll` and `ACZCalibrate.addon64` remain research/calibration tooling. They are not part of the intended production install.
 
-Verified executable SHA-256:
+## Target build
+
+| Item | Value |
+| --- | --- |
+| Executable | `acz.exe` |
+| Architecture | PE64 / x86-64 |
+| IDA image base | `0x140000000` |
+| SHA-256 | `43814d4b3292efd0a07fd71bef2f1670c0e5ac7cf2595c9e136d78451380a664` |
+| ReShade | `6.8.0.2155` |
+| ReShade API | 20 |
+| Graphics API | D3D12 |
+
+Static addresses and RVAs in this documentation are specific to this executable. Analysis names are local semantic labels, not official symbols.
+
+## Current production state
+
+Validated path:
 
 ```text
-43814d4b3292efd0a07fd71bef2f1670c0e5ac7cf2595c9e136d78451380a664
+ACZ scene rendering
+    ↓
+legacy packet/display-list layer
+    ↓
+D3D12 graphics PSOs
+    ↓
+bootstrap once with a known first-HUD draw sequence
+    ↓
+latch normalized full graphics-PSO fingerprint
+    ↓
+every frame: first draw using the latched full PSO
+    ↓
+resolve current 8× MSAA HUD target → single-sample SceneClean
+    ↓
+original HUD continues rendering normally
+    ↓
+ReShade effect runtime receives ACZ_SCENE_CLEAN
 ```
 
-The DLL refuses to install game hooks when the host hash does not match.
+Observed bootstrap identity in the validated run:
 
-### Known renderer chain
+```text
+legacy stable = 0xc45ffe89e386cb09
+full_pso      = 0x3ef04bb2bb111cce
+layout_hash   = 0x904e7af1a7dbb185
+VS            = 0x70848fc93426bb4e
+PS            = 0xae6370c8685b4894
+topology      = 0x5
+```
+
+The numeric values are diagnostic evidence. Production code latches the actual value at runtime instead of hard-coding it.
+
+## Known renderer chain
 
 ```text
 RVA 0x00AE510  whole combat HUD packet emitter
 RVA 0x018F920  legacy display-list parser
 RVA 0x019D160  packet interpreter
-RVA 0x019CBF0  batch/state flush
+RVA 0x019CBF0  state/batch flush
 RVA 0x0194840  legacy batch renderer
 RVA 0x020F8E0  modern D3D12 draw builder
-RVA 0x020F680  D3D12 draw helper
-RVA 0x020C280  frame-end / Execute / Present path
-RVA 0x033DA48  DeviceResources*
+RVA 0x020F680  game-side D3D12 draw helper
+
+RVA 0x020B9C0  frame begin/reset/barrier/clear
+RVA 0x020C280  frame end/close/execute/present
+RVA 0x033DA48  DeviceResources* global
 ```
 
-The port keeps a legacy display-list/render-command layer and translates it into a native D3D12 backend.
+The port retains a legacy display-list/render-command layer and translates it into native D3D12 work.
 
-### Build
+## Production build
 
-Requirements: Windows x64, recent stable Rust/Cargo, MSVC toolchain.
+Requirements:
+
+- Windows x64
+- Visual Studio / MSVC x64 C++ tools
+- PowerShell
+- Git
+
+Build only the production add-on:
 
 ```powershell
-.\build.ps1
-```
-
-or:
-
-```powershell
-cargo build --release
+.\addon\build.ps1 -Target Bridge
 ```
 
 Output:
 
 ```text
-target\release\xinput1_4.dll
+addon\bin\ACZRenderBridge.addon64
 ```
 
-### Run
-
-1. Put `xinput1_4.dll` next to `acz.exe`.
-2. Start ACZ normally.
-3. Enter a mission and wait until gameplay is stable.
-4. Press **Numpad `+`** once.
-5. The oracle deliberately skips the frame already in progress and captures one complete future frame.
-6. Read `ACZRenderOracle.log` next to `acz.exe`.
-
-The oracle does not suppress the HUD, patch game state, read back pixels, or modify rendering output.
-
-### Logged data
-
-For the selected frame it records:
-
-- pre/post HUD packet pointers (`HUD span`);
-- packet-interpreter regions that belong to that span;
-- legacy batch flushes caused by HUD packets;
-- modern draw-builder parameters reached from the HUD parser;
-- actual D3D12 Draw/DrawIndexed calls while HUD parsing is active;
-- current PSO pointer;
-- VS/PS SHA-256 when PSO creation was observed;
-- cached-PSO blob hash as a fallback;
-- primitive topology;
-- RTV/DSV descriptor handles;
-- the immediately preceding D3D12 draw;
-- the first confirmed HUD D3D12 draw.
-
-The result is intended to produce a stable GPU anchor for the next phase:
+Install:
 
 ```text
-ACZ scene
-  -> ReShade add-on detects first HUD draw
-  -> copy pre-HUD color to ACZ_SCENE_CLEAN
-  -> original HUD continues normally
-  -> ReShade .fx derives HUD mask / protects HUD
+D:\Games\ACZero\
+├─ dxgi.dll
+├─ ReShade.ini
+├─ ACZRenderBridge.addon64
+└─ reshade-shaders\
+   └─ Shaders\
+      └─ ACZSceneClean.fx
 ```
 
-## Why xinput1_4.dll
-
-This ACZ build imports only `XInputGetState` and `XInputSetState` from XINPUT1_4. The proxy forwards those three functions to `%WINDIR%\System32\xinput1_4.dll` and performs all initialization on a bootstrap thread, keeping `DllMain` minimal.
-
-## Status
-
-Temporary oracle stage. Once the GPU anchor is identified, the intended production architecture is a ReShade add-on plus `.fx`, without ACZ RVA hooks.
-
-
-## ReShade calibration stage
-
-Pinned environment:
+Normal production setup should not keep these enabled:
 
 ```text
-ReShade 6.8.0 with full add-on support
-ReShade API 20
+ACZCalibrate.addon64
+xinput1_4.dll
 ```
 
-Build both halves:
+The XInput proxy was a temporary semantic oracle and interferes with controller input.
 
-```powershell
-.\build.ps1
-.\addon\build.ps1
-```
+## Raw SceneClean debug effect
 
-Outputs:
+`shaders/ACZSceneClean.fx` exposes:
 
 ```text
-target\release\xinput1_4.dll
-addon\bin\ACZCalibrate.addon64
+Display Raw
 ```
 
-Install both next to `acz.exe` / ReShade's `d3d12.dll`. The calibration add-on uses the temporary oracle export `ACZOracleScopeFlags` to tag ReShade draw events only while ACZ is inside the confirmed Combat HUD packet -> `0x20F8E0` draw-builder scope.
+When enabled and a fresh `SceneClean` was captured for the current frame, the effect displays the pre-combat-HUD image. When no fresh capture exists, it falls back to the normal ReShade backbuffer instead of showing black or freezing an old SceneClean frame.
 
-During gameplay press **Numpad `+`** once. Expected outputs next to `acz.exe`:
+## Documentation
+
+Start with [`docs/README.md`](docs/README.md).
+
+Key pages:
+
+- [`docs/reverse-engineering/FLOW.md`](docs/reverse-engineering/FLOW.md) — total render/HUD flow
+- [`docs/reverse-engineering/FUNCTIONS.md`](docs/reverse-engineering/FUNCTIONS.md) — IDA VA/RVA function index
+- [`docs/reverse-engineering/RENDERER.md`](docs/reverse-engineering/RENDERER.md) — legacy renderer and D3D12 seam
+- [`docs/reverse-engineering/CAMERA.md`](docs/reverse-engineering/CAMERA.md) — CameraMode and FOV notes
+- [`docs/reverse-engineering/HISTORY.md`](docs/reverse-engineering/HISTORY.md) — experiments, failures and design evolution
+- [`docs/reshade/BRIDGE.md`](docs/reshade/BRIDGE.md) — production add-on architecture
+- [`docs/reshade/SHADERS.md`](docs/reshade/SHADERS.md) — effect semantic contract
+- [`docs/reshade/BUILD_TEST.md`](docs/reshade/BUILD_TEST.md) — build/install/test procedures
+
+## Next phase
+
+The clean-scene capture problem is considered closed for the tested gameplay/camera states.
+
+Next problem:
 
 ```text
-ACZRenderOracle.log
-ACZCalibrate.log
+OriginalFinal = Scene + HUD
+SceneClean    = Scene before combat HUD
+
+HUD delta/mask
+    ↓
+post-process SceneClean
+    ↓
+restore original HUD pixels
 ```
 
-`ACZCalibrate.log` records the immediately preceding GPU draw plus each HUD draw with a stable pipeline fingerprint, VS/PS hashes, primitive topology, RTV/DSV handles and draw arguments. The production add-on will use the resulting GPU anchor and will not retain ACZ RVA hooks.
+That phase requires preserving the original final image, processing the clean scene, deriving a robust HUD mask/delta, and compositing the untouched HUD back after scene effects.
