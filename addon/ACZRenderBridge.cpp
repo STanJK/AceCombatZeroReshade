@@ -592,6 +592,7 @@ namespace
 	struct __declspec(uuid("6bc7483f-d102-4acd-96d3-6f247f6b298e")) bridge_runtime_data
 	{
 		uint64_t last_seen_copies = 0;
+		bool scene_fresh_this_frame = false;
 		bool technique_gate_active = false;
 		std::vector<effect_technique> gated_techniques;
 
@@ -603,6 +604,15 @@ namespace
 		std::vector<resource> retired_original_final;
 		std::vector<resource_view> retired_original_final_views;
 		uint64_t original_final_copies = 0;
+
+		resource processed_clean = { 0 };
+		resource_view processed_clean_srv = { 0 };
+		resource_desc processed_clean_desc = {};
+		bool processed_clean_desc_valid = false;
+		bool processed_clean_shader_ready = false;
+		std::vector<resource> retired_processed_clean;
+		std::vector<resource_view> retired_processed_clean_views;
+		uint64_t processed_clean_copies = 0;
 	};
 
 	struct __declspec(uuid("a8e9c0be-1464-4a7c-9f70-ecbf0702a97f")) bridge_device_data
@@ -844,6 +854,196 @@ namespace
 		}
 
 		return true;
+	}
+
+	bool ensure_processed_clean(
+		effect_runtime *runtime,
+		bridge_runtime_data &data,
+		const resource_desc &target_desc)
+	{
+		device *device = runtime->get_device();
+		if (device == nullptr)
+			return false;
+
+		const resource_desc desired =
+			make_original_final_desc(target_desc);
+
+		if (data.processed_clean != 0 &&
+			data.processed_clean_desc_valid &&
+			same_texture_shape(data.processed_clean_desc, desired))
+			return true;
+
+		resource replacement = { 0 };
+		if (!device->create_resource(
+				desired,
+				nullptr,
+				resource_usage::copy_dest,
+				&replacement))
+		{
+			reshade::log::message(
+				reshade::log::level::error,
+				"ACZRenderBridge: failed to create ProcessedClean.");
+			return false;
+		}
+
+		device->set_resource_name(
+			replacement,
+			"ACZ ProcessedClean");
+
+		resource_view replacement_srv = { 0 };
+		const resource_view_desc srv_desc(
+			format_to_default_typed(desired.texture.format));
+
+		if (!device->create_resource_view(
+				replacement,
+				resource_usage::shader_resource,
+				srv_desc,
+				&replacement_srv))
+		{
+			device->destroy_resource(replacement);
+			reshade::log::message(
+				reshade::log::level::error,
+				"ACZRenderBridge: failed to create ProcessedClean SRV.");
+			return false;
+		}
+
+		if (data.processed_clean_srv != 0)
+			data.retired_processed_clean_views.push_back(
+				data.processed_clean_srv);
+		if (data.processed_clean != 0)
+			data.retired_processed_clean.push_back(
+				data.processed_clean);
+
+		data.processed_clean = replacement;
+		data.processed_clean_srv = replacement_srv;
+		data.processed_clean_desc = desired;
+		data.processed_clean_desc_valid = true;
+		data.processed_clean_shader_ready = false;
+
+		std::ostringstream message;
+		message
+			<< "ACZRenderBridge: ProcessedClean allocated "
+			<< desired.texture.width << 'x'
+			<< desired.texture.height
+			<< " format="
+			<< static_cast<uint32_t>(desired.texture.format);
+		reshade::log::message(
+			reshade::log::level::info,
+			message.str().c_str());
+
+		return true;
+	}
+
+	bool capture_processed_clean(
+		effect_runtime *runtime,
+		command_list *cmd_list,
+		resource_view rtv)
+	{
+		if (runtime == nullptr ||
+			cmd_list == nullptr ||
+			rtv == 0)
+			return false;
+
+		auto *data =
+			runtime->get_private_data<bridge_runtime_data>();
+		device *device = runtime->get_device();
+
+		if (data == nullptr || device == nullptr)
+			return false;
+
+		const resource target =
+			device->get_resource_from_view(rtv);
+		if (target == 0)
+			return false;
+
+		const resource_desc target_desc =
+			device->get_resource_desc(target);
+
+		if (target_desc.type != resource_type::texture_2d ||
+			target_desc.texture.width == 0 ||
+			target_desc.texture.height == 0 ||
+			target_desc.texture.samples != 1)
+			return false;
+
+		if (!ensure_processed_clean(
+				runtime,
+				*data,
+				target_desc))
+			return false;
+
+		cmd_list->barrier(
+			target,
+			resource_usage::render_target,
+			resource_usage::copy_source);
+
+		if (data->processed_clean_shader_ready)
+		{
+			cmd_list->barrier(
+				data->processed_clean,
+				resource_usage::shader_resource,
+				resource_usage::copy_dest);
+		}
+
+		cmd_list->copy_resource(
+			target,
+			data->processed_clean);
+
+		cmd_list->barrier(
+			target,
+			resource_usage::copy_source,
+			resource_usage::render_target);
+
+		cmd_list->barrier(
+			data->processed_clean,
+			resource_usage::copy_dest,
+			resource_usage::shader_resource);
+
+		data->processed_clean_shader_ready = true;
+		++data->processed_clean_copies;
+
+		return true;
+	}
+
+	void update_processed_clean_runtime(
+		effect_runtime *runtime,
+		bool fresh)
+	{
+		auto *data =
+			runtime->get_private_data<bridge_runtime_data>();
+		if (data == nullptr)
+			return;
+
+		const resource_view srv =
+			data->processed_clean_shader_ready &&
+			data->processed_clean_srv != 0
+				? data->processed_clean_srv
+				: resource_view { 0 };
+
+		runtime->update_texture_bindings(
+			"ACZ_PROCESSED_CLEAN",
+			srv,
+			srv);
+
+		runtime->enumerate_uniform_variables(
+			nullptr,
+			[fresh](
+				effect_runtime *rt,
+				effect_uniform_variable variable)
+			{
+				char source[64] = {};
+				if (rt->get_annotation_string_from_uniform_variable(
+						variable,
+						"source",
+						source) &&
+					std::strcmp(
+						source,
+						"acz_processed_clean_fresh") == 0)
+				{
+					rt->set_uniform_value_bool(
+						variable,
+						fresh);
+				}
+			});
 	}
 
 	bool is_main_hud_pipeline(const draw_record &d)
@@ -1193,6 +1393,24 @@ namespace
 					 data->retired_original_final)
 					if (retired_resource != 0)
 						device->destroy_resource(retired_resource);
+
+				if (data->processed_clean_srv != 0)
+					device->destroy_resource_view(
+						data->processed_clean_srv);
+
+				for (resource_view view :
+					 data->retired_processed_clean_views)
+					if (view != 0)
+						device->destroy_resource_view(view);
+
+				if (data->processed_clean != 0)
+					device->destroy_resource(
+						data->processed_clean);
+
+				for (resource retired_resource :
+					 data->retired_processed_clean)
+					if (retired_resource != 0)
+						device->destroy_resource(retired_resource);
 			}
 		}
 
@@ -1366,6 +1584,14 @@ namespace
 		const bool scene_fresh =
 			update_effect_runtime(runtime);
 
+		if (auto *runtime_data =
+				runtime->get_private_data<bridge_runtime_data>())
+		{
+			runtime_data->scene_fresh_this_frame = scene_fresh;
+		}
+
+		update_processed_clean_runtime(runtime, false);
+
 		// Keep ReShade's global effects state enabled so this callback
 		// continues to run every frame. Only gate individual techniques.
 		apply_technique_gate(runtime, scene_fresh);
@@ -1397,7 +1623,42 @@ namespace
 
 		const bool fresh = update_effect_runtime(runtime);
 		update_original_final_runtime(runtime, false);
+		update_processed_clean_runtime(runtime, false);
 		apply_technique_gate(runtime, fresh);
+	}
+
+	void on_reshade_render_technique(
+		effect_runtime *runtime,
+		effect_technique technique,
+		command_list *cmd_list,
+		resource_view rtv,
+		resource_view)
+	{
+		auto *data =
+			runtime->get_private_data<bridge_runtime_data>();
+		if (data == nullptr || !data->scene_fresh_this_frame)
+			return;
+
+		char name[128] = {};
+		runtime->get_technique_name(
+			technique,
+			name);
+
+		// Preserve the latest processed SceneClean state immediately before
+		// ACZRestoreHUD. Do not overwrite it with restored HUD or the A/B pass.
+		if (std::strcmp(name, "ACZRestoreHUD") == 0 ||
+			std::strcmp(name, "ACZBeforeAfter") == 0)
+			return;
+
+		const bool fresh =
+			capture_processed_clean(
+				runtime,
+				cmd_list,
+				rtv);
+
+		update_processed_clean_runtime(
+			runtime,
+			fresh);
 	}
 
 	void on_bind_pipeline(
@@ -1599,7 +1860,7 @@ namespace
 
 extern "C" __declspec(dllexport) const char *NAME = "ACZ Render Bridge";
 extern "C" __declspec(dllexport) const char *DESCRIPTION =
-	"Captures pre-HUD SceneClean and OriginalFinal for HUD-safe ReShade processing in ACE COMBAT ZERO.";
+	"Captures SceneClean, OriginalFinal and ProcessedClean for HUD-safe ReShade processing and A/B comparison in ACE COMBAT ZERO.";
 
 BOOL APIENTRY DllMain(HMODULE module, DWORD reason, LPVOID)
 {
@@ -1626,6 +1887,7 @@ BOOL APIENTRY DllMain(HMODULE module, DWORD reason, LPVOID)
 		reshade::register_event<reshade::addon_event::init_effect_runtime>(on_init_effect_runtime);
 		reshade::register_event<reshade::addon_event::destroy_effect_runtime>(on_destroy_effect_runtime);
 		reshade::register_event<reshade::addon_event::reshade_begin_effects>(on_reshade_begin_effects);
+		reshade::register_event<reshade::addon_event::reshade_render_technique>(on_reshade_render_technique);
 		reshade::register_event<reshade::addon_event::reshade_reloaded_effects>(on_reshade_reloaded_effects);
 
 		reshade::log::message(
