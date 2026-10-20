@@ -5,6 +5,10 @@ uniform bool DisplayRaw <
     ui_tooltip = "Show the clean scene captured immediately before the first ACZ HUD draw.";
 > = false;
 
+uniform bool ACZSceneCleanFresh <
+    source = "acz_scene_clean_fresh";
+>;
+
 texture2D ACZSceneCleanTex : ACZ_SCENE_CLEAN;
 
 sampler2D ACZSceneCleanSampler
@@ -16,7 +20,7 @@ float4 PS_ACZSceneClean(
     in float4 position : SV_Position,
     in float2 texcoord : TEXCOORD) : SV_Target
 {
-    if (DisplayRaw)
+    if (DisplayRaw && ACZSceneCleanFresh)
         return tex2D(ACZSceneCleanSampler, texcoord);
 
     return tex2D(ReShade::BackBuffer, texcoord);
