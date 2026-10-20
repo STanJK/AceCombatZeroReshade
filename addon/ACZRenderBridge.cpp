@@ -592,6 +592,9 @@ namespace
 	struct __declspec(uuid("6bc7483f-d102-4acd-96d3-6f247f6b298e")) bridge_runtime_data
 	{
 		uint64_t last_seen_copies = 0;
+		uint64_t last_routed_copies = 0;
+		uint64_t routed_frames = 0;
+		bool route_mismatch_logged = false;
 	};
 
 	struct __declspec(uuid("a8e9c0be-1464-4a7c-9f70-ecbf0702a97f")) bridge_device_data
@@ -636,7 +639,9 @@ namespace
 			format_to_default_typed(source.texture.format),
 			1,
 			memory_heap::default_,
-			transfer_usage | resource_usage::shader_resource,
+			transfer_usage |
+				resource_usage::shader_resource |
+				resource_usage::copy_source,
 			resource_flags::none);
 	}
 
@@ -1011,12 +1016,125 @@ namespace
 		runtime_data->last_seen_copies = data->copies;
 	}
 
+	bool route_scene_clean_to_effect_target(
+		effect_runtime *runtime,
+		command_list *cmd_list,
+		resource_view rtv)
+	{
+		if (runtime == nullptr || cmd_list == nullptr || rtv == 0)
+			return false;
+
+		device *device = runtime->get_device();
+		if (device == nullptr)
+			return false;
+
+		auto *data = device->get_private_data<bridge_device_data>();
+		auto *runtime_data = runtime->get_private_data<bridge_runtime_data>();
+		if (data == nullptr || runtime_data == nullptr)
+			return false;
+
+		std::lock_guard lock(data->mutex);
+
+		const bool fresh =
+			data->scene_shader_ready &&
+			data->scene_clean != 0 &&
+			data->copies != runtime_data->last_routed_copies;
+
+		if (!fresh)
+			return false;
+
+		const resource target = device->get_resource_from_view(rtv);
+		if (target == 0)
+			return false;
+
+		const resource_desc target_desc = device->get_resource_desc(target);
+		const bool compatible =
+			data->scene_desc_valid &&
+			target_desc.type == resource_type::texture_2d &&
+			target_desc.texture.samples == 1 &&
+			target_desc.texture.width == data->scene_desc.texture.width &&
+			target_desc.texture.height == data->scene_desc.texture.height &&
+			format_to_typeless(target_desc.texture.format) ==
+				format_to_typeless(data->scene_desc.texture.format);
+
+		if (!compatible)
+		{
+			if (!runtime_data->route_mismatch_logged)
+			{
+				runtime_data->route_mismatch_logged = true;
+
+				std::ostringstream message;
+				message
+					<< "ACZRenderBridge: SceneClean route skipped; effect target mismatch"
+					<< " scene="
+					<< data->scene_desc.texture.width << 'x'
+					<< data->scene_desc.texture.height
+					<< " fmt=" << static_cast<uint32_t>(data->scene_desc.texture.format)
+					<< " samples=" << data->scene_desc.texture.samples
+					<< " target="
+					<< target_desc.texture.width << 'x'
+					<< target_desc.texture.height
+					<< " fmt=" << static_cast<uint32_t>(target_desc.texture.format)
+					<< " samples=" << target_desc.texture.samples;
+				reshade::log::message(
+					reshade::log::level::warning,
+					message.str().c_str());
+			}
+			return false;
+		}
+
+		const resource resources[2] = {
+			data->scene_clean,
+			target
+		};
+		const resource_usage old_states[2] = {
+			resource_usage::shader_resource,
+			resource_usage::render_target
+		};
+		const resource_usage copy_states[2] = {
+			resource_usage::copy_source,
+			resource_usage::copy_dest
+		};
+
+		cmd_list->barrier(2, resources, old_states, copy_states);
+		cmd_list->copy_texture_region(
+			data->scene_clean,
+			0,
+			nullptr,
+			target,
+			0,
+			nullptr);
+		cmd_list->barrier(2, resources, copy_states, old_states);
+
+		runtime_data->last_routed_copies = data->copies;
+		++runtime_data->routed_frames;
+
+		if (runtime_data->routed_frames <= 5 ||
+			(runtime_data->routed_frames % 60) == 0)
+		{
+			std::ostringstream message;
+			message
+				<< "ACZRenderBridge: routed SceneClean into ReShade effect target"
+				<< " frames=" << runtime_data->routed_frames
+				<< " copies=" << data->copies
+				<< " source=0x" << std::hex << data->scene_clean.handle
+				<< " target=0x" << target.handle
+				<< std::dec;
+			reshade::log::message(
+				reshade::log::level::info,
+				message.str().c_str());
+		}
+
+		return true;
+	}
+
 	void on_reshade_begin_effects(
 		effect_runtime *runtime,
-		command_list *,
-		resource_view,
+		command_list *cmd_list,
+		resource_view rtv,
 		resource_view)
 	{
+		route_scene_clean_to_effect_target(runtime, cmd_list, rtv);
 		update_effect_runtime(runtime);
 	}
 
@@ -1219,7 +1337,7 @@ namespace
 
 extern "C" __declspec(dllexport) const char *NAME = "ACZ Render Bridge";
 extern "C" __declspec(dllexport) const char *DESCRIPTION =
-	"Captures a clean pre-HUD scene texture for ACE COMBAT ZERO.";
+	"Captures and routes a clean pre-HUD scene into ReShade effects for ACE COMBAT ZERO.";
 
 BOOL APIENTRY DllMain(HMODULE module, DWORD reason, LPVOID)
 {
