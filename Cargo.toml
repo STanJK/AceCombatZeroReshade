@@ -1,0 +1,25 @@
+[package]
+name = "acz-render-oracle"
+version = "0.1.0"
+edition = "2021"
+publish = false
+
+[lib]
+name = "winmm"
+crate-type = ["cdylib"]
+
+[dependencies]
+minhook-sys = "0.1.1"
+sha2 = "0.10.9"
+windows-sys = { version = "0.61.2", features = [
+    "Win32_Foundation",
+    "Win32_Graphics_Direct3D12",
+    "Win32_System_LibraryLoader",
+    "Win32_System_Threading",
+    "Win32_UI_Input_KeyboardAndMouse",
+] }
+
+[profile.release]
+lto = "thin"
+codegen-units = 1
+panic = "abort"
