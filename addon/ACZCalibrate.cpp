@@ -342,6 +342,8 @@ namespace
 		++g_tls.draw_ordinal;
 	}
 
+	std::wstring log_path();
+
 	void console_draw(const char *kind, uint32_t scope, const draw_record &record)
 	{
 		std::ostringstream s;
@@ -378,7 +380,7 @@ namespace
 				out.flush();
 				reshade::log::message(
 					reshade::log::level::info,
-					"ACZCalibrate: created D:\\Games\\ACZero\\ACZCalibrate.log.");
+					"ACZCalibrate: created ACZCalibrate.log next to the game executable.");
 			}
 			else
 			{
