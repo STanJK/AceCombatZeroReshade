@@ -1,7 +1,7 @@
 #![allow(non_snake_case)]
 #![allow(clippy::missing_safety_doc)]
 
-use minhook_sys::{MH_CreateHook, MH_EnableHook, MH_Initialize, MH_OK};
+use minhook_sys::{MH_CreateHook, MH_DisableHook, MH_EnableHook, MH_Initialize, MH_OK};
 use sha2::{Digest, Sha256};
 use std::{
     cell::{Cell, RefCell},
@@ -81,6 +81,7 @@ struct PsoFingerprint {
     root_signature: usize,
 }
 static PSO_FINGERPRINTS: OnceLock<Mutex<HashMap<usize, PsoFingerprint>>> = OnceLock::new();
+static CAPTURE_HOOK_TARGETS: OnceLock<Mutex<Vec<usize>>> = OnceLock::new();
 
 #[derive(Clone, Copy, Debug, Default)]
 struct DrawSnapshot {
@@ -203,6 +204,35 @@ fn spans() -> &'static Mutex<Vec<Span>> {
 }
 fn pso_map() -> &'static Mutex<HashMap<usize, PsoFingerprint>> {
     PSO_FINGERPRINTS.get_or_init(|| Mutex::new(HashMap::new()))
+}
+fn capture_hook_targets() -> &'static Mutex<Vec<usize>> {
+    CAPTURE_HOOK_TARGETS.get_or_init(|| Mutex::new(Vec::new()))
+}
+fn remember_capture_hook(target: *mut c_void) {
+    if let Ok(mut hooks) = capture_hook_targets().lock() {
+        hooks.push(target as usize);
+    }
+}
+unsafe fn set_capture_hooks_enabled(enabled: bool) {
+    let Ok(hooks) = capture_hook_targets().lock() else { return };
+    for &target in hooks.iter() {
+        let status = if enabled {
+            MH_EnableHook(target as *mut c_void)
+        } else {
+            MH_DisableHook(target as *mut c_void)
+        };
+        if status != MH_OK {
+            logln!(
+                "[hook] {} capture hook 0x{target:016x} failed status={status}",
+                if enabled { "enable" } else { "disable" }
+            );
+        }
+    }
+    logln!(
+        "[hook] capture hooks {} count={}",
+        if enabled { "ENABLED" } else { "DISABLED" },
+        hooks.len()
+    );
 }
 
 unsafe fn read_ptr(address: usize) -> usize {
@@ -375,16 +405,18 @@ unsafe extern "system" fn hk_frame_end() -> i64 {
     COMPLETED_FRAME.store(frame, Ordering::Release);
 
     if frame == CAPTURE_TARGET_FRAME.load(Ordering::Acquire) {
+        set_capture_hooks_enabled(false);
         logln!("[capture] END frame={frame}");
         CAPTURE_TARGET_FRAME.store(0, Ordering::Release);
     }
     if CAPTURE_REQUESTED.swap(false, Ordering::AcqRel) {
-        let target = frame + 2; // Deliberately skip the frame already being built.
+        let target = frame + 1;
         if let Ok(mut list) = spans().lock() { list.clear(); }
         LAST_DRAW.with(|v| *v.borrow_mut() = None);
         HUD_DRAW_COUNT.store(0, Ordering::Release);
         FIRST_HUD_DRAW_SEEN.store(false, Ordering::Release);
         CAPTURE_TARGET_FRAME.store(target, Ordering::Release);
+        set_capture_hooks_enabled(true);
         logln!("[capture] ARMED target_frame={target}; complete_frame_now={frame}");
     }
     result
@@ -457,12 +489,8 @@ unsafe extern "system" fn hk_create_graphics_pso(
         if let Ok(mut map) = pso_map().lock() {
             map.insert(key, fingerprint.clone());
         }
-        logln!(
-            "[pso-create] pso=0x{key:016x} root=0x{:016x} vs={} ps={}",
-            fingerprint.root_signature,
-            fingerprint.vs_sha256,
-            fingerprint.ps_sha256
-        );
+        // Keep the fingerprint in memory; per-PSO disk logging is intentionally avoided
+        // because some drivers create many PSOs during startup.
     }
     hr
 }
@@ -526,6 +554,14 @@ fn describe_pso(pso: usize) -> String {
     }
     unsafe {
         if let Some(hash) = cached_pso_sha256(pso) {
+            let fp = PsoFingerprint {
+                vs_sha256: "-".to_owned(),
+                ps_sha256: format!("cached:{hash}"),
+                root_signature: 0,
+            };
+            if let Ok(mut map) = pso_map().lock() {
+                map.insert(pso, fp);
+            }
             return format!("pso=0x{pso:016x} cached_blob_sha256={hash} [creation not observed]");
         }
     }
@@ -655,6 +691,24 @@ unsafe fn install_game_hooks(base: usize) -> bool {
         hk_frame_end as *mut c_void,
         &mut ORIG_FRAME_END,
     );
+
+    // High-frequency hooks are created once, but disabled during normal gameplay.
+    // They are enabled for exactly one requested frame.
+    for rva in [
+        RVA_PACKET_INTERPRETER,
+        RVA_BATCH_FLUSH,
+        RVA_LEGACY_BATCH_RENDER,
+        RVA_MODERN_DRAW_BUILDER,
+        RVA_D3D12_DRAW_HELPER,
+    ] {
+        let target = (base + rva) as *mut c_void;
+        remember_capture_hook(target);
+        let status = MH_DisableHook(target);
+        if status != MH_OK {
+            logln!("[hook] initial disable failed target=0x{:016x} status={status}", target as usize);
+            ok = false;
+        }
+    }
     ok
 }
 
@@ -706,6 +760,21 @@ unsafe fn install_d3d12_vtable_hooks(base: usize) -> bool {
                     hk_draw_indexed_instanced as *mut c_void,
                     &mut ORIG_DRAW_INDEXED_INSTANCED,
                 );
+
+                for target in [
+                    vfunc(cmd, GCL_SET_PIPELINE_STATE),
+                    vfunc(cmd, GCL_IA_SET_PRIMITIVE_TOPOLOGY),
+                    vfunc(cmd, GCL_OM_SET_RENDER_TARGETS),
+                    vfunc(cmd, GCL_DRAW_INSTANCED),
+                    vfunc(cmd, GCL_DRAW_INDEXED_INSTANCED),
+                ] {
+                    remember_capture_hook(target);
+                    let status = MH_DisableHook(target);
+                    if status != MH_OK {
+                        logln!("[hook] initial D3D12 disable failed target=0x{:016x} status={status}", target as usize);
+                        ok = false;
+                    }
+                }
                 return ok;
             }
         }
