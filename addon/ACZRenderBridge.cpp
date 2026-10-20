@@ -594,6 +594,15 @@ namespace
 		uint64_t last_seen_copies = 0;
 		bool technique_gate_active = false;
 		std::vector<effect_technique> gated_techniques;
+
+		resource original_final = { 0 };
+		resource_view original_final_srv = { 0 };
+		resource_desc original_final_desc = {};
+		bool original_final_desc_valid = false;
+		bool original_final_shader_ready = false;
+		std::vector<resource> retired_original_final;
+		std::vector<resource_view> retired_original_final_views;
+		uint64_t original_final_copies = 0;
 	};
 
 	struct __declspec(uuid("a8e9c0be-1464-4a7c-9f70-ecbf0702a97f")) bridge_device_data
@@ -642,6 +651,207 @@ namespace
 				resource_usage::shader_resource |
 				resource_usage::copy_source,
 			resource_flags::none);
+	}
+
+	resource_desc make_original_final_desc(const resource_desc &source)
+	{
+		return resource_desc(
+			resource_type::texture_2d,
+			source.texture.width,
+			source.texture.height,
+			1,
+			1,
+			format_to_default_typed(source.texture.format),
+			1,
+			memory_heap::default_,
+			resource_usage::copy_dest |
+				resource_usage::shader_resource,
+			resource_flags::none);
+	}
+
+	bool ensure_original_final(
+		effect_runtime *runtime,
+		bridge_runtime_data &data,
+		const resource_desc &target_desc)
+	{
+		device *device = runtime->get_device();
+		if (device == nullptr)
+			return false;
+
+		const resource_desc desired =
+			make_original_final_desc(target_desc);
+
+		if (data.original_final != 0 &&
+			data.original_final_desc_valid &&
+			same_texture_shape(data.original_final_desc, desired))
+			return true;
+
+		resource replacement = { 0 };
+		if (!device->create_resource(
+				desired,
+				nullptr,
+				resource_usage::copy_dest,
+				&replacement))
+		{
+			std::ostringstream message;
+			message
+				<< "ACZRenderBridge: failed to create OriginalFinal "
+				<< desired.texture.width << 'x' << desired.texture.height
+				<< " format=" << static_cast<uint32_t>(desired.texture.format);
+			reshade::log::message(
+				reshade::log::level::error,
+				message.str().c_str());
+			return false;
+		}
+
+		device->set_resource_name(
+			replacement,
+			"ACZ OriginalFinal");
+
+		resource_view replacement_srv = { 0 };
+		const resource_view_desc srv_desc(
+			format_to_default_typed(desired.texture.format));
+
+		if (!device->create_resource_view(
+				replacement,
+				resource_usage::shader_resource,
+				srv_desc,
+				&replacement_srv))
+		{
+			device->destroy_resource(replacement);
+			reshade::log::message(
+				reshade::log::level::error,
+				"ACZRenderBridge: failed to create OriginalFinal SRV.");
+			return false;
+		}
+
+		if (data.original_final_srv != 0)
+			data.retired_original_final_views.push_back(
+				data.original_final_srv);
+		if (data.original_final != 0)
+			data.retired_original_final.push_back(
+				data.original_final);
+
+		data.original_final = replacement;
+		data.original_final_srv = replacement_srv;
+		data.original_final_desc = desired;
+		data.original_final_desc_valid = true;
+		data.original_final_shader_ready = false;
+
+		std::ostringstream message;
+		message
+			<< "ACZRenderBridge: OriginalFinal allocated "
+			<< desired.texture.width << 'x'
+			<< desired.texture.height
+			<< " format="
+			<< static_cast<uint32_t>(desired.texture.format)
+			<< " resource=0x" << std::hex << replacement.handle
+			<< " srv=0x" << replacement_srv.handle;
+		reshade::log::message(
+			reshade::log::level::info,
+			message.str().c_str());
+
+		return true;
+	}
+
+	bool capture_original_final(
+		effect_runtime *runtime,
+		command_list *cmd_list,
+		resource_view rtv)
+	{
+		if (runtime == nullptr ||
+			cmd_list == nullptr ||
+			rtv == 0)
+			return false;
+
+		device *device = runtime->get_device();
+		if (device == nullptr)
+			return false;
+
+		auto *runtime_data =
+			runtime->get_private_data<bridge_runtime_data>();
+		if (runtime_data == nullptr)
+			return false;
+
+		const resource target =
+			device->get_resource_from_view(rtv);
+		if (target == 0)
+			return false;
+
+		const resource_desc target_desc =
+			device->get_resource_desc(target);
+
+		if (target_desc.type != resource_type::texture_2d ||
+			target_desc.texture.width == 0 ||
+			target_desc.texture.height == 0 ||
+			target_desc.texture.samples != 1)
+			return false;
+
+		if (!ensure_original_final(
+				runtime,
+				*runtime_data,
+				target_desc))
+			return false;
+
+		const resource resources[2] = {
+			target,
+			runtime_data->original_final
+		};
+		const resource_usage old_states[2] = {
+			resource_usage::render_target,
+			runtime_data->original_final_shader_ready
+				? resource_usage::shader_resource
+				: resource_usage::copy_dest
+		};
+		const resource_usage copy_states[2] = {
+			resource_usage::copy_source,
+			resource_usage::copy_dest
+		};
+
+		cmd_list->barrier(
+			2,
+			resources,
+			old_states,
+			copy_states);
+
+		cmd_list->copy_resource(
+			target,
+			runtime_data->original_final);
+
+		const resource_usage final_states[2] = {
+			resource_usage::render_target,
+			resource_usage::shader_resource
+		};
+		cmd_list->barrier(
+			2,
+			resources,
+			copy_states,
+			final_states);
+
+		runtime_data->original_final_shader_ready = true;
+		++runtime_data->original_final_copies;
+
+		if (runtime_data->original_final_copies <= 5 ||
+			(runtime_data->original_final_copies % 60) == 0)
+		{
+			std::ostringstream message;
+			message
+				<< "ACZRenderBridge: OriginalFinal captured before effects"
+				<< " copies="
+				<< runtime_data->original_final_copies
+				<< " format="
+				<< static_cast<uint32_t>(
+					target_desc.texture.format)
+				<< " target=0x" << std::hex
+				<< target.handle
+				<< " backup=0x"
+				<< runtime_data->original_final.handle;
+			reshade::log::message(
+				reshade::log::level::info,
+				message.str().c_str());
+		}
+
+		return true;
 	}
 
 	bool is_main_hud_pipeline(const draw_record &d)
@@ -966,6 +1176,34 @@ namespace
 
 	void on_destroy_effect_runtime(effect_runtime *runtime)
 	{
+		auto *data =
+			runtime->get_private_data<bridge_runtime_data>();
+
+		if (data != nullptr)
+		{
+			device *device = runtime->get_device();
+			if (device != nullptr)
+			{
+				if (data->original_final_srv != 0)
+					device->destroy_resource_view(
+						data->original_final_srv);
+
+				for (resource_view view :
+					 data->retired_original_final_views)
+					if (view != 0)
+						device->destroy_resource_view(view);
+
+				if (data->original_final != 0)
+					device->destroy_resource(
+						data->original_final);
+
+				for (resource resource :
+					 data->retired_original_final)
+					if (resource != 0)
+						device->destroy_resource(resource);
+			}
+		}
+
 		runtime->destroy_private_data<bridge_runtime_data>();
 	}
 
@@ -1016,6 +1254,48 @@ namespace
 		return fresh;
 	}
 
+
+	void update_original_final_runtime(
+		effect_runtime *runtime,
+		bool fresh)
+	{
+		auto *data =
+			runtime->get_private_data<bridge_runtime_data>();
+		if (data == nullptr)
+			return;
+
+		const resource_view srv =
+			data->original_final_shader_ready &&
+			data->original_final_srv != 0
+				? data->original_final_srv
+				: resource_view { 0 };
+
+		runtime->update_texture_bindings(
+			"ACZ_ORIGINAL_FINAL",
+			srv,
+			srv);
+
+		runtime->enumerate_uniform_variables(
+			nullptr,
+			[fresh](
+				effect_runtime *rt,
+				effect_uniform_variable variable)
+			{
+				char source[64] = {};
+				if (rt->get_annotation_string_from_uniform_variable(
+						variable,
+						"source",
+						source) &&
+					std::strcmp(
+						source,
+						"acz_original_final_fresh") == 0)
+				{
+					rt->set_uniform_value_bool(
+						variable,
+						fresh);
+				}
+			});
+	}
 
 	void apply_technique_gate(
 		effect_runtime *runtime,
@@ -1085,17 +1365,31 @@ namespace
 
 	void on_reshade_begin_effects(
 		effect_runtime *runtime,
-		command_list *,
-		resource_view,
+		command_list *cmd_list,
+		resource_view rtv,
 		resource_view)
 	{
 		// Publish SceneClean and obtain this frame's freshness before the
 		// technique list is rendered.
-		const bool fresh = update_effect_runtime(runtime);
+		const bool scene_fresh =
+			update_effect_runtime(runtime);
 
 		// Keep ReShade's global effects state enabled so this callback
 		// continues to run every frame. Only gate individual techniques.
-		apply_technique_gate(runtime, fresh);
+		apply_technique_gate(runtime, scene_fresh);
+
+		// Preserve the game's untouched final frame (Scene + HUD) before
+		// ACZRouteSceneClean replaces the effect input with SceneClean.
+		const bool original_fresh =
+			scene_fresh &&
+			capture_original_final(
+				runtime,
+				cmd_list,
+				rtv);
+
+		update_original_final_runtime(
+			runtime,
+			original_fresh);
 	}
 
 	void on_reshade_reloaded_effects(
@@ -1110,6 +1404,7 @@ namespace
 		}
 
 		const bool fresh = update_effect_runtime(runtime);
+		update_original_final_runtime(runtime, false);
 		apply_technique_gate(runtime, fresh);
 	}
 
@@ -1312,7 +1607,7 @@ namespace
 
 extern "C" __declspec(dllexport) const char *NAME = "ACZ Render Bridge";
 extern "C" __declspec(dllexport) const char *DESCRIPTION =
-	"Captures a clean pre-HUD scene and exposes it to ReShade effects for ACE COMBAT ZERO.";
+	"Captures pre-HUD SceneClean and OriginalFinal for HUD-safe ReShade processing in ACE COMBAT ZERO.";
 
 BOOL APIENTRY DllMain(HMODULE module, DWORD reason, LPVOID)
 {
