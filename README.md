@@ -95,3 +95,38 @@ This ACZ build imports only `XInputGetState` and `XInputSetState` from XINPUT1_4
 ## Status
 
 Temporary oracle stage. Once the GPU anchor is identified, the intended production architecture is a ReShade add-on plus `.fx`, without ACZ RVA hooks.
+
+
+## ReShade calibration stage
+
+Pinned environment:
+
+```text
+ReShade 6.8.0 with full add-on support
+ReShade API 20
+```
+
+Build both halves:
+
+```powershell
+.\build.ps1
+.\addon\build.ps1
+```
+
+Outputs:
+
+```text
+target\release\xinput1_4.dll
+addon\bin\ACZCalibrate.addon64
+```
+
+Install both next to `acz.exe` / ReShade's `d3d12.dll`. The calibration add-on uses the temporary oracle export `ACZOracleScopeFlags` to tag ReShade draw events only while ACZ is inside the confirmed Combat HUD packet -> `0x20F8E0` draw-builder scope.
+
+During gameplay press **Numpad `+`** once. Expected outputs next to `acz.exe`:
+
+```text
+ACZRenderOracle.log
+ACZCalibrate.log
+```
+
+`ACZCalibrate.log` records the immediately preceding GPU draw plus each HUD draw with a stable pipeline fingerprint, VS/PS hashes, primitive topology, RTV/DSV handles and draw arguments. The production add-on will use the resulting GPU anchor and will not retain ACZ RVA hooks.
