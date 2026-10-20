@@ -1,5 +1,3 @@
-#define WIN32_LEAN_AND_MEAN
-#define NOMINMAX
 #include <Windows.h>
 #include <TlHelp32.h>
 
@@ -319,6 +317,8 @@ namespace
 		return record;
 	}
 
+	void remember_draw(const draw_record &record);
+
 	void observe_draw(const draw_record &record, uint32_t scope)
 	{
 		const bool capture = (scope & 1u) != 0;
@@ -556,7 +556,7 @@ namespace
 		if ((scope & 1u) == 0)
 		{
 			++g_tls.draw_ordinal;
-			g_tls.last_draw = record;
+			remember_draw(record);
 		}
 		return false;
 	}
