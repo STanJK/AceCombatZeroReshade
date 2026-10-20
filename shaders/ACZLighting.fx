@@ -1,15 +1,16 @@
-#include "ReShade.fxh"
-
 #ifndef ACZ_USE_IMMERSE_NORMALS
 #define ACZ_USE_IMMERSE_NORMALS 0
 #endif
 
 #if ACZ_USE_IMMERSE_NORMALS
-// Optional local dependency. The proprietary iMMERSE files are never
-// distributed with this repository; this include resolves only when the
-// user has installed their own licensed iMMERSE copy.
+// IMPORTANT: iMMERSE must be included before ReShade.fxh.
+// mmx_global.fxh declares BUFFER_PIXEL_SIZE / BUFFER_SCREEN_SIZE, while
+// ReShade.fxh defines macros with the same names. Reversing this order makes
+// the ReShade preprocessor expand those declarations into invalid syntax.
 #include "iMMERSE/MartysMods/mmx_deferred.fxh"
 #endif
+
+#include "ReShade.fxh"
 
 // ACZLighting.fx
 // Conservative screen-space lighting layer for ACZ.
