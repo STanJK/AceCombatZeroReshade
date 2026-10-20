@@ -593,6 +593,7 @@ namespace
 	{
 		uint64_t last_seen_copies = 0;
 		bool scene_fresh_this_frame = false;
+		bool capture_processed_for_ab = false;
 		bool technique_gate_active = false;
 		std::vector<effect_technique> gated_techniques;
 
@@ -1588,6 +1589,15 @@ namespace
 				runtime->get_private_data<bridge_runtime_data>())
 		{
 			runtime_data->scene_fresh_this_frame = scene_fresh;
+
+			const effect_technique ab =
+				runtime->find_technique(
+					nullptr,
+					"ACZBeforeAfter");
+
+			runtime_data->capture_processed_for_ab =
+				ab != 0 &&
+				runtime->get_technique_state(ab);
 		}
 
 		update_processed_clean_runtime(runtime, false);
@@ -1636,7 +1646,9 @@ namespace
 	{
 		auto *data =
 			runtime->get_private_data<bridge_runtime_data>();
-		if (data == nullptr || !data->scene_fresh_this_frame)
+		if (data == nullptr ||
+			!data->scene_fresh_this_frame ||
+			!data->capture_processed_for_ab)
 			return;
 
 		char name[128] = {};
