@@ -255,6 +255,23 @@ namespace
 			a.dsv == b.dsv;
 	}
 
+	bool is_hud_boundary_pair(
+		const bridge_stream_state &state,
+		const draw_record &current)
+	{
+		if (!state.prev1)
+			return false;
+
+		const draw_record &prev = *state.prev1;
+
+		return
+			!prev.indexed && prev.count == 4 &&
+			current.indexed && current.count == 89 &&
+			is_main_hud_pipeline(prev) &&
+			is_main_hud_pipeline(current) &&
+			same_main_target(prev, current);
+	}
+
 	bool is_first_hud_anchor(
 		const bridge_stream_state &state,
 		const draw_record &current)
@@ -706,9 +723,7 @@ namespace
 
 		const bool direct_hud_match =
 			g_hud_bootstrapped.load(std::memory_order_acquire) &&
-			current.indexed &&
-			current.count == 89 &&
-			is_main_hud_pipeline(current);
+			is_hud_boundary_pair(g_stream, current);
 
 		const uint64_t present_serial =
 			g_present_serial.load(std::memory_order_acquire);
