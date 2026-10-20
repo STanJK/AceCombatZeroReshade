@@ -812,7 +812,7 @@ namespace
 
 		device *device = cmd_list->get_device();
 		if (device == nullptr)
-			return false;
+			return;
 
 		resource source = device->get_resource_from_view(anchor.rtv0);
 		if (source == 0)
@@ -973,7 +973,7 @@ namespace
 	{
 		device *device = runtime->get_device();
 		if (device == nullptr)
-			return;
+			return false;
 
 		auto *data = device->get_private_data<bridge_device_data>();
 		auto *runtime_data = runtime->get_private_data<bridge_runtime_data>();
