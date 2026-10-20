@@ -52,17 +52,21 @@ texture2D ACZOriginalFinalTex : ACZ_ORIGINAL_FINAL;
 sampler2D ACZSceneCleanSampler
 {
     Texture = ACZSceneCleanTex;
-    Filter = MIN_MAG_MIP_POINT;
-    AddressU = Clamp;
-    AddressV = Clamp;
+    AddressU = CLAMP;
+    AddressV = CLAMP;
+    MagFilter = POINT;
+    MinFilter = POINT;
+    MipFilter = POINT;
 };
 
 sampler2D ACZOriginalFinalSampler
 {
     Texture = ACZOriginalFinalTex;
-    Filter = MIN_MAG_MIP_POINT;
-    AddressU = Clamp;
-    AddressV = Clamp;
+    AddressU = CLAMP;
+    AddressV = CLAMP;
+    MagFilter = POINT;
+    MinFilter = POINT;
+    MipFilter = POINT;
 };
 
 float3 ACZQuantizeCleanToHDR10Target(float3 clean)
@@ -122,7 +126,7 @@ float4 PS_ACZRestoreHUD(
     const float mask = ACZHUDMask(texcoord);
 
     if (ShowHUDMask)
-        return float4(mask.xxx, 1.0);
+        return float4(mask, mask, mask, 1.0);
 
     float4 original =
         tex2D(ACZOriginalFinalSampler, texcoord);
