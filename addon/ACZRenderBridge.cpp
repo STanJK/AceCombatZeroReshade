@@ -209,16 +209,21 @@ namespace
 
 	resource_desc make_scene_clean_desc(const resource_desc &source)
 	{
+		const resource_usage transfer_usage =
+			source.texture.samples > 1
+				? resource_usage::resolve_dest
+				: resource_usage::copy_dest;
+
 		return resource_desc(
-			source.type,
+			resource_type::texture_2d,
 			source.texture.width,
 			source.texture.height,
-			source.texture.depth_or_layers,
-			source.texture.levels,
-			source.texture.format,
-			source.texture.samples,
+			1,
+			1,
+			format_to_default_typed(source.texture.format),
+			1,
 			memory_heap::default_,
-			resource_usage::copy_dest | resource_usage::shader_resource,
+			transfer_usage | resource_usage::shader_resource,
 			resource_flags::none);
 	}
 
@@ -300,10 +305,15 @@ namespace
 			return true;
 
 		resource replacement = { 0 };
+		const resource_usage initial_transfer_state =
+			source_desc.texture.samples > 1
+				? resource_usage::resolve_dest
+				: resource_usage::copy_dest;
+
 		if (!device->create_resource(
 				desired,
 				nullptr,
-				resource_usage::copy_dest,
+				initial_transfer_state,
 				&replacement))
 		{
 			std::ostringstream message;
@@ -354,6 +364,7 @@ namespace
 			<< desired.texture.width << 'x' << desired.texture.height
 			<< " format=" << static_cast<uint32_t>(desired.texture.format)
 			<< " samples=" << desired.texture.samples
+			<< " source_samples=" << source_desc.texture.samples
 			<< " resource=0x" << std::hex << replacement.handle
 			<< " srv=0x" << replacement_srv.handle;
 		reshade::log::message(
@@ -380,7 +391,7 @@ namespace
 		if (source_desc.type != resource_type::texture_2d ||
 			source_desc.texture.width == 0 ||
 			source_desc.texture.height == 0 ||
-			source_desc.texture.samples != 1)
+			source_desc.texture.samples == 0)
 		{
 			auto &data = *device->get_private_data<bridge_device_data>();
 			if (!data.unsupported_logged)
@@ -406,27 +417,61 @@ namespace
 		if (!ensure_scene_clean(device, data, source_desc))
 			return;
 
+		const bool multisampled = source_desc.texture.samples > 1;
+		const resource_usage transfer_dest =
+			multisampled
+				? resource_usage::resolve_dest
+				: resource_usage::copy_dest;
+
 		if (data.scene_shader_ready)
 		{
 			cmd_list->barrier(
 				data.scene_clean,
 				resource_usage::shader_resource,
-				resource_usage::copy_dest);
+				transfer_dest);
+		}
+
+		if (multisampled)
+		{
+			cmd_list->barrier(
+				source,
+				resource_usage::render_target,
+				resource_usage::resolve_source);
+
+			cmd_list->resolve_texture_region(
+				source,
+				0,
+				nullptr,
+				data.scene_clean,
+				0,
+				0,
+				0,
+				0,
+				format_to_default_typed(source_desc.texture.format));
+
+			cmd_list->barrier(
+				source,
+				resource_usage::resolve_source,
+				resource_usage::render_target);
+		}
+		else
+		{
+			cmd_list->barrier(
+				source,
+				resource_usage::render_target,
+				resource_usage::copy_source);
+
+			cmd_list->copy_resource(source, data.scene_clean);
+
+			cmd_list->barrier(
+				source,
+				resource_usage::copy_source,
+				resource_usage::render_target);
 		}
 
 		cmd_list->barrier(
-			source,
-			resource_usage::render_target,
-			resource_usage::copy_source);
-		cmd_list->copy_resource(source, data.scene_clean);
-		cmd_list->barrier(
-			source,
-			resource_usage::copy_source,
-			resource_usage::render_target);
-
-		cmd_list->barrier(
 			data.scene_clean,
-			resource_usage::copy_dest,
+			transfer_dest,
 			resource_usage::shader_resource);
 		data.scene_shader_ready = true;
 
@@ -444,7 +489,9 @@ namespace
 				<< " rtv=0x" << anchor.rtv0.handle
 				<< std::dec
 				<< " size=" << source_desc.texture.width
-				<< 'x' << source_desc.texture.height;
+				<< 'x' << source_desc.texture.height
+				<< " source_samples=" << source_desc.texture.samples
+				<< (source_desc.texture.samples > 1 ? " resolved=1" : " resolved=0");
 			reshade::log::message(
 				reshade::log::level::info,
 				message.str().c_str());
