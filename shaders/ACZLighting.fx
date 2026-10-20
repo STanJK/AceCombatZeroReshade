@@ -41,6 +41,7 @@ uniform bool ShowNormalSource <
 #else
     false;
 #endif
+;
 
 // -----------------------------------------------------------------------------
 // Near-field / aircraft admission
