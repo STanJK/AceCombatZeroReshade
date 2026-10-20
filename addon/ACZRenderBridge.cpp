@@ -908,7 +908,7 @@ namespace
 		{
 			std::ostringstream message;
 			message
-				<< "ACZRenderBridge: SceneClean copied before first HUD draw"
+				<< "ACZRenderBridge: SceneClean copied at first latched-HUD PSO draw"
 				<< " copies=" << data.copies
 				<< " ordinal=" << anchor.ordinal
 				<< " full_pso=0x" << std::hex << anchor.fp.full_pso
@@ -1169,9 +1169,16 @@ namespace
 				message.str().c_str());
 		}
 
+		const uint64_t latched_full_pso =
+			g_bootstrap_full_pso.load(std::memory_order_acquire);
+
 		const bool direct_hud_match =
 			g_hud_bootstrapped.load(std::memory_order_acquire) &&
-			is_hud_boundary_pair(g_stream, current);
+			latched_full_pso != 0 &&
+			current.fp.full_pso == latched_full_pso &&
+			current.topology == 0x5 &&
+			current.rtv0 != 0 &&
+			current.dsv != 0;
 
 		const uint64_t present_serial =
 			g_present_serial.load(std::memory_order_acquire);
@@ -1243,7 +1250,7 @@ BOOL APIENTRY DllMain(HMODULE module, DWORD reason, LPVOID)
 
 		reshade::log::message(
 			reshade::log::level::info,
-			"ACZRenderBridge: loaded; pure GPU HUD anchor active.");
+			"ACZRenderBridge: loaded; bootstrap anchor + normalized full-PSO HUD matcher active.");
 		break;
 
 	case DLL_PROCESS_DETACH:
