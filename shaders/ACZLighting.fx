@@ -1,5 +1,16 @@
 #include "ReShade.fxh"
 
+#ifndef ACZ_USE_IMMERSE_NORMALS
+#define ACZ_USE_IMMERSE_NORMALS 0
+#endif
+
+#if ACZ_USE_IMMERSE_NORMALS
+// Optional local dependency. The proprietary iMMERSE files are never
+// distributed with this repository; this include resolves only when the
+// user has installed their own licensed iMMERSE copy.
+#include "iMMERSE/MartysMods/mmx_deferred.fxh"
+#endif
+
 // ACZLighting.fx
 // Conservative screen-space lighting layer for ACZ.
 //
@@ -18,6 +29,18 @@ uniform int DebugView <
     ui_type = "combo";
     ui_items = "Final\0Aircraft Mask\0Normals\0Fresnel\0Near SSIL\0";
 > = 0;
+
+uniform bool ShowNormalSource <
+    ui_label = "Using iMMERSE Normals";
+    ui_tooltip = "Read-only diagnostic. Enable ACZ_USE_IMMERSE_NORMALS=1 in this effect's preprocessor definitions to use Launchpad normals.";
+    ui_category = "Normal Source";
+    noedit = true;
+> =
+#if ACZ_USE_IMMERSE_NORMALS
+    true;
+#else
+    false;
+#endif
 
 // -----------------------------------------------------------------------------
 // Near-field / aircraft admission
@@ -223,6 +246,15 @@ float3 ACZScreenNormal(float2 uv)
             vertCenter - vertEast));
 }
 
+float3 ACZLightingNormal(float2 uv)
+{
+#if ACZ_USE_IMMERSE_NORMALS
+    return normalize(Deferred::get_normals(uv));
+#else
+    return ACZScreenNormal(uv);
+#endif
+}
+
 float ACZAircraftMask(float2 uv, float centerDepth)
 {
     const float endDepth =
@@ -386,7 +418,7 @@ float4 PS_ACZLighting(
         return original;
 
     const float3 rawNormal =
-        ACZScreenNormal(uv);
+        ACZLightingNormal(uv);
 
     const float3 viewRay =
         normalize(float3(uv - 0.5, 1.0));
@@ -509,4 +541,11 @@ technique ACZLighting <
         VertexShader = PostProcessVS;
         PixelShader = PS_ACZLighting;
     }
+
+#if ACZ_USE_IMMERSE_NORMALS
+    // iMMERSE Launchpad uses a lightweight IPC/predication request so it only
+    // prepares data that downstream effects actually consume. This request is
+    // observed by Launchpad on following frames.
+    IPC_REQUEST_FEATURE(MARTYSMODS_IPC_FEATURE_NORMALS)
+#endif
 }
