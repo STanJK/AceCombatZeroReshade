@@ -25,6 +25,7 @@ jobs:
         shell: pwsh
         run: |
           if (-not (Test-Path 'addon\bin\ACZCalibrate.addon64')) { throw 'ACZCalibrate.addon64 missing' }
+          if (-not (Test-Path 'addon\bin\ACZRenderBridge.addon64')) { throw 'ACZRenderBridge.addon64 missing' }
 
       - uses: actions/upload-artifact@v4
         with:
@@ -35,3 +36,8 @@ jobs:
         with:
           name: ACZCalibrate-ReShade-6.8.0
           path: addon/bin/ACZCalibrate.addon64
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ACZRenderBridge-ReShade-6.8.0
+          path: addon/bin/ACZRenderBridge.addon64
