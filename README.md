@@ -4,7 +4,7 @@ Experimental rendering bridge research for the 2026 Windows port of **ACE COMBAT
 
 ## Current stage: one-shot render oracle
 
-The current `winmm.dll` build is **not the final ReShade add-on**. It is a short-lived diagnostic oracle used to map the already identified ACZ HUD/display-list seam onto stable D3D12 draw/pipeline fingerprints.
+The current `xinput1_4.dll` build is **not the final ReShade add-on**. It is a short-lived diagnostic oracle used to map the already identified ACZ HUD/display-list seam onto stable D3D12 draw/pipeline fingerprints.
 
 Verified executable SHA-256:
 
@@ -47,12 +47,12 @@ cargo build --release
 Output:
 
 ```text
-target\release\winmm.dll
+target\release\xinput1_4.dll
 ```
 
 ### Run
 
-1. Put `winmm.dll` next to `acz.exe`.
+1. Put `xinput1_4.dll` next to `acz.exe`.
 2. Start ACZ normally.
 3. Enter a mission and wait until gameplay is stable.
 4. Press **Numpad `+`** once.
@@ -88,9 +88,9 @@ ACZ scene
   -> ReShade .fx derives HUD mask / protects HUD
 ```
 
-## Why winmm.dll
+## Why xinput1_4.dll
 
-This ACZ build imports only `timeBeginPeriod`, `timeEndPeriod`, and `timeGetTime` from WINMM. The proxy forwards those three functions to `%WINDIR%\System32\winmm.dll` and performs all initialization on a bootstrap thread, keeping `DllMain` minimal.
+This ACZ build imports only `XInputGetState` and `XInputSetState` from XINPUT1_4. The proxy forwards those three functions to `%WINDIR%\System32\xinput1_4.dll` and performs all initialization on a bootstrap thread, keeping `DllMain` minimal.
 
 ## Status
 
