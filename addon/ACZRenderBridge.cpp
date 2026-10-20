@@ -654,6 +654,30 @@ namespace
 		const draw_record current = make_record(cmd_list, indexed, count);
 		auto &state = *cmd_list->get_private_data<bridge_command_list_data>();
 
+		if (state.draws_since_anchor > 300 &&
+			current.indexed &&
+			current.count == 89 &&
+			is_main_hud_pipeline(current))
+		{
+			std::ostringstream message;
+			message << "ACZRenderBridge: HUD89 candidate"
+				<< " ordinal=" << current.ordinal;
+
+			if (state.prev2)
+				message << " prev2=" << (state.prev2->indexed ? "IDX" : "DRAW") << state.prev2->count;
+			if (state.prev1)
+				message << " prev1=" << (state.prev1->indexed ? "IDX" : "DRAW") << state.prev1->count;
+
+			message
+				<< " rtv=0x" << std::hex << current.rtv0.handle
+				<< " dsv=0x" << current.dsv.handle
+				<< " stable=0x" << current.fp.stable;
+
+			reshade::log::message(
+				reshade::log::level::warning,
+				message.str().c_str());
+		}
+
 		if (is_first_hud_anchor(state, current))
 		{
 			state.draws_since_anchor = 0;
