@@ -266,7 +266,7 @@ unsafe fn install_hook<T>(
 }
 
 type HudEmitter = unsafe extern "system" fn(*mut i64, i64, i64, *mut usize, i64) -> i64;
-type PacketInterpreter = unsafe extern "system" fn(i64, i64, i32);
+type PacketInterpreter = unsafe extern "system" fn(i64, i64, i32, i64);
 type BatchFlush = unsafe extern "system" fn(i64) -> i16;
 type LegacyBatchRender = unsafe extern "system" fn(i64) -> i64;
 type ModernDrawBuilder = unsafe extern "system" fn(
@@ -323,20 +323,21 @@ fn packet_is_in_hud_span(ptr: usize) -> bool {
     list.iter().any(|s| ptr >= s.begin && ptr < s.end)
 }
 
-unsafe extern "system" fn hk_packet_interpreter(a1: i64, a2: i64, a3: i32) {
+unsafe extern "system" fn hk_packet_interpreter(a1: i64, a2: i64, a3: i32, a4: i64) {
     let is_hud = capture_this_frame() && packet_is_in_hud_span(a2 as usize);
     if is_hud {
         let first = *(a2 as *const u32);
         let opcode = ((first >> 24) & 0x7f) as u8;
         logln!(
-            "[hud-parse] frame={} payload=0x{:016x} words={} first=0x{first:08x} opcode=0x{opcode:02x}",
+            "[hud-parse] frame={} payload=0x{:016x} words={} next=0x{:016x} first=0x{first:08x} opcode=0x{opcode:02x}",
             current_render_frame(),
             a2 as usize,
-            a3
+            a3,
+            a4 as usize
         );
         HUD_PARSE_DEPTH.with(|d| d.set(d.get() + 1));
     }
-    ORIG_PACKET_INTERPRETER.unwrap()(a1, a2, a3);
+    ORIG_PACKET_INTERPRETER.unwrap()(a1, a2, a3, a4);
     if is_hud {
         HUD_PARSE_DEPTH.with(|d| d.set(d.get().saturating_sub(1)));
     }
