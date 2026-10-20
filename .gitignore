@@ -1,2 +1,5 @@
 /target/
 ACZRenderOracle.log
+/.deps/
+/addon/bin/
+ACZCalibrate.log
