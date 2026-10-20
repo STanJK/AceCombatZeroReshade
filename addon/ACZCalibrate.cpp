@@ -255,6 +255,8 @@ namespace
 	pending_capture g_pending;
 	std::atomic<uint64_t> g_next_capture_id { 0 };
 	std::atomic_bool g_capture_observed { false };
+	std::atomic<uint64_t> g_raw_capture_draws { 0 };
+	std::atomic<uint64_t> g_present_count { 0 };
 
 	void on_bind_pipeline(api::command_list *, api::pipeline_stage, api::pipeline pipeline)
 	{
@@ -340,6 +342,53 @@ namespace
 		++g_tls.draw_ordinal;
 	}
 
+	void console_draw(const char *kind, uint32_t scope, const draw_record &record)
+	{
+		std::ostringstream s;
+		s
+			<< "RAW " << kind
+			<< " scope=0x" << std::hex << scope
+			<< " ordinal=" << std::dec << record.ordinal
+			<< " pipeline=0x" << std::hex << record.pipeline
+			<< " stable=0x" << record.fp.stable
+			<< " vs=0x" << record.fp.vs
+			<< " ps=0x" << record.fp.ps
+			<< " topology=0x" << record.topology
+			<< " rtv0=0x" << record.rtv0
+			<< " dsv=0x" << record.dsv
+			<< std::dec
+			<< " args=["
+			<< record.args[0] << ','
+			<< record.args[1] << ','
+			<< record.args[2] << ','
+			<< record.args[3] << ','
+			<< record.args[4] << ']';
+		reshade::log::message(reshade::log::level::info, s.str().c_str());
+	}
+
+	void ensure_calibration_log()
+	{
+		static std::once_flag once;
+		std::call_once(once, [] {
+			std::ofstream out(log_path(), std::ios::trunc);
+			if (out)
+			{
+				out << "ACZCalibrate ReShade 6.8.0 / API 20\n";
+				out << "[status] add-on connected; waiting for oracle capture\n";
+				out.flush();
+				reshade::log::message(
+					reshade::log::level::info,
+					"ACZCalibrate: created D:\\Games\\ACZero\\ACZCalibrate.log.");
+			}
+			else
+			{
+				reshade::log::message(
+					reshade::log::level::error,
+					"ACZCalibrate: FAILED to create ACZCalibrate.log.");
+			}
+		});
+	}
+
 	bool on_draw(
 		api::command_list *,
 		uint32_t vertex_count,
@@ -361,7 +410,10 @@ namespace
 			first_instance,
 			0
 		};
-		observe_draw(make_record(false, args), scope);
+		const draw_record record = make_record(false, args);
+		g_raw_capture_draws.fetch_add(1, std::memory_order_relaxed);
+		console_draw("DRAW", scope, record);
+		observe_draw(record, scope);
 		return false;
 	}
 
@@ -387,7 +439,10 @@ namespace
 			vertex_offset,
 			first_instance
 		};
-		observe_draw(make_record(true, args), scope);
+		const draw_record record = make_record(true, args);
+		g_raw_capture_draws.fetch_add(1, std::memory_order_relaxed);
+		console_draw("DRAW_INDEXED", scope, record);
+		observe_draw(record, scope);
 		return false;
 	}
 
@@ -471,17 +526,30 @@ namespace
 
 	void on_reshade_present(api::effect_runtime *)
 	{
-		try_resolve_oracle();
+		const bool connected = try_resolve_oracle();
+		if (connected)
+			ensure_calibration_log();
 
-		// Draw events and Present are not guaranteed to execute on the same thread.
-		// The semantic scope's capture bit is process-global, while HUD parser/builder
-		// bits are render-thread local. Flush on the first Present after the capture
-		// bit has dropped, using a cross-thread observed flag.
 		const uint32_t scope = oracle_scope_flags();
+		const uint64_t present = g_present_count.fetch_add(1, std::memory_order_relaxed) + 1;
+		const bool observed = g_capture_observed.load(std::memory_order_acquire);
+
+		if (scope != 0 || observed)
+		{
+			std::ostringstream s;
+			s << "PRESENT #" << present
+			  << " scope=0x" << std::hex << scope
+			  << " observed=" << std::dec << (observed ? 1 : 0)
+			  << " raw_capture_draws=" << g_raw_capture_draws.load(std::memory_order_relaxed);
+			reshade::log::message(reshade::log::level::info, s.str().c_str());
+		}
+
 		if ((scope & 1u) == 0 &&
 			g_capture_observed.exchange(false, std::memory_order_acq_rel))
 		{
+			reshade::log::message(reshade::log::level::info, "FLUSH capture after oracle capture bit dropped.");
 			flush_capture();
+			g_raw_capture_draws.store(0, std::memory_order_relaxed);
 		}
 	}
 }
