@@ -57,7 +57,6 @@ const GCL_SET_PIPELINE_STATE: usize = 25;
 const GCL_OM_SET_RENDER_TARGETS: usize = 46;
 
 // D3D12 vtable index for ID3D12Device::CreateGraphicsPipelineState.
-const DEVICE_CREATE_GRAPHICS_PSO: usize = 10;
 
 static IMAGE_BASE: AtomicUsize = AtomicUsize::new(0);
 static OWN_MODULE: AtomicUsize = AtomicUsize::new(0);
@@ -115,7 +114,8 @@ fn log(args: fmt::Arguments<'_>) {
     let mutex = LOG_FILE.get_or_init(|| {
         let file = OpenOptions::new()
             .create(true)
-            .append(true)
+            .write(true)
+            .truncate(true)
             .open(log_path())
             .expect("failed to open ACZRenderOracle.log");
         Mutex::new(file)
@@ -427,24 +427,6 @@ unsafe extern "system" fn hk_frame_end() -> i64 {
 struct CpuDescriptorHandle {
     ptr: usize,
 }
-#[repr(C)]
-struct ShaderBytecodePrefix {
-    p_shader_bytecode: *const c_void,
-    bytecode_length: usize,
-}
-#[repr(C)]
-struct GraphicsPsoDescPrefix {
-    p_root_signature: *mut c_void,
-    vs: ShaderBytecodePrefix,
-    ps: ShaderBytecodePrefix,
-}
-
-type CreateGraphicsPso = unsafe extern "system" fn(
-    *mut c_void,
-    *const GraphicsPsoDescPrefix,
-    *const c_void,
-    *mut *mut c_void,
-) -> i32;
 type SetPipelineState = unsafe extern "system" fn(*mut c_void, *mut c_void);
 type IaSetPrimitiveTopology = unsafe extern "system" fn(*mut c_void, u32);
 type OmSetRenderTargets = unsafe extern "system" fn(
@@ -453,47 +435,11 @@ type OmSetRenderTargets = unsafe extern "system" fn(
 type DrawInstanced = unsafe extern "system" fn(*mut c_void, u32, u32, u32, u32);
 type DrawIndexedInstanced = unsafe extern "system" fn(*mut c_void, u32, u32, u32, i32, u32);
 
-static mut ORIG_CREATE_GRAPHICS_PSO: Option<CreateGraphicsPso> = None;
 static mut ORIG_SET_PIPELINE_STATE: Option<SetPipelineState> = None;
 static mut ORIG_IA_SET_PRIMITIVE_TOPOLOGY: Option<IaSetPrimitiveTopology> = None;
 static mut ORIG_OM_SET_RENDER_TARGETS: Option<OmSetRenderTargets> = None;
 static mut ORIG_DRAW_INSTANCED: Option<DrawInstanced> = None;
 static mut ORIG_DRAW_INDEXED_INSTANCED: Option<DrawIndexedInstanced> = None;
-
-unsafe fn hash_shader(bytecode: &ShaderBytecodePrefix) -> String {
-    if bytecode.p_shader_bytecode.is_null() || bytecode.bytecode_length == 0 {
-        return "-".to_owned();
-    }
-    let bytes = slice::from_raw_parts(
-        bytecode.p_shader_bytecode as *const u8,
-        bytecode.bytecode_length,
-    );
-    sha256_hex(bytes)
-}
-
-unsafe extern "system" fn hk_create_graphics_pso(
-    device: *mut c_void,
-    desc: *const GraphicsPsoDescPrefix,
-    riid: *const c_void,
-    out: *mut *mut c_void,
-) -> i32 {
-    let hr = ORIG_CREATE_GRAPHICS_PSO.unwrap()(device, desc, riid, out);
-    if hr >= 0 && !desc.is_null() && !out.is_null() && !(*out).is_null() {
-        let d = &*desc;
-        let fingerprint = PsoFingerprint {
-            vs_sha256: hash_shader(&d.vs),
-            ps_sha256: hash_shader(&d.ps),
-            root_signature: d.p_root_signature as usize,
-        };
-        let key = *out as usize;
-        if let Ok(mut map) = pso_map().lock() {
-            map.insert(key, fingerprint.clone());
-        }
-        // Keep the fingerprint in memory; per-PSO disk logging is intentionally avoided
-        // because some drivers create many PSOs during startup.
-    }
-    hr
-}
 
 unsafe extern "system" fn hk_set_pipeline_state(cmd: *mut c_void, pso: *mut c_void) {
     CURRENT_PSO.with(|v| v.set(pso as usize));
@@ -725,12 +671,6 @@ unsafe fn install_d3d12_vtable_hooks(base: usize) -> bool {
                 );
                 let mut ok = true;
                 ok &= install_hook(
-                    "ID3D12Device::CreateGraphicsPipelineState",
-                    vfunc(device, DEVICE_CREATE_GRAPHICS_PSO),
-                    hk_create_graphics_pso as *mut c_void,
-                    &mut ORIG_CREATE_GRAPHICS_PSO,
-                );
-                ok &= install_hook(
                     "ID3D12GraphicsCommandList::SetPipelineState",
                     vfunc(cmd, GCL_SET_PIPELINE_STATE),
                     hk_set_pipeline_state as *mut c_void,
@@ -823,53 +763,46 @@ unsafe extern "system" fn bootstrap(_: *mut c_void) -> u32 {
     }
 }
 
-struct RealWinmm {
-    time_begin_period: unsafe extern "system" fn(u32) -> u32,
-    time_end_period: unsafe extern "system" fn(u32) -> u32,
-    time_get_time: unsafe extern "system" fn() -> u32,
+struct RealXInput {
+    get_state: unsafe extern "system" fn(u32, *mut c_void) -> u32,
+    set_state: unsafe extern "system" fn(u32, *mut c_void) -> u32,
 }
-static REAL_WINMM: OnceLock<RealWinmm> = OnceLock::new();
+static REAL_XINPUT: OnceLock<RealXInput> = OnceLock::new();
 
 fn wide_null(text: &std::ffi::OsStr) -> Vec<u16> {
     use std::os::windows::ffi::OsStrExt;
     text.encode_wide().chain(std::iter::once(0)).collect()
 }
-unsafe fn load_real_winmm() -> &'static RealWinmm {
-    REAL_WINMM.get_or_init(|| {
+unsafe fn load_real_xinput() -> &'static RealXInput {
+    REAL_XINPUT.get_or_init(|| {
         let windir = std::env::var_os("WINDIR").unwrap_or_else(|| "C:\\Windows".into());
-        let path = PathBuf::from(windir).join("System32").join("winmm.dll");
+        let path = PathBuf::from(windir).join("System32").join("XInput1_4.dll");
         let wide = wide_null(path.as_os_str());
         let module = LoadLibraryW(wide.as_ptr());
-        assert!(!module.is_null(), "failed to load real System32\\winmm.dll");
+        assert!(!module.is_null(), "failed to load real System32\\XInput1_4.dll");
 
         unsafe fn proc(module: HINSTANCE, name: &'static CStr) -> *mut c_void {
             GetProcAddress(module, name.as_ptr() as *const u8)
                 .map(|f| f as *mut c_void)
                 .unwrap_or(null_mut())
         }
-        let begin = proc(module, c"timeBeginPeriod");
-        let end = proc(module, c"timeEndPeriod");
-        let get = proc(module, c"timeGetTime");
-        assert!(!begin.is_null() && !end.is_null() && !get.is_null(), "missing winmm export");
-        RealWinmm {
-            time_begin_period: mem::transmute(begin),
-            time_end_period: mem::transmute(end),
-            time_get_time: mem::transmute(get),
+        let get_state = proc(module, c"XInputGetState");
+        let set_state = proc(module, c"XInputSetState");
+        assert!(!get_state.is_null() && !set_state.is_null(), "missing XInput1_4 export");
+        RealXInput {
+            get_state: mem::transmute(get_state),
+            set_state: mem::transmute(set_state),
         }
     })
 }
 
 #[unsafe(no_mangle)]
-pub unsafe extern "system" fn timeBeginPeriod(period: u32) -> u32 {
-    (load_real_winmm().time_begin_period)(period)
+pub unsafe extern "system" fn XInputGetState(user_index: u32, state: *mut c_void) -> u32 {
+    (load_real_xinput().get_state)(user_index, state)
 }
 #[unsafe(no_mangle)]
-pub unsafe extern "system" fn timeEndPeriod(period: u32) -> u32 {
-    (load_real_winmm().time_end_period)(period)
-}
-#[unsafe(no_mangle)]
-pub unsafe extern "system" fn timeGetTime() -> u32 {
-    (load_real_winmm().time_get_time)()
+pub unsafe extern "system" fn XInputSetState(user_index: u32, vibration: *mut c_void) -> u32 {
+    (load_real_xinput().set_state)(user_index, vibration)
 }
 
 #[unsafe(no_mangle)]
