@@ -170,7 +170,7 @@ namespace
 		uint64_t ordinal = 0;
 	};
 
-	struct __declspec(uuid("50f07d8a-bc28-46f4-a79b-5ff714477b10")) bridge_command_list_data
+	struct bridge_stream_state
 	{
 		uint64_t pipeline = 0;
 		uint32_t topology = 0;
@@ -179,9 +179,9 @@ namespace
 		uint64_t ordinal = 0;
 		std::optional<draw_record> prev2;
 		std::optional<draw_record> prev1;
-		std::vector<draw_record> recent;
-		uint32_t draws_since_anchor = 0;
 	};
+
+	thread_local bridge_stream_state g_stream;
 
 	struct __declspec(uuid("a8e9c0be-1464-4a7c-9f70-ecbf0702a97f")) bridge_device_data
 	{
@@ -194,7 +194,6 @@ namespace
 		std::vector<resource> retired;
 		std::vector<resource_view> retired_views;
 		uint64_t copies = 0;
-		uint64_t anchor_hits = 0;
 		bool unsupported_logged = false;
 	};
 
@@ -249,7 +248,7 @@ namespace
 	}
 
 	bool is_first_hud_anchor(
-		const bridge_command_list_data &state,
+		const bridge_stream_state &state,
 		const draw_record &current)
 	{
 		if (!state.prev2 || !state.prev1)
@@ -270,71 +269,26 @@ namespace
 			same_main_target(b, c);
 	}
 
-	draw_record make_record(command_list *cmd_list, bool indexed, uint32_t count)
+	draw_record make_record(bool indexed, uint32_t count)
 	{
-		auto &state = *cmd_list->get_private_data<bridge_command_list_data>();
-
 		draw_record record;
 		record.indexed = indexed;
 		record.count = count;
-		record.pipeline = state.pipeline;
-		record.fp = lookup_pipeline(state.pipeline);
+		record.pipeline = g_stream.pipeline;
+		record.fp = lookup_pipeline(g_stream.pipeline);
 		record.topology =
-			state.topology != 0 ? state.topology : record.fp.static_topology;
-		record.rtv0 = state.rtv0;
-		record.dsv = state.dsv;
-		record.ordinal = state.ordinal;
+			g_stream.topology != 0 ? g_stream.topology : record.fp.static_topology;
+		record.rtv0 = g_stream.rtv0;
+		record.dsv = g_stream.dsv;
+		record.ordinal = g_stream.ordinal;
 		return record;
 	}
 
-	void dump_recent_anchor_context(command_list *cmd_list)
+	void remember_draw(const draw_record &record)
 	{
-		auto &state = *cmd_list->get_private_data<bridge_command_list_data>();
-		if (state.recent.empty())
-			return;
-
-		reshade::log::message(
-			reshade::log::level::warning,
-			"ACZRenderBridge: HUD anchor not reacquired; recent main-target draw context follows.");
-
-		for (const draw_record &d : state.recent)
-		{
-			if (d.rtv0 == 0 || d.dsv == 0)
-				continue;
-
-			std::ostringstream line;
-			line
-				<< "ACZRenderBridge: CTX "
-				<< (d.indexed ? "IDX" : "DRAW")
-				<< " count=" << d.count
-				<< " ordinal=" << d.ordinal
-				<< " stable=0x" << std::hex << d.fp.stable
-				<< " vs=0x" << d.fp.vs
-				<< " ps=0x" << d.fp.ps
-				<< " topology=0x" << d.topology
-				<< " rtv=0x" << d.rtv0.handle
-				<< " dsv=0x" << d.dsv.handle;
-			reshade::log::message(
-				reshade::log::level::warning,
-				line.str().c_str());
-		}
-	}
-
-	void remember_draw(command_list *cmd_list, const draw_record &record)
-	{
-		auto &state = *cmd_list->get_private_data<bridge_command_list_data>();
-		state.prev2 = state.prev1;
-		state.prev1 = record;
-
-		state.recent.push_back(record);
-		if (state.recent.size() > 32)
-			state.recent.erase(state.recent.begin());
-
-		++state.draws_since_anchor;
-		++state.ordinal;
-
-		if (state.draws_since_anchor == 1200)
-			dump_recent_anchor_context(cmd_list);
+		g_stream.prev2 = g_stream.prev1;
+		g_stream.prev1 = record;
+		++g_stream.ordinal;
 	}
 
 	bool ensure_scene_clean(
@@ -602,48 +556,34 @@ namespace
 		update_effect_runtime(runtime);
 	}
 
-	void on_init_command_list(command_list *cmd_list)
-	{
-		cmd_list->create_private_data<bridge_command_list_data>();
-	}
-
-	void on_destroy_command_list(command_list *cmd_list)
-	{
-		cmd_list->destroy_private_data<bridge_command_list_data>();
-	}
-
 	void on_bind_pipeline(
-		command_list *cmd_list,
+		command_list *,
 		pipeline_stage,
 		pipeline pipeline)
 	{
-		cmd_list->get_private_data<bridge_command_list_data>()->pipeline =
-			pipeline.handle;
+		g_stream.pipeline = pipeline.handle;
 	}
 
 	void on_bind_pipeline_states(
-		command_list *cmd_list,
+		command_list *,
 		uint32_t count,
 		const dynamic_state *states,
 		const uint32_t *values)
 	{
-		auto &state = *cmd_list->get_private_data<bridge_command_list_data>();
-
 		for (uint32_t i = 0; i < count; ++i)
 			if (states[i] == dynamic_state::primitive_topology)
-				state.topology = values[i];
+				g_stream.topology = values[i];
 	}
 
 	void on_bind_render_targets(
-		command_list *cmd_list,
+		command_list *,
 		uint32_t count,
 		const resource_view *rtvs,
 		resource_view dsv)
 	{
-		auto &state = *cmd_list->get_private_data<bridge_command_list_data>();
-		state.rtv0 =
+		g_stream.rtv0 =
 			(count != 0 && rtvs != nullptr) ? rtvs[0] : resource_view { 0 };
-		state.dsv = dsv;
+		g_stream.dsv = dsv;
 	}
 
 	bool process_draw(
@@ -651,46 +591,12 @@ namespace
 		bool indexed,
 		uint32_t count)
 	{
-		const draw_record current = make_record(cmd_list, indexed, count);
-		auto &state = *cmd_list->get_private_data<bridge_command_list_data>();
+		const draw_record current = make_record(indexed, count);
 
-		if (state.draws_since_anchor > 300 &&
-			current.indexed &&
-			current.count == 89 &&
-			is_main_hud_pipeline(current))
-		{
-			std::ostringstream message;
-			message << "ACZRenderBridge: HUD89 candidate"
-				<< " ordinal=" << current.ordinal;
-
-			if (state.prev2)
-				message << " prev2=" << (state.prev2->indexed ? "IDX" : "DRAW") << state.prev2->count;
-			if (state.prev1)
-				message << " prev1=" << (state.prev1->indexed ? "IDX" : "DRAW") << state.prev1->count;
-
-			message
-				<< " rtv=0x" << std::hex << current.rtv0.handle
-				<< " dsv=0x" << current.dsv.handle
-				<< " stable=0x" << current.fp.stable;
-
-			reshade::log::message(
-				reshade::log::level::warning,
-				message.str().c_str());
-		}
-
-		if (is_first_hud_anchor(state, current))
-		{
-			state.draws_since_anchor = 0;
-			if (device *dev = cmd_list->get_device())
-			{
-				auto *data = dev->get_private_data<bridge_device_data>();
-				if (data != nullptr)
-					++data->anchor_hits;
-			}
+		if (is_first_hud_anchor(g_stream, current))
 			copy_scene_clean(cmd_list, current);
-		}
 
-		remember_draw(cmd_list, current);
+		remember_draw(current);
 		return false;
 	}
 
@@ -730,8 +636,6 @@ BOOL APIENTRY DllMain(HMODULE module, DWORD reason, LPVOID)
 
 		reshade::register_event<reshade::addon_event::init_device>(on_init_device);
 		reshade::register_event<reshade::addon_event::destroy_device>(on_destroy_device);
-		reshade::register_event<reshade::addon_event::init_command_list>(on_init_command_list);
-		reshade::register_event<reshade::addon_event::destroy_command_list>(on_destroy_command_list);
 
 		reshade::register_event<reshade::addon_event::init_pipeline>(on_init_pipeline);
 		reshade::register_event<reshade::addon_event::destroy_pipeline>(on_destroy_pipeline);
