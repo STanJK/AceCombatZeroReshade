@@ -5,7 +5,7 @@ edition = "2021"
 publish = false
 
 [lib]
-name = "version"
+name = "xinput1_4"
 crate-type = ["cdylib"]
 
 [dependencies]
