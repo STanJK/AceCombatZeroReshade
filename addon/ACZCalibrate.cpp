@@ -451,8 +451,11 @@ namespace
 			g_tls.capture_active = false;
 		}
 
-		++g_tls.draw_ordinal;
-		g_tls.last_draw = record;
+		if ((scope & 1u) == 0)
+		{
+			++g_tls.draw_ordinal;
+			g_tls.last_draw = record;
+		}
 		return false;
 	}
 
@@ -488,8 +491,11 @@ namespace
 			g_tls.capture_active = false;
 		}
 
-		++g_tls.draw_ordinal;
-		g_tls.last_draw = record;
+		if ((scope & 1u) == 0)
+		{
+			++g_tls.draw_ordinal;
+			g_tls.last_draw = record;
+		}
 		return false;
 	}
 
@@ -580,7 +586,8 @@ namespace
 		const uint64_t present = g_present_count.fetch_add(1, std::memory_order_relaxed) + 1;
 		const uint32_t scope = oracle_scope_flags();
 
-		if (runtime->is_key_pressed(VK_ADD))
+		const bool armed_now = runtime->is_key_pressed(VK_ADD);
+		if (armed_now)
 		{
 			const uint64_t capture_id = g_full_capture_id.fetch_add(1, std::memory_order_acq_rel) + 1;
 			g_full_frames_remaining.store(3, std::memory_order_release);
@@ -593,7 +600,7 @@ namespace
 		}
 
 		int remaining = g_full_frames_remaining.load(std::memory_order_acquire);
-		if (remaining > 0)
+		if (remaining > 0 && !armed_now)
 		{
 			std::ostringstream s;
 			s << "FULL PRESENT cap=" << g_full_capture_id.load(std::memory_order_relaxed)
