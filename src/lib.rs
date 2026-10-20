@@ -94,6 +94,7 @@ struct DrawSnapshot {
 
 thread_local! {
     static HUD_PARSE_DEPTH: Cell<u32> = const { Cell::new(0) };
+    static HUD_BUILDER_DEPTH: Cell<u32> = const { Cell::new(0) };
     static CURRENT_PSO: Cell<usize> = const { Cell::new(0) };
     static CURRENT_TOPOLOGY: Cell<u32> = const { Cell::new(0) };
     static CURRENT_RTV0: Cell<usize> = const { Cell::new(0) };
@@ -366,17 +367,24 @@ unsafe extern "system" fn hk_modern_draw_builder(
     a8: i32, a9: i32, a10: i32, a11: i32, a12: i8, a13: *mut usize,
     a14: *const c_void, a15: i32,
 ) {
-    if capture_this_frame() && hud_parse_active() {
+    let tagged = capture_this_frame() && hud_parse_active();
+    if tagged {
         logln!(
             "[hud-draw-builder] frame={} a1=0x{:016x} a2={} vertices=0x{:016x} vertex_count={} prim={} a6={} a7={} a8={} a9={} a10={} a11={} a12={} indices=0x{:016x} index_count={}",
             current_render_frame(),
             a1 as usize, a2, a3 as usize, a4, a5, a6, a7, a8, a9, a10, a11,
             a12, a14 as usize, a15
         );
+        HUD_BUILDER_DEPTH.with(|d| d.set(d.get() + 1));
     }
+
     ORIG_MODERN_DRAW_BUILDER.unwrap()(
         a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15
     );
+
+    if tagged {
+        HUD_BUILDER_DEPTH.with(|d| d.set(d.get().saturating_sub(1)));
+    }
 }
 
 unsafe extern "system" fn hk_d3d12_draw_helper(
@@ -759,6 +767,22 @@ unsafe extern "system" fn bootstrap(_: *mut c_void) -> u32 {
         was_down = down;
         Sleep(5);
     }
+}
+
+
+#[unsafe(no_mangle)]
+pub extern "system" fn ACZOracleScopeFlags() -> u32 {
+    let mut flags = 0u32;
+    if capture_this_frame() {
+        flags |= 1;
+    }
+    if HUD_PARSE_DEPTH.with(|d| d.get() != 0) {
+        flags |= 2;
+    }
+    if HUD_BUILDER_DEPTH.with(|d| d.get() != 0) {
+        flags |= 4;
+    }
+    flags
 }
 
 struct RealXInput {
