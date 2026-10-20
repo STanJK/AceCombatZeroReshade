@@ -239,6 +239,7 @@ namespace
 		bool capture_active = false;
 		bool first_hud_seen = false;
 		uint64_t draw_ordinal = 0;
+		std::optional<draw_record> prev_draw;
 		std::optional<draw_record> last_draw;
 	};
 
@@ -295,6 +296,7 @@ namespace
 		g_capture_observed.store(true, std::memory_order_release);
 		g_tls.first_hud_seen = false;
 		g_tls.draw_ordinal = 0;
+		g_tls.prev_draw.reset();
 		g_tls.last_draw.reset();
 
 		std::lock_guard lock(g_pending_mutex);
@@ -340,7 +342,7 @@ namespace
 			g_pending.hud.push_back(record);
 		}
 
-		g_tls.last_draw = record;
+		remember_draw(record);
 		++g_tls.draw_ordinal;
 	}
 
@@ -420,6 +422,64 @@ namespace
 		reshade::log::message(reshade::log::level::info, s.str().c_str());
 	}
 
+	bool same_main_target(const draw_record &a, const draw_record &b)
+	{
+		return a.rtv0 != 0 &&
+			a.dsv != 0 &&
+			a.rtv0 == b.rtv0 &&
+			a.dsv == b.dsv;
+	}
+
+	bool is_main_hud_pipeline(const draw_record &d)
+	{
+		return d.fp.stable == 0xc45ffe89e386cb09ull &&
+			d.fp.vs == 0x70848fc93426bb4eull &&
+			d.fp.ps == 0xae6370c8685b4894ull &&
+			d.topology == 0x5;
+	}
+
+	void validate_hud_anchor(const draw_record &current)
+	{
+		if (!g_tls.prev_draw || !g_tls.last_draw)
+			return;
+
+		const draw_record &a = *g_tls.prev_draw;
+		const draw_record &b = *g_tls.last_draw;
+		const draw_record &c = current;
+
+		const bool match =
+			a.indexed && a.args[0] == 64 &&
+			!b.indexed && b.args[0] == 4 &&
+			c.indexed && c.args[0] == 89 &&
+			is_main_hud_pipeline(a) &&
+			is_main_hud_pipeline(b) &&
+			is_main_hud_pipeline(c) &&
+			same_main_target(a, b) &&
+			same_main_target(b, c);
+
+		if (!match)
+			return;
+
+		std::ostringstream s;
+		s << "HUD-ANCHOR first HUD draw detected before execution"
+		  << " ordinal=" << c.ordinal
+		  << " stable=0x" << std::hex << c.fp.stable
+		  << " vs=0x" << c.fp.vs
+		  << " ps=0x" << c.fp.ps
+		  << " topology=0x" << c.topology
+		  << " rtv0=0x" << c.rtv0
+		  << " dsv=0x" << c.dsv
+		  << std::dec
+		  << " sequence=[IDX64,DRAW4,IDX89]";
+		reshade::log::message(reshade::log::level::info, s.str().c_str());
+	}
+
+	void remember_draw(const draw_record &record)
+	{
+		g_tls.prev_draw = g_tls.last_draw;
+		g_tls.last_draw = record;
+	}
+
 	bool on_draw(
 		api::command_list *,
 		uint32_t vertex_count,
@@ -436,6 +496,7 @@ namespace
 			0
 		};
 		const draw_record record = make_record(false, args);
+		validate_hud_anchor(record);
 
 		if (g_full_frames_remaining.load(std::memory_order_acquire) > 0)
 			console_full_draw("DRAW", scope, record);
@@ -454,7 +515,7 @@ namespace
 		if ((scope & 1u) == 0)
 		{
 			++g_tls.draw_ordinal;
-			g_tls.last_draw = record;
+			remember_draw(record);
 		}
 		return false;
 	}
@@ -476,6 +537,7 @@ namespace
 			first_instance
 		};
 		const draw_record record = make_record(true, args);
+		validate_hud_anchor(record);
 
 		if (g_full_frames_remaining.load(std::memory_order_acquire) > 0)
 			console_full_draw("DRAW_INDEXED", scope, record);
