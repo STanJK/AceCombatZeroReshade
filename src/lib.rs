@@ -382,9 +382,8 @@ unsafe extern "system" fn hk_d3d12_draw_helper(
     cmd: *mut i64, a2: i64, a3: i64, a4: i64, a5: i32, a6: u32, a7: u32,
 ) -> i64 {
     if capture_this_frame() && hud_parse_active() {
-        let pso = CURRENT_PSO.with(|v| v.get());
         logln!(
-            "[hud-draw-helper] frame={} cmd=0x{:016x} pso=0x{pso:016x} args=[0x{:x},0x{:x},0x{:x},{},{},{}]",
+            "[hud-draw-helper] frame={} cmd=0x{:016x} root0=0x{:x} root1=0x{:x} index_ctx=0x{:x} index_slot={} vertex_count={} index_count={}",
             current_render_frame(), cmd as usize, a2, a3, a4, a5, a6, a7
         );
     }
@@ -743,9 +742,7 @@ unsafe extern "system" fn bootstrap(_: *mut c_void) -> u32 {
         logln!("[boot] one or more game hooks failed; refusing capture.");
         return 3;
     }
-    if !install_d3d12_vtable_hooks(base) {
-        logln!("[boot] one or more D3D12 vtable hooks failed; game hooks remain installed for diagnostics.");
-    }
+    logln!("[boot] system D3D12 vtable hooks are disabled; oracle uses ACZ-owned RVA hooks only.");
     logln!("[boot] READY. Press keypad '+' once to capture one complete future frame.");
 
     let mut was_down = false;
