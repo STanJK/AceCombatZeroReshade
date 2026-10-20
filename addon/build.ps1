@@ -5,8 +5,6 @@ $deps = Join-Path $root ".deps"
 $reshade = Join-Path $deps "reshade-6.8.0"
 $include = Join-Path $reshade "include"
 $outDir = Join-Path $PSScriptRoot "bin"
-$source = Join-Path $PSScriptRoot "ACZCalibrate.cpp"
-$output = Join-Path $outDir "ACZCalibrate.addon64"
 
 New-Item -ItemType Directory -Force -Path $deps | Out-Null
 New-Item -ItemType Directory -Force -Path $outDir | Out-Null
@@ -39,32 +37,51 @@ if (-not (Test-Path $vcvars)) {
     throw "vcvars64.bat not found at $vcvars"
 }
 
-$quotedSource = '"' + $source + '"'
-$quotedInclude = '/I"' + $include + '"'
-$quotedOutput = '/OUT:"' + $output + '"'
-$pdb = '/PDB:"' + (Join-Path $outDir "ACZCalibrate.pdb") + '"'
-$obj = '/Fo"' + (Join-Path $outDir "ACZCalibrate.obj") + '"'
+function Build-Addon {
+    param(
+        [Parameter(Mandatory = $true)][string]$Name
+    )
 
-$command = @(
-    'call "' + $vcvars + '" >nul'
-    'cl.exe /nologo /std:c++20 /O2 /EHsc /MD /LD /W4 /permissive- /DWIN32_LEAN_AND_MEAN /DNOMINMAX ' +
-        $quotedInclude + ' ' + $obj + ' ' + $quotedSource +
-        ' /link ' + $quotedOutput + ' ' + $pdb
-) -join ' && '
+    $source = Join-Path $PSScriptRoot "$Name.cpp"
+    $output = Join-Path $outDir "$Name.addon64"
+    $obj = Join-Path $outDir "$Name.obj"
+    $pdb = Join-Path $outDir "$Name.pdb"
 
-Write-Host "Building ACZCalibrate.addon64..."
-& $env:ComSpec /d /s /c $command
-if ($LASTEXITCODE -ne 0) {
-    throw "MSVC build failed with exit code $LASTEXITCODE."
+    if (-not (Test-Path $source)) {
+        throw "Source not found: $source"
+    }
+
+    $quotedSource = '"' + $source + '"'
+    $quotedInclude = '/I"' + $include + '"'
+    $quotedOutput = '/OUT:"' + $output + '"'
+    $quotedPdb = '/PDB:"' + $pdb + '"'
+    $quotedObj = '/Fo"' + $obj + '"'
+
+    $command = @(
+        'call "' + $vcvars + '" >nul'
+        'cl.exe /nologo /std:c++20 /O2 /EHsc /MD /LD /W4 /permissive- /DWIN32_LEAN_AND_MEAN /DNOMINMAX ' +
+            $quotedInclude + ' ' + $quotedObj + ' ' + $quotedSource +
+            ' /link ' + $quotedOutput + ' ' + $quotedPdb
+    ) -join ' && '
+
+    Write-Host "Building $Name.addon64..."
+    & $env:ComSpec /d /s /c $command
+    if ($LASTEXITCODE -ne 0) {
+        throw "$Name MSVC build failed with exit code $LASTEXITCODE."
+    }
+
+    if (-not (Test-Path $output)) {
+        throw "Build returned success, but $output was not found."
+    }
+
+    Write-Host "Built: $output"
 }
 
-if (-not (Test-Path $output)) {
-    throw "Build returned success, but $output was not found."
-}
+Build-Addon "ACZCalibrate"
+Build-Addon "ACZRenderBridge"
 
 Write-Host ""
-Write-Host "Built: $output"
-Write-Host "Copy ACZCalibrate.addon64 next to ReShade's d3d12.dll / acz.exe."
-Write-Host "Keep the temporary xinput1_4.dll oracle installed for calibration."
-Write-Host "Enter gameplay and press NUMPAD + once."
-Write-Host "Read ACZCalibrate.log next to acz.exe."
+Write-Host "Calibration: addon\bin\ACZCalibrate.addon64"
+Write-Host "Production:  addon\bin\ACZRenderBridge.addon64"
+Write-Host ""
+Write-Host "For SceneClean Phase 1 testing, install only ACZRenderBridge.addon64 next to acz.exe / ReShade."
