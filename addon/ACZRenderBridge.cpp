@@ -520,6 +520,17 @@ namespace
 		cmd_list->destroy_private_data<bridge_command_list_data>();
 	}
 
+	void on_reset_command_list(command_list *cmd_list)
+	{
+		auto &state = *cmd_list->get_private_data<bridge_command_list_data>();
+		state.pipeline = 0;
+		state.topology = 0;
+		state.rtv0 = { 0 };
+		state.dsv = { 0 };
+		state.prev2.reset();
+		state.prev1.reset();
+	}
+
 	void on_bind_pipeline(
 		command_list *cmd_list,
 		pipeline_stage,
@@ -607,6 +618,7 @@ BOOL APIENTRY DllMain(HMODULE module, DWORD reason, LPVOID)
 		reshade::register_event<reshade::addon_event::destroy_device>(on_destroy_device);
 		reshade::register_event<reshade::addon_event::init_command_list>(on_init_command_list);
 		reshade::register_event<reshade::addon_event::destroy_command_list>(on_destroy_command_list);
+		reshade::register_event<reshade::addon_event::reset_command_list>(on_reset_command_list);
 
 		reshade::register_event<reshade::addon_event::init_pipeline>(on_init_pipeline);
 		reshade::register_event<reshade::addon_event::destroy_pipeline>(on_destroy_pipeline);
