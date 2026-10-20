@@ -227,6 +227,11 @@ float ACZAircraftMask(float2 uv, float centerDepth)
 
     mask = pow(saturate(mask), AircraftMaskPower);
 
+    // Most of the screen is sky/terrain. Avoid the four extra edge-depth
+    // taps entirely when the center pixel is outside the near-field mask.
+    if (mask <= 0.000001)
+        return 0.0;
+
     if (DepthEdgeReject > 0.000001)
     {
         const float2 px =
@@ -363,6 +368,14 @@ float4 PS_ACZLighting(
     const float aircraftMask =
         ACZAircraftMask(uv, depth);
 
+    if (DebugView == 1)
+        return float4(aircraftMask.xxx, 1.0);
+
+    // Final mode is intentionally cheap away from the aircraft/near field.
+    // Normal reconstruction and the SSIL taps only run for admitted pixels.
+    if (aircraftMask <= 0.000001 && DebugView == 0)
+        return original;
+
     const float3 normal =
         ACZScreenNormal(uv);
 
@@ -459,9 +472,6 @@ float4 PS_ACZLighting(
             ClearcoatStrength *
             aircraftMask;
     }
-
-    if (DebugView == 1)
-        return float4(aircraftMask.xxx, 1.0);
 
     if (DebugView == 2)
         return float4(normal * 0.5 + 0.5, 1.0);
