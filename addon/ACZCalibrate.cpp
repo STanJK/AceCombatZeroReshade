@@ -254,6 +254,7 @@ namespace
 	std::mutex g_pending_mutex;
 	pending_capture g_pending;
 	std::atomic<uint64_t> g_next_capture_id { 0 };
+	std::atomic_bool g_capture_observed { false };
 
 	void on_bind_pipeline(api::command_list *, api::pipeline_stage, api::pipeline pipeline)
 	{
@@ -287,6 +288,7 @@ namespace
 			return;
 
 		g_tls.capture_active = true;
+		g_capture_observed.store(true, std::memory_order_release);
 		g_tls.first_hud_seen = false;
 		g_tls.draw_ordinal = 0;
 		g_tls.last_draw.reset();
@@ -471,12 +473,15 @@ namespace
 	{
 		try_resolve_oracle();
 
-		if (g_tls.capture_active)
+		// Draw events and Present are not guaranteed to execute on the same thread.
+		// The semantic scope's capture bit is process-global, while HUD parser/builder
+		// bits are render-thread local. Flush on the first Present after the capture
+		// bit has dropped, using a cross-thread observed flag.
+		const uint32_t scope = oracle_scope_flags();
+		if ((scope & 1u) == 0 &&
+			g_capture_observed.exchange(false, std::memory_order_acq_rel))
 		{
 			flush_capture();
-			g_tls.capture_active = false;
-			g_tls.first_hud_seen = false;
-			g_tls.last_draw.reset();
 		}
 	}
 }
