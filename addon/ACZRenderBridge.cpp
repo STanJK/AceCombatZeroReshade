@@ -793,40 +793,32 @@ namespace
 				target_desc))
 			return false;
 
-		const resource resources[2] = {
-			target,
-			runtime_data->original_final
-		};
-		const resource_usage old_states[2] = {
-			resource_usage::render_target,
-			runtime_data->original_final_shader_ready
-				? resource_usage::shader_resource
-				: resource_usage::copy_dest
-		};
-		const resource_usage copy_states[2] = {
-			resource_usage::copy_source,
-			resource_usage::copy_dest
-		};
-
 		cmd_list->barrier(
-			2,
-			resources,
-			old_states,
-			copy_states);
+			target,
+			resource_usage::render_target,
+			resource_usage::copy_source);
+
+		if (runtime_data->original_final_shader_ready)
+		{
+			cmd_list->barrier(
+				runtime_data->original_final,
+				resource_usage::shader_resource,
+				resource_usage::copy_dest);
+		}
 
 		cmd_list->copy_resource(
 			target,
 			runtime_data->original_final);
 
-		const resource_usage final_states[2] = {
-			resource_usage::render_target,
-			resource_usage::shader_resource
-		};
 		cmd_list->barrier(
-			2,
-			resources,
-			copy_states,
-			final_states);
+			target,
+			resource_usage::copy_source,
+			resource_usage::render_target);
+
+		cmd_list->barrier(
+			runtime_data->original_final,
+			resource_usage::copy_dest,
+			resource_usage::shader_resource);
 
 		runtime_data->original_final_shader_ready = true;
 		++runtime_data->original_final_copies;
@@ -1197,10 +1189,10 @@ namespace
 					device->destroy_resource(
 						data->original_final);
 
-				for (resource resource :
+				for (resource retired_resource :
 					 data->retired_original_final)
-					if (resource != 0)
-						device->destroy_resource(resource);
+					if (retired_resource != 0)
+						device->destroy_resource(retired_resource);
 			}
 		}
 
