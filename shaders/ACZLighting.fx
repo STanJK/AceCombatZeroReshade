@@ -195,23 +195,32 @@ float3 ACZViewPosition(float2 uv, float depth)
 
 float3 ACZScreenNormal(float2 uv)
 {
-    const float2 px = float2(BUFFER_RCP_WIDTH, BUFFER_RCP_HEIGHT);
+    // Keep this reconstruction intentionally identical to ReShade's
+    // DisplayDepth.fx GetScreenSpaceNormal(), except that we return the
+    // signed [-1,+1] normal rather than its display-encoded [0,1] value.
+    const float3 offset =
+        float3(BUFFER_RCP_WIDTH, BUFFER_RCP_HEIGHT, 0.0);
 
-    const float2 uvC = uv;
-    const float2 uvN = uv - float2(0.0, px.y);
-    const float2 uvE = uv + float2(px.x, 0.0);
+    const float2 posCenter = uv;
+    const float2 posNorth  = posCenter - offset.zy;
+    const float2 posEast   = posCenter + offset.xz;
 
-    const float3 pC = ACZViewPosition(uvC, ACZDepth(uvC));
-    const float3 pN = ACZViewPosition(uvN, ACZDepth(uvN));
-    const float3 pE = ACZViewPosition(uvE, ACZDepth(uvE));
+    const float3 vertCenter =
+        float3(posCenter - 0.5, 1.0) *
+        ACZDepth(posCenter);
 
-    float3 n = normalize(cross(pC - pN, pC - pE));
+    const float3 vertNorth =
+        float3(posNorth - 0.5, 1.0) *
+        ACZDepth(posNorth);
 
-    // Keep a stable camera-facing orientation for Fresnel math.
-    if (n.z < 0.0)
-        n = -n;
+    const float3 vertEast =
+        float3(posEast - 0.5, 1.0) *
+        ACZDepth(posEast);
 
-    return n;
+    return normalize(
+        cross(
+            vertCenter - vertNorth,
+            vertCenter - vertEast));
 }
 
 float ACZAircraftMask(float2 uv, float centerDepth)
@@ -376,11 +385,17 @@ float4 PS_ACZLighting(
     if (aircraftMask <= 0.000001 && DebugView == 0)
         return original;
 
-    const float3 normal =
+    const float3 rawNormal =
         ACZScreenNormal(uv);
 
     const float3 viewRay =
         normalize(float3(uv - 0.5, 1.0));
+
+    // Keep debug output bit-for-bit comparable to ReShade DisplayDepth.
+    // Only the lighting path gets a camera-facing orientation fix.
+    float3 normal = rawNormal;
+    if (dot(normal, viewRay) < 0.0)
+        normal = -normal;
 
     const float noV =
         saturate(dot(normal, viewRay));
@@ -474,7 +489,7 @@ float4 PS_ACZLighting(
     }
 
     if (DebugView == 2)
-        return float4(normal * 0.5 + 0.5, 1.0);
+        return float4(rawNormal * 0.5 + 0.5, 1.0);
 
     if (DebugView == 3)
         return float4(fresnel.xxx, 1.0);
