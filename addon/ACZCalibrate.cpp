@@ -257,6 +257,8 @@ namespace
 	std::atomic_bool g_capture_observed { false };
 	std::atomic<uint64_t> g_raw_capture_draws { 0 };
 	std::atomic<uint64_t> g_present_count { 0 };
+	std::atomic<int> g_full_frames_remaining { 0 };
+	std::atomic<uint64_t> g_full_capture_id { 0 };
 
 	void on_bind_pipeline(api::command_list *, api::pipeline_stage, api::pipeline pipeline)
 	{
@@ -391,6 +393,33 @@ namespace
 		});
 	}
 
+	void console_full_draw(const char *kind, uint32_t scope, const draw_record &record)
+	{
+		std::ostringstream s;
+		s
+			<< "FULL " << kind
+			<< " cap=" << g_full_capture_id.load(std::memory_order_relaxed)
+			<< " present=" << g_present_count.load(std::memory_order_relaxed)
+			<< " scope=0x" << std::hex << scope
+			<< " ordinal=" << std::dec << record.ordinal
+			<< " pipeline=0x" << std::hex << record.pipeline
+			<< " stable=0x" << record.fp.stable
+			<< " vs=0x" << record.fp.vs
+			<< " ps=0x" << record.fp.ps
+			<< " gs=0x" << record.fp.gs
+			<< " topology=0x" << record.topology
+			<< " rtv0=0x" << record.rtv0
+			<< " dsv=0x" << record.dsv
+			<< std::dec
+			<< " args=["
+			<< record.args[0] << ','
+			<< record.args[1] << ','
+			<< record.args[2] << ','
+			<< record.args[3] << ','
+			<< record.args[4] << ']';
+		reshade::log::message(reshade::log::level::info, s.str().c_str());
+	}
+
 	bool on_draw(
 		api::command_list *,
 		uint32_t vertex_count,
@@ -399,12 +428,6 @@ namespace
 		uint32_t first_instance)
 	{
 		const uint32_t scope = oracle_scope_flags();
-		if ((scope & 1u) == 0)
-		{
-			g_tls.capture_active = false;
-			return false;
-		}
-
 		const int64_t args[5] = {
 			vertex_count,
 			instance_count,
@@ -413,9 +436,23 @@ namespace
 			0
 		};
 		const draw_record record = make_record(false, args);
-		g_raw_capture_draws.fetch_add(1, std::memory_order_relaxed);
-		console_draw("DRAW", scope, record);
-		observe_draw(record, scope);
+
+		if (g_full_frames_remaining.load(std::memory_order_acquire) > 0)
+			console_full_draw("DRAW", scope, record);
+
+		if ((scope & 1u) != 0)
+		{
+			g_raw_capture_draws.fetch_add(1, std::memory_order_relaxed);
+			console_draw("DRAW", scope, record);
+			observe_draw(record, scope);
+		}
+		else
+		{
+			g_tls.capture_active = false;
+		}
+
+		++g_tls.draw_ordinal;
+		g_tls.last_draw = record;
 		return false;
 	}
 
@@ -428,12 +465,6 @@ namespace
 		uint32_t first_instance)
 	{
 		const uint32_t scope = oracle_scope_flags();
-		if ((scope & 1u) == 0)
-		{
-			g_tls.capture_active = false;
-			return false;
-		}
-
 		const int64_t args[5] = {
 			index_count,
 			instance_count,
@@ -442,9 +473,23 @@ namespace
 			first_instance
 		};
 		const draw_record record = make_record(true, args);
-		g_raw_capture_draws.fetch_add(1, std::memory_order_relaxed);
-		console_draw("DRAW_INDEXED", scope, record);
-		observe_draw(record, scope);
+
+		if (g_full_frames_remaining.load(std::memory_order_acquire) > 0)
+			console_full_draw("DRAW_INDEXED", scope, record);
+
+		if ((scope & 1u) != 0)
+		{
+			g_raw_capture_draws.fetch_add(1, std::memory_order_relaxed);
+			console_draw("DRAW_INDEXED", scope, record);
+			observe_draw(record, scope);
+		}
+		else
+		{
+			g_tls.capture_active = false;
+		}
+
+		++g_tls.draw_ordinal;
+		g_tls.last_draw = record;
 		return false;
 	}
 
@@ -526,16 +571,42 @@ namespace
 		reshade::log::message(reshade::log::level::info, msg.str().c_str());
 	}
 
-	void on_reshade_present(api::effect_runtime *)
+	void on_reshade_present(api::effect_runtime *runtime)
 	{
 		const bool connected = try_resolve_oracle();
 		if (connected)
 			ensure_calibration_log();
 
-		const uint32_t scope = oracle_scope_flags();
 		const uint64_t present = g_present_count.fetch_add(1, std::memory_order_relaxed) + 1;
-		const bool observed = g_capture_observed.load(std::memory_order_acquire);
+		const uint32_t scope = oracle_scope_flags();
 
+		if (runtime->is_key_pressed(VK_ADD))
+		{
+			const uint64_t capture_id = g_full_capture_id.fetch_add(1, std::memory_order_acq_rel) + 1;
+			g_full_frames_remaining.store(3, std::memory_order_release);
+
+			std::ostringstream s;
+			s << "FULL CAPTURE ARMED cap=" << capture_id
+			  << " at present=" << present
+			  << " for next 3 presented frames.";
+			reshade::log::message(reshade::log::level::info, s.str().c_str());
+		}
+
+		int remaining = g_full_frames_remaining.load(std::memory_order_acquire);
+		if (remaining > 0)
+		{
+			std::ostringstream s;
+			s << "FULL PRESENT cap=" << g_full_capture_id.load(std::memory_order_relaxed)
+			  << " present=" << present
+			  << " scope=0x" << std::hex << scope
+			  << " remaining=" << std::dec << remaining;
+			reshade::log::message(reshade::log::level::info, s.str().c_str());
+
+			if (g_full_frames_remaining.fetch_sub(1, std::memory_order_acq_rel) == 1)
+				reshade::log::message(reshade::log::level::info, "FULL CAPTURE END.");
+		}
+
+		const bool observed = g_capture_observed.load(std::memory_order_acquire);
 		if (scope != 0 || observed)
 		{
 			std::ostringstream s;
