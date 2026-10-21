@@ -9,6 +9,13 @@ uniform bool ACZSceneCleanFresh <
     source = "acz_scene_clean_fresh";
 >;
 
+uniform bool ACZGameControlActive <
+    source = "acz_gamecontrol_active";
+    ui_label = "GameControl Active";
+    ui_tooltip = "Diagnostic raw ACZ lifecycle/control flag at acz.exe+0x32C933. Read-only; not used for gating yet.";
+    noedit = true;
+>;
+
 texture2D ACZSceneCleanTex : ACZ_SCENE_CLEAN;
 
 sampler2D ACZSceneCleanSampler
