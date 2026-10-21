@@ -304,6 +304,88 @@ namespace
 	std::atomic_bool g_hud_bootstrapped { false };
 	std::atomic<uint64_t> g_bootstrap_full_pso { 0 };
 
+	// ACZ ModeGameControl lifecycle probe.
+	//
+	// IDA 2026-10-22:
+	//   ModeGameControl::enter  RVA 0x16E0B0 writes 1 to this byte.
+	//   ModeGameControl::leave  RVA 0x16E4C0 writes 0 to this byte.
+	// Additional writes occur inside GameControl while combat is active, so
+	// this is diagnostic-only until runtime behavior is validated.
+	constexpr uintptr_t rva_gamecontrol_active = 0x032C933;
+	std::atomic<int> g_last_gamecontrol_active { -1 };
+
+	bool read_gamecontrol_active(bool &active)
+	{
+		const HMODULE exe = GetModuleHandleW(nullptr);
+		if (exe == nullptr)
+			return false;
+
+		const auto base =
+			reinterpret_cast<uintptr_t>(exe);
+		const auto *flag =
+			reinterpret_cast<const volatile uint8_t *>(
+				base + rva_gamecontrol_active);
+
+		active = (*flag != 0);
+		return true;
+	}
+
+	void update_gamecontrol_probe(effect_runtime *runtime)
+	{
+		bool active = false;
+		if (!read_gamecontrol_active(active))
+			return;
+
+		const int value = active ? 1 : 0;
+		const int previous =
+			g_last_gamecontrol_active.exchange(
+				value,
+				std::memory_order_acq_rel);
+
+		if (previous != value)
+		{
+			std::ostringstream message;
+			message
+				<< "ACZRenderBridge: GameControl flag transition"
+				<< " value=" << value
+				<< " previous=" << previous
+				<< " present="
+				<< g_present_serial.load(
+					std::memory_order_acquire)
+				<< " rva=0x" << std::hex
+				<< rva_gamecontrol_active
+				<< std::dec;
+
+			reshade::log::message(
+				reshade::log::level::info,
+				message.str().c_str());
+		}
+
+		if (runtime == nullptr)
+			return;
+
+		runtime->enumerate_uniform_variables(
+			nullptr,
+			[active](
+				effect_runtime *rt,
+				effect_uniform_variable variable)
+			{
+				char source[64] = {};
+				if (rt->get_annotation_string_from_uniform_variable(
+						variable,
+						"source",
+						source) &&
+					std::strcmp(
+						source,
+						"acz_gamecontrol_active") == 0)
+				{
+					rt->set_uniform_value_bool(
+						variable,
+						active);
+				}
+			});
+	}
+
 	void on_init_pipeline(
 		device *,
 		pipeline_layout layout,
@@ -1580,6 +1662,10 @@ namespace
 		resource_view rtv,
 		resource_view)
 	{
+		// Publish the raw GameControl lifecycle probe first. This is
+		// diagnostic-only for now and does not participate in effect gating.
+		update_gamecontrol_probe(runtime);
+
 		// Publish SceneClean and obtain this frame's freshness before the
 		// technique list is rendered.
 		const bool scene_fresh =
@@ -1872,7 +1958,7 @@ namespace
 
 extern "C" __declspec(dllexport) const char *NAME = "ACZ Render Bridge";
 extern "C" __declspec(dllexport) const char *DESCRIPTION =
-	"Captures SceneClean, OriginalFinal and ProcessedClean for HUD-safe ReShade processing and A/B comparison in ACE COMBAT ZERO.";
+	"Captures SceneClean, OriginalFinal and ProcessedClean, with ACZ GameControl lifecycle diagnostics, for HUD-safe ReShade processing in ACE COMBAT ZERO.";
 
 BOOL APIENTRY DllMain(HMODULE module, DWORD reason, LPVOID)
 {
