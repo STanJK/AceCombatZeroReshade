@@ -7,7 +7,7 @@
     "cross_compiler_archive_sha256": "ceb8c5acc6f76e143f9c714772d2fa677027802561ce68c396e8dc990a80f0b6"
   },
   "local_tests": {
-    "passed": 51,
+    "passed": 53,
     "failed": 0,
     "command": "cargo test --manifest-path coop/Cargo.toml --workspace --locked"
   },
@@ -24,7 +24,7 @@
     "gameplay_executed": false,
     "windows_dll": {
       "bytes": 601088,
-      "sha256": "8f27aa25b7cc9c064fc30cef0bb3faf2117b4d9b60afe4582fb3d4184b357cf8",
+      "sha256": "71b9ecf672dc57436df06ee1aab949342517dfc4525315290b9720b6ab652aef",
       "exports": [
         "AddonInit",
         "AddonUninit",
@@ -45,8 +45,8 @@
     "crt_static": true,
     "linked": true,
     "windows_binaries_executed": false,
-    "cli_bytes": 732160,
-    "cli_sha256": "964196f9c2e2c38b521266f6b30abdb49b54dd324114d81b9703cd3f7af988ca"
+    "cli_bytes": 733184,
+    "cli_sha256": "95ec382679c4d8b04af851efba03c202b1e95d57f88036b1b3a7a625343cbca1"
   },
   "doctor": {
     "result": "PASS",
@@ -82,6 +82,10 @@
     "initial_ubuntu": "PASS",
     "initial_windows": "failed compatibility hash due to checkout CRLF conversion",
     "fix": "Root .gitattributes enforces LF; actual core.autocrlf=true filter is now byte-identical",
-    "rerun": "pending"
+    "rerun": "pending",
+    "normalization_commit": "0ef78f1a14c01ee7327398e9441728125c13e455",
+    "normalization_ubuntu": "PASS",
+    "normalization_windows": "Compiled successfully; failed two-process CLI integration; socket mode ownership fixed and rerun pending",
+    "normalization_run_id": 41078455436
   }
 }

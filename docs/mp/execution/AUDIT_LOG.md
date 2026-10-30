@@ -9,9 +9,9 @@
 | E02 protocol | 5 项单元测试 | 显式编码/精确长度；兼容 SHA、初始 HP 与 Ack 同步 | 本地通过 |
 | E03 session | 6 项单元测试 | 主机权限、一次许可、输入窗口/边沿/世代 | 本地通过 |
 | E04 replication | 8 项单元测试 | 完整分块与失败原子性、事件序列/去重 | 本地通过 |
-| E05 transport | 7 项单元测试 | 双向认证、每帧 MAC/计数、限长、总超时、错误后失效 | 本地通过 |
+| E05 transport | 8 项单元测试 | 双向认证、每帧 MAC/计数、限长、总超时、错误后失效 | 本地通过 |
 | E06 game | 8 项单元测试 + 真实 EXE doctor | 指纹/ABI/偏移与实际指令核对；修正 +1FC0 | 本地静态/模型通过 |
-| E07 trace | 4 项单元测试 | try-send 与独立写端、容量/丢弃/IO 错误 | 本地通过 |
+| E07 trace | 5 项单元测试 | try-send 与独立写端、容量/丢弃/IO 错误 | 本地通过 |
 | E08 runtime | 4 项单元测试 + Windows x64 链接 | API 20 导出、原始调用、4 个入口；无热释放 | 构建通过；HIL 未执行 |
 | E09 cli | 3 项单元 + 2 项 CLI 集成 | 双进程/四次摘要/失败摘要/重试旧包 | 本地通过 |
 
@@ -100,7 +100,7 @@ CLI 的单元与命令行测试通过；独立进程 model demo 和真实 EXE do
 
 ## 最终跨模块审计补充
 
-- 全量本地测试：51/0；fmt、Linux 和 Windows gnullvm 全目标 clippy（-D warnings）通过。
+- 全量本地测试：53/0；fmt、Linux 和 Windows gnullvm 全目标 clippy（-D warnings）通过。
 - GNU 产物依赖检查发现初版引用 libunwind.dll；启用 crt-static 重新链接后，DLL/CLI 只导入系统 DLL，未附带另一个加载代理。构建脚本同步设置并恢复目标环境变量。
 - P+1FC0 的同源夹具错误已由实际初始/重置指令纠正，额外回归测试通过。
 - 两个 ModeHolder 额外导出核实 update 的调用参数和返回值，不将 holder 的 AL 返回值误加给 mode update。
@@ -113,3 +113,18 @@ CLI 的单元与命令行测试通过；独立进程 model demo 和真实 EXE do
 Git core.autocrlf=true 的真实过滤器会改变兼容 JSON 的 SHA，也会使逐文件归档哈希失效。
 新增 .gitattributes 固定文本 LF、压缩包/二进制不转换；再次用同一过滤器检查字节完全相同。
 这是工作树字节兼容修复，不改变线协议、原生代码或 51 项测试的逻辑。
+
+## 遥测退出事件的可见性
+
+空闲 20ms 后由写入线程 flush 缓冲，避免返回菜单后最后的 world_left 记录一直留在缓冲。
+真实线程 + BufWriter 测试确认在停止写端之前已能读到该记录；游戏线程仍不执行 IO。
+
+## Windows 运行验收：连接状态继承
+
+`0ef78f1` 的 Windows job 已通过接口校验和完整编译；双进程 model demo 暴露传输接管契约缺口。
+原诊断在 host 失败后杀掉 guest，又以 guest 的空 stderr 覆盖主错误。现保留主错误与子进程退出状态。
+参考 [Microsoft accept 文档](https://learn.microsoft.com/en-us/windows/win32/api/winsock2/nf-winsock2-accept)，
+Windows accepted socket 具有监听端的属性。transport 两个构造入口现在显式 `set_nonblocking(false)`，
+再使用原有总截止时间，不让上层 listener 的轮询策略进入传输内部。
+新增双向非阻塞 socket 接管测试；全量本地 53/0，跨编译检查与链接通过。
+公开方法、依赖边界和线协议未变化；CI 再验 Windows 原生双进程及 release CLI，结果见 VALIDATION。

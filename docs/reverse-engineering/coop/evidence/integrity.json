@@ -6,9 +6,9 @@
       "sha256": "5ecf288b66f9c4d021c095b2c089fa3599dad57b2b615dd6aa53b8b714205a55"
     },
     {
-      "bytes": 1496,
+      "bytes": 1711,
       "path": ".github/workflows/coop.yml",
-      "sha256": "437149b5f69446dff7fe295f33791352144a9ab297c650c6f51c8b36daa15696"
+      "sha256": "1c418fcefb567c03b4eb5abbd9ee7e4057d7a89402b428550901dc0e3f718641"
     },
     {
       "bytes": 5328,
@@ -56,9 +56,9 @@
       "sha256": "ae261737d0db71f3b750667569f9c31a10f611758a60be20fe8339bd39f9156d"
     },
     {
-      "bytes": 16142,
+      "bytes": 16460,
       "path": "coop/crates/cli/src/lib.rs",
-      "sha256": "c68cd31d37ea4156cf01c3b734923f215d60a22641d000792bc3ebacd8e70e0d"
+      "sha256": "52d86c676ca5982b5eef2713ab454c87b0684dc10f099fc9e77ea1b626245f58"
     },
     {
       "bytes": 2425,
@@ -151,9 +151,9 @@
       "sha256": "3f480f96138bf9095368567b59ee64c9e1c5d9ed0eebf20368eb40ec025d130e"
     },
     {
-      "bytes": 10049,
+      "bytes": 11703,
       "path": "coop/crates/trace/src/lib.rs",
-      "sha256": "aa4e706c961da832578cf87b80f57af9897596fcf046b50c45191581cffd44c2"
+      "sha256": "03fdcd107a31736c2436d3398e28b96520ed151b5b01107631572fbf133c8552"
     },
     {
       "bytes": 300,
@@ -161,9 +161,9 @@
       "sha256": "ab6f72df005d0979d0defc885be1b6ea32d90fb4c0285585f5c35bf22d39b932"
     },
     {
-      "bytes": 16852,
+      "bytes": 18131,
       "path": "coop/crates/transport/src/lib.rs",
-      "sha256": "acbf8ff151bc73e6c15bf991c89da13a14de0d830efbe3c64f6f9d6d41227ba3"
+      "sha256": "2d52bd25eaa92f97984ecdb9827b4f8c41730fd938f95307e85b2d38958b82f8"
     },
     {
       "bytes": 86,
@@ -221,9 +221,9 @@
       "sha256": "10038a10ec51423b2e3e7e1ebf627235081b457bd7f162ca2e1a239722583c06"
     },
     {
-      "bytes": 8001,
+      "bytes": 9119,
       "path": "docs/mp/execution/AUDIT_LOG.md",
-      "sha256": "658808e88ddc00e41125ce27999b4c587916aaa90d3c3c574b282a763f0a235f"
+      "sha256": "5f8cd7b6b04f7861dd5ddfc27ed83c7fb1f398f08bafc2310429e5f274954be4"
     },
     {
       "bytes": 2048,
@@ -231,14 +231,14 @@
       "sha256": "3ee0f8dc3462a4fbc30fd85d9a014745c2ac3d36bb7739e407f734a3cdc77e3d"
     },
     {
-      "bytes": 4008,
+      "bytes": 4335,
       "path": "docs/mp/execution/INTERFACES.md",
-      "sha256": "c63a29d173fff85e495b89f056fc69cad82f2f301f7dffcf5ba95d1a53ad1c48"
+      "sha256": "c07eef4c8f8e9b5f6cd050c67b855986eb8c3f699febd22166aebb1f660901cc"
     },
     {
-      "bytes": 3732,
+      "bytes": 3830,
       "path": "docs/mp/execution/MODULE_PLAN.md",
-      "sha256": "0ad7af739584553410e917373a6af517c58d8858a58944396108c51117972f6f"
+      "sha256": "142e1797f2414772f48013a3600911a42cf2557743c9b78c361b7524c7bb511c"
     },
     {
       "bytes": 813,
@@ -258,7 +258,7 @@
     {
       "bytes": 3567,
       "path": "docs/mp/execution/VALIDATION.md",
-      "sha256": "4b0d5528a9ca632f768b72fad45e2f481887dde0ebe22578784f2efd4471aea8"
+      "sha256": "0ff60d74fb5c5f129d65c0dc32070ac0be8e39503364641b9e67138edfe18278"
     },
     {
       "bytes": 198,
@@ -268,7 +268,7 @@
     {
       "bytes": 607,
       "path": "docs/mp/execution/evidence/interface-checks.json",
-      "sha256": "8318c2e1a073c9af71c2dd445e297089ca704839a30acee74e3fc1467a66c5a7"
+      "sha256": "35f33d459263c800a098870a2a2725e1ddaad815dfd849f680430b267da9fd9b"
     },
     {
       "bytes": 417,
@@ -311,9 +311,9 @@
       "sha256": "6ce89008b70f652ff3b73c75a6831a544bcf9805bfb79802d0d722fdad470a31"
     },
     {
-      "bytes": 2579,
+      "bytes": 2865,
       "path": "docs/mp/execution/evidence/validation-summary.json",
-      "sha256": "3491fbf4bbb911de30b07cb83a4ba45382b7edfb92e0cde568bb61d2ad4c3125"
+      "sha256": "29c2f3e86c89584bf726b72e720ce6843746358cd08d4ec4c39cd45a57b79591"
     },
     {
       "bytes": 12838,
@@ -363,12 +363,12 @@
     {
       "bytes": 5461,
       "path": "docs/reverse-engineering/coop/archive/manifest.json",
-      "sha256": "5e12b223cc4f5f3a5c17d3ef615fb0e44dc8f82f4765062a9d494f46f7ecce52"
+      "sha256": "16c305f00d664dc1292b68fe2ee0aac98e3bb9165672ada8b4cb0dd3c3afa72f"
     },
     {
-      "bytes": 63233,
+      "bytes": 63999,
       "path": "docs/reverse-engineering/coop/archive/plans-and-usage.tar.gz",
-      "sha256": "b7d99d41983e6a51eb3da3f27a07ba9ddb15555b0dd2356a2097782e7bdfd937"
+      "sha256": "ebcf1008afdee3782e473315d1bab3f37121104f4fdb7e9cc4910f827d6a5b34"
     },
     {
       "bytes": 509,

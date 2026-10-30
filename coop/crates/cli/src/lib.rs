@@ -350,7 +350,7 @@ pub fn demo() -> AnyResult<ModelReport> {
         .stdout(Stdio::piped())
         .stderr(Stdio::piped())
         .spawn()?;
-    let result = (|| {
+    let result: AnyResult<ModelReport> = (|| {
         let until = Instant::now() + Duration::from_secs(10);
         let socket = loop {
             match listener.accept() {
@@ -377,14 +377,22 @@ pub fn demo() -> AnyResult<ModelReport> {
         let _ = child.kill();
     }
     let output = child.wait_with_output()?;
+    let report = result.map_err(|error| {
+        io::Error::other(format!(
+            "model host failed: {error}; guest status={}; stderr={}",
+            output.status,
+            String::from_utf8_lossy(&output.stderr)
+        ))
+    })?;
     if !output.status.success() {
         return Err(io::Error::other(format!(
-            "model guest failed: {}",
+            "model guest failed: status={}; stderr={}",
+            output.status,
             String::from_utf8_lossy(&output.stderr)
         ))
         .into());
     }
-    result
+    Ok(report)
 }
 pub fn doctor(path: &Path) -> AnyResult<String> {
     let bytes = fs::read(path)?;

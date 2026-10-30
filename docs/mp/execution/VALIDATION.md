@@ -6,7 +6,7 @@
 
 | 检查 | 实际结果 | 范围 |
 | --- | --- | --- |
-| Rust workspace 单元/集成 | **51 passed / 0 failed** | 包括真实双进程 TCP；不启动游戏 |
+| Rust workspace 单元/集成 | **53 passed / 0 failed** | 包括真实双进程 TCP；不启动游戏 |
 | fmt | PASS | 全 workspace |
 | Windows checkout 字节 | PASS | core.autocrlf=true 下兼容 JSON 与归档文本保持 LF |
 | clippy `-D warnings` | PASS | Linux / Windows gnullvm，均含 all-targets |
@@ -40,7 +40,7 @@ M0 必须记录真实菜单/加载/飞行/暂停/回放/结算/重试/退出；�
 
 尚未把资源不完整的第二玩家强行接到战役，也未提供原生武器/伤害/任务/保存修改。
 原生写能力检查明确返回 Unsupported。TCP 原型未完成最终低延迟通道、保密传输、
-Internet 穿透/中继或通关覆盖。它们是下个施工阶段，不以本轮 51 个测试替代。
+Internet 穿透/中继或通关覆盖。它们是下个施工阶段，不以本轮 53 个测试替代。
 
 ## 复现
 

@@ -135,7 +135,7 @@ impl TraceDrain {
             while !stop.load(Ordering::Acquire) {
                 match self.rx.recv_timeout(Duration::from_millis(20)) {
                     Ok(record) => write_record(writer, &record)?,
-                    Err(mpsc::RecvTimeoutError::Timeout) => (),
+                    Err(mpsc::RecvTimeoutError::Timeout) => writer.flush()?,
                     Err(mpsc::RecvTimeoutError::Disconnected) => break,
                 }
             }
@@ -302,6 +302,53 @@ mod tests {
             code: Status::Boot,
             detail: 0
         }));
+    }
+    #[test]
+    fn idle_writer_publishes_last_lifecycle_record_before_shutdown() {
+        use std::sync::Mutex;
+        use std::time::Instant;
+        struct Probe(Arc<Mutex<Vec<u8>>>);
+        impl Write for Probe {
+            fn write(&mut self, b: &[u8]) -> io::Result<usize> {
+                self.0.lock().unwrap().extend_from_slice(b);
+                Ok(b.len())
+            }
+            fn flush(&mut self) -> io::Result<()> {
+                Ok(())
+            }
+        }
+        let (tx, drain) = channel(8).unwrap();
+        let bytes = Arc::new(Mutex::new(Vec::new()));
+        let output = bytes.clone();
+        let stop = Arc::new(AtomicBool::new(false));
+        let stopping = stop.clone();
+        let thread = std::thread::spawn(move || {
+            drain.run(
+                &mut std::io::BufWriter::with_capacity(8192, Probe(output)),
+                &stopping,
+            )
+        });
+        tx.try_record(Record::Status {
+            code: Status::WorldLeft,
+            detail: 1,
+        });
+        let deadline = Instant::now() + Duration::from_secs(2);
+        let visible = loop {
+            if String::from_utf8_lossy(&bytes.lock().unwrap()).contains("world_left") {
+                break true;
+            }
+            if Instant::now() >= deadline {
+                break false;
+            }
+            std::thread::sleep(Duration::from_millis(1));
+        };
+        stop.store(true, Ordering::Release);
+        drop(tx);
+        thread.join().unwrap().unwrap();
+        assert!(
+            visible,
+            "lifecycle tail was not visible while writer was still running"
+        );
     }
     #[test]
     fn invalid_capacity_is_rejected() {

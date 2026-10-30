@@ -8,7 +8,7 @@
   "gameplay_executed": false,
   "windows_dll": {
     "bytes": 601088,
-    "sha256": "8f27aa25b7cc9c064fc30cef0bb3faf2117b4d9b60afe4582fb3d4184b357cf8",
+    "sha256": "71b9ecf672dc57436df06ee1aab949342517dfc4525315290b9720b6ab652aef",
     "exports": [
       "AddonInit",
       "AddonUninit",

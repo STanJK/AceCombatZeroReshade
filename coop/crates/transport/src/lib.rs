@@ -161,6 +161,9 @@ impl AuthenticatedStream {
     pub fn accept_host(mut stream: TcpStream, psk: &Psk, timeout: Duration) -> io::Result<Self> {
         let result = (|| {
             let until = deadline(timeout)?;
+            // Windows accept may inherit nonblocking mode from the listener. This owned
+            // stream uses blocking I/O with a total deadline on every exchange.
+            stream.set_nonblocking(false)?;
             stream.set_nodelay(true)?;
             let mut session = [0; 16];
             getrandom::getrandom(&mut session).map_err(|e| io::Error::other(e.to_string()))?;
@@ -210,6 +213,7 @@ impl AuthenticatedStream {
     pub fn connect_guest(mut stream: TcpStream, psk: &Psk, timeout: Duration) -> io::Result<Self> {
         let result = (|| {
             let until = deadline(timeout)?;
+            stream.set_nonblocking(false)?;
             stream.set_nodelay(true)?;
             let mut server = [0; 64];
             read_exact_until(&mut stream, &mut server, until)?;
@@ -410,6 +414,26 @@ mod tests {
         assert_eq!(g.receive().unwrap().message, Message::Start);
         g.send(Epoch::FIRST, 0, Message::Ready).unwrap();
         assert_eq!(h.receive().unwrap().message, Message::Ready);
+    }
+    #[test]
+    fn owned_nonblocking_sockets_are_normalized_before_handshake() {
+        let listener = TcpListener::bind("127.0.0.1:0").unwrap();
+        let addr = listener.local_addr().unwrap();
+        let worker = thread::spawn(move || {
+            let socket = listener.accept().unwrap().0;
+            socket.set_nonblocking(true).unwrap();
+            let mut host =
+                AuthenticatedStream::accept_host(socket, &key(7), Duration::from_secs(2)).unwrap();
+            assert_eq!(host.receive().unwrap().message, Message::Ready);
+            host.send(Epoch::FIRST, 0, Message::Start).unwrap();
+        });
+        let socket = TcpStream::connect(addr).unwrap();
+        socket.set_nonblocking(true).unwrap();
+        let mut guest =
+            AuthenticatedStream::connect_guest(socket, &key(7), Duration::from_secs(2)).unwrap();
+        guest.send(Epoch::FIRST, 0, Message::Ready).unwrap();
+        assert_eq!(guest.receive().unwrap().message, Message::Start);
+        worker.join().unwrap();
     }
     #[test]
     fn wrong_key_fails_both_peers() {
