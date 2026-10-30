@@ -31,9 +31,9 @@
       "sha256": "bb574dc39a2c02e384abf6425951cf8f082cd36fa91f34ac941bd116260d6e72"
     },
     {
-      "bytes": 4503,
+      "bytes": 4520,
       "path": "coop/README.md",
-      "sha256": "71d986017de0ee0c955812a28e9eb6cd9c7d140c4b2b8f4e5ed24589ebdedf42"
+      "sha256": "b0ff5f60e4d0b08a54011872172d04540ce91eb1c06d68a26e8a1e9cb61d4731"
     },
     {
       "bytes": 211303,
@@ -171,9 +171,9 @@
       "sha256": "d13306be0ecda81ce779baa290ffb417380d525928477f16200884b5169cca33"
     },
     {
-      "bytes": 2270,
+      "bytes": 2291,
       "path": "coop/scripts/Build-Coop.ps1",
-      "sha256": "a83df3429f3ae90b974cb089130fc98dc8a738bdb74338a7138001cbc615a52e"
+      "sha256": "0712ccb299475255c90075e303053bd89dd504bd358a28b00c6bc110fb27600a"
     },
     {
       "bytes": 1024,
@@ -181,9 +181,9 @@
       "sha256": "fedba458c25957e9b4a484f0ef4f6230f4f9ac50b2323eb047faf4243d4b3e37"
     },
     {
-      "bytes": 7779,
+      "bytes": 7921,
       "path": "coop/tools/verify_interfaces.py",
-      "sha256": "b6c5ba48cc083893d0b318020d44bfdac436c2729dc7e09fe5f01bd521c4bcfb"
+      "sha256": "3f91ae30da71b0b43a8466df1a6ac91da8a93774c510fb787788f3a9fb5fc2b3"
     },
     {
       "bytes": 5416,
@@ -221,9 +221,14 @@
       "sha256": "10038a10ec51423b2e3e7e1ebf627235081b457bd7f162ca2e1a239722583c06"
     },
     {
-      "bytes": 9423,
+      "bytes": 6731,
+      "path": "docs/mp/execution/API_MAP.md",
+      "sha256": "d85abcbabb676ce1c2dd8e13eb8cc12ca0e24a89405d007cbe2848ccf42fe207"
+    },
+    {
+      "bytes": 9858,
       "path": "docs/mp/execution/AUDIT_LOG.md",
-      "sha256": "a0f2b298bf492a933e93f11a7e07ba2349c6519ddc4fed0debdf82018fd73c88"
+      "sha256": "17f351de2ed603ab3e00b0ef1663ef078ac73bf25272a3970e75b6b66c3bb917"
     },
     {
       "bytes": 2048,
@@ -236,14 +241,19 @@
       "sha256": "c07eef4c8f8e9b5f6cd050c67b855986eb8c3f699febd22166aebb1f660901cc"
     },
     {
-      "bytes": 3830,
+      "bytes": 3978,
       "path": "docs/mp/execution/MODULE_PLAN.md",
-      "sha256": "142e1797f2414772f48013a3600911a42cf2557743c9b78c361b7524c7bb511c"
+      "sha256": "3d4693ab26bf3331281e32bba20a70954408f1825ad1dae69cdf63a3fa8e4e9b"
     },
     {
-      "bytes": 813,
+      "bytes": 13497,
+      "path": "docs/mp/execution/NATIVE_MODULE_PLAN.md",
+      "sha256": "fb38660468579d2eb81287ae7089028650147e57504f6585e3f6b12fd5e11461"
+    },
+    {
+      "bytes": 950,
       "path": "docs/mp/execution/README.md",
-      "sha256": "ae1317237dfaf6b75fd0bb0d1b5ae94d23c44432b407e91fc8359d8d5ea0a032"
+      "sha256": "c912d86d6e0e576d7a3a4ed9935aacb337120aadd31731aac08c69dfff051663"
     },
     {
       "bytes": 2201,
@@ -361,14 +371,14 @@
       "sha256": "086a4b224efbd7244c0b6cdec9916608a2d1262b6c5f1b07fa41d7b40103f195"
     },
     {
-      "bytes": 5461,
+      "bytes": 5799,
       "path": "docs/reverse-engineering/coop/archive/manifest.json",
-      "sha256": "8f15eb76862bbff663a116f7fd49c352934e3c8363c383e64c40d78d3615ccb0"
+      "sha256": "3ab0aa68a300b6512cf7a941d67299bd6f3d991e638735f27de77d85d4e6aff0"
     },
     {
-      "bytes": 64128,
+      "bytes": 72641,
       "path": "docs/reverse-engineering/coop/archive/plans-and-usage.tar.gz",
-      "sha256": "92a287b3f72bbb2037d390b05c4b28ada4a2bfca2825b86d3aa7b68982e508d2"
+      "sha256": "c6da3944b2c8de7d80fc8d88695c634dfd76ecc3fa8c37f5e36bab29a796ddf8"
     },
     {
       "bytes": 509,

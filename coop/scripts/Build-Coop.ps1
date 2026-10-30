@@ -6,9 +6,8 @@ $ErrorActionPreference = 'Stop'
 $coop = Split-Path -Parent $PSScriptRoot
 $flagName = 'CARGO_TARGET_' + $Target.ToUpperInvariant().Replace('-', '_') + '_RUSTFLAGS'
 $previousFlags = [Environment]::GetEnvironmentVariable($flagName, 'Process')
-if ($Target -ne 'x86_64-pc-windows-msvc') {
-    [Environment]::SetEnvironmentVariable($flagName, ($previousFlags + ' -C target-feature=+crt-static').Trim(), 'Process')
-}
+# The staged add-on must not require an unstaged compiler runtime DLL.
+[Environment]::SetEnvironmentVariable($flagName, ($previousFlags + ' -C target-feature=+crt-static').Trim(), 'Process')
 Push-Location $coop
 try {
     cargo fmt --all -- --check

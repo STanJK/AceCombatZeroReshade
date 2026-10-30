@@ -60,6 +60,7 @@ def pe_exports(path):
    if not any(descriptor):break
    imports.append(string(descriptor[3]));cursor+=20
  check(not {'libunwind.dll','libgcc_s_seh-1.dll','libwinpthread-1.dll'}&{s.lower()for s in imports},'Unstaged GNU runtime DLL dependency; use crt-static')
+ check(not any(s.lower().startswith(('vcruntime','msvcp','concrt')) for s in imports),'Unstaged MSVC runtime DLL dependency; use crt-static')
  return dict(bytes=len(data),sha256=sha(data),exports=sorted(result),imports=sorted(imports))
 def main():
  ap=argparse.ArgumentParser(description=__doc__);ap.add_argument('--cargo');ap.add_argument('--dll',type=Path);ap.add_argument('--record',type=Path);args=ap.parse_args()

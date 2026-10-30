@@ -134,3 +134,10 @@ Windows accepted socket 具有监听端的属性。transport 两个构造入口�
 新增远端 Windows 归档校验后发现 CP1252 默认解码不能读取中文 Markdown。
 归档/接口校验与清单生成器改用显式 UTF-8；归档 JSON 写入固定 LF。
 这是工具可移植性修复，未改变游戏 ABI、网络格式或模块依赖。
+
+## MSVC 发布包运行库审计
+
+`bcb09d5` 的 Linux/Windows 全量 53 项测试、MSVC 构建和 release CLI 演练通过。
+实际 PE 表仍发现 MSVC 默认导入 VCRUNTIME140.dll；暂存包没有携带此 DLL。
+Windows 构建脚本现对所有目标统一启用 crt-static，PE 门槛新增拒绝未暂存的
+VCRUNTIME/MSVCP/CONCRT 运行库。继续由 Windows CI 对最终发布包复验，不依赖开发机安装环境。

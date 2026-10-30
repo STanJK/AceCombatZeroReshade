@@ -52,8 +52,8 @@ acz-coop guest-model HOST_IP:48123 session.key
 ```
 
 脚本在 `coop/dist/ACZCoop-observer` 暂存 CLI、`ACZCoop.addon64`、默认配置及清单，
-不修改游戏目录。需要 Windows MSVC x64 工具链；GNU/gnullvm 交叉工具链可用于另外的构建检查，构建脚本为这些目标启用 crt-static，
-避免留下未随包提供的 libunwind.dll 依赖。
+不修改游戏目录。需要 Windows MSVC x64 工具链；GNU/gnullvm 交叉工具链可用于另外的构建检查。
+构建脚本对三种目标均启用 crt-static，避免留下未随包提供的 libunwind.dll 或 VCRUNTIME140.dll。
 
 游戏内实验沿用现有 ReShade 6.8.0 full add-on 的 `dxgi.dll` 承载方式。
 退出游戏后，将新增的 `ACZCoop.addon64` 和 `ACZCoop.ini` 放到已有 ReShade add-on 搜索目录；

@@ -12,6 +12,8 @@
 5. [实际代码关联审计](SOURCE_AUDIT.md)
 6. [验收规范](ACCEPTANCE.md)
 7. [逐模块审计日志](AUDIT_LOG.md)
+8. [已实现函数、消费者与测试索引](API_MAP.md)
+9. [原生游戏与在线发布模块的后续契约](NATIVE_MODULE_PLAN.md)
 
 实现放在独立 `coop/` Cargo workspace。现有根目录的 XInput oracle 保留为研究工具。
 所有结果按“本地单元/集成验收”“Windows 编译”“游戏实测”分别记录。
