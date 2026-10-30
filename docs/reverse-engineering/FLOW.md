@@ -244,4 +244,117 @@ sequenceDiagram
     B->>F: ACZ_SCENE_CLEAN semantic + freshness
 ```
 
-This is the current stable boundary between reverse engineering and post-processing work.
+This remains the stable **render-semantic** boundary, but it is no longer the complete scene-admission policy.
+
+## 9. Render state and game mode are orthogonal
+
+A later failure mode exposed an important architectural distinction:
+
+```text
+valid HUD PSO / fresh SceneClean
+```
+
+does not necessarily imply:
+
+```text
+the game is currently in active combat
+```
+
+After mission completion, movie/result/hangar transitions can still produce render activity that satisfies the existing GPU detector.
+
+Therefore the final admission model should be two-dimensional:
+
+```text
+render-semantic state
+    +
+game/mode semantic state
+```
+
+The current mode RE recovered:
+
+```text
+ModeHolder
+ModeGameControl
+ModeGameEnd
+```
+
+with a normal lifecycle of:
+
+```text
+GameControl enter
+    ↓
+active mission / internal phases
+    ↓
+GameControl update selects next mode
+    ↓
+GameControl leave
+    ↓
+GameEnd / selector / return sequence
+```
+
+See [`MODE_LIFECYCLE.md`](MODE_LIFECYCLE.md) for addresses and vtable details.
+
+## 10. Current admission direction
+
+Current implementation:
+
+```text
+SceneClean fresh
+    → enable/restore the previously enabled ReShade techniques
+
+SceneClean stale
+    → temporarily disable those techniques
+```
+
+This is safe as a render-freshness mechanism but is not the desired final scene classifier.
+
+The desired policy is closer to:
+
+```text
+Combat scene
+    → combat effect profile
+
+Hangar / aircraft presentation
+    → effects still allowed, but use a different profile/technique set
+
+Movie / result / briefing / debrief
+    → combat profile disabled
+
+Other menus
+    → profile-specific policy
+```
+
+The raw GameControl byte at RVA `0x032C933` is currently exposed only as a diagnostic because gameplay code can also toggle it internally.
+
+The next stable abstraction should therefore be a semantic scene class derived from ACZ mode state, not another render fingerprint.
+
+## 11. Current full image path
+
+The bridge/shader side has advanced beyond the original SceneClean-only debug stage:
+
+```text
+ACZ scene render
+    ↓
+SceneClean capture before combat HUD
+    ↓
+game completes HUD/UI
+    ↓
+reshade_begin_effects
+    ├─ publish SceneClean
+    ├─ capture OriginalFinal
+    └─ apply freshness-based technique admission
+    ↓
+ACZRouteSceneClean
+    ↓
+post-processing stack
+    ↓
+optional ProcessedClean capture for exact A/B
+    ↓
+ACZRestoreHUD
+    ↓
+ACZBeforeAfter
+```
+
+This means the remaining hard problem is no longer obtaining a clean gameplay image.
+
+It is classifying **which semantic game scene should receive which post-processing policy**.
