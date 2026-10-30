@@ -1,0 +1,9 @@
+# Keep archived evidence and compatibility hashes identical on Windows and Linux.
+* text=auto eol=lf
+*.gz -text
+*.zip -text
+*.png -text
+*.jpg -text
+*.exe -text
+*.dll -text
+*.addon64 -text

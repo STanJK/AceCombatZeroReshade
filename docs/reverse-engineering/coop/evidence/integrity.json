@@ -1,9 +1,14 @@
 {
   "files": [
     {
-      "bytes": 1460,
+      "bytes": 188,
+      "path": ".gitattributes",
+      "sha256": "5ecf288b66f9c4d021c095b2c089fa3599dad57b2b615dd6aa53b8b714205a55"
+    },
+    {
+      "bytes": 1496,
       "path": ".github/workflows/coop.yml",
-      "sha256": "8208c7a18a8dad44f055470f917e8ee9e57e0fbd7b7ee666a4e1e7dda02e7539"
+      "sha256": "437149b5f69446dff7fe295f33791352144a9ab297c650c6f51c8b36daa15696"
     },
     {
       "bytes": 5328,
@@ -216,9 +221,9 @@
       "sha256": "10038a10ec51423b2e3e7e1ebf627235081b457bd7f162ca2e1a239722583c06"
     },
     {
-      "bytes": 7632,
+      "bytes": 8001,
       "path": "docs/mp/execution/AUDIT_LOG.md",
-      "sha256": "bf31ffb59215a34e33f59be5ac0878fec4dace710aa40e67a04b08ba5ae29ea2"
+      "sha256": "658808e88ddc00e41125ce27999b4c587916aaa90d3c3c574b282a763f0a235f"
     },
     {
       "bytes": 2048,
@@ -251,9 +256,14 @@
       "sha256": "30ee97f157fc04f7772dc61e69dc82088220d61fcb7dd3539b3c4b9f67dca1f0"
     },
     {
-      "bytes": 3471,
+      "bytes": 3567,
       "path": "docs/mp/execution/VALIDATION.md",
-      "sha256": "bf6cbfd277684b6d58a317105d8074077dae8131426e48c608e00ceea2ed76ce"
+      "sha256": "4b0d5528a9ca632f768b72fad45e2f481887dde0ebe22578784f2efd4471aea8"
+    },
+    {
+      "bytes": 198,
+      "path": "docs/mp/execution/evidence/checkout-normalization.json",
+      "sha256": "7170135b532a9b698b92073b6c197462d3c4f48b95e9417f0c412b343d1c4206"
     },
     {
       "bytes": 607,
@@ -301,9 +311,9 @@
       "sha256": "6ce89008b70f652ff3b73c75a6831a544bcf9805bfb79802d0d722fdad470a31"
     },
     {
-      "bytes": 2327,
+      "bytes": 2579,
       "path": "docs/mp/execution/evidence/validation-summary.json",
-      "sha256": "a1a4d7a14248a10ce4974214d8f6336a4fef7be3dd60ff534693f07ef0a174da"
+      "sha256": "3491fbf4bbb911de30b07cb83a4ba45382b7edfb92e0cde568bb61d2ad4c3125"
     },
     {
       "bytes": 12838,
@@ -351,14 +361,14 @@
       "sha256": "086a4b224efbd7244c0b6cdec9916608a2d1262b6c5f1b07fa41d7b40103f195"
     },
     {
-      "bytes": 5273,
+      "bytes": 5461,
       "path": "docs/reverse-engineering/coop/archive/manifest.json",
-      "sha256": "08a0b223984e873ec6ed6855b4f4b80835b25e1d38bff51f71eee86893b0cc6a"
+      "sha256": "5e12b223cc4f5f3a5c17d3ef615fb0e44dc8f82f4765062a9d494f46f7ecce52"
     },
     {
-      "bytes": 62759,
+      "bytes": 63233,
       "path": "docs/reverse-engineering/coop/archive/plans-and-usage.tar.gz",
-      "sha256": "efadf3bc1f474d5c1ba2a54d1a1e77f11f147a6e3fea3be4fdac49ce0f4dbc44"
+      "sha256": "b7d99d41983e6a51eb3da3f27a07ba9ddb15555b0dd2356a2097782e7bdfd937"
     },
     {
       "bytes": 509,
@@ -4326,9 +4336,9 @@
       "sha256": "cf8a52f200ceaec04b1433d38f6d6c76dc8a44ae51369b741e13fbefe187b2bc"
     },
     {
-      "bytes": 11115,
+      "bytes": 11139,
       "path": "tools/ghidra/verify_coop_archive.py",
-      "sha256": "af9423922d1b8a4e9dbf45db0b6f66f82962a6e21e78d2e5007b042d85c79045"
+      "sha256": "319a4ef26b78aa76cbd59ec44fac9d8e91d7999486b9e875449f20a83963eb94"
     }
   ],
   "format": 1,

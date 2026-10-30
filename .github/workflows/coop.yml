@@ -1,9 +1,9 @@
 name: coop-rust-foundation
 on:
   push:
-    paths: ['coop/**', 'docs/mp/**', 'docs/reverse-engineering/coop/**', '.github/workflows/coop.yml']
+    paths: ['coop/**', 'docs/mp/**', 'docs/reverse-engineering/coop/**', '.github/workflows/coop.yml', '.gitattributes']
   pull_request:
-    paths: ['coop/**', 'docs/mp/**', 'docs/reverse-engineering/coop/**', '.github/workflows/coop.yml']
+    paths: ['coop/**', 'docs/mp/**', 'docs/reverse-engineering/coop/**', '.github/workflows/coop.yml', '.gitattributes']
 jobs:
   modules:
     strategy:

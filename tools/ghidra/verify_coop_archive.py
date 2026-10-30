@@ -21,7 +21,7 @@ ARCHIVE = DOSSIER / "archive"
 INTEGRITY = EVIDENCE / "integrity.json"
 AREAS = [DOSSIER, Path("docs/mp"), Path("docs/usage"), Path("tools/ghidra"), Path("coop")]
 EXTRA = [Path("README.md"), Path("docs/README.md"),
-         Path("docs/reverse-engineering/MODE_LIFECYCLE.md"), Path(".github/workflows/coop.yml")]
+         Path("docs/reverse-engineering/MODE_LIFECYCLE.md"), Path(".github/workflows/coop.yml"), Path(".gitattributes")]
 SETUP_TABLES = {
     0x290DE0: [0x16EA60, 0x16EA70, 0x16EAB0, 0x16EAE0, 0x16EB20,
               0x16EC40, 0x16EC80, 0x16ECB0, 0x16ECF0, 0x16ED10,

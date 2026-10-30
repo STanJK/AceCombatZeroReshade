@@ -8,6 +8,7 @@
 | --- | --- | --- |
 | Rust workspace 单元/集成 | **51 passed / 0 failed** | 包括真实双进程 TCP；不启动游戏 |
 | fmt | PASS | 全 workspace |
+| Windows checkout 字节 | PASS | core.autocrlf=true 下兼容 JSON 与归档文本保持 LF |
 | clippy `-D warnings` | PASS | Linux / Windows gnullvm，均含 all-targets |
 | 模块依赖与 unsafe 边界 | PASS | 9 个 crate，内部/外部依赖白名单，平台/裸指针不进入核心 |
 | 协议与兼容清单 | PASS | Golden/截断/容量/噪声，兼容 SHA 与清单一致 |

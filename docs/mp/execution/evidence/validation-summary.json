@@ -77,5 +77,11 @@
     "M1_to_M6": "OPEN",
     "playable_coop_patch": false
   },
-  "remote_ci_status": "Workflow added; not part of this local validation record"
+  "remote_ci_status": {
+    "initial_commit": "873d1a101ab27a85a86ed470fb4287b90a059b07",
+    "initial_ubuntu": "PASS",
+    "initial_windows": "failed compatibility hash due to checkout CRLF conversion",
+    "fix": "Root .gitattributes enforces LF; actual core.autocrlf=true filter is now byte-identical",
+    "rerun": "pending"
+  }
 }
