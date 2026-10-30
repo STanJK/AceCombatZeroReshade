@@ -82,10 +82,21 @@
     "initial_ubuntu": "PASS",
     "initial_windows": "failed compatibility hash due to checkout CRLF conversion",
     "fix": "Root .gitattributes enforces LF; actual core.autocrlf=true filter is now byte-identical",
-    "rerun": "pending",
+    "rerun": "PASS",
     "normalization_commit": "0ef78f1a14c01ee7327398e9441728125c13e455",
     "normalization_ubuntu": "PASS",
     "normalization_windows": "Compiled successfully; failed two-process CLI integration; socket mode ownership fixed and rerun pending",
-    "normalization_run_id": 41078455436
+    "normalization_run_id": 41078455436,
+    "final_source_commit": "d27ce7f15c0673907468433b528ef837b4d751e7",
+    "final_run_id": 41080932953,
+    "ubuntu": "PASS",
+    "windows_msvc": "PASS",
+    "windows_tests": {
+      "passed": 53,
+      "failed": 0
+    },
+    "windows_release_cli_executed": true,
+    "artifact_id": 12988768489,
+    "evidence": "remote-ci.json"
   }
 }

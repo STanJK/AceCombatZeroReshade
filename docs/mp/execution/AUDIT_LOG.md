@@ -141,3 +141,13 @@ Windows accepted socket 具有监听端的属性。transport 两个构造入口�
 实际 PE 表仍发现 MSVC 默认导入 VCRUNTIME140.dll；暂存包没有携带此 DLL。
 Windows 构建脚本现对所有目标统一启用 crt-static，PE 门槛新增拒绝未暂存的
 VCRUNTIME/MSVCP/CONCRT 运行库。继续由 Windows CI 对最终发布包复验，不依赖开发机安装环境。
+
+## 最终远端验收
+
+`d27ce7f` 的 [CI run 41080932953](https://github.com/STanJK/AceCombatZeroReshade/actions/runs/41080932953)
+Linux 与 Windows job 均成功。Windows 实际运行 53/0，fmt、clippy、静态 CRT MSVC release
+构建、归档校验、PE 导出/导入、release CLI 双进程/四次摘要检查全部通过。
+DLL 356,864 字节，仅有 KERNEL32、同步 API 与 ntdll 系统导入；没有包外的编译器运行库依赖。
+制品 ID 12988768489、来源提交、哈希和逐步骤结果写入 `evidence/remote-ci.json`。
+API_MAP 列出的 54 个具体验收符号已对照源码检查；N01–N05 只记录未来端口与实际阻塞，不标记通过。
+最后文档提交不修改实现，无需重复相同 Rust 测试；归档仍重新冻结并用实际 EXE 校验。

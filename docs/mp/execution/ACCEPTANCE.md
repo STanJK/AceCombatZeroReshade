@@ -6,11 +6,11 @@
 统一命令（仓库根目录）：
 
 ```bash
-cargo test --manifest-path coop/Cargo.toml --workspace --locked
-cargo fmt --manifest-path coop/Cargo.toml --all -- --check
-cargo clippy --manifest-path coop/Cargo.toml --workspace --all-targets --locked -- -D warnings
-cargo run --manifest-path coop/Cargo.toml -p acz-coop-cli --locked -- demo
-cargo run --manifest-path coop/Cargo.toml -p acz-coop-cli --locked -- doctor /path/to/acz.exe
+cargo +1.99.1 test --manifest-path coop/Cargo.toml --workspace --locked
+cargo +1.99.1 fmt --manifest-path coop/Cargo.toml --all -- --check
+cargo +1.99.1 clippy --manifest-path coop/Cargo.toml --workspace --all-targets --locked -- -D warnings
+cargo +1.99.1 run --manifest-path coop/Cargo.toml -p acz-coop-cli --locked -- demo
+cargo +1.99.1 run --manifest-path coop/Cargo.toml -p acz-coop-cli --locked -- doctor /path/to/acz.exe
 ```
 
 Windows 编译和打包使用 `coop/scripts/Build-Coop.ps1`；Linux 能验证的目标检查与

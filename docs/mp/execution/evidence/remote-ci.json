@@ -1,0 +1,275 @@
+{
+  "schema": 1,
+  "tested_source_commit": "d27ce7f15c0673907468433b528ef837b4d751e7",
+  "workflow_run_id": 41080932953,
+  "workflow_url": "https://github.com/STanJK/AceCombatZeroReshade/actions/runs/41080932953",
+  "jobs": [
+    {
+      "id": 124149534237,
+      "name": "modules (windows-latest)",
+      "status": "completed",
+      "conclusion": "success",
+      "run_id": 41080932953,
+      "logs_url": null,
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2
+        },
+        {
+          "name": "Run dtolnay/rust-toolchain@stable",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3
+        },
+        {
+          "name": "Run cargo fmt --manifest-path coop/Cargo.toml --all -- --check",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 4
+        },
+        {
+          "name": "Run cargo test --manifest-path coop/Cargo.toml --workspace --locked",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 5
+        },
+        {
+          "name": "Run cargo clippy --manifest-path coop/Cargo.toml --workspace --all-targets --locked -- -D warnings",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 6
+        },
+        {
+          "name": "Run python coop/tools/verify_interfaces.py",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7
+        },
+        {
+          "name": "Run python tools/ghidra/verify_coop_archive.py",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8
+        },
+        {
+          "name": "Stage Windows observer",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 9
+        },
+        {
+          "name": "Verify Windows exports",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 10
+        },
+        {
+          "name": "Run Windows release CLI model",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 11
+        },
+        {
+          "name": "Run actions/upload-artifact@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 12
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 24
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 25
+        }
+      ]
+    },
+    {
+      "id": 124149534963,
+      "name": "modules (ubuntu-latest)",
+      "status": "completed",
+      "conclusion": "success",
+      "run_id": 41080932953,
+      "logs_url": null,
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2
+        },
+        {
+          "name": "Run dtolnay/rust-toolchain@stable",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3
+        },
+        {
+          "name": "Run cargo fmt --manifest-path coop/Cargo.toml --all -- --check",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4
+        },
+        {
+          "name": "Run cargo test --manifest-path coop/Cargo.toml --workspace --locked",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5
+        },
+        {
+          "name": "Run cargo clippy --manifest-path coop/Cargo.toml --workspace --all-targets --locked -- -D warnings",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6
+        },
+        {
+          "name": "Run python coop/tools/verify_interfaces.py",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7
+        },
+        {
+          "name": "Run python tools/ghidra/verify_coop_archive.py",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8
+        },
+        {
+          "name": "Stage Windows observer",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 9
+        },
+        {
+          "name": "Verify Windows exports",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 10
+        },
+        {
+          "name": "Run Windows release CLI model",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 11
+        },
+        {
+          "name": "Run actions/upload-artifact@v4",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 12
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 24
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 25
+        }
+      ]
+    }
+  ],
+  "windows": {
+    "target": "x86_64-pc-windows-msvc",
+    "crt_static": true,
+    "workspace_tests": {
+      "passed": 53,
+      "failed": 0
+    },
+    "fmt": "PASS",
+    "clippy_all_targets": "PASS",
+    "release_build": "PASS",
+    "interface_and_pe": {
+      "result": "PASS",
+      "modules": 9,
+      "dependency_boundaries": "PASS",
+      "compatibility_sha256": "af6c7d228a09ccece18337cb75b3f0f133052dc509dda46abd4040ebda988409",
+      "native_candidates": 4,
+      "native_source_facts": "PASS",
+      "gameplay_executed": false,
+      "windows_dll": {
+        "bytes": 356864,
+        "sha256": "a244378e32c6eee0ffd16488ba66ace2efb83c581f23a30f090444840012c101",
+        "exports": [
+          "AddonInit",
+          "AddonUninit",
+          "DESCRIPTION",
+          "NAME"
+        ],
+        "imports": [
+          "KERNEL32.dll",
+          "api-ms-win-core-synch-l1-2-0.dll",
+          "kernel32.dll",
+          "ntdll.dll"
+        ]
+      }
+    },
+    "release_model_demo": {
+      "result": "PASS",
+      "scope": "model",
+      "transport": "authenticated_tcp",
+      "native_gameplay": false,
+      "epoch": 2,
+      "entities_after_retry": 0,
+      "host_save_permits": 1,
+      "guest_save_permits": 0,
+      "digest_checks": 4,
+      "input_duplicate_rejected": true,
+      "damage_duplicate_rejected": true,
+      "old_epoch_rejected": true
+    }
+  },
+  "artifact": {
+    "id": 12988768489,
+    "name": "ACZCoop-read-only-observer-Windows-x64",
+    "size_in_bytes": 448921,
+    "url": "https://api.github.com/repos/STanJK/AceCombatZeroReshade/actions/artifacts/12988768489",
+    "archive_download_url": "https://api.github.com/repos/STanJK/AceCombatZeroReshade/actions/artifacts/12988768489/zip",
+    "expired": false,
+    "created_at": "2026-10-30T15:28:45Z",
+    "expires_at": "2027-01-28T15:27:48Z",
+    "updated_at": "2026-10-30T15:28:45Z",
+    "digest": "sha256:66b7ea2bcfb4637dbdc0d4915e327f6d2bf3253deb48192b18dd6bd8e437bce6",
+    "workflow_run": {
+      "id": 41080932953,
+      "repository_id": 1427398622,
+      "head_repository_id": 1427398622,
+      "head_branch": "mp",
+      "head_sha": "d27ce7f15c0673907468433b528ef837b4d751e7"
+    },
+    "browser_download_url": "https://github.com/STanJK/AceCombatZeroReshade/actions/runs/41080932953/artifacts/12988768489"
+  },
+  "native_gameplay_executed": false,
+  "playable_coop_patch": false,
+  "legacy_windows_build": {
+    "workflow_run_id": 41080933085,
+    "workflow_url": "https://github.com/STanJK/AceCombatZeroReshade/actions/runs/41080933085",
+    "job_id": 124149535091,
+    "conclusion": "success",
+    "scope": "Existing Rust oracle and C++ ReShade calibration addon build; no gameplay execution"
+  }
+}

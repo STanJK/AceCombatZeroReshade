@@ -2,7 +2,8 @@
 
 机器可读结果：[validation-summary.json](evidence/validation-summary.json)，
 接口与 PE 记录：[interface-checks.json](evidence/interface-checks.json)。
-这些记录属于本地实现验收，不是游戏内测试。
+本地记录与远端 Windows/Linux 结果分开保存：[remote-ci.json](evidence/remote-ci.json)。
+这些记录属于基础实现验收，不是游戏内测试。
 
 | 检查 | 实际结果 | 范围 |
 | --- | --- | --- |
@@ -19,7 +20,8 @@
 | Windows x64 DLL / CLI | **本地交叉链接通过** | gnullvm release，crt-static；未执行 Windows 产物 |
 | ReShade DLL 导出/数据 | PASS | AddonInit、AddonUninit、NAME、DESCRIPTION，元数据为薄字符指针 |
 | 产物依赖 | PASS | DLL 无 libunwind/libgcc/winpthread 额外运行库依赖；仅系统导入 |
-| Windows MSVC / GitHub CI | 工作流已添加 | 不在本地结果中假定通过；远端结果另查 |
+| Windows MSVC / GitHub CI | **PASS：53/0** | 原生 fmt/test/clippy、静态 CRT release 构建、PE 检查、release CLI 双进程演练 |
+| 原有 oracle / ReShade C++ 构建 | PASS | 独立既有 Windows workflow；没有改动其实现 |
 | 游戏内注入/时序/性能 | **未执行** | 新 Rust add-on 仍需 M0 HIL |
 | P2 战役/在线通关 | **未执行、未实现闭环** | N01–N05 / RE05–RE17 仍有资源与原生契约阻塞 |
 
@@ -32,6 +34,7 @@
 - 另外导出 ModeHolder 的两个函数，确认 update 不能丢掉 RDX，返回值来自 holder。
 - 在 Windows PE 内检查实际导出以及 NAME/DESCRIPTION 指针，不仅检查文件存在。
 - 发现并消除了 GNU 构建的 libunwind.dll 外部依赖，避免产物到目标机缺 DLL。
+- 实际 Windows MSVC 发布包也通过静态 CRT 和 PE 检查，未导入 VCRUNTIME/MSVCP/CONCRT。
 
 模拟内存和模型世界仍然无法证明真实分配器、线程生命周期、积分器或任务脚本正确。
 M0 必须记录真实菜单/加载/飞行/暂停/回放/结算/重试/退出；只有它通过后，才继续原生写入。
@@ -43,6 +46,14 @@ M0 必须记录真实菜单/加载/飞行/暂停/回放/结算/重试/退出；�
 Internet 穿透/中继或通关覆盖。它们是下个施工阶段，不以本轮 53 个测试替代。
 
 ## 复现
+
+最终代码验收提交 `d27ce7f15c0673907468433b528ef837b4d751e7`：
+[Linux / Windows CI](https://github.com/STanJK/AceCombatZeroReshade/actions/runs/41080932953)。
+[Windows 观察器包](https://github.com/STanJK/AceCombatZeroReshade/actions/runs/41080932953/artifacts/12988768489)
+为同一提交构建，ZIP SHA-256 为
+`66b7ea2bcfb4637dbdc0d4915e327f6d2bf3253deb48192b18dd6bd8e437bce6`。
+它是实验性观察器及模型 CLI，仍不是可玩的战役合作补丁；Actions 制品有保留期限，可用源码重建。
+本节之后的文档收尾提交只增加验收/用法记录和归档，不改变经过上述 CI 的实现。
 
 标准命令见 [ACCEPTANCE.md](ACCEPTANCE.md)。
 交叉构建使用 Rust 1.99.1 / `x86_64-pc-windows-gnullvm`，LLVM-MinGW 20261020 msvcrt，

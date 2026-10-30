@@ -1,7 +1,7 @@
 # 已实现接口、消费者与验收索引
 
 本表对应 `coop/` 中实际存在的 Rust 接口。表中的测试名可直接传给 `cargo test` 过滤器；
-默认 `cargo test --manifest-path coop/Cargo.toml --workspace --locked` 运行全部验收。
+默认 `cargo +1.99.1 test --manifest-path coop/Cargo.toml --workspace --locked` 运行全部验收。
 设计语义见 [INTERFACES](INTERFACES.md)，逐模块结果见 [AUDIT_LOG](AUDIT_LOG.md)。
 未来的游戏写端口见 [NATIVE_MODULE_PLAN](NATIVE_MODULE_PLAN.md)，不混入本表的已实现清单。
 

@@ -25,9 +25,9 @@ Rust 工具链版本见 rust-toolchain.toml；本轮使用 rustc/cargo 1.99.1。
 从仓库根目录执行：
 
 ```bash
-cargo test --manifest-path coop/Cargo.toml --workspace --locked
-cargo run --manifest-path coop/Cargo.toml -p acz-coop-cli --locked -- demo
-cargo run --manifest-path coop/Cargo.toml -p acz-coop-cli --locked -- doctor /path/to/acz.exe
+cargo +1.99.1 test --manifest-path coop/Cargo.toml --workspace --locked
+cargo +1.99.1 run --manifest-path coop/Cargo.toml -p acz-coop-cli --locked -- demo
+cargo +1.99.1 run --manifest-path coop/Cargo.toml -p acz-coop-cli --locked -- doctor /path/to/acz.exe
 python3 coop/tools/verify_interfaces.py
 ```
 
