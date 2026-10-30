@@ -1,0 +1,22 @@
+{
+  "target_sha256": "43814d4b3292efd0a07fd71bef2f1670c0e5ac7cf2595c9e136d78451380a664",
+  "base_index_sha256": "9ab4666491e721a7a740d77a1df276b0bb342b5a60da40ca203c9acdb71268ea",
+  "base_function_count": 4792,
+  "latest_function_count": 4793,
+  "apply": "Per dataset: remove matching JSON records, then add records (JSON object key order is irrelevant).",
+  "datasets": {
+    "functions": {
+      "added": [
+        {
+          "va": "0x140201100",
+          "rva": "0x201100",
+          "name": "FUN_140201100",
+          "size": 21,
+          "prototype": "undefined FUN_140201100()",
+          "thunk": false
+        }
+      ],
+      "removed": []
+    }
+  }
+}

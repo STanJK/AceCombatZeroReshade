@@ -1,0 +1,16 @@
+[package]
+name = "acz-coop-cli"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+publish.workspace = true
+[[bin]]
+name = "acz-coop"
+path = "src/main.rs"
+[dependencies]
+acz-coop-contracts.workspace = true
+acz-coop-protocol.workspace = true
+acz-coop-session.workspace = true
+acz-coop-replication.workspace = true
+acz-coop-transport.workspace = true
+acz-coop-game.workspace = true

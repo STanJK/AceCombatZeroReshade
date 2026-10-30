@@ -16,7 +16,9 @@ are substantial starting points for co-op. They do **not** establish that campai
 data accepts a second human, that a network replication protocol already exists,
 or that two independent instances remain deterministic.
 
-This branch is a reverse-engineering dossier and implementation specification.
+This branch includes a reverse-engineering dossier and implementation specification.
+The subsequent [Rust execution pass](../../mp/execution/README.md) adds tested
+core modules and an experimental read-only observer.
 It does not contain an installed or playable co-op patch. No Windows gameplay,
 second-client session, or complete campaign playthrough was performed in this
 Linux environment. Missing DLLs/assets were not synthesized to claim a runtime

@@ -19,9 +19,9 @@ DOSSIER = Path("docs/reverse-engineering/coop")
 EVIDENCE = DOSSIER / "evidence"
 ARCHIVE = DOSSIER / "archive"
 INTEGRITY = EVIDENCE / "integrity.json"
-AREAS = [DOSSIER, Path("docs/mp"), Path("docs/usage"), Path("tools/ghidra")]
+AREAS = [DOSSIER, Path("docs/mp"), Path("docs/usage"), Path("tools/ghidra"), Path("coop")]
 EXTRA = [Path("README.md"), Path("docs/README.md"),
-         Path("docs/reverse-engineering/MODE_LIFECYCLE.md")]
+         Path("docs/reverse-engineering/MODE_LIFECYCLE.md"), Path(".github/workflows/coop.yml")]
 SETUP_TABLES = {
     0x290DE0: [0x16EA60, 0x16EA70, 0x16EAB0, 0x16EAE0, 0x16EB20,
               0x16EC40, 0x16EC80, 0x16ECB0, 0x16ECF0, 0x16ED10,
@@ -65,7 +65,9 @@ def write_json(path, data):
 
 def files_in(areas):
     return sorted({p.relative_to(ROOT) for a in areas for p in (ROOT / a).rglob("*")
-                   if p.is_file() and "__pycache__" not in p.parts and p.suffix != ".pyc"},
+                   if p.is_file() and "__pycache__" not in p.parts and p.suffix != ".pyc"
+                   and not (a == Path("coop") and any(v in ("target", "dist") for v in p.relative_to(ROOT/a).parts))
+                   and not p.name.endswith(".trace.jsonl")},
                   key=str)
 
 

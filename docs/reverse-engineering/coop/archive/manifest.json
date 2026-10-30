@@ -17,9 +17,9 @@
       "sha256": "91747757f928e9393d904d8c25aafa41d9e2527f47ea4664f78311c65d2742be"
     },
     {
-      "bytes": 1059,
+      "bytes": 1279,
       "path": "docs/mp/README.md",
-      "sha256": "0eb5acfe5392ff17519281eb2eee6d50ba13b9ace40532203d289ce0c83305b0"
+      "sha256": "4b28ea841653525dc9e72f699d79499243393837722fa6a8335c744961c452b6"
     },
     {
       "bytes": 10646,
@@ -27,9 +27,104 @@
       "sha256": "3b7686238867c65a04bec85cbc2e4b73e77ecf45cf3e9db2d2ec0a937808d078"
     },
     {
-      "bytes": 5641,
+      "bytes": 1851,
+      "path": "docs/mp/execution/ACCEPTANCE.md",
+      "sha256": "10038a10ec51423b2e3e7e1ebf627235081b457bd7f162ca2e1a239722583c06"
+    },
+    {
+      "bytes": 7632,
+      "path": "docs/mp/execution/AUDIT_LOG.md",
+      "sha256": "bf31ffb59215a34e33f59be5ac0878fec4dace710aa40e67a04b08ba5ae29ea2"
+    },
+    {
+      "bytes": 2048,
+      "path": "docs/mp/execution/INJECTION.md",
+      "sha256": "3ee0f8dc3462a4fbc30fd85d9a014745c2ac3d36bb7739e407f734a3cdc77e3d"
+    },
+    {
+      "bytes": 4008,
+      "path": "docs/mp/execution/INTERFACES.md",
+      "sha256": "c63a29d173fff85e495b89f056fc69cad82f2f301f7dffcf5ba95d1a53ad1c48"
+    },
+    {
+      "bytes": 3732,
+      "path": "docs/mp/execution/MODULE_PLAN.md",
+      "sha256": "0ad7af739584553410e917373a6af517c58d8858a58944396108c51117972f6f"
+    },
+    {
+      "bytes": 813,
+      "path": "docs/mp/execution/README.md",
+      "sha256": "ae1317237dfaf6b75fd0bb0d1b5ae94d23c44432b407e91fc8359d8d5ea0a032"
+    },
+    {
+      "bytes": 2201,
+      "path": "docs/mp/execution/REPOSITORY_SURVEY.md",
+      "sha256": "1ce5b389bb91cb56fbfb09c9f8d50c76b1e83beca1cb98e4aeff647017bd6da2"
+    },
+    {
+      "bytes": 3378,
+      "path": "docs/mp/execution/SOURCE_AUDIT.md",
+      "sha256": "30ee97f157fc04f7772dc61e69dc82088220d61fcb7dd3539b3c4b9f67dca1f0"
+    },
+    {
+      "bytes": 3471,
+      "path": "docs/mp/execution/VALIDATION.md",
+      "sha256": "bf6cbfd277684b6d58a317105d8074077dae8131426e48c608e00ceea2ed76ce"
+    },
+    {
+      "bytes": 607,
+      "path": "docs/mp/execution/evidence/interface-checks.json",
+      "sha256": "8318c2e1a073c9af71c2dd445e297089ca704839a30acee74e3fc1467a66c5a7"
+    },
+    {
+      "bytes": 417,
+      "path": "docs/mp/execution/evidence/native-dispatch/1402010d0.asm",
+      "sha256": "0db80dc2c1ffa0a34141ef4db8605dc59df52913dcd0cf2004620da993a1985c"
+    },
+    {
+      "bytes": 464,
+      "path": "docs/mp/execution/evidence/native-dispatch/1402010d0.c",
+      "sha256": "55ea28be9f3184d1bfa422613e95e241d2cc5e8d2a48ccb5fb96a657bd35803c"
+    },
+    {
+      "bytes": 423,
+      "path": "docs/mp/execution/evidence/native-dispatch/1402010d0.json",
+      "sha256": "b8070c1130fd9e4cae56dfbfb5cfbfaed626badcd5b07dd85e438afe7ae9fc2d"
+    },
+    {
+      "bytes": 248,
+      "path": "docs/mp/execution/evidence/native-dispatch/140201100.asm",
+      "sha256": "56fe7fa169ed11a40238d4300aa2de1ed10a36367b575b384d05ef592a5d12bc"
+    },
+    {
+      "bytes": 564,
+      "path": "docs/mp/execution/evidence/native-dispatch/140201100.c",
+      "sha256": "0f7d0bcc6ff2ec0931a3e8a7ee03109f553fc2aed81538ecf1b09f42ebe1d13b"
+    },
+    {
+      "bytes": 338,
+      "path": "docs/mp/execution/evidence/native-dispatch/140201100.json",
+      "sha256": "74845dad5d74c8808031aa86f1afd2bd81173a7fd7f874d01a3f180d84d702be"
+    },
+    {
+      "bytes": 1143,
+      "path": "docs/mp/execution/evidence/native-dispatch/README.md",
+      "sha256": "0960c872a233c4f10c72d4aeb64f5268af9ec09b084406dcffd28723a4b55c25"
+    },
+    {
+      "bytes": 664,
+      "path": "docs/mp/execution/evidence/native-dispatch/index-delta.json",
+      "sha256": "6ce89008b70f652ff3b73c75a6831a544bcf9805bfb79802d0d722fdad470a31"
+    },
+    {
+      "bytes": 2327,
+      "path": "docs/mp/execution/evidence/validation-summary.json",
+      "sha256": "a1a4d7a14248a10ce4974214d8f6336a4fef7be3dd60ff534693f07ef0a174da"
+    },
+    {
+      "bytes": 5990,
       "path": "docs/usage/CODE_READING_NOTES.md",
-      "sha256": "765b4d318f77e98ad0b2bea2389ac685da2e2f00b00e3526619471d65f7c4180"
+      "sha256": "570b88693dacb52ccd64f4aa4d1c9cd6ed42cbe110ce1e63a45351922bbf9c8e"
     },
     {
       "bytes": 74669,

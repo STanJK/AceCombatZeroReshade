@@ -75,3 +75,9 @@ The next open scene-state problems are:
 - mode-aware combat vs hangar effect policy;
 - verification of whether ReShade 6.8 exposes a supported live whole-preset switch suitable for the bridge;
 - replay-specific false positives in the HUD difference mask.
+
+## Rust co-op execution
+
+See [module execution and audits](mp/execution/README.md) and
+[the Rust workspace](../coop/README.md) for implementation, CLI/model tests and
+read-only observer build instructions. Native campaign mutation and HIL gates remain open.

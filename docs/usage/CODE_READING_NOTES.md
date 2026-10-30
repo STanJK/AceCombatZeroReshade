@@ -101,3 +101,10 @@ work is native lifetime, mission data and authoritative side effects. The
 [implementation book](../mp/COOP_PATCH_IMPLEMENTATION.md) turns each into a
 dependency, artifact and acceptance gate rather than assuming that online co-op
 follows automatically from two input slots.
+
+## Execution audit correction: player +1FC0
+
+The implementation pass rechecked the producer in `0CBCC0` and reset in `0CD880`.
+Both store `W+0x240`, not W, to player `+0x1FC0`. The original layout row was
+wrong and is corrected. Runtime lookup must retain the world from the mode
+lifecycle; it must not dereference `+1FC0` as a world-base pointer.

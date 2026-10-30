@@ -1,0 +1,8 @@
+[package]
+name = "acz-coop-protocol"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+publish.workspace = true
+[dependencies]
+acz-coop-contracts.workspace = true

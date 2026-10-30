@@ -72,3 +72,10 @@ After changing source/evidence, run the archive validator and refresh the frozen
 plan/usage snapshot intentionally. [ARCHIVE.md](ARCHIVE.md) describes the final
 archive. Its hashes establish which bytes were retained; they do not constitute
 runtime or semantic validation.
+
+## Subsequent execution audit
+
+The Rust implementation pass corrected player +1FC0 to W+240 by rechecking both
+initial/reset writers. It also retained [two extra ModeHolder ABI exports](../../mp/execution/evidence/native-dispatch/README.md).
+Those supplemental bodies are separate from the original 255-function corpus.
+Implementation/module verification is recorded [here](../../mp/execution/VALIDATION.md).

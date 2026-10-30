@@ -1,0 +1,36 @@
+[workspace]
+members = ["crates/contracts", "crates/protocol", "crates/session", "crates/replication", "crates/transport", "crates/game", "crates/trace", "crates/runtime", "crates/cli"]
+resolver = "2"
+
+[workspace.package]
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.85"
+publish = false
+
+[workspace.dependencies]
+acz-coop-contracts = { path = "crates/contracts" }
+
+acz-coop-protocol = { path = "crates/protocol" }
+
+acz-coop-session = { path = "crates/session" }
+
+acz-coop-replication = { path = "crates/replication" }
+
+acz-coop-transport = { path = "crates/transport" }
+hmac = "=0.12.1"
+sha2 = "=0.10.9"
+getrandom = "=0.2.16"
+
+acz-coop-game = { path = "crates/game" }
+
+acz-coop-trace = { path = "crates/trace" }
+
+acz-coop-runtime = { path = "crates/runtime" }
+
+acz-coop-cli = { path = "crates/cli" }
+
+[profile.release]
+lto = "thin"
+codegen-units = 1
+panic = "abort"

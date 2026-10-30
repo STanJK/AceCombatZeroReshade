@@ -74,7 +74,7 @@ player_count = *(uint8_t *)(W + 0xA87E4);
 | --- | --- | --- |
 | `+0x2040` | `&W[0x697B8]`, the group-manager/table root | S |
 | `+0x20A1/+0x20A2` | Group/actor byte selectors used to resolve the controlled actor | S |
-| `+0x1FC0` | World pointer | S |
+| `+0x1FC0` | Pointer to world subobject `W+0x240` (corrected during execution audit) | S |
 | `+0x10B0/+0x1270` | Camera objects passed to the existing matrix updater | S |
 | `+0x2094` | Camera-mode byte, cycle `0 → 2 → 1 → 0` | S; view labels from earlier repository runtime work |
 | `+0x2058` | Mixed gameplay/view/control flags; e.g. bit 1 gates portions of player processing | S; full bit meanings O |
@@ -153,3 +153,7 @@ Every lookup must validate mode identity, epoch, count, bounds, pointer lifetime
 and expected actor binding. Trace both a read and its producer before declaring
 a field authoritative. Runtime writes or detours are a future gated experiment,
 not validated operations from this static pass.
+
+Execution audit correction: `0CBCC0.asm` at `1400CBE0D` loads `R12 = W+0x240`;
+`1400CC77D` stores R12 to `P+0x1FC0`. Reset `0CD880.asm` repeats this at
+`1400CE067/1400CE30D`. Do not treat this field as the world base pointer.

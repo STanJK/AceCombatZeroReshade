@@ -12,6 +12,10 @@ The authoritative static evidence is in
 [`../reverse-engineering/coop/`](../reverse-engineering/coop/README.md), with a
 code-usage guide in [`../usage/`](../usage/README.md).
 
+Rust execution now lives in [`execution/`](execution/README.md) and the separate
+[`coop/` workspace](../../coop/README.md): tested core modules plus a read-only
+ReShade observer. Native gameplay mutation remains gated.
+
 The branch contains research, extraction tools and an implementation contract.
 It does not claim a playable multiplayer binary, a complete network serializer,
 or a runtime-validated patch location. Required unresolved contracts are tracked

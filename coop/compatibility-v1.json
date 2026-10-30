@@ -1,0 +1,16 @@
+{
+  "schema": "acz-coop-draft/1",
+  "scope": "model-core-and-read-only-native-observer",
+  "header_bytes": 40,
+  "input_bytes": 18,
+  "pose_bytes": 52,
+  "snapshot": "full-baseline-zero/20-poses-per-chunk/2048-entities-max",
+  "spawn": "definition-u32,pose-52,hp-i16-nonnegative",
+  "damage": "resolved-hp,absolute-host-total-score",
+  "ack": "last-event-u64,snapshot-u32,state-sha256",
+  "epoch": "nonzero-u32/strict-next/no-wrap",
+  "ownership": "host-slot0-authority/guest-slot1-input/host-success-save-only",
+  "native_writes": "unsupported-until-runtime-contracts-close",
+  "event_duplicates": "retain-64-event-payloads/conflict-rejected/older-stale",
+  "quaternion_norm_squared": "0.999..1.001"
+}

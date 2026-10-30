@@ -1,14 +1,189 @@
 {
   "files": [
     {
-      "bytes": 5181,
-      "path": "README.md",
-      "sha256": "391d558cb623b79451373153db16a6adc606396e51968f6c90e8f19bc205597f"
+      "bytes": 1460,
+      "path": ".github/workflows/coop.yml",
+      "sha256": "8208c7a18a8dad44f055470f917e8ee9e57e0fbd7b7ee666a4e1e7dda02e7539"
     },
     {
-      "bytes": 5157,
+      "bytes": 5328,
+      "path": "README.md",
+      "sha256": "94aa2da4bfa1419d769b0813c7831d4971f7a26bae5ed0eac0bf422ff5702b73"
+    },
+    {
+      "bytes": 49,
+      "path": "coop/.gitignore",
+      "sha256": "920db8b80b21e35b41d1f9a46deb5936f3ed2a71dd59b2cbc3389b3a02563ff9"
+    },
+    {
+      "bytes": 5601,
+      "path": "coop/Cargo.lock",
+      "sha256": "135e534a22bce036078150406ba7ffd2bbd11264c7970b8e556b8c52506b8689"
+    },
+    {
+      "bytes": 873,
+      "path": "coop/Cargo.toml",
+      "sha256": "bb574dc39a2c02e384abf6425951cf8f082cd36fa91f34ac941bd116260d6e72"
+    },
+    {
+      "bytes": 4503,
+      "path": "coop/README.md",
+      "sha256": "71d986017de0ee0c955812a28e9eb6cd9c7d140c4b2b8f4e5ed24589ebdedf42"
+    },
+    {
+      "bytes": 211303,
+      "path": "coop/THIRD_PARTY_NOTICES.txt",
+      "sha256": "e1ff44882b7d913f553ce11bbb35084c228ed88101390b33b7ad757b3a7b5f9f"
+    },
+    {
+      "bytes": 703,
+      "path": "coop/compatibility-v1.json",
+      "sha256": "af6c7d228a09ccece18337cb75b3f0f133052dc509dda46abd4040ebda988409"
+    },
+    {
+      "bytes": 238,
+      "path": "coop/config/ACZCoop.ini",
+      "sha256": "810dfe5e9999e2e82aa494e9e43279d2738ba3879ddbb42da64a0e94c9d24e06"
+    },
+    {
+      "bytes": 409,
+      "path": "coop/crates/cli/Cargo.toml",
+      "sha256": "ae261737d0db71f3b750667569f9c31a10f611758a60be20fe8339bd39f9156d"
+    },
+    {
+      "bytes": 16142,
+      "path": "coop/crates/cli/src/lib.rs",
+      "sha256": "c68cd31d37ea4156cf01c3b734923f215d60a22641d000792bc3ebacd8e70e0d"
+    },
+    {
+      "bytes": 2425,
+      "path": "coop/crates/cli/src/main.rs",
+      "sha256": "41ea9a36611ae8f7ec4ddc87efd5c6bb27b99278a2772a23b4e2b12108e0993f"
+    },
+    {
+      "bytes": 1058,
+      "path": "coop/crates/cli/tests/cli.rs",
+      "sha256": "1f112c735351997977fe9262130e8b9f9d4dd0fd90a9052686c2d63ee7ff8445"
+    },
+    {
+      "bytes": 143,
+      "path": "coop/crates/contracts/Cargo.toml",
+      "sha256": "7df259bc520737383953dedf9fdf8ce01fc3d40b55c003e49f5d2fc820775bcd"
+    },
+    {
+      "bytes": 293,
+      "path": "coop/crates/contracts/src/compatibility.rs",
+      "sha256": "2857c5feb8a2d0fe4d893fbc4da7880d7206205f8b39384e6cdcb256157377c2"
+    },
+    {
+      "bytes": 8448,
+      "path": "coop/crates/contracts/src/lib.rs",
+      "sha256": "db241c97fa43efba10699faeef4c5672ca31990e8f62f733f459cbc799c1eb2d"
+    },
+    {
+      "bytes": 211,
+      "path": "coop/crates/game/Cargo.toml",
+      "sha256": "e6fcf92bddcb517b2dc038e2fc1a9b2a34df1c446b5aafb55f925a1b63c11499"
+    },
+    {
+      "bytes": 1206,
+      "path": "coop/crates/game/src/build_manifest.rs",
+      "sha256": "88ba80781edb5a6bdd59e4a5a9d6f86bc2140e021cdc4ceeb85ec32b6a2249d1"
+    },
+    {
+      "bytes": 18945,
+      "path": "coop/crates/game/src/lib.rs",
+      "sha256": "e5362019cf83b2fa0e5d7b2ad79b52db093d13d72b0c6c0b66ad4f7e2a891e2a"
+    },
+    {
+      "bytes": 193,
+      "path": "coop/crates/protocol/Cargo.toml",
+      "sha256": "4386789a717079d5fe1b32908c9d05d26a06c47d6e2b9e04e7b97af33dba58d8"
+    },
+    {
+      "bytes": 19900,
+      "path": "coop/crates/protocol/src/lib.rs",
+      "sha256": "df7f4b2de06eef6e88d8a27eb44f352e287bc0c76eb2239d7349cfc0e8624aee"
+    },
+    {
+      "bytes": 253,
+      "path": "coop/crates/replication/Cargo.toml",
+      "sha256": "eef9a31f48ca447f7ba2b908eccc9688a4f4196275a1c12ed555590b838b1f30"
+    },
+    {
+      "bytes": 18840,
+      "path": "coop/crates/replication/src/lib.rs",
+      "sha256": "fdf35fb0065278f8c697783a8ff6d064f9daf6cc1058e65eeea95042a024ce45"
+    },
+    {
+      "bytes": 547,
+      "path": "coop/crates/runtime/Cargo.toml",
+      "sha256": "a511d2ece88d22d9c2afd94bb32dd7cc2c0ca1099d514aad02aa640099e3fa4c"
+    },
+    {
+      "bytes": 6212,
+      "path": "coop/crates/runtime/src/lib.rs",
+      "sha256": "da520ca21b06b99db0acae7fd76e12e1ad6c087eb6d977935c794d87c7e0895f"
+    },
+    {
+      "bytes": 15785,
+      "path": "coop/crates/runtime/src/windows.rs",
+      "sha256": "76e81b842ab3de1a8e767ea6bd94304808d4a0a7abf2c7330485893a012d970f"
+    },
+    {
+      "bytes": 192,
+      "path": "coop/crates/session/Cargo.toml",
+      "sha256": "7b073fa87dea842073d2ac89ddd268ee74a0a2940ef7b5661db71b1eb3e33e32"
+    },
+    {
+      "bytes": 15990,
+      "path": "coop/crates/session/src/lib.rs",
+      "sha256": "8242c33c2bfb2c79cee22c36abdcb3b0cf6066156a8848015ccb798d5325fe3a"
+    },
+    {
+      "bytes": 221,
+      "path": "coop/crates/trace/Cargo.toml",
+      "sha256": "3f480f96138bf9095368567b59ee64c9e1c5d9ed0eebf20368eb40ec025d130e"
+    },
+    {
+      "bytes": 10049,
+      "path": "coop/crates/trace/src/lib.rs",
+      "sha256": "aa4e706c961da832578cf87b80f57af9897596fcf046b50c45191581cffd44c2"
+    },
+    {
+      "bytes": 300,
+      "path": "coop/crates/transport/Cargo.toml",
+      "sha256": "ab6f72df005d0979d0defc885be1b6ea32d90fb4c0285585f5c35bf22d39b932"
+    },
+    {
+      "bytes": 16852,
+      "path": "coop/crates/transport/src/lib.rs",
+      "sha256": "acbf8ff151bc73e6c15bf991c89da13a14de0d830efbe3c64f6f9d6d41227ba3"
+    },
+    {
+      "bytes": 86,
+      "path": "coop/rust-toolchain.toml",
+      "sha256": "d13306be0ecda81ce779baa290ffb417380d525928477f16200884b5169cca33"
+    },
+    {
+      "bytes": 2270,
+      "path": "coop/scripts/Build-Coop.ps1",
+      "sha256": "a83df3429f3ae90b974cb089130fc98dc8a738bdb74338a7138001cbc615a52e"
+    },
+    {
+      "bytes": 978,
+      "path": "coop/tools/generate_native_manifest.py",
+      "sha256": "98efdf881fad47ca9a7d9e64a3614cbc62c43af8e04e399c38e83f656bdf6b96"
+    },
+    {
+      "bytes": 7621,
+      "path": "coop/tools/verify_interfaces.py",
+      "sha256": "957b7eca07d93e5a9d42f0ddcdd512af660c841598092f89828f6b5396833011"
+    },
+    {
+      "bytes": 5416,
       "path": "docs/README.md",
-      "sha256": "692bd07b54cc65856e83470a289da858faa829371892e70e327839e5c1f8783d"
+      "sha256": "860762916a904590cceeba4b4a79948fc5ad901a5e0943956df255596d8f074f"
     },
     {
       "bytes": 21679,
@@ -26,14 +201,109 @@
       "sha256": "91747757f928e9393d904d8c25aafa41d9e2527f47ea4664f78311c65d2742be"
     },
     {
-      "bytes": 1059,
+      "bytes": 1279,
       "path": "docs/mp/README.md",
-      "sha256": "0eb5acfe5392ff17519281eb2eee6d50ba13b9ace40532203d289ce0c83305b0"
+      "sha256": "4b28ea841653525dc9e72f699d79499243393837722fa6a8335c744961c452b6"
     },
     {
       "bytes": 10646,
       "path": "docs/mp/REVERSE_ENGINEERING_PLAN.md",
       "sha256": "3b7686238867c65a04bec85cbc2e4b73e77ecf45cf3e9db2d2ec0a937808d078"
+    },
+    {
+      "bytes": 1851,
+      "path": "docs/mp/execution/ACCEPTANCE.md",
+      "sha256": "10038a10ec51423b2e3e7e1ebf627235081b457bd7f162ca2e1a239722583c06"
+    },
+    {
+      "bytes": 7632,
+      "path": "docs/mp/execution/AUDIT_LOG.md",
+      "sha256": "bf31ffb59215a34e33f59be5ac0878fec4dace710aa40e67a04b08ba5ae29ea2"
+    },
+    {
+      "bytes": 2048,
+      "path": "docs/mp/execution/INJECTION.md",
+      "sha256": "3ee0f8dc3462a4fbc30fd85d9a014745c2ac3d36bb7739e407f734a3cdc77e3d"
+    },
+    {
+      "bytes": 4008,
+      "path": "docs/mp/execution/INTERFACES.md",
+      "sha256": "c63a29d173fff85e495b89f056fc69cad82f2f301f7dffcf5ba95d1a53ad1c48"
+    },
+    {
+      "bytes": 3732,
+      "path": "docs/mp/execution/MODULE_PLAN.md",
+      "sha256": "0ad7af739584553410e917373a6af517c58d8858a58944396108c51117972f6f"
+    },
+    {
+      "bytes": 813,
+      "path": "docs/mp/execution/README.md",
+      "sha256": "ae1317237dfaf6b75fd0bb0d1b5ae94d23c44432b407e91fc8359d8d5ea0a032"
+    },
+    {
+      "bytes": 2201,
+      "path": "docs/mp/execution/REPOSITORY_SURVEY.md",
+      "sha256": "1ce5b389bb91cb56fbfb09c9f8d50c76b1e83beca1cb98e4aeff647017bd6da2"
+    },
+    {
+      "bytes": 3378,
+      "path": "docs/mp/execution/SOURCE_AUDIT.md",
+      "sha256": "30ee97f157fc04f7772dc61e69dc82088220d61fcb7dd3539b3c4b9f67dca1f0"
+    },
+    {
+      "bytes": 3471,
+      "path": "docs/mp/execution/VALIDATION.md",
+      "sha256": "bf6cbfd277684b6d58a317105d8074077dae8131426e48c608e00ceea2ed76ce"
+    },
+    {
+      "bytes": 607,
+      "path": "docs/mp/execution/evidence/interface-checks.json",
+      "sha256": "8318c2e1a073c9af71c2dd445e297089ca704839a30acee74e3fc1467a66c5a7"
+    },
+    {
+      "bytes": 417,
+      "path": "docs/mp/execution/evidence/native-dispatch/1402010d0.asm",
+      "sha256": "0db80dc2c1ffa0a34141ef4db8605dc59df52913dcd0cf2004620da993a1985c"
+    },
+    {
+      "bytes": 464,
+      "path": "docs/mp/execution/evidence/native-dispatch/1402010d0.c",
+      "sha256": "55ea28be9f3184d1bfa422613e95e241d2cc5e8d2a48ccb5fb96a657bd35803c"
+    },
+    {
+      "bytes": 423,
+      "path": "docs/mp/execution/evidence/native-dispatch/1402010d0.json",
+      "sha256": "b8070c1130fd9e4cae56dfbfb5cfbfaed626badcd5b07dd85e438afe7ae9fc2d"
+    },
+    {
+      "bytes": 248,
+      "path": "docs/mp/execution/evidence/native-dispatch/140201100.asm",
+      "sha256": "56fe7fa169ed11a40238d4300aa2de1ed10a36367b575b384d05ef592a5d12bc"
+    },
+    {
+      "bytes": 564,
+      "path": "docs/mp/execution/evidence/native-dispatch/140201100.c",
+      "sha256": "0f7d0bcc6ff2ec0931a3e8a7ee03109f553fc2aed81538ecf1b09f42ebe1d13b"
+    },
+    {
+      "bytes": 338,
+      "path": "docs/mp/execution/evidence/native-dispatch/140201100.json",
+      "sha256": "74845dad5d74c8808031aa86f1afd2bd81173a7fd7f874d01a3f180d84d702be"
+    },
+    {
+      "bytes": 1143,
+      "path": "docs/mp/execution/evidence/native-dispatch/README.md",
+      "sha256": "0960c872a233c4f10c72d4aeb64f5268af9ec09b084406dcffd28723a4b55c25"
+    },
+    {
+      "bytes": 664,
+      "path": "docs/mp/execution/evidence/native-dispatch/index-delta.json",
+      "sha256": "6ce89008b70f652ff3b73c75a6831a544bcf9805bfb79802d0d722fdad470a31"
+    },
+    {
+      "bytes": 2327,
+      "path": "docs/mp/execution/evidence/validation-summary.json",
+      "sha256": "a1a4d7a14248a10ce4974214d8f6336a4fef7be3dd60ff534693f07ef0a174da"
     },
     {
       "bytes": 12838,
@@ -51,9 +321,9 @@
       "sha256": "6e332b73302a14c0e5f36e6e863c7b741e3ec84c0115bec19656f065b4fc62dc"
     },
     {
-      "bytes": 4489,
+      "bytes": 4899,
       "path": "docs/reverse-engineering/coop/EVIDENCE.md",
-      "sha256": "f772ce053baec82213257fd61dc9ddbe889eaf57d275631b93d88d1fd9836250"
+      "sha256": "3231038983615649d6e8a053efa98483aa572bcbdfe8589c5295986944474023"
     },
     {
       "bytes": 16762,
@@ -66,14 +336,14 @@
       "sha256": "861ace3b568fe7648f2e5d38286d9697e45d13d56023aba0a0eb4f8e55fc652e"
     },
     {
-      "bytes": 8536,
+      "bytes": 8821,
       "path": "docs/reverse-engineering/coop/PLAYER_STATE.md",
-      "sha256": "731fad12dc6fb780994d6eeac152963282d272e09ada89881d57d93deecf1b8b"
+      "sha256": "5d7de66ec1b3315a24370102063a266a71d6a1e86a26721f4161766b74b06ac1"
     },
     {
-      "bytes": 4533,
+      "bytes": 4671,
       "path": "docs/reverse-engineering/coop/README.md",
-      "sha256": "dc84a29e00a451187f164df28ab4fc2465bd28b6017bf647e257a3011c74fdeb"
+      "sha256": "8bb22462a00e01ef31c1a77ef464a728a93e64f703aba2eb6d2ef099c30e1f3c"
     },
     {
       "bytes": 8580,
@@ -81,14 +351,14 @@
       "sha256": "086a4b224efbd7244c0b6cdec9916608a2d1262b6c5f1b07fa41d7b40103f195"
     },
     {
-      "bytes": 1891,
+      "bytes": 5273,
       "path": "docs/reverse-engineering/coop/archive/manifest.json",
-      "sha256": "6cc77e1e1602f903b2564b6054e8acc3976a9917111b09e1423edbb2c662ad4d"
+      "sha256": "08a0b223984e873ec6ed6855b4f4b80835b25e1d38bff51f71eee86893b0cc6a"
     },
     {
-      "bytes": 44721,
+      "bytes": 62759,
       "path": "docs/reverse-engineering/coop/archive/plans-and-usage.tar.gz",
-      "sha256": "317fcb10ac27b71f8731367eafe300fa721f99b8837403bdae2be6d097114d2c"
+      "sha256": "efadf3bc1f474d5c1ba2a54d1a1e77f11f147a6e3fea3be4fdac49ce0f4dbc44"
     },
     {
       "bytes": 509,
@@ -3991,9 +4261,9 @@
       "sha256": "bd8c0bd62fa1f9d55bf228faaa5f9efdccecec166cfc2c3686900c7629dbf059"
     },
     {
-      "bytes": 5641,
+      "bytes": 5990,
       "path": "docs/usage/CODE_READING_NOTES.md",
-      "sha256": "765b4d318f77e98ad0b2bea2389ac685da2e2f00b00e3526619471d65f7c4180"
+      "sha256": "570b88693dacb52ccd64f4aa4d1c9cd6ed42cbe110ce1e63a45351922bbf9c8e"
     },
     {
       "bytes": 74669,
@@ -4056,9 +4326,9 @@
       "sha256": "cf8a52f200ceaec04b1433d38f6d6c76dc8a44ae51369b741e13fbefe187b2bc"
     },
     {
-      "bytes": 10889,
+      "bytes": 11115,
       "path": "tools/ghidra/verify_coop_archive.py",
-      "sha256": "9cad70dbe2856fc86bdf59c378444c786514c9ac708f62a0a737e6b13665c39f"
+      "sha256": "af9423922d1b8a4e9dbf45db0b6f66f82962a6e21e78d2e5007b042d85c79045"
     }
   ],
   "format": 1,

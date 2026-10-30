@@ -1,0 +1,23 @@
+{
+  "va": "0x1402010d0",
+  "rva": "0x2010d0",
+  "name": "FUN_1402010d0",
+  "prototype": "undefined FUN_1402010d0()",
+  "size": 40,
+  "callers": [],
+  "callees": [],
+  "incoming_references": [
+    {
+      "from": "0x1437f236c",
+      "type": "DATA",
+      "function": ""
+    },
+    {
+      "from": "0x1402cdcc0",
+      "type": "DATA",
+      "function": ""
+    }
+  ],
+  "decompile_completed": true,
+  "decompile_error": ""
+}

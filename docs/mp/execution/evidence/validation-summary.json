@@ -1,0 +1,81 @@
+{
+  "baseline_commit": "7507e5f61963c3f55d98f8a4bdaf56aa19a23153",
+  "toolchain": {
+    "rustc": "1.99.1 (58cf8f9c3 2026-10-13)",
+    "cargo": "1.99.1",
+    "windows_cross_compiler": "LLVM-MinGW 20261020 msvcrt",
+    "cross_compiler_archive_sha256": "ceb8c5acc6f76e143f9c714772d2fa677027802561ce68c396e8dc990a80f0b6"
+  },
+  "local_tests": {
+    "passed": 51,
+    "failed": 0,
+    "command": "cargo test --manifest-path coop/Cargo.toml --workspace --locked"
+  },
+  "fmt": "PASS",
+  "clippy_linux_all_targets": "PASS",
+  "clippy_windows_gnullvm_all_targets": "PASS",
+  "interface_audit": {
+    "result": "PASS",
+    "modules": 9,
+    "dependency_boundaries": "PASS",
+    "compatibility_sha256": "af6c7d228a09ccece18337cb75b3f0f133052dc509dda46abd4040ebda988409",
+    "native_candidates": 4,
+    "native_source_facts": "PASS",
+    "gameplay_executed": false,
+    "windows_dll": {
+      "bytes": 601088,
+      "sha256": "8f27aa25b7cc9c064fc30cef0bb3faf2117b4d9b60afe4582fb3d4184b357cf8",
+      "exports": [
+        "AddonInit",
+        "AddonUninit",
+        "DESCRIPTION",
+        "NAME"
+      ],
+      "imports": [
+        "api-ms-win-core-synch-l1-2-0.dll",
+        "kernel32.dll",
+        "msvcrt.dll",
+        "ntdll.dll"
+      ]
+    }
+  },
+  "windows_build": {
+    "target": "x86_64-pc-windows-gnullvm",
+    "profile": "release",
+    "crt_static": true,
+    "linked": true,
+    "windows_binaries_executed": false,
+    "cli_bytes": 732160,
+    "cli_sha256": "964196f9c2e2c38b521266f6b30abdb49b54dd324114d81b9703cd3f7af988ca"
+  },
+  "doctor": {
+    "result": "PASS",
+    "target_file_bytes": 3803248,
+    "image_size": 59101184,
+    "observer_candidates": 4,
+    "scope": "static-build-check",
+    "gameplay_executed": false
+  },
+  "network_demo": {
+    "result": "PASS",
+    "scope": "model",
+    "processes": 2,
+    "transport": "authenticated_tcp",
+    "epoch": 2,
+    "entities_after_retry": 0,
+    "host_save_permits": 1,
+    "guest_save_permits": 0,
+    "digest_checks": 4,
+    "input_duplicate_rejected": true,
+    "damage_duplicate_rejected": true,
+    "old_epoch_rejected": true,
+    "native_gameplay": false
+  },
+  "native_hil": {
+    "executed": false,
+    "M0": "OPEN",
+    "M1_to_M6": "OPEN",
+    "playable_coop_patch": false
+  },
+  "remote_ci_status": "Workflow added; not part of this local validation record"
+}
