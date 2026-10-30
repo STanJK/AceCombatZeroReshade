@@ -60,7 +60,7 @@ def read_json(path):
 def write_json(path, data):
     p = ROOT / path
     p.parent.mkdir(parents=True, exist_ok=True)
-    p.write_text(json.dumps(data, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+    p.write_text(json.dumps(data, indent=2, sort_keys=True) + "\n", encoding="utf-8", newline="\n")
 
 
 def files_in(areas):
@@ -137,7 +137,7 @@ def verify(binary):
     require(len(vas) == len(manifest), "Duplicate selected function")
     require(set(catalog) <= {m["rva"] for m in manifest}, "Unexported catalog entry")
     require({r["va"] for r in review} == vas, "Structural-review set mismatch")
-    require(set((ROOT / EVIDENCE / "selection.txt").read_text().split()) == vas, "Selection mismatch")
+    require(set((ROOT / EVIDENCE / "selection.txt").read_text(encoding="utf-8").split()) == vas, "Selection mismatch")
     index_vas = {f["va"] for f in index["functions"]}
     body_paths = set()
     for m in manifest:
@@ -149,8 +149,8 @@ def verify(binary):
             path = EVIDENCE / "decompiled" / (stem + suffix)
             require((ROOT / path).is_file(), "Missing body file: " + str(path))
             body_paths.add(path)
-        c = (ROOT / EVIDENCE / "decompiled" / (stem + ".c")).read_text()
-        asm = (ROOT / EVIDENCE / "decompiled" / (stem + ".asm")).read_text()
+        c = (ROOT / EVIDENCE / "decompiled" / (stem + ".c")).read_text(encoding="utf-8")
+        asm = (ROOT / EVIDENCE / "decompiled" / (stem + ".asm")).read_text(encoding="utf-8")
         require(EXPECTED_SHA256 in c and f"VA {m['va']}; RVA {m['rva']}" in c, "Listing provenance mismatch")
         require(asm.splitlines()[0].startswith(m["va"] + "  "), "Instruction entry mismatch")
         require(read_json(EVIDENCE / "decompiled" / (stem + ".json")) == m, "Body metadata mismatch")
@@ -165,7 +165,7 @@ def verify(binary):
         "14013ace0": ["0x738", "CMP EAX,0x20"],
         "140141200": ["VMOVAPS XMM6,XMM3", "CALL qword ptr [RAX + 0x38]"],
     }.items():
-        asm = (ROOT / EVIDENCE / "decompiled" / (stem + ".asm")).read_text()
+        asm = (ROOT / EVIDENCE / "decompiled" / (stem + ".asm")).read_text(encoding="utf-8")
         require(all(s in asm for s in needles), "Key field/dispatch evidence mismatch: " + stem)
 
     computed = dict(functions=len(index["functions"]), direct_call_sites=len(index["calls"]),
@@ -183,7 +183,7 @@ def verify(binary):
     for path in files_in([DOSSIER, Path("docs/mp"), Path("docs/usage")]):
         if path.suffix != ".md":
             continue
-        body = re.sub(r"```.*?```", "", (ROOT / path).read_text(), flags=re.S)
+        body = re.sub(r"```.*?```", "", (ROOT / path).read_text(encoding="utf-8"), flags=re.S)
         for link in re.findall(r"\[[^\]\n]+\]\(([^)\n]+)\)", body):
             link = link.strip("<>").split("#", 1)[0]
             if not link or re.match(r"[a-zA-Z][a-zA-Z0-9+.-]*:", link):

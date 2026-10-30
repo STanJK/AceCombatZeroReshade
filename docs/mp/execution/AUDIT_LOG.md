@@ -128,3 +128,9 @@ Windows accepted socket 具有监听端的属性。transport 两个构造入口�
 再使用原有总截止时间，不让上层 listener 的轮询策略进入传输内部。
 新增双向非阻塞 socket 接管测试；全量本地 53/0，跨编译检查与链接通过。
 公开方法、依赖边界和线协议未变化；CI 再验 Windows 原生双进程及 release CLI，结果见 VALIDATION。
+
+## 档案工具的 Windows 编码
+
+新增远端 Windows 归档校验后发现 CP1252 默认解码不能读取中文 Markdown。
+归档/接口校验与清单生成器改用显式 UTF-8；归档 JSON 写入固定 LF。
+这是工具可移植性修复，未改变游戏 ABI、网络格式或模块依赖。

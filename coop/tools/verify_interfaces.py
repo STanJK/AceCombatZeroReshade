@@ -72,17 +72,17 @@ def main():
   external={d['name'] for d in p['dependencies'] if not d['name'].startswith('acz-coop-')}
   check(internal==EXPECTED[name] and external==EXTERNAL[name],f'Dependency boundary drift: {name}')
   for source in (Path(p['manifest_path']).parent/'src').rglob('*.rs'):
-   text=source.read_text()
+   text=source.read_text(encoding="utf-8")
    check('unimplemented!' not in text and 'todo!' not in text,f'Unimplemented placeholder: {source}')
    if name!='runtime':
     check(not re.search(r'\*mut\s|\*const\s|windows_sys|std::os::windows',text),f'Platform/raw pointer leak: {source}')
-  if name!='runtime':check('#![forbid(unsafe_code)]' in (Path(p['manifest_path']).parent/'src/lib.rs').read_text(),f'Unsafe ownership: {name}')
+  if name!='runtime':check('#![forbid(unsafe_code)]' in (Path(p['manifest_path']).parent/'src/lib.rs').read_text(encoding="utf-8"),f'Unsafe ownership: {name}')
  check(seen==set(EXPECTED),'Workspace module set drift')
  digest=hashlib.sha256((ROOT/'coop/compatibility-v1.json').read_bytes()).digest()
- literals=re.findall(r'0x([0-9a-fA-F]{2})\b',(ROOT/'coop/crates/contracts/src/compatibility.rs').read_text())
+ literals=re.findall(r'0x([0-9a-fA-F]{2})\b',(ROOT/'coop/crates/contracts/src/compatibility.rs').read_text(encoding="utf-8"))
  check(bytes(int(x,16)for x in literals)==digest,'Patch compatibility manifest stale')
- candidates=json.loads((ROOT/'docs/mp/HOOK_CANDIDATES.json').read_text())
- generated=(ROOT/'coop/crates/game/src/build_manifest.rs').read_text()
+ candidates=json.loads((ROOT/'docs/mp/HOOK_CANDIDATES.json').read_text(encoding="utf-8"))
+ generated=(ROOT/'coop/crates/game/src/build_manifest.rs').read_text(encoding="utf-8")
  check(sha((ROOT/'docs/mp/HOOK_CANDIDATES.json').read_bytes()) in generated,'Native manifest provenance stale')
  expected={int(r['rva'],16):bytes.fromhex(r['first_32_file_bytes']) for r in candidates['candidates']}
  rows=re.findall(r'HookSpec\s*\{\s*name:\s*"([^"]+)",\s*rva:\s*(0x[0-9a-f]+),\s*bytes:\s*\[([^]]+)\]',generated,re.S)
@@ -94,10 +94,10 @@ def main():
   '1400cd880.asm':['0x1400ce067  LEA R12,[RSI + 0x240]','0x1400ce30d  MOV qword ptr [R14 + 0x1fc0],R12'],
   '14016e880.asm':['MOV RDI,RDX'], '14016f550.asm':['MOV RDI,RDX'],
   '1401040c0.asm':['MOVZX EDX,byte ptr [R15 + 0x20a1]','MOVZX EAX,byte ptr [R15 + 0x20a2]','IMUL RCX,RAX,0x520'],
- }.items():check(all(n in (evidence/filename).read_text() for n in needles),'Native source mismatch: '+filename)
- holder=(ROOT/'docs/mp/execution/evidence/native-dispatch/1402010d0.asm').read_text()
+ }.items():check(all(n in (evidence/filename).read_text(encoding="utf-8") for n in needles),'Native source mismatch: '+filename)
+ holder=(ROOT/'docs/mp/execution/evidence/native-dispatch/1402010d0.asm').read_text(encoding="utf-8")
  check(all(n in holder for n in ['MOV RDX,RCX','CALL qword ptr [RAX + 0x20]','MOV AL,0x1']),'Holder ABI evidence drift')
- delta=json.loads((ROOT/'docs/mp/execution/evidence/native-dispatch/index-delta.json').read_text())
+ delta=json.loads((ROOT/'docs/mp/execution/evidence/native-dispatch/index-delta.json').read_text(encoding="utf-8"))
  base_path=ROOT/'docs/reverse-engineering/coop/evidence/program-index.json.gz'
  check(sha(base_path.read_bytes())==delta['base_index_sha256'],'Index delta provenance drift')
  baseline=json.loads(gzip.decompress(base_path.read_bytes()))
@@ -112,6 +112,6 @@ def main():
  report=dict(result='PASS',modules=len(seen),dependency_boundaries='PASS',compatibility_sha256=digest.hex(),native_candidates=4,native_source_facts='PASS',gameplay_executed=False)
  if args.dll:report['windows_dll']=pe_exports(args.dll)
  if args.record:
-  args.record.parent.mkdir(parents=True,exist_ok=True);args.record.write_text(json.dumps(report,indent=2)+'\n')
+  args.record.parent.mkdir(parents=True,exist_ok=True);args.record.write_text(json.dumps(report,indent=2)+'\n',encoding='utf-8',newline='\n')
  print(json.dumps(report,indent=2))
 if __name__=='__main__':main()

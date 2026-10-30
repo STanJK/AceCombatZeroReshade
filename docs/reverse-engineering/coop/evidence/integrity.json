@@ -176,14 +176,14 @@
       "sha256": "a83df3429f3ae90b974cb089130fc98dc8a738bdb74338a7138001cbc615a52e"
     },
     {
-      "bytes": 978,
+      "bytes": 1024,
       "path": "coop/tools/generate_native_manifest.py",
-      "sha256": "98efdf881fad47ca9a7d9e64a3614cbc62c43af8e04e399c38e83f656bdf6b96"
+      "sha256": "fedba458c25957e9b4a484f0ef4f6230f4f9ac50b2323eb047faf4243d4b3e37"
     },
     {
-      "bytes": 7621,
+      "bytes": 7779,
       "path": "coop/tools/verify_interfaces.py",
-      "sha256": "957b7eca07d93e5a9d42f0ddcdd512af660c841598092f89828f6b5396833011"
+      "sha256": "b6c5ba48cc083893d0b318020d44bfdac436c2729dc7e09fe5f01bd521c4bcfb"
     },
     {
       "bytes": 5416,
@@ -221,9 +221,9 @@
       "sha256": "10038a10ec51423b2e3e7e1ebf627235081b457bd7f162ca2e1a239722583c06"
     },
     {
-      "bytes": 9119,
+      "bytes": 9423,
       "path": "docs/mp/execution/AUDIT_LOG.md",
-      "sha256": "5f8cd7b6b04f7861dd5ddfc27ed83c7fb1f398f08bafc2310429e5f274954be4"
+      "sha256": "a0f2b298bf492a933e93f11a7e07ba2349c6519ddc4fed0debdf82018fd73c88"
     },
     {
       "bytes": 2048,
@@ -363,12 +363,12 @@
     {
       "bytes": 5461,
       "path": "docs/reverse-engineering/coop/archive/manifest.json",
-      "sha256": "16c305f00d664dc1292b68fe2ee0aac98e3bb9165672ada8b4cb0dd3c3afa72f"
+      "sha256": "8f15eb76862bbff663a116f7fd49c352934e3c8363c383e64c40d78d3615ccb0"
     },
     {
-      "bytes": 63999,
+      "bytes": 64128,
       "path": "docs/reverse-engineering/coop/archive/plans-and-usage.tar.gz",
-      "sha256": "ebcf1008afdee3782e473315d1bab3f37121104f4fdb7e9cc4910f827d6a5b34"
+      "sha256": "92a287b3f72bbb2037d390b05c4b28ada4a2bfca2825b86d3aa7b68982e508d2"
     },
     {
       "bytes": 509,
@@ -4336,9 +4336,9 @@
       "sha256": "cf8a52f200ceaec04b1433d38f6d6c76dc8a44ae51369b741e13fbefe187b2bc"
     },
     {
-      "bytes": 11139,
+      "bytes": 11233,
       "path": "tools/ghidra/verify_coop_archive.py",
-      "sha256": "319a4ef26b78aa76cbd59ec44fac9d8e91d7999486b9e875449f20a83963eb94"
+      "sha256": "b3e8ff1bec06e420d0b27731a5b8818e4239a5166bd797d09e943b0167ae5a50"
     }
   ],
   "format": 1,
