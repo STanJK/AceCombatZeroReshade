@@ -421,3 +421,210 @@ This was intentionally left for later.
 6. **Normalize PSO state field-by-field; never hash pointers or C++ padding.**
 7. **Fail safe visually:** stale capture should degrade to normal output, not freeze/black.
 8. **Camera mode can change render-graph/display-list construction, not just matrices.**
+
+
+## 20. SceneClean routing moved to a shader pass
+
+Direct C++ routing from SceneClean into the ReShade effect target exposed a format mismatch:
+
+```text
+SceneClean     = R16G16B16A16_FLOAT
+effect target  = R10G10B10A2_UNORM
+```
+
+The route moved to:
+
+```text
+ACZRouteSceneClean.fx
+```
+
+as the first ACZ shader pass.
+
+Sampling FP16 SceneClean and writing the current effect target performs the format conversion without a separate manual copy/conversion path.
+
+## 21. Freshness-based technique admission
+
+Menu/non-game frames should not run the gameplay post stack when no valid clean scene exists.
+
+The bridge therefore keeps ReShade globally enabled but temporarily disables the currently enabled techniques when SceneClean is stale.
+
+Reason for not globally disabling effects:
+
+> the bridge must continue receiving effect callbacks so it can detect recovery and restore the techniques automatically.
+
+This solved the simple stale/menu case but later exposed a larger semantic problem: a fresh render fingerprint is not the same thing as being in active combat.
+
+## 22. OriginalFinal, HUD restore and exact A/B
+
+The bridge added:
+
+```text
+ACZ_ORIGINAL_FINAL
+ACZ_PROCESSED_CLEAN
+```
+
+`OriginalFinal` is copied before effects.
+
+`ProcessedClean` is captured only when the A/B technique is enabled and tracks the latest processed clean state before HUD restore.
+
+The resulting shader order became:
+
+```text
+ACZRouteSceneClean
+→ scene post-processing
+→ ACZRestoreHUD
+→ ACZBeforeAfter
+```
+
+`ACZRestoreHUD` reconstructs a HUD/UI mask from:
+
+```text
+abs(OriginalFinal - SceneClean)
+```
+
+after quantizing SceneClean into the 10-bit target domain to suppress FP16→RGB10A2 conversion noise.
+
+This works well in ordinary gameplay.
+
+Known unresolved case:
+
+> Replay can generate scene differences that look like HUD to the simple threshold mask, producing contour/woodgrain-like false positives and flicker.
+
+## 23. Game lifecycle reverse engineering
+
+A mission-end bug remained:
+
+```text
+mission finishes
+→ movie/result/hangar
+→ render detector may still see a compatible HUD PSO
+→ combat post stack can be admitted
+```
+
+Rather than adding more render fingerprints, RE moved to ACZ's semantic mode layer.
+
+MSVC RTTI exposed classes including:
+
+```text
+ModeBase
+ModeHolder
+ModeGameControl
+ModeGameEnd
+ModeGameSeq
+ModeMoviePlay
+ModeDebrief
+CModeCampaignResult
+CModeAircraftSelect
+CModeAircraftData
+```
+
+The `ModeHolder` stack operations were recovered:
+
+```text
+0x140200FD0 set initial/current
+0x140200FF0 replace current
+0x140201040 push
+0x140201070 pop
+0x1402010B0 re-enter current
+```
+
+The key GameControl lifecycle was recovered as:
+
+```text
+0x14016E0B0 enter
+0x14016E4C0 leave
+0x14016E880 update
+```
+
+and GameEnd as:
+
+```text
+0x14016FF00 enter
+0x14016FFF0 update
+```
+
+`GameControl::update` statically selects `ModeGameEnd` or another return constructor once its mission-exit state completes.
+
+This established a real gameplay lifecycle independent of rendering.
+
+## 24. Lifecycle flag diagnostic
+
+`ModeGameControl::enter` writes:
+
+```text
+byte_14032C933 = 1
+```
+
+and `ModeGameControl::leave` writes:
+
+```text
+byte_14032C933 = 0
+```
+
+However additional gameplay code also writes this byte.
+
+Therefore the project deliberately did **not** immediately convert it into a production `combat_active` gate.
+
+Instead, the bridge added a read-only diagnostic:
+
+```text
+acz.exe + RVA 0x032C933
+```
+
+with transition logging and the shader uniform source:
+
+```text
+acz_gamecontrol_active
+```
+
+The purpose is runtime correlation through:
+
+```text
+combat
+pause
+replay
+mission end
+movie/result
+hangar
+```
+
+before assigning a stronger semantic contract.
+
+## 25. Scene classification supersedes binary admission
+
+The next architecture should not become:
+
+```text
+combat = ReShade on
+everything else = ReShade off
+```
+
+because the hangar/aircraft presentation scene is also a desired post-processing target, just not with the same combat profile.
+
+Target semantic classes:
+
+```text
+Combat
+Hangar / aircraft presentation
+Movie / briefing / debrief / result
+Menu / other
+```
+
+Open work:
+
+1. correlate the current/top `ModeHolder` mode with the visible hangar;
+2. map the hangar state to a proven RTTI/vtable identity;
+3. choose between per-mode technique/uniform policy and supported whole-preset switching;
+4. verify ReShade 6.8 API support before assuming live preset switching exists.
+
+The detailed handoff is in [`MODE_LIFECYCLE.md`](MODE_LIFECYCLE.md).
+
+## 26. Updated design lessons
+
+The earlier renderer lessons remain valid, plus:
+
+9. **Render-semantic freshness is not game-semantic state.**
+10. **Do not solve a lifecycle problem with more PSO heuristics if the game already has a mode state machine.**
+11. **Prefer read-only state over detours when it is stable enough.**
+12. **Do not promote a lifecycle-looking global to a production contract until all writers are understood or runtime-correlated.**
+13. **Scene admission should support multiple valid post-processing policies, not only an on/off combat gate.**
