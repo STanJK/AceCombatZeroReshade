@@ -1,0 +1,81 @@
+{
+  "area": "weapon",
+  "callees": [
+    "0x140019ef0",
+    "0x14001b280",
+    "0x140031f80",
+    "0x14006b730",
+    "0x1401c56d0",
+    "0x1401c6a00",
+    "0x1401c97a0",
+    "0x1401c9e60",
+    "0x14022d480",
+    "0x14026f3b0",
+    "0x14026f3f3"
+  ],
+  "callers": [
+    "0x1401031b0",
+    "0x14011e140",
+    "0x14011f160",
+    "0x140121880",
+    "0x1401b9400"
+  ],
+  "confidence": "S/H",
+  "decompile_completed": true,
+  "decompile_error": "",
+  "incoming_references": [
+    {
+      "from": "0x1437e9360",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x1402f6d80",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x1402f6dc0",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x1402f6dd8",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x140103a89",
+      "function": "0x1401031b0",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x1401ba95e",
+      "function": "0x1401b9400",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x14011f00c",
+      "function": "0x14011e140",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x14011fafb",
+      "function": "0x14011f160",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x140121bba",
+      "function": "0x140121880",
+      "type": "UNCONDITIONAL_CALL"
+    }
+  ],
+  "name": "FUN_14013d140",
+  "prototype": "undefined FUN_14013d140()",
+  "research_label": "LaunchProjectilePool16",
+  "review_depth": "focused data-flow/assembly checks",
+  "rva": "0x13d140",
+  "size": 2460,
+  "usage_boundary": "Selects one of 16 mask-owned 0x58-byte slots, source/target selectors, resource pointer and subtype-0 history record; return -1 on exhaustion.",
+  "va": "0x14013d140"
+}

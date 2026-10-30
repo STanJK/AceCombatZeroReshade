@@ -1,0 +1,52 @@
+{
+  "area": "targeting",
+  "callees": [],
+  "callers": [
+    "0x140102ab0",
+    "0x1401031b0",
+    "0x1401040c0"
+  ],
+  "confidence": "S/H",
+  "decompile_completed": true,
+  "decompile_error": "",
+  "incoming_references": [
+    {
+      "from": "0x1437e57d8",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x140102e39",
+      "function": "0x140102ab0",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x140104b5f",
+      "function": "0x1401040c0",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x140104c97",
+      "function": "0x1401040c0",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x140105981",
+      "function": "0x1401040c0",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x140103ad8",
+      "function": "0x1401031b0",
+      "type": "UNCONDITIONAL_CALL"
+    }
+  ],
+  "name": "FUN_1400c04e0",
+  "prototype": "undefined FUN_1400c04e0()",
+  "research_label": "TargetSlotLimitUpdate",
+  "review_depth": "focused data-flow/assembly checks",
+  "rva": "0xc04e0",
+  "size": 570,
+  "usage_boundary": "Changes retained target slots and actor flags; four explicit slots observed.",
+  "va": "0x1400c04e0"
+}

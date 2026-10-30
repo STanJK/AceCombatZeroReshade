@@ -1,0 +1,30 @@
+{
+  "area": "lifecycle",
+  "callees": [
+    "0x140200de0"
+  ],
+  "callers": [],
+  "confidence": "S/H",
+  "decompile_completed": true,
+  "decompile_error": "",
+  "incoming_references": [
+    {
+      "from": "0x1437eb340",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x1402b4008",
+      "function": "",
+      "type": "DATA"
+    }
+  ],
+  "name": "FUN_14016ff00",
+  "prototype": "undefined FUN_14016ff00()",
+  "research_label": "GameEndEnter",
+  "review_depth": "focused data-flow/assembly checks",
+  "rva": "0x16ff00",
+  "size": 240,
+  "usage_boundary": "Return/selector transition root; complete save authority remains open.",
+  "va": "0x14016ff00"
+}

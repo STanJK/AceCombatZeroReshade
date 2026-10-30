@@ -1,0 +1,44 @@
+{
+  "area": "entity",
+  "callees": [
+    "0x140113ca0",
+    "0x14012c1a0",
+    "0x14022d480"
+  ],
+  "callers": [
+    "0x140135b50"
+  ],
+  "confidence": "S/H",
+  "decompile_completed": true,
+  "decompile_error": "",
+  "incoming_references": [
+    {
+      "from": "0x1437e8c28",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x140135beb",
+      "function": "0x140135b50",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x140135bfc",
+      "function": "0x140135b50",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x140135c33",
+      "function": "0x140135b50",
+      "type": "UNCONDITIONAL_CALL"
+    }
+  ],
+  "name": "FUN_14012c410",
+  "prototype": "undefined FUN_14012c410()",
+  "research_label": "SizeGroupActorResources",
+  "review_depth": "focused data-flow/assembly checks",
+  "rva": "0x12c410",
+  "size": 254,
+  "usage_boundary": "Includes actor_count * 0x520 and resource-dependent storage.",
+  "va": "0x14012c410"
+}

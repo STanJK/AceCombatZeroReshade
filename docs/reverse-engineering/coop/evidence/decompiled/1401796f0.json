@@ -1,0 +1,30 @@
+{
+  "area": "lifecycle",
+  "callees": [
+    "0x140200de0"
+  ],
+  "callers": [],
+  "confidence": "S",
+  "decompile_completed": true,
+  "decompile_error": "",
+  "incoming_references": [
+    {
+      "from": "0x1437ebb14",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x1402910e0",
+      "function": "",
+      "type": "DATA"
+    }
+  ],
+  "name": "FUN_1401796f0",
+  "prototype": "undefined FUN_1401796f0()",
+  "research_label": "CampaignControlConstruct",
+  "review_depth": "focused data-flow/assembly checks",
+  "rva": "0x1796f0",
+  "size": 73,
+  "usage_boundary": "Constructs 32-byte mode with campaign vtable and reset setup state.",
+  "va": "0x1401796f0"
+}

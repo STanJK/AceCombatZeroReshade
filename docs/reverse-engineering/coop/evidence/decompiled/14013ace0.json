@@ -1,0 +1,77 @@
+{
+  "area": "weapon",
+  "callees": [
+    "0x140019ef0",
+    "0x14001b280",
+    "0x140031f80",
+    "0x14013a970",
+    "0x1401518d0",
+    "0x1401c56d0",
+    "0x1401c6a00",
+    "0x1401c97a0",
+    "0x1401c9e60",
+    "0x140202920",
+    "0x140203050",
+    "0x140242630"
+  ],
+  "callers": [
+    "0x1401040c0",
+    "0x14011e140",
+    "0x14011f160",
+    "0x140121880",
+    "0x1401b9400"
+  ],
+  "confidence": "S/H",
+  "decompile_completed": true,
+  "decompile_error": "",
+  "incoming_references": [
+    {
+      "from": "0x1437e927c",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x1402f6b78",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x1402f6bd8",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x1401048bd",
+      "function": "0x1401040c0",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x1401ba6a9",
+      "function": "0x1401b9400",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x14011ee2b",
+      "function": "0x14011e140",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x14011f91c",
+      "function": "0x14011f160",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x140121e4d",
+      "function": "0x140121880",
+      "type": "UNCONDITIONAL_CALL"
+    }
+  ],
+  "name": "FUN_14013ace0",
+  "prototype": "undefined FUN_14013ace0()",
+  "research_label": "LaunchScatterPool32",
+  "review_depth": "focused data-flow/assembly checks",
+  "rva": "0x13ace0",
+  "size": 2268,
+  "usage_boundary": "Selects one of 32 mask-owned 0x38-byte slots; two RNG draws, source selectors and subtype-2 history record; gun-like semantics need tracing.",
+  "va": "0x14013ace0"
+}

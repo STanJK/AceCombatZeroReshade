@@ -1,0 +1,32 @@
+{
+  "area": "campaign",
+  "callees": [
+    "0x1400cbcc0",
+    "0x1400cd800",
+    "0x140189320"
+  ],
+  "callers": [],
+  "confidence": "S/H",
+  "decompile_completed": true,
+  "decompile_error": "",
+  "incoming_references": [
+    {
+      "from": "0x1437eb25c",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x140290e58",
+      "function": "",
+      "type": "DATA"
+    }
+  ],
+  "name": "FUN_14016ef50",
+  "prototype": "undefined FUN_14016ef50()",
+  "research_label": "CampaignWorldSetup",
+  "review_depth": "focused data-flow/assembly checks",
+  "rva": "0x16ef50",
+  "size": 280,
+  "usage_boundary": "Sets campaign options before common world wiring/reset.",
+  "va": "0x14016ef50"
+}

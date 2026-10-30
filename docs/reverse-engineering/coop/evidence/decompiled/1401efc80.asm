@@ -1,0 +1,27 @@
+0x1401efc80  MOV qword ptr [RSP + 0x8],RBX
+0x1401efc85  MOV qword ptr [RSP + 0x10],RSI
+0x1401efc8a  PUSH RDI
+0x1401efc8b  SUB RSP,0x20
+0x1401efc8f  MOV ESI,dword ptr [R9]
+0x1401efc92  LEA RBX,[0x14031dfd0]
+0x1401efc99  MOV EDI,0x10
+0x1401efc9e  MOV RCX,qword ptr [RBX]
+0x1401efca1  TEST RCX,RCX
+0x1401efca4  JZ 0x1401efcae
+0x1401efca6  MOV RAX,qword ptr [RCX]
+0x1401efca9  MOV EDX,ESI
+0x1401efcab  CALL qword ptr [RAX + 0x30]
+0x1401efcae  ADD RBX,0x8
+0x1401efcb2  SUB RDI,0x1
+0x1401efcb6  JNZ 0x1401efc9e
+0x1401efcb8  MOV RCX,qword ptr [0x14031dfc8]
+0x1401efcbf  TEST RCX,RCX
+0x1401efcc2  JZ 0x1401efccc
+0x1401efcc4  MOV RAX,qword ptr [RCX]
+0x1401efcc7  MOV EDX,ESI
+0x1401efcc9  CALL qword ptr [RAX + 0x30]
+0x1401efccc  MOV RBX,qword ptr [RSP + 0x30]
+0x1401efcd1  MOV RSI,qword ptr [RSP + 0x38]
+0x1401efcd6  ADD RSP,0x20
+0x1401efcda  POP RDI
+0x1401efcdb  RET

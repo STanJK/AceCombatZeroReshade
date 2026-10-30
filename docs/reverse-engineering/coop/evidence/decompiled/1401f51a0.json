@@ -1,0 +1,28 @@
+{
+  "area": "ui",
+  "callees": [],
+  "callers": [],
+  "confidence": "H",
+  "decompile_completed": true,
+  "decompile_error": "",
+  "incoming_references": [
+    {
+      "from": "0x1437f14e4",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x14030e7f8",
+      "function": "",
+      "type": "DATA"
+    }
+  ],
+  "name": "FUN_1401f51a0",
+  "prototype": "undefined FUN_1401f51a0()",
+  "research_label": "UIVSPlayerStateBinding",
+  "review_depth": "focused data-flow/assembly checks",
+  "rva": "0x1f51a0",
+  "size": 141,
+  "usage_boundary": "VS menu binding; not a network-state serialization API.",
+  "va": "0x1401f51a0"
+}

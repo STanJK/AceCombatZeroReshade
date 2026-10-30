@@ -1,0 +1,43 @@
+{
+  "area": "entity",
+  "callees": [
+    "0x140135aa0",
+    "0x1402777e0"
+  ],
+  "callers": [
+    "0x1400cbcc0"
+  ],
+  "confidence": "S",
+  "decompile_completed": true,
+  "decompile_error": "",
+  "incoming_references": [
+    {
+      "from": "0x1437e8f34",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x1402f6614",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x1402f667c",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x1400cca7c",
+      "function": "0x1400cbcc0",
+      "type": "UNCONDITIONAL_CALL"
+    }
+  ],
+  "name": "FUN_140135cb0",
+  "prototype": "undefined FUN_140135cb0()",
+  "research_label": "ConstructInitialGroups",
+  "review_depth": "focused data-flow/assembly checks",
+  "rva": "0x135cb0",
+  "size": 856,
+  "usage_boundary": "Builds initial groups from definitions and invokes specialized initialization; not runtime spawn.",
+  "va": "0x140135cb0"
+}

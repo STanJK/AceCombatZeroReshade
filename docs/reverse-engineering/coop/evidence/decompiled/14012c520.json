@@ -1,0 +1,55 @@
+{
+  "area": "entity",
+  "callees": [
+    "0x140113ca0",
+    "0x140114180",
+    "0x14012c1a0"
+  ],
+  "callers": [
+    "0x140138950",
+    "0x140139850"
+  ],
+  "confidence": "S/H",
+  "decompile_completed": true,
+  "decompile_error": "",
+  "incoming_references": [
+    {
+      "from": "0x1437e8c34",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x1402f60a8",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x1402f60b8",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x140138993",
+      "function": "0x140138950",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x140139897",
+      "function": "0x140139850",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x1402acd38",
+      "function": "",
+      "type": "DATA"
+    }
+  ],
+  "name": "FUN_14012c520",
+  "prototype": "undefined FUN_14012c520()",
+  "research_label": "UnitInitializeActors",
+  "review_depth": "focused data-flow/assembly checks",
+  "rva": "0x12c520",
+  "size": 535,
+  "usage_boundary": "Unit vtable slot 0 initializes actor storage/selectors/resources; not a standard destructor slot.",
+  "va": "0x14012c520"
+}

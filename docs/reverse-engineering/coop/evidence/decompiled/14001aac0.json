@@ -1,0 +1,40 @@
+{
+  "area": "history",
+  "callees": [],
+  "callers": [
+    "0x14001a2a0"
+  ],
+  "confidence": "H",
+  "decompile_completed": true,
+  "decompile_error": "",
+  "incoming_references": [
+    {
+      "from": "0x1437e0edc",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x1402e8214",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x1402e8248",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x14001a5a4",
+      "function": "0x14001a2a0",
+      "type": "UNCONDITIONAL_CALL"
+    }
+  ],
+  "name": "FUN_14001aac0",
+  "prototype": "undefined FUN_14001aac0()",
+  "research_label": "HistoryEncodeStateRecord",
+  "review_depth": "focused data-flow/assembly checks",
+  "rva": "0x1aac0",
+  "size": 766,
+  "usage_boundary": "Record encoder; exact format and inverse/restore contract remain open.",
+  "va": "0x14001aac0"
+}

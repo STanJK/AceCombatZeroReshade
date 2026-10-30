@@ -1,0 +1,46 @@
+{
+  "area": "campaign",
+  "callees": [
+    "0x1400cd880",
+    "0x1400ce700",
+    "0x1400d55c0",
+    "0x1400d5680",
+    "0x140189320",
+    "0x140197b30",
+    "0x1402011a0"
+  ],
+  "callers": [],
+  "confidence": "S/H",
+  "decompile_completed": true,
+  "decompile_error": "",
+  "incoming_references": [
+    {
+      "from": "0x1437eb268",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x1402f9590",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x1402f95c8",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x140290e68",
+      "function": "",
+      "type": "DATA"
+    }
+  ],
+  "name": "FUN_14016f080",
+  "prototype": "undefined FUN_14016f080()",
+  "research_label": "CampaignControlOptions",
+  "review_depth": "focused data-flow/assembly checks",
+  "rva": "0x16f080",
+  "size": 1003,
+  "usage_boundary": "Applies per-player mappings/options after world setup.",
+  "va": "0x14016f080"
+}

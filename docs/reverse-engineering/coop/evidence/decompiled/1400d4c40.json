@@ -1,0 +1,51 @@
+{
+  "area": "camera",
+  "callees": [
+    "0x140036fe0",
+    "0x1400c51e0",
+    "0x1401040c0",
+    "0x14010f560",
+    "0x14014b4c0",
+    "0x140158f80",
+    "0x1401c56d0",
+    "0x1401c6a00",
+    "0x1401c97a0",
+    "0x1401c9e60"
+  ],
+  "callers": [
+    "0x1400ce880"
+  ],
+  "confidence": "H",
+  "decompile_completed": true,
+  "decompile_error": "",
+  "incoming_references": [
+    {
+      "from": "0x1437e5f88",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x1402f1784",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x1402f1794",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x1400cf25b",
+      "function": "0x1400ce880",
+      "type": "UNCONDITIONAL_CALL"
+    }
+  ],
+  "name": "FUN_1400d4c40",
+  "prototype": "undefined FUN_1400d4c40()",
+  "research_label": "MissionPresentationBranch",
+  "review_depth": "focused data-flow/assembly checks",
+  "rva": "0xd4c40",
+  "size": 981,
+  "usage_boundary": "Special UI/view/game-state branch invoking player processing; not a save-state loader.",
+  "va": "0x1400d4c40"
+}

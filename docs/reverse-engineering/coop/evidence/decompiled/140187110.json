@@ -1,0 +1,193 @@
+{
+  "area": "supporting",
+  "callees": [
+    "0x140186bb0"
+  ],
+  "callers": [
+    "0x1400c5c00",
+    "0x1400c5ff0",
+    "0x1400d0c40",
+    "0x1400f5b60",
+    "0x1400f6380",
+    "0x1400fe730",
+    "0x140100070",
+    "0x14010e220",
+    "0x14011b1a0",
+    "0x140138bc0",
+    "0x140168ee0",
+    "0x140172d40",
+    "0x140174910",
+    "0x140174c30",
+    "0x1401a5f00",
+    "0x1401a6b70",
+    "0x1401a7430",
+    "0x1401a7580",
+    "0x1401b8130",
+    "0x1401c67e0",
+    "0x1401fd9c0",
+    "0x1401fdee0"
+  ],
+  "confidence": "O",
+  "decompile_completed": true,
+  "decompile_error": "",
+  "incoming_references": [
+    {
+      "from": "0x1437ec774",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x1402fa6f0",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x1402fa700",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x1400c6050",
+      "function": "0x1400c5ff0",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x1400c607b",
+      "function": "0x1400c5ff0",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x1401a5f68",
+      "function": "0x1401a5f00",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x1401a5f9a",
+      "function": "0x1401a5f00",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x14010e40f",
+      "function": "0x14010e220",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x1401a6c70",
+      "function": "0x1401a6b70",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x1401a7518",
+      "function": "0x1401a7430",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x1400d0d98",
+      "function": "0x1400d0c40",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x1400d0dd1",
+      "function": "0x1400d0c40",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x1400d0e0a",
+      "function": "0x1400d0c40",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x1400f5e68",
+      "function": "0x1400f5b60",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x1400f6a90",
+      "function": "0x1400f6380",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x1400febab",
+      "function": "0x1400fe730",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x14010058f",
+      "function": "0x140100070",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x1401b896f",
+      "function": "0x1401b8130",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x14011b259",
+      "function": "0x14011b1a0",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x14013913d",
+      "function": "0x140138bc0",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x140172dc7",
+      "function": "0x140172d40",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x140174abf",
+      "function": "0x140174910",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x140174c69",
+      "function": "0x140174c30",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x1401a7697",
+      "function": "0x1401a7580",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x1401c682b",
+      "function": "0x1401c67e0",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x1401fdbf4",
+      "function": "0x1401fd9c0",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x1401fdf54",
+      "function": "0x1401fdee0",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x1401fdf84",
+      "function": "0x1401fdee0",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x1400c5d0f",
+      "function": "0x1400c5c00",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x14016901f",
+      "function": "0x140168ee0",
+      "type": "UNCONDITIONAL_CALL"
+    }
+  ],
+  "name": "FUN_140187110",
+  "prototype": "undefined FUN_140187110()",
+  "research_label": "FUN_140187110",
+  "review_depth": "automated structural inventory; semantic review open",
+  "rva": "0x187110",
+  "size": 116,
+  "usage_boundary": "Supporting export: semantic and callable contract remain open.",
+  "va": "0x140187110"
+}

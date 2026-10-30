@@ -1,0 +1,90 @@
+{
+  "blocks": [
+    {
+      "execute": false,
+      "name": "Headers",
+      "read": true,
+      "size": 1024,
+      "start": "0x140000000",
+      "write": false
+    },
+    {
+      "execute": true,
+      "name": ".text",
+      "read": true,
+      "size": 2596864,
+      "start": "0x140001000",
+      "write": false
+    },
+    {
+      "execute": false,
+      "name": ".rdata",
+      "read": true,
+      "size": 581632,
+      "start": "0x14027b000",
+      "write": false
+    },
+    {
+      "execute": false,
+      "name": ".data",
+      "read": true,
+      "size": 55406592,
+      "start": "0x140309000",
+      "write": true
+    },
+    {
+      "execute": false,
+      "name": ".pdata",
+      "read": true,
+      "size": 98304,
+      "start": "0x1437e0000",
+      "write": false
+    },
+    {
+      "execute": false,
+      "name": ".fptable",
+      "read": true,
+      "size": 4096,
+      "start": "0x1437f8000",
+      "write": true
+    },
+    {
+      "execute": false,
+      "name": "_RDATA",
+      "read": true,
+      "size": 90112,
+      "start": "0x1437f9000",
+      "write": false
+    },
+    {
+      "execute": false,
+      "name": ".xbld",
+      "read": true,
+      "size": 4096,
+      "start": "0x14380f000",
+      "write": true
+    },
+    {
+      "execute": false,
+      "name": ".rsrc",
+      "read": true,
+      "size": 274432,
+      "start": "0x143810000",
+      "write": false
+    },
+    {
+      "execute": false,
+      "name": ".reloc",
+      "read": true,
+      "size": 40960,
+      "start": "0x143853000",
+      "write": false
+    }
+  ],
+  "compiler_spec": "windows",
+  "ghidra": "12.2",
+  "image_base": "0x140000000",
+  "language": "x86:LE:64:default",
+  "program": "acz.exe",
+  "sha256": "43814d4b3292efd0a07fd71bef2f1670c0e5ac7cf2595c9e136d78451380a664"
+}

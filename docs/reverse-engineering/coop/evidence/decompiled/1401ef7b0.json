@@ -1,0 +1,25 @@
+{
+  "area": "ui",
+  "callees": [
+    "0x1401eda90"
+  ],
+  "callers": [],
+  "confidence": "S",
+  "decompile_completed": true,
+  "decompile_error": "",
+  "incoming_references": [
+    {
+      "from": "0x14030ccb8",
+      "function": "",
+      "type": "DATA"
+    }
+  ],
+  "name": "FUN_1401ef7b0",
+  "prototype": "undefined FUN_1401ef7b0()",
+  "research_label": "UISetControlPlayerBinding",
+  "review_depth": "focused data-flow/assembly checks",
+  "rva": "0x1ef7b0",
+  "size": 15,
+  "usage_boundary": "Tail wrapper forwarding R9 argument data to the UI broadcast.",
+  "va": "0x1401ef7b0"
+}

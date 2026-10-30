@@ -1,0 +1,35 @@
+{
+  "area": "input",
+  "callees": [],
+  "callers": [
+    "0x140188180"
+  ],
+  "confidence": "S",
+  "decompile_completed": true,
+  "decompile_error": "",
+  "incoming_references": [
+    {
+      "from": "0x1437ec7d4",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x1401881f1",
+      "function": "0x140188180",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x14018823e",
+      "function": "0x140188180",
+      "type": "UNCONDITIONAL_CALL"
+    }
+  ],
+  "name": "FUN_140188550",
+  "prototype": "void FUN_140188550(ushort arg1, uchar * arg2, uchar * arg3)",
+  "research_label": "ConvertRawLaneToActions",
+  "review_depth": "focused data-flow/assembly checks",
+  "rva": "0x188550",
+  "size": 1316,
+  "usage_boundary": "RCX low-16 buttons, RDX raw lane, R8 output; scalar storage annotation applied.",
+  "va": "0x140188550"
+}

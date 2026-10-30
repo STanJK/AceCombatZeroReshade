@@ -1,0 +1,63 @@
+{
+  "area": "campaign",
+  "callees": [
+    "0x1400d1110",
+    "0x140103080",
+    "0x14010e220",
+    "0x140115a70",
+    "0x140140b50",
+    "0x140187110",
+    "0x140189320",
+    "0x1401a5f00",
+    "0x1401c93c0",
+    "0x1401cb090",
+    "0x14022d4d4",
+    "0x14022d540"
+  ],
+  "callers": [
+    "0x1400d1780"
+  ],
+  "confidence": "H",
+  "decompile_completed": true,
+  "decompile_error": "",
+  "incoming_references": [
+    {
+      "from": "0x1437e5dd8",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x1402f1504",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x1402f151c",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x1402f1530",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x1402f1540",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x1400d1ae7",
+      "function": "0x1400d1780",
+      "type": "UNCONDITIONAL_CALL"
+    }
+  ],
+  "name": "FUN_1400d0c40",
+  "prototype": "undefined FUN_1400d0c40()",
+  "research_label": "MissionSubstateReset",
+  "review_depth": "focused data-flow/assembly checks",
+  "rva": "0xd0c40",
+  "size": 1218,
+  "usage_boundary": "Walks actor/player state and resets subsystems; broad side effects.",
+  "va": "0x1400d0c40"
+}

@@ -1,0 +1,46 @@
+{
+  "area": "lifecycle",
+  "callees": [
+    "0x140004e80",
+    "0x1400c5950",
+    "0x1400f41c0",
+    "0x14016d940",
+    "0x140189320",
+    "0x14018e8e0",
+    "0x1401fbec0",
+    "0x140200de0",
+    "0x14022d480",
+    "0x1402777e0"
+  ],
+  "callers": [
+    "0x14016f470"
+  ],
+  "confidence": "S",
+  "decompile_completed": true,
+  "decompile_error": "",
+  "incoming_references": [
+    {
+      "from": "0x1437eb0b8",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x14016f474",
+      "function": "0x14016f470",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x1402b3f98",
+      "function": "",
+      "type": "DATA"
+    }
+  ],
+  "name": "FUN_14016e0b0",
+  "prototype": "undefined FUN_14016e0b0()",
+  "research_label": "CampaignControlEnter",
+  "review_depth": "focused data-flow/assembly checks",
+  "rva": "0x16e0b0",
+  "size": 849,
+  "usage_boundary": "Allocates world/view storage and writes lifecycle diagnostic; original call and arena rules matter.",
+  "va": "0x14016e0b0"
+}

@@ -1,0 +1,52 @@
+{
+  "area": "player",
+  "callees": [
+    "0x1400782c0",
+    "0x140187a40",
+    "0x140187ec0",
+    "0x140202920",
+    "0x140203050",
+    "0x140242630",
+    "0x140272150",
+    "0x140272370",
+    "0x140275650"
+  ],
+  "callers": [
+    "0x1401040c0",
+    "0x140106f30",
+    "0x140107320"
+  ],
+  "confidence": "H",
+  "decompile_completed": true,
+  "decompile_error": "",
+  "incoming_references": [
+    {
+      "from": "0x1437e7dd0",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x140105d1a",
+      "function": "0x1401040c0",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x1401071bc",
+      "function": "0x140106f30",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x14010748e",
+      "function": "0x140107320",
+      "type": "UNCONDITIONAL_CALL"
+    }
+  ],
+  "name": "FUN_140111d40",
+  "prototype": "undefined FUN_140111d40()",
+  "research_label": "PlayerInputSubstateStep",
+  "review_depth": "focused data-flow/assembly checks",
+  "rva": "0x111d40",
+  "size": 4709,
+  "usage_boundary": "Uses logical input slot and updates a player subobject; inferred vector types are unreliable.",
+  "va": "0x140111d40"
+}

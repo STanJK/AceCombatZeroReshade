@@ -1,0 +1,66 @@
+{
+  "area": "history",
+  "callees": [],
+  "callers": [
+    "0x14001a2a0",
+    "0x1401b7ce0"
+  ],
+  "confidence": "S/H",
+  "decompile_completed": true,
+  "decompile_error": "",
+  "incoming_references": [
+    {
+      "from": "0x1437e0e40",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x1402e8104",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x1402e8114",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x1402e8138",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x1402e8158",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x14001a4fd",
+      "function": "0x14001a2a0",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x14001a546",
+      "function": "0x14001a2a0",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x14001a556",
+      "function": "0x14001a2a0",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x1401b7f3a",
+      "function": "0x1401b7ce0",
+      "type": "UNCONDITIONAL_CALL"
+    }
+  ],
+  "name": "FUN_14001a0c0",
+  "prototype": "undefined FUN_14001a0c0()",
+  "research_label": "HistoryAgeAndRecycle",
+  "review_depth": "focused data-flow/assembly checks",
+  "rva": "0x1a0c0",
+  "size": 478,
+  "usage_boundary": "Recycles bounded/aged records; time scale is unmeasured.",
+  "va": "0x14001a0c0"
+}

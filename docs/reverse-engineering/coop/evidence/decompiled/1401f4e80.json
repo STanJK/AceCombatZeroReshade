@@ -1,0 +1,28 @@
+{
+  "area": "supporting",
+  "callees": [],
+  "callers": [],
+  "confidence": "O",
+  "decompile_completed": true,
+  "decompile_error": "",
+  "incoming_references": [
+    {
+      "from": "0x1437f1490",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x14030e718",
+      "function": "",
+      "type": "DATA"
+    }
+  ],
+  "name": "FUN_1401f4e80",
+  "prototype": "undefined FUN_1401f4e80()",
+  "research_label": "FUN_1401f4e80",
+  "review_depth": "automated structural inventory; semantic review open",
+  "rva": "0x1f4e80",
+  "size": 81,
+  "usage_boundary": "Supporting export: semantic and callable contract remain open.",
+  "va": "0x1401f4e80"
+}

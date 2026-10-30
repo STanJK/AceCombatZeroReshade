@@ -1,0 +1,118 @@
+{
+  "area": "supporting",
+  "callees": [],
+  "callers": [],
+  "confidence": "O",
+  "decompile_completed": true,
+  "decompile_error": "",
+  "incoming_references": [
+    {
+      "from": "0x1402ab480",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x1402ab4b0",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x1402ac780",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x1402ac8a0",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x1402aca68",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x1402acb08",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x1402acc98",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x1402ac9c0",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x1402ac8d0",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x1402ac800",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x1402ac920",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x1402ac850",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x1402acab8",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x1402acb58",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x1402acba8",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x1402acbf8",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x1402acc48",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x1402ac968",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x1402acd28",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x1402aca10",
+      "function": "",
+      "type": "DATA"
+    }
+  ],
+  "name": "FUN_1400aa7f0",
+  "prototype": "undefined FUN_1400aa7f0()",
+  "research_label": "FUN_1400aa7f0",
+  "review_depth": "automated structural inventory; semantic review open",
+  "rva": "0xaa7f0",
+  "size": 9,
+  "usage_boundary": "Supporting export: semantic and callable contract remain open.",
+  "va": "0x1400aa7f0"
+}

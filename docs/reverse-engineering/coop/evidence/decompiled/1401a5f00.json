@@ -1,0 +1,105 @@
+{
+  "area": "supporting",
+  "callees": [
+    "0x140187110",
+    "0x1401a5ae0",
+    "0x1401c56d0"
+  ],
+  "callers": [
+    "0x1400d0c40",
+    "0x1400d1300",
+    "0x1400f4d40",
+    "0x1400f7540",
+    "0x1400f92b0",
+    "0x1400f9bd0",
+    "0x1400fa240",
+    "0x1400fb540",
+    "0x1400fd0a0",
+    "0x1400febe0",
+    "0x1401006b0",
+    "0x1401a5fc0"
+  ],
+  "confidence": "O",
+  "decompile_completed": true,
+  "decompile_error": "",
+  "incoming_references": [
+    {
+      "from": "0x1437ed824",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x1401a5fd2",
+      "function": "0x1401a5fc0",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x1400d0e20",
+      "function": "0x1400d0c40",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x1400d14a8",
+      "function": "0x1400d1300",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x1400f55aa",
+      "function": "0x1400f4d40",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x1400f81d3",
+      "function": "0x1400f7540",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x1400f82d3",
+      "function": "0x1400f7540",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x1400f9932",
+      "function": "0x1400f92b0",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x1400f9e17",
+      "function": "0x1400f9bd0",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x1400fa516",
+      "function": "0x1400fa240",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x1400fbd25",
+      "function": "0x1400fb540",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x1400fd21d",
+      "function": "0x1400fd0a0",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x1400feddd",
+      "function": "0x1400febe0",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x140100fa0",
+      "function": "0x1401006b0",
+      "type": "UNCONDITIONAL_CALL"
+    }
+  ],
+  "name": "FUN_1401a5f00",
+  "prototype": "undefined FUN_1401a5f00()",
+  "research_label": "FUN_1401a5f00",
+  "review_depth": "automated structural inventory; semantic review open",
+  "rva": "0x1a5f00",
+  "size": 184,
+  "usage_boundary": "Supporting export: semantic and callable contract remain open.",
+  "va": "0x1401a5f00"
+}

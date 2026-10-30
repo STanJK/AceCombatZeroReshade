@@ -1,0 +1,90 @@
+{
+  "area": "player",
+  "callees": [
+    "0x1400b95a0",
+    "0x140187110",
+    "0x1401c56d0",
+    "0x1401c93c0",
+    "0x1401cb010",
+    "0x14022d4d4",
+    "0x14022d540"
+  ],
+  "callers": [
+    "0x1400d0c40",
+    "0x1400d1780",
+    "0x1400d4180",
+    "0x1400f5b60",
+    "0x140102ab0",
+    "0x1401040c0",
+    "0x1401075c0",
+    "0x1401b8c40"
+  ],
+  "confidence": "H",
+  "decompile_completed": true,
+  "decompile_error": "",
+  "incoming_references": [
+    {
+      "from": "0x1437e7c50",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x140102ecf",
+      "function": "0x140102ab0",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x140104163",
+      "function": "0x1401040c0",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x1400d0cde",
+      "function": "0x1400d0c40",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x1400d1956",
+      "function": "0x1400d1780",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x1400d1e94",
+      "function": "0x1400d1780",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x1400f5c3c",
+      "function": "0x1400f5b60",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x14010767a",
+      "function": "0x1401075c0",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x140107f71",
+      "function": "0x1401075c0",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x1401b92b9",
+      "function": "0x1401b8c40",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x1400d43e9",
+      "function": "0x1400d4180",
+      "type": "UNCONDITIONAL_CALL"
+    }
+  ],
+  "name": "FUN_14010e220",
+  "prototype": "undefined FUN_14010e220()",
+  "research_label": "PlayerControlSubstateReset",
+  "review_depth": "focused data-flow/assembly checks",
+  "rva": "0x10e220",
+  "size": 898,
+  "usage_boundary": "Called by several death/pause/special paths; broader than a camera toggle.",
+  "va": "0x14010e220"
+}

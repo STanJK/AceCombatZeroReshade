@@ -1,0 +1,58 @@
+{
+  "contents": "Canonical docs/mp and docs/usage at this research revision",
+  "files": [
+    {
+      "bytes": 21679,
+      "path": "docs/mp/COOP_PATCH_IMPLEMENTATION.md",
+      "sha256": "119f33256f86a2e2be55ecc1325b00330daaead0942fe0223a8d646108f6ac38"
+    },
+    {
+      "bytes": 12935,
+      "path": "docs/mp/COOP_PATCH_IMPLEMENTATION.zh-CN.md",
+      "sha256": "59c687b76e847109cade0083d713859bf8537020d081f7bc4c4ecadd78ec3306"
+    },
+    {
+      "bytes": 44672,
+      "path": "docs/mp/HOOK_CANDIDATES.json",
+      "sha256": "91747757f928e9393d904d8c25aafa41d9e2527f47ea4664f78311c65d2742be"
+    },
+    {
+      "bytes": 1059,
+      "path": "docs/mp/README.md",
+      "sha256": "0eb5acfe5392ff17519281eb2eee6d50ba13b9ace40532203d289ce0c83305b0"
+    },
+    {
+      "bytes": 10646,
+      "path": "docs/mp/REVERSE_ENGINEERING_PLAN.md",
+      "sha256": "3b7686238867c65a04bec85cbc2e4b73e77ecf45cf3e9db2d2ec0a937808d078"
+    },
+    {
+      "bytes": 5641,
+      "path": "docs/usage/CODE_READING_NOTES.md",
+      "sha256": "765b4d318f77e98ad0b2bea2389ac685da2e2f00b00e3526619471d65f7c4180"
+    },
+    {
+      "bytes": 74669,
+      "path": "docs/usage/FUNCTION_REVIEW_LEDGER.md",
+      "sha256": "37e3e3cbd267d80f325d3e15cc93c5c7b13fe6e5881155e885c4ce35f08a4d31"
+    },
+    {
+      "bytes": 7028,
+      "path": "docs/usage/NATIVE_ADAPTERS.md",
+      "sha256": "362a72f370b3b6f86aab9d60b705a3ca2994a901924a9aeb73f38fc92a06ddc2"
+    },
+    {
+      "bytes": 2174,
+      "path": "docs/usage/README.md",
+      "sha256": "81f4ceba7958a67d7e25877dcec2fdf579ee87ba2296b656e84c941857de818e"
+    },
+    {
+      "bytes": 5911,
+      "path": "docs/usage/RESEARCH_TOOLING.md",
+      "sha256": "847f6fbc637be8b455505bef806cc31150426e542e17c02439ce0b9a54dd852f"
+    }
+  ],
+  "format": 1,
+  "research_date": "2026-10-30",
+  "target_sha256": "43814d4b3292efd0a07fd71bef2f1670c0e5ac7cf2595c9e136d78451380a664"
+}

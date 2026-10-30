@@ -1,0 +1,79 @@
+{
+  "area": "supporting",
+  "callees": [],
+  "callers": [
+    "0x1400d1780",
+    "0x1400eae00",
+    "0x1401bac40",
+    "0x1401ebb80",
+    "0x1401ed1e0"
+  ],
+  "confidence": "O",
+  "decompile_completed": true,
+  "decompile_error": "",
+  "incoming_references": [
+    {
+      "from": "0x1400d1ab2",
+      "function": "0x1400d1780",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x1400d1f39",
+      "function": "0x1400d1780",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x1400d1f53",
+      "function": "0x1400d1780",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x1401bad85",
+      "function": "0x1401bac40",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x1401bad94",
+      "function": "0x1401bac40",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x1401baf26",
+      "function": "0x1401bac40",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x1401baf35",
+      "function": "0x1401bac40",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x1401baf44",
+      "function": "0x1401bac40",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x1400eb9a8",
+      "function": "0x1400eae00",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x1401ebbc7",
+      "function": "0x1401ebb80",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x1401ed2e7",
+      "function": "0x1401ed1e0",
+      "type": "UNCONDITIONAL_CALL"
+    }
+  ],
+  "name": "FUN_140202020",
+  "prototype": "undefined FUN_140202020()",
+  "research_label": "FUN_140202020",
+  "review_depth": "automated structural inventory; semantic review open",
+  "rva": "0x202020",
+  "size": 70,
+  "usage_boundary": "Supporting export: semantic and callable contract remain open.",
+  "va": "0x140202020"
+}

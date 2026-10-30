@@ -1,0 +1,30 @@
+{
+  "area": "lifecycle",
+  "callees": [
+    "0x1400d1780"
+  ],
+  "callers": [],
+  "confidence": "S",
+  "decompile_completed": true,
+  "decompile_error": "",
+  "incoming_references": [
+    {
+      "from": "0x1437eb2bc",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x1402b3fe8",
+      "function": "",
+      "type": "DATA"
+    }
+  ],
+  "name": "FUN_14016f550",
+  "prototype": "undefined FUN_14016f550()",
+  "research_label": "VSControlUpdate",
+  "review_depth": "focused data-flow/assembly checks",
+  "rva": "0x16f550",
+  "size": 229,
+  "usage_boundary": "15 setup phases, shared mission driver, distinct return modes.",
+  "va": "0x14016f550"
+}

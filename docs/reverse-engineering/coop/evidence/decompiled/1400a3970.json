@@ -1,0 +1,183 @@
+{
+  "area": "supporting",
+  "callees": [],
+  "callers": [],
+  "confidence": "O",
+  "decompile_completed": true,
+  "decompile_error": "",
+  "incoming_references": [
+    {
+      "from": "0x140181893",
+      "function": "0x140181870",
+      "type": "DATA"
+    },
+    {
+      "from": "0x1401818f5",
+      "function": "0x140181870",
+      "type": "DATA"
+    },
+    {
+      "from": "0x14017fe7d",
+      "function": "0x14017fdc0",
+      "type": "DATA"
+    },
+    {
+      "from": "0x14017fe8f",
+      "function": "0x14017fdc0",
+      "type": "DATA"
+    },
+    {
+      "from": "0x14017fec7",
+      "function": "0x14017fdc0",
+      "type": "DATA"
+    },
+    {
+      "from": "0x14017fece",
+      "function": "0x14017fdc0",
+      "type": "DATA"
+    },
+    {
+      "from": "0x140181738",
+      "function": "0x140181690",
+      "type": "DATA"
+    },
+    {
+      "from": "0x14017389b",
+      "function": "0x1401737b0",
+      "type": "DATA"
+    },
+    {
+      "from": "0x1402ab2e0",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x1402ab3b0",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x1402ad2f0",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x1402ad818",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x1402acf60",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x1402ad278",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x1402adb48",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x1402ad5c0",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x1402ad968",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x1402adad0",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x1402ad548",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x1402ad728",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x1402ad0b0",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x1402ad3e0",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x1402adbc0",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x1402acee8",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x1402ad638",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x1402ab210",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x1402ad038",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x1402ad458",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x1402adc38",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x1402ad8f0",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x1402ad1a0",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x1402b5b48",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x1402b5ba0",
+      "function": "",
+      "type": "DATA"
+    }
+  ],
+  "name": "FUN_1400a3970",
+  "prototype": "undefined FUN_1400a3970()",
+  "research_label": "FUN_1400a3970",
+  "review_depth": "automated structural inventory; semantic review open",
+  "rva": "0xa3970",
+  "size": 6,
+  "usage_boundary": "Supporting export: semantic and callable contract remain open.",
+  "va": "0x1400a3970"
+}

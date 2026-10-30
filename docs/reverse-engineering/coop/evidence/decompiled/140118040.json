@@ -1,0 +1,174 @@
+{
+  "area": "damage",
+  "callees": [
+    "0x1400a9c40",
+    "0x140117a10",
+    "0x140118040",
+    "0x140118b20",
+    "0x140118b50",
+    "0x140119e60",
+    "0x140119e90",
+    "0x140189320",
+    "0x14022d4a0",
+    "0x14022da9c",
+    "0x140242630"
+  ],
+  "callers": [
+    "0x140091880",
+    "0x140091d80",
+    "0x14009a160",
+    "0x1400a1a80",
+    "0x1400a7400",
+    "0x1400f7540",
+    "0x1400f9bd0",
+    "0x1400fac60",
+    "0x1400fcc20",
+    "0x1400fe730",
+    "0x1401040c0",
+    "0x140118040",
+    "0x140125400",
+    "0x140132240",
+    "0x1401338c0",
+    "0x14013b5c0",
+    "0x14013dae0",
+    "0x1401b9400"
+  ],
+  "confidence": "S/H",
+  "decompile_completed": true,
+  "decompile_error": "",
+  "incoming_references": [
+    {
+      "from": "0x1437e8064",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x1402f4e0c",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x1402f4e68",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x140091c22",
+      "function": "0x140091880",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x14011891e",
+      "function": "0x140118040",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x140118a13",
+      "function": "0x140118040",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x1400928e2",
+      "function": "0x140091d80",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x14009295a",
+      "function": "0x140091d80",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x1400929a3",
+      "function": "0x140091d80",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x14009a541",
+      "function": "0x14009a160",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x1400a1e51",
+      "function": "0x1400a1a80",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x1400a76d5",
+      "function": "0x1400a7400",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x140106963",
+      "function": "0x1401040c0",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x140133ab3",
+      "function": "0x1401338c0",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x14013c2d5",
+      "function": "0x14013b5c0",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x14013e490",
+      "function": "0x14013dae0",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x1400f7e71",
+      "function": "0x1400f7540",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x1400f7f15",
+      "function": "0x1400f7540",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x1400f9ccb",
+      "function": "0x1400f9bd0",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x1400fad90",
+      "function": "0x1400fac60",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x1400fcd36",
+      "function": "0x1400fcc20",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x1400fe874",
+      "function": "0x1400fe730",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x1401b9817",
+      "function": "0x1401b9400",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x14012599a",
+      "function": "0x140125400",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x14013266e",
+      "function": "0x140132240",
+      "type": "UNCONDITIONAL_CALL"
+    }
+  ],
+  "name": "FUN_140118040",
+  "prototype": "undefined FUN_140118040()",
+  "research_label": "ApplyActorDamage",
+  "review_depth": "focused data-flow/assembly checks",
+  "rva": "0x118040",
+  "size": 2659,
+  "usage_boundary": "Damage scaling/guards, health subtraction, attribution, score and recursive effects.",
+  "va": "0x140118040"
+}

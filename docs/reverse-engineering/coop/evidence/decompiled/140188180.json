@@ -1,0 +1,33 @@
+{
+  "area": "input",
+  "callees": [
+    "0x140187390",
+    "0x140188550"
+  ],
+  "callers": [
+    "0x140201dc0"
+  ],
+  "confidence": "S",
+  "decompile_completed": true,
+  "decompile_error": "",
+  "incoming_references": [
+    {
+      "from": "0x1437ec7c8",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x140201dc9",
+      "function": "0x140201dc0",
+      "type": "UNCONDITIONAL_CALL"
+    }
+  ],
+  "name": "FUN_140188180",
+  "prototype": "undefined FUN_140188180()",
+  "research_label": "BuildAndSelectInputDevices",
+  "review_depth": "focused data-flow/assembly checks",
+  "rva": "0x188180",
+  "size": 776,
+  "usage_boundary": "0x50-byte device records and two logical selections at +0x140/+0x148.",
+  "va": "0x140188180"
+}

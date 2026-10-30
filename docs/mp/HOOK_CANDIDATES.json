@@ -1,0 +1,907 @@
+{
+  "candidates": [
+    {
+      "abi": "undefined FUN_140019ef0()",
+      "confidence": "S/H",
+      "first_32_file_bytes": "40 53 48 83 ec 20 65 48 8b 04 25 58 00 00 00 b9 04 00 00 00 48 8b 00 8b 04 01 39 05 74 00 7c 03",
+      "research_label": "HistorySingleton",
+      "rva": "0x19ef0",
+      "state": "STATIC_CANDIDATE_NOT_RUNTIME_APPROVED",
+      "va": "0x140019ef0",
+      "warning": "Decompiler prototype is not a callable ABI certificate; verify instruction boundaries and all side effects."
+    },
+    {
+      "abi": "undefined FUN_140019f80()",
+      "confidence": "S",
+      "first_32_file_bytes": "45 33 db 48 8d 41 20 4c 8d 91 a0 01 00 00 48 89 00 48 89 40 08 4c 8b c1 44 89 58 70 45 8b cb 48",
+      "research_label": "HistoryPoolReset",
+      "rva": "0x19f80",
+      "state": "STATIC_CANDIDATE_NOT_RUNTIME_APPROVED",
+      "va": "0x140019f80",
+      "warning": "Decompiler prototype is not a callable ABI certificate; verify instruction boundaries and all side effects."
+    },
+    {
+      "abi": "undefined FUN_14001a0c0()",
+      "confidence": "S/H",
+      "first_32_file_bytes": "48 83 ec 08 48 8b 91 18 03 00 00 4c 8d 51 20 4c 8b c1 48 85 d2 75 16 39 91 90 00 00 00 0f 86 86",
+      "research_label": "HistoryAgeAndRecycle",
+      "rva": "0x1a0c0",
+      "state": "STATIC_CANDIDATE_NOT_RUNTIME_APPROVED",
+      "va": "0x14001a0c0",
+      "warning": "Decompiler prototype is not a callable ABI certificate; verify instruction boundaries and all side effects."
+    },
+    {
+      "abi": "undefined FUN_14001a2a0()",
+      "confidence": "S/H",
+      "first_32_file_bytes": "48 89 5c 24 20 55 56 57 41 54 41 57 48 83 ec 40 49 8b f0 33 db 45 0f b6 80 f0 01 00 00 45 32 db",
+      "research_label": "HistoryCaptureActor",
+      "rva": "0x1a2a0",
+      "state": "STATIC_CANDIDATE_NOT_RUNTIME_APPROVED",
+      "va": "0x14001a2a0",
+      "warning": "Decompiler prototype is not a callable ABI certificate; verify instruction boundaries and all side effects."
+    },
+    {
+      "abi": "undefined FUN_14001aac0()",
+      "confidence": "H",
+      "first_32_file_bytes": "48 8b c4 53 55 57 41 54 41 55 48 83 ec 70 49 8b f8 4d 8b e1 4c 8d 81 a0 01 00 00 44 8b ea 49 8b",
+      "research_label": "HistoryEncodeStateRecord",
+      "rva": "0x1aac0",
+      "state": "STATIC_CANDIDATE_NOT_RUNTIME_APPROVED",
+      "va": "0x14001aac0",
+      "warning": "Decompiler prototype is not a callable ABI certificate; verify instruction boundaries and all side effects."
+    },
+    {
+      "abi": "undefined FUN_14001adc0()",
+      "confidence": "H",
+      "first_32_file_bytes": "48 89 5c 24 08 48 89 74 24 10 48 89 7c 24 18 48 8d 99 a0 01 00 00 8b f2 4c 8b 5b 08 48 8b f9 4c",
+      "research_label": "HistoryEncodeEventRecord",
+      "rva": "0x1adc0",
+      "state": "STATIC_CANDIDATE_NOT_RUNTIME_APPROVED",
+      "va": "0x14001adc0",
+      "warning": "Decompiler prototype is not a callable ABI certificate; verify instruction boundaries and all side effects."
+    },
+    {
+      "abi": "undefined FUN_14001b010()",
+      "confidence": "H",
+      "first_32_file_bytes": "48 89 5c 24 18 48 89 74 24 20 57 4d 8b d8 49 8b f9 4c 8d 81 a0 01 00 00 8b f2 4d 8b 50 08 48 8b",
+      "research_label": "HistoryEncodeAuxRecord",
+      "rva": "0x1b010",
+      "state": "STATIC_CANDIDATE_NOT_RUNTIME_APPROVED",
+      "va": "0x14001b010",
+      "warning": "Decompiler prototype is not a callable ABI certificate; verify instruction boundaries and all side effects."
+    },
+    {
+      "abi": "undefined FUN_14001ddc0()",
+      "confidence": "S/H",
+      "first_32_file_bytes": "80 7a 6b 00 c5 f8 57 c0 75 11 c5 ea 59 4a 24 c5 ea 59 5a 28 c5 ea 59 62 20 eb 0c c5 f0 57 c9 c5",
+      "research_label": "DecodeHistoryPoseRecord",
+      "rva": "0x1ddc0",
+      "state": "STATIC_CANDIDATE_NOT_RUNTIME_APPROVED",
+      "va": "0x14001ddc0",
+      "warning": "Decompiler prototype is not a callable ABI certificate; verify instruction boundaries and all side effects."
+    },
+    {
+      "abi": "undefined FUN_14001df10()",
+      "confidence": "S/H",
+      "first_32_file_bytes": "48 89 5c 24 18 57 48 81 ec 00 01 00 00 49 8b f8 48 8b d9 c5 f0 57 c9 c4 c1 72 2a c9 c5 fa 11 49",
+      "research_label": "InterpolateHistoryPose",
+      "rva": "0x1df10",
+      "state": "STATIC_CANDIDATE_NOT_RUNTIME_APPROVED",
+      "va": "0x14001df10",
+      "warning": "Decompiler prototype is not a callable ABI certificate; verify instruction boundaries and all side effects."
+    },
+    {
+      "abi": "undefined FUN_1400c04e0()",
+      "confidence": "S/H",
+      "first_32_file_bytes": "48 89 5c 24 08 33 db 88 91 90 00 00 00 f6 41 1d 01 4c 8b c9 44 8b d3 74 7a 84 d2 74 08 41 ba 01",
+      "research_label": "TargetSlotLimitUpdate",
+      "rva": "0xc04e0",
+      "state": "STATIC_CANDIDATE_NOT_RUNTIME_APPROVED",
+      "va": "0x1400c04e0",
+      "warning": "Decompiler prototype is not a callable ABI certificate; verify instruction boundaries and all side effects."
+    },
+    {
+      "abi": "undefined FUN_1400c1030()",
+      "confidence": "S/H",
+      "first_32_file_bytes": "48 89 5c 24 08 48 89 7c 24 10 33 ff 48 8b d9 44 8b d7 40 38 b9 90 00 00 00 0f 86 8a 00 00 00 4c",
+      "research_label": "TargetSlotClear",
+      "rva": "0xc1030",
+      "state": "STATIC_CANDIDATE_NOT_RUNTIME_APPROVED",
+      "va": "0x1400c1030",
+      "warning": "Decompiler prototype is not a callable ABI certificate; verify instruction boundaries and all side effects."
+    },
+    {
+      "abi": "undefined FUN_1400c11c0()",
+      "confidence": "H",
+      "first_32_file_bytes": "40 53 48 81 ec b0 00 00 00 48 8b d9 0f b6 89 b2 00 00 00 80 f9 ff 75 0c 38 8b b3 00 00 00 0f 84",
+      "research_label": "TargetSelectionStep",
+      "rva": "0xc11c0",
+      "state": "STATIC_CANDIDATE_NOT_RUNTIME_APPROVED",
+      "va": "0x1400c11c0",
+      "warning": "Decompiler prototype is not a callable ABI certificate; verify instruction boundaries and all side effects."
+    },
+    {
+      "abi": "undefined FUN_1400c2630()",
+      "confidence": "S",
+      "first_32_file_bytes": "44 0f b6 81 b6 00 00 00 4c 8b c9 41 0f b6 c0 41 80 e0 fb 0c 04 45 0f b6 c0 0f b6 c0 84 d2 44 0f",
+      "research_label": "TargetOptionBitA",
+      "rva": "0xc2630",
+      "state": "STATIC_CANDIDATE_NOT_RUNTIME_APPROVED",
+      "va": "0x1400c2630",
+      "warning": "Decompiler prototype is not a callable ABI certificate; verify instruction boundaries and all side effects."
+    },
+    {
+      "abi": "undefined FUN_1400c2680()",
+      "confidence": "S",
+      "first_32_file_bytes": "44 0f b6 81 b6 00 00 00 4c 8b c9 41 0f b6 c0 41 80 e0 f7 0c 08 45 0f b6 c0 0f b6 c0 84 d2 44 0f",
+      "research_label": "TargetOptionBitB",
+      "rva": "0xc2680",
+      "state": "STATIC_CANDIDATE_NOT_RUNTIME_APPROVED",
+      "va": "0x1400c2680",
+      "warning": "Decompiler prototype is not a callable ABI certificate; verify instruction boundaries and all side effects."
+    },
+    {
+      "abi": "undefined FUN_1400c4660()",
+      "confidence": "S/H",
+      "first_32_file_bytes": "48 89 5c 24 08 48 89 74 24 10 57 48 83 ec 20 33 f6 48 8b d9 48 89 31 48 89 71 08 48 89 71 10 48",
+      "research_label": "PlayerContextInitialize",
+      "rva": "0xc4660",
+      "state": "STATIC_CANDIDATE_NOT_RUNTIME_APPROVED",
+      "va": "0x1400c4660",
+      "warning": "Decompiler prototype is not a callable ABI certificate; verify instruction boundaries and all side effects."
+    },
+    {
+      "abi": "void FUN_1400c6a50(uchar * arg1, uchar arg2, uchar arg3, uchar * arg4, uchar * arg5, uchar * arg6, ulonglong arg7, uchar * arg8, uchar * arg9, uchar * arg10)",
+      "confidence": "S",
+      "first_32_file_bytes": "4c 89 4c 24 20 44 88 44 24 18 53 55 56 57 41 54 41 56 48 83 ec 28 45 33 e4 4c 89 6c 24 68 4c 89",
+      "research_label": "AllocatePlayerResources",
+      "rva": "0xc6a50",
+      "state": "STATIC_CANDIDATE_NOT_RUNTIME_APPROVED",
+      "va": "0x1400c6a50",
+      "warning": "Decompiler prototype is not a callable ABI certificate; verify instruction boundaries and all side effects."
+    },
+    {
+      "abi": "undefined FUN_1400c70e0()",
+      "confidence": "H",
+      "first_32_file_bytes": "40 53 56 41 57 48 81 ec 30 06 00 00 48 8b 05 4d 1f 24 00 48 33 c4 48 89 84 24 10 06 00 00 4c 8b",
+      "research_label": "PlayerResourceLoadContinue",
+      "rva": "0xc70e0",
+      "state": "STATIC_CANDIDATE_NOT_RUNTIME_APPROVED",
+      "va": "0x1400c70e0",
+      "warning": "Decompiler prototype is not a callable ABI certificate; verify instruction boundaries and all side effects."
+    },
+    {
+      "abi": "undefined FUN_1400c7f90()",
+      "confidence": "H",
+      "first_32_file_bytes": "48 89 5c 24 08 48 89 74 24 10 57 48 83 ec 20 0f b6 fa 48 8b d9 e8 16 95 13 00 48 8b c8 44 8b 80",
+      "research_label": "MissionResourceSelectA",
+      "rva": "0xc7f90",
+      "state": "STATIC_CANDIDATE_NOT_RUNTIME_APPROVED",
+      "va": "0x1400c7f90",
+      "warning": "Decompiler prototype is not a callable ABI certificate; verify instruction boundaries and all side effects."
+    },
+    {
+      "abi": "undefined FUN_1400c9690()",
+      "confidence": "H",
+      "first_32_file_bytes": "48 89 5c 24 08 48 89 74 24 10 57 48 83 ec 20 0f b6 fa 48 8b d9 e8 16 7e 13 00 48 8b c8 44 8b 80",
+      "research_label": "MissionResourceSelectB",
+      "rva": "0xc9690",
+      "state": "STATIC_CANDIDATE_NOT_RUNTIME_APPROVED",
+      "va": "0x1400c9690",
+      "warning": "Decompiler prototype is not a callable ABI certificate; verify instruction boundaries and all side effects."
+    },
+    {
+      "abi": "undefined FUN_1400cbcc0()",
+      "confidence": "S/H",
+      "first_32_file_bytes": "48 89 5c 24 10 48 89 6c 24 18 48 89 74 24 20 57 41 54 41 55 41 56 41 57 48 83 ec 40 80 b9 27 88",
+      "research_label": "WireWorldAndPlayers",
+      "rva": "0xcbcc0",
+      "state": "STATIC_CANDIDATE_NOT_RUNTIME_APPROVED",
+      "va": "0x1400cbcc0",
+      "warning": "Decompiler prototype is not a callable ABI certificate; verify instruction boundaries and all side effects."
+    },
+    {
+      "abi": "undefined FUN_1400cd880()",
+      "confidence": "H",
+      "first_32_file_bytes": "4c 8b dc 55 56 49 8d ab c8 fe ff ff 48 81 ec 28 02 00 00 48 8b 05 a6 b7 23 00 48 33 c4 48 89 85",
+      "research_label": "WorldStartOrReset",
+      "rva": "0xcd880",
+      "state": "STATIC_CANDIDATE_NOT_RUNTIME_APPROVED",
+      "va": "0x1400cd880",
+      "warning": "Decompiler prototype is not a callable ABI certificate; verify instruction boundaries and all side effects."
+    },
+    {
+      "abi": "undefined FUN_1400ce880()",
+      "confidence": "S/H",
+      "first_32_file_bytes": "48 8b c4 55 56 48 8d 6c 24 88 48 81 ec 78 01 00 00 48 89 58 e8 48 8b f1 48 89 78 e0 4c 89 60 d8",
+      "research_label": "ActiveWorldPlayerStep",
+      "rva": "0xce880",
+      "state": "STATIC_CANDIDATE_NOT_RUNTIME_APPROVED",
+      "va": "0x1400ce880",
+      "warning": "Decompiler prototype is not a callable ABI certificate; verify instruction boundaries and all side effects."
+    },
+    {
+      "abi": "undefined FUN_1400d03a0()",
+      "confidence": "H",
+      "first_32_file_bytes": "48 8b c4 53 57 41 57 48 81 ec 80 00 00 00 48 89 68 08 45 33 ff 48 89 70 10 48 8b f9 48 8b b1 48",
+      "research_label": "SpecialViewMissionBranch",
+      "rva": "0xd03a0",
+      "state": "STATIC_CANDIDATE_NOT_RUNTIME_APPROVED",
+      "va": "0x1400d03a0",
+      "warning": "Decompiler prototype is not a callable ABI certificate; verify instruction boundaries and all side effects."
+    },
+    {
+      "abi": "undefined FUN_1400d0c40()",
+      "confidence": "H",
+      "first_32_file_bytes": "48 89 5c 24 20 55 48 83 ec 20 48 8b 99 b8 97 06 00 48 8b e9 0f b6 81 ec 97 06 00 48 89 74 24 30",
+      "research_label": "MissionSubstateReset",
+      "rva": "0xd0c40",
+      "state": "STATIC_CANDIDATE_NOT_RUNTIME_APPROVED",
+      "va": "0x1400d0c40",
+      "warning": "Decompiler prototype is not a callable ABI certificate; verify instruction boundaries and all side effects."
+    },
+    {
+      "abi": "undefined FUN_1400d1780()",
+      "confidence": "S/H",
+      "first_32_file_bytes": "40 57 41 54 41 55 48 83 ec 60 45 33 e4 48 8b f9 44 89 a1 30 72 06 00 4c 89 a1 f0 71 06 00 4c 89",
+      "research_label": "MissionStateDriver",
+      "rva": "0xd1780",
+      "state": "STATIC_CANDIDATE_NOT_RUNTIME_APPROVED",
+      "va": "0x1400d1780",
+      "warning": "Decompiler prototype is not a callable ABI certificate; verify instruction boundaries and all side effects."
+    },
+    {
+      "abi": "undefined FUN_1400d2580()",
+      "confidence": "S/H",
+      "first_32_file_bytes": "40 55 53 41 56 41 57 48 8d ac 24 38 fe ff ff 48 81 ec c8 02 00 00 48 8b 05 a3 6a 23 00 48 33 c4",
+      "research_label": "WorldScenePacketBuild",
+      "rva": "0xd2580",
+      "state": "STATIC_CANDIDATE_NOT_RUNTIME_APPROVED",
+      "va": "0x1400d2580",
+      "warning": "Decompiler prototype is not a callable ABI certificate; verify instruction boundaries and all side effects."
+    },
+    {
+      "abi": "undefined FUN_1400d46a0()",
+      "confidence": "H",
+      "first_32_file_bytes": "48 89 5c 24 08 48 89 74 24 10 48 89 7c 24 18 41 56 48 83 ec 20 4c 0f be 89 29 88 0a 00 4c 8b f1",
+      "research_label": "MissionControlFlagUpdate",
+      "rva": "0xd46a0",
+      "state": "STATIC_CANDIDATE_NOT_RUNTIME_APPROVED",
+      "va": "0x1400d46a0",
+      "warning": "Decompiler prototype is not a callable ABI certificate; verify instruction boundaries and all side effects."
+    },
+    {
+      "abi": "undefined FUN_1400d4c40()",
+      "confidence": "H",
+      "first_32_file_bytes": "48 89 5c 24 18 55 56 41 56 48 83 ec 70 48 8b d9 48 8b 89 60 71 06 00 48 8b 01 4c 8b 83 f8 82 0a",
+      "research_label": "MissionPresentationBranch",
+      "rva": "0xd4c40",
+      "state": "STATIC_CANDIDATE_NOT_RUNTIME_APPROVED",
+      "va": "0x1400d4c40",
+      "warning": "Decompiler prototype is not a callable ABI certificate; verify instruction boundaries and all side effects."
+    },
+    {
+      "abi": "undefined FUN_140102540()",
+      "confidence": "S/H",
+      "first_32_file_bytes": "0f b7 41 08 0f b6 51 10 66 85 c0 74 0e 66 ff c8 80 e2 fe 66 89 41 08 88 51 10 c3 f6 c2 01 74 2b",
+      "research_label": "WeaponCooldownStep",
+      "rva": "0x102540",
+      "state": "STATIC_CANDIDATE_NOT_RUNTIME_APPROVED",
+      "va": "0x140102540",
+      "warning": "Decompiler prototype is not a callable ABI certificate; verify instruction boundaries and all side effects."
+    },
+    {
+      "abi": "undefined FUN_1401040c0()",
+      "confidence": "S/H",
+      "first_32_file_bytes": "48 8b c4 4c 89 40 18 88 50 10 55 57 41 54 41 55 41 56 41 57 48 8d a8 e8 fe ff ff 48 81 ec e8 01",
+      "research_label": "PlayerControlAndViewStep",
+      "rva": "0x1040c0",
+      "state": "STATIC_CANDIDATE_NOT_RUNTIME_APPROVED",
+      "va": "0x1401040c0",
+      "warning": "Decompiler prototype is not a callable ABI certificate; verify instruction boundaries and all side effects."
+    },
+    {
+      "abi": "undefined FUN_14010b000()",
+      "confidence": "H",
+      "first_32_file_bytes": "48 8b c4 48 89 58 10 48 89 70 18 48 89 78 20 55 41 54 41 55 41 56 41 57 48 8d a8 28 ff ff ff 48",
+      "research_label": "PlayerPresentationStateBuild",
+      "rva": "0x10b000",
+      "state": "STATIC_CANDIDATE_NOT_RUNTIME_APPROVED",
+      "va": "0x14010b000",
+      "warning": "Decompiler prototype is not a callable ABI certificate; verify instruction boundaries and all side effects."
+    },
+    {
+      "abi": "undefined FUN_14010c9a0()",
+      "confidence": "H",
+      "first_32_file_bytes": "48 8b c4 55 57 41 54 41 55 41 57 48 8d a8 e8 fe ff ff 48 81 ec f0 01 00 00 44 0f b6 25 9f f3 22",
+      "research_label": "PlayerWeaponHitQueryPath",
+      "rva": "0x10c9a0",
+      "state": "STATIC_CANDIDATE_NOT_RUNTIME_APPROVED",
+      "va": "0x14010c9a0",
+      "warning": "Decompiler prototype is not a callable ABI certificate; verify instruction boundaries and all side effects."
+    },
+    {
+      "abi": "undefined FUN_14010e220()",
+      "confidence": "H",
+      "first_32_file_bytes": "48 89 5c 24 08 48 89 74 24 10 48 89 7c 24 18 41 56 48 83 ec 20 0f b6 da 48 8b f9 e8 90 74 0b 00",
+      "research_label": "PlayerControlSubstateReset",
+      "rva": "0x10e220",
+      "state": "STATIC_CANDIDATE_NOT_RUNTIME_APPROVED",
+      "va": "0x14010e220",
+      "warning": "Decompiler prototype is not a callable ABI certificate; verify instruction boundaries and all side effects."
+    },
+    {
+      "abi": "undefined FUN_14010ead0()",
+      "confidence": "H",
+      "first_32_file_bytes": "40 53 56 41 54 41 55 41 56 48 81 ec 80 01 00 00 33 f6 41 bd 4f 00 00 00 48 8b d9 66 44 3b a9 b8",
+      "research_label": "PlayerPostStepConstraints",
+      "rva": "0x10ead0",
+      "state": "STATIC_CANDIDATE_NOT_RUNTIME_APPROVED",
+      "va": "0x14010ead0",
+      "warning": "Decompiler prototype is not a callable ABI certificate; verify instruction boundaries and all side effects."
+    },
+    {
+      "abi": "undefined FUN_140111d40()",
+      "confidence": "H",
+      "first_32_file_bytes": "48 8b c4 48 89 58 10 55 56 57 41 54 41 55 41 56 41 57 48 8d 6c 24 b0 48 81 ec 50 01 00 00 c5 fa",
+      "research_label": "PlayerInputSubstateStep",
+      "rva": "0x111d40",
+      "state": "STATIC_CANDIDATE_NOT_RUNTIME_APPROVED",
+      "va": "0x140111d40",
+      "warning": "Decompiler prototype is not a callable ABI certificate; verify instruction boundaries and all side effects."
+    },
+    {
+      "abi": "undefined FUN_140115c20()",
+      "confidence": "H",
+      "first_32_file_bytes": "40 53 41 54 48 81 ec c8 00 00 00 8b 81 fc 01 00 00 45 33 e4 f6 81 f0 01 00 00 01 48 8b d9 89 81",
+      "research_label": "ActorLifecycleAux",
+      "rva": "0x115c20",
+      "state": "STATIC_CANDIDATE_NOT_RUNTIME_APPROVED",
+      "va": "0x140115c20",
+      "warning": "Decompiler prototype is not a callable ABI certificate; verify instruction boundaries and all side effects."
+    },
+    {
+      "abi": "undefined FUN_140117a10()",
+      "confidence": "S/H",
+      "first_32_file_bytes": "48 8b c4 55 53 48 8d 68 a1 48 81 ec c8 00 00 00 f6 81 f0 01 00 00 02 48 8b d9 44 0f b6 c2 0f 84",
+      "research_label": "ActorDeathEffectsAndState",
+      "rva": "0x117a10",
+      "state": "STATIC_CANDIDATE_NOT_RUNTIME_APPROVED",
+      "va": "0x140117a10",
+      "warning": "Decompiler prototype is not a callable ABI certificate; verify instruction boundaries and all side effects."
+    },
+    {
+      "abi": "undefined FUN_140118040()",
+      "confidence": "S/H",
+      "first_32_file_bytes": "40 55 57 41 54 41 57 48 8d 6c 24 d9 48 81 ec 88 00 00 00 4d 8b e0 4c 8b fa 48 8b f9 4d 85 c0 74",
+      "research_label": "ApplyActorDamage",
+      "rva": "0x118040",
+      "state": "STATIC_CANDIDATE_NOT_RUNTIME_APPROVED",
+      "va": "0x140118040",
+      "warning": "Decompiler prototype is not a callable ABI certificate; verify instruction boundaries and all side effects."
+    },
+    {
+      "abi": "undefined FUN_14012bf60()",
+      "confidence": "H",
+      "first_32_file_bytes": "40 53 48 83 ec 20 48 8b d9 48 8b 49 10 48 85 c9 0f 84 0f 01 00 00 e8 c5 8d fc ff 48 8b 53 10 f6",
+      "research_label": "MissionControllerStep",
+      "rva": "0x12bf60",
+      "state": "STATIC_CANDIDATE_NOT_RUNTIME_APPROVED",
+      "va": "0x14012bf60",
+      "warning": "Decompiler prototype is not a callable ABI certificate; verify instruction boundaries and all side effects."
+    },
+    {
+      "abi": "undefined FUN_14012c410()",
+      "confidence": "S/H",
+      "first_32_file_bytes": "40 53 56 57 41 54 41 56 41 57 48 81 ec 68 05 00 00 48 8b 05 18 cc 1d 00 48 33 c4 48 89 84 24 50",
+      "research_label": "SizeGroupActorResources",
+      "rva": "0x12c410",
+      "state": "STATIC_CANDIDATE_NOT_RUNTIME_APPROVED",
+      "va": "0x14012c410",
+      "warning": "Decompiler prototype is not a callable ABI certificate; verify instruction boundaries and all side effects."
+    },
+    {
+      "abi": "undefined FUN_14012c520()",
+      "confidence": "S/H",
+      "first_32_file_bytes": "48 89 6c 24 20 4c 89 44 24 18 56 57 41 54 41 56 41 57 48 83 ec 40 48 89 91 30 01 00 00 4d 8b d8",
+      "research_label": "UnitInitializeActors",
+      "rva": "0x12c520",
+      "state": "STATIC_CANDIDATE_NOT_RUNTIME_APPROVED",
+      "va": "0x14012c520",
+      "warning": "Decompiler prototype is not a callable ABI certificate; verify instruction boundaries and all side effects."
+    },
+    {
+      "abi": "undefined FUN_14012c740()",
+      "confidence": "S/H",
+      "first_32_file_bytes": "48 89 74 24 20 57 48 83 ec 20 48 8b 81 40 01 00 00 33 f6 48 8b f9 44 0f b6 81 5c 01 00 00 48 89",
+      "research_label": "UnitResetActors",
+      "rva": "0x12c740",
+      "state": "STATIC_CANDIDATE_NOT_RUNTIME_APPROVED",
+      "va": "0x14012c740",
+      "warning": "Decompiler prototype is not a callable ABI certificate; verify instruction boundaries and all side effects."
+    },
+    {
+      "abi": "undefined FUN_140132240()",
+      "confidence": "S/H",
+      "first_32_file_bytes": "4c 8b dc 55 53 49 8d ab 28 ff ff ff 48 81 ec c8 01 00 00 48 8b 05 e6 6d 1d 00 48 33 c4 48 89 45",
+      "research_label": "UnitUpdateActors",
+      "rva": "0x132240",
+      "state": "STATIC_CANDIDATE_NOT_RUNTIME_APPROVED",
+      "va": "0x140132240",
+      "warning": "Decompiler prototype is not a callable ABI certificate; verify instruction boundaries and all side effects."
+    },
+    {
+      "abi": "undefined FUN_1401338c0()",
+      "confidence": "S/H",
+      "first_32_file_bytes": "40 53 48 83 ec 50 f6 81 20 01 00 00 04 48 8b d9 0f 85 f9 01 00 00 48 8b 81 40 01 00 00 33 d2 48",
+      "research_label": "UnitRelationshipDamageStep",
+      "rva": "0x1338c0",
+      "state": "STATIC_CANDIDATE_NOT_RUNTIME_APPROVED",
+      "va": "0x1401338c0",
+      "warning": "Decompiler prototype is not a callable ABI certificate; verify instruction boundaries and all side effects."
+    },
+    {
+      "abi": "undefined FUN_140135b50()",
+      "confidence": "S",
+      "first_32_file_bytes": "48 89 4c 24 08 56 41 54 41 56 41 57 48 83 ec 28 33 f6 c6 05 18 14 1f 00 00 89 74 24 50 4d 8b f1",
+      "research_label": "SizeInitialGroupArena",
+      "rva": "0x135b50",
+      "state": "STATIC_CANDIDATE_NOT_RUNTIME_APPROVED",
+      "va": "0x140135b50",
+      "warning": "Decompiler prototype is not a callable ABI certificate; verify instruction boundaries and all side effects."
+    },
+    {
+      "abi": "undefined FUN_140135cb0()",
+      "confidence": "S",
+      "first_32_file_bytes": "48 85 d2 0f 84 4e 03 00 00 48 8b c4 4c 89 48 20 4c 89 40 18 48 89 50 10 57 48 81 ec 90 00 00 00",
+      "research_label": "ConstructInitialGroups",
+      "rva": "0x135cb0",
+      "state": "STATIC_CANDIDATE_NOT_RUNTIME_APPROVED",
+      "va": "0x140135cb0",
+      "warning": "Decompiler prototype is not a callable ABI certificate; verify instruction boundaries and all side effects."
+    },
+    {
+      "abi": "undefined FUN_1401363c0()",
+      "confidence": "S",
+      "first_32_file_bytes": "48 89 5c 24 10 48 89 6c 24 18 48 89 74 24 20 57 48 83 ec 20 f6 41 6d 01 0f b6 ea 48 8b 19 48 8b",
+      "research_label": "DispatchGroupUpdates",
+      "rva": "0x1363c0",
+      "state": "STATIC_CANDIDATE_NOT_RUNTIME_APPROVED",
+      "va": "0x1401363c0",
+      "warning": "Decompiler prototype is not a callable ABI certificate; verify instruction boundaries and all side effects."
+    },
+    {
+      "abi": "undefined FUN_14013ace0()",
+      "confidence": "S/H",
+      "first_32_file_bytes": "4c 89 44 24 18 48 89 54 24 10 55 57 41 55 41 57 48 8d 6c 24 b8 48 81 ec 48 01 00 00 0f b6 05 5d",
+      "research_label": "LaunchScatterPool32",
+      "rva": "0x13ace0",
+      "state": "STATIC_CANDIDATE_NOT_RUNTIME_APPROVED",
+      "va": "0x14013ace0",
+      "warning": "Decompiler prototype is not a callable ABI certificate; verify instruction boundaries and all side effects."
+    },
+    {
+      "abi": "undefined FUN_14013d140()",
+      "confidence": "S/H",
+      "first_32_file_bytes": "40 55 53 57 41 54 41 56 41 57 48 8d ac 24 f8 fe ff ff 48 81 ec 08 02 00 00 48 8b 05 e0 be 1c 00",
+      "research_label": "LaunchProjectilePool16",
+      "rva": "0x13d140",
+      "state": "STATIC_CANDIDATE_NOT_RUNTIME_APPROVED",
+      "va": "0x14013d140",
+      "warning": "Decompiler prototype is not a callable ABI certificate; verify instruction boundaries and all side effects."
+    },
+    {
+      "abi": "undefined FUN_140141200()",
+      "confidence": "S/H",
+      "first_32_file_bytes": "48 8b c4 53 56 41 54 41 55 41 57 48 81 ec 80 00 00 00 0f b6 b4 24 f8 00 00 00 48 8b d9 44 0f b6",
+      "research_label": "DispatchWeaponFamilyLaunch",
+      "rva": "0x141200",
+      "state": "STATIC_CANDIDATE_NOT_RUNTIME_APPROVED",
+      "va": "0x140141200",
+      "warning": "Decompiler prototype is not a callable ABI certificate; verify instruction boundaries and all side effects."
+    },
+    {
+      "abi": "undefined FUN_14016d940()",
+      "confidence": "S/H",
+      "first_32_file_bytes": "48 89 5c 24 08 48 89 6c 24 10 48 89 74 24 18 57 48 83 ec 20 33 ed 66 c7 81 04 01 00 00 01 01 48",
+      "research_label": "InitializeWorldState",
+      "rva": "0x16d940",
+      "state": "STATIC_CANDIDATE_NOT_RUNTIME_APPROVED",
+      "va": "0x14016d940",
+      "warning": "Decompiler prototype is not a callable ABI certificate; verify instruction boundaries and all side effects."
+    },
+    {
+      "abi": "undefined FUN_14016e0b0()",
+      "confidence": "S",
+      "first_32_file_bytes": "48 89 5c 24 10 48 89 6c 24 18 56 57 41 56 48 81 ec 40 04 00 00 48 8b 05 74 af 19 00 48 33 c4 48",
+      "research_label": "CampaignControlEnter",
+      "rva": "0x16e0b0",
+      "state": "STATIC_CANDIDATE_NOT_RUNTIME_APPROVED",
+      "va": "0x14016e0b0",
+      "warning": "Decompiler prototype is not a callable ABI certificate; verify instruction boundaries and all side effects."
+    },
+    {
+      "abi": "undefined FUN_14016e4c0()",
+      "confidence": "S/H",
+      "first_32_file_bytes": "40 57 48 83 ec 50 80 3d 4b ea 1a 00 00 48 89 5c 24 78 48 89 6c 24 48 48 8b e9 4c 89 64 24 38 4c",
+      "research_label": "CampaignControlLeave",
+      "rva": "0x16e4c0",
+      "state": "STATIC_CANDIDATE_NOT_RUNTIME_APPROVED",
+      "va": "0x14016e4c0",
+      "warning": "Decompiler prototype is not a callable ABI certificate; verify instruction boundaries and all side effects."
+    },
+    {
+      "abi": "undefined FUN_14016e880()",
+      "confidence": "S",
+      "first_32_file_bytes": "48 89 5c 24 08 57 48 83 ec 20 80 79 18 00 48 8b fa 48 8b d9 0f 84 a2 00 00 00 48 8b 49 08 e8 dd",
+      "research_label": "CampaignControlUpdate",
+      "rva": "0x16e880",
+      "state": "STATIC_CANDIDATE_NOT_RUNTIME_APPROVED",
+      "va": "0x14016e880",
+      "warning": "Decompiler prototype is not a callable ABI certificate; verify instruction boundaries and all side effects."
+    },
+    {
+      "abi": "undefined FUN_14016e9b0()",
+      "confidence": "S/H",
+      "first_32_file_bytes": "48 83 ec 28 80 79 18 00 74 0d 48 8b 49 08 48 83 c4 28 e9 b9 3b f6 ff 48 8b 0d e2 de 1b 00 48 89",
+      "research_label": "GameControlAuxiliary",
+      "rva": "0x16e9b0",
+      "state": "STATIC_CANDIDATE_NOT_RUNTIME_APPROVED",
+      "va": "0x14016e9b0",
+      "warning": "Decompiler prototype is not a callable ABI certificate; verify instruction boundaries and all side effects."
+    },
+    {
+      "abi": "undefined FUN_14016eb20()",
+      "confidence": "S",
+      "first_32_file_bytes": "48 83 ec 78 80 3d ed e3 1a 00 00 4c 8b d9 74 0f 8b 05 a6 e2 1a 00 4c 8d 05 3b 83 1a 00 eb 0d 8b",
+      "research_label": "CampaignLoadoutSetup",
+      "rva": "0x16eb20",
+      "state": "STATIC_CANDIDATE_NOT_RUNTIME_APPROVED",
+      "va": "0x14016eb20",
+      "warning": "Decompiler prototype is not a callable ABI certificate; verify instruction boundaries and all side effects."
+    },
+    {
+      "abi": "undefined FUN_14016ef50()",
+      "confidence": "S/H",
+      "first_32_file_bytes": "48 89 5c 24 08 48 89 74 24 10 57 48 83 ec 20 48 8b f9 e8 b9 a3 01 00 48 8b 57 10 33 f6 c5 fa 10",
+      "research_label": "CampaignWorldSetup",
+      "rva": "0x16ef50",
+      "state": "STATIC_CANDIDATE_NOT_RUNTIME_APPROVED",
+      "va": "0x14016ef50",
+      "warning": "Decompiler prototype is not a callable ABI certificate; verify instruction boundaries and all side effects."
+    },
+    {
+      "abi": "undefined FUN_14016f080()",
+      "confidence": "S/H",
+      "first_32_file_bytes": "40 55 56 57 48 83 ec 40 4c 89 64 24 38 48 8b f1 4c 89 6c 24 30 4c 89 7c 24 20 e8 81 a2 01 00 0f",
+      "research_label": "CampaignControlOptions",
+      "rva": "0x16f080",
+      "state": "STATIC_CANDIDATE_NOT_RUNTIME_APPROVED",
+      "va": "0x14016f080",
+      "warning": "Decompiler prototype is not a callable ABI certificate; verify instruction boundaries and all side effects."
+    },
+    {
+      "abi": "undefined FUN_14016f470()",
+      "confidence": "S",
+      "first_32_file_bytes": "48 83 ec 28 e8 37 ec ff ff 48 63 05 34 d6 19 00 48 8d 15 d1 8f 1b 00 48 8d 0d 82 a8 00 00 c6 05",
+      "research_label": "VSControlEnter",
+      "rva": "0x16f470",
+      "state": "STATIC_CANDIDATE_NOT_RUNTIME_APPROVED",
+      "va": "0x14016f470",
+      "warning": "Decompiler prototype is not a callable ABI certificate; verify instruction boundaries and all side effects."
+    },
+    {
+      "abi": "undefined FUN_14016f4c0()",
+      "confidence": "S",
+      "first_32_file_bytes": "40 53 48 83 ec 20 48 8b d9 e8 02 62 05 00 65 48 8b 04 25 58 00 00 00 b9 04 00 00 00 48 8b 00 8b",
+      "research_label": "VSControlLeave",
+      "rva": "0x16f4c0",
+      "state": "STATIC_CANDIDATE_NOT_RUNTIME_APPROVED",
+      "va": "0x14016f4c0",
+      "warning": "Decompiler prototype is not a callable ABI certificate; verify instruction boundaries and all side effects."
+    },
+    {
+      "abi": "undefined FUN_14016f550()",
+      "confidence": "S",
+      "first_32_file_bytes": "48 89 5c 24 08 57 48 83 ec 20 80 79 18 00 48 8b fa 48 8b d9 74 7d 48 8b 49 08 e8 11 22 f6 ff 48",
+      "research_label": "VSControlUpdate",
+      "rva": "0x16f550",
+      "state": "STATIC_CANDIDATE_NOT_RUNTIME_APPROVED",
+      "va": "0x14016f550",
+      "warning": "Decompiler prototype is not a callable ABI certificate; verify instruction boundaries and all side effects."
+    },
+    {
+      "abi": "undefined FUN_14016f6c0()",
+      "confidence": "S",
+      "first_32_file_bytes": "4c 8b dc 48 83 ec 78 80 3d 4a d8 1a 00 00 48 8d 05 eb 17 1a 00 4c 8b d1 41 c6 43 10 00 4c 8d 0d",
+      "research_label": "VSLoadoutSetup",
+      "rva": "0x16f6c0",
+      "state": "STATIC_CANDIDATE_NOT_RUNTIME_APPROVED",
+      "va": "0x14016f6c0",
+      "warning": "Decompiler prototype is not a callable ABI certificate; verify instruction boundaries and all side effects."
+    },
+    {
+      "abi": "undefined FUN_14016f860()",
+      "confidence": "S/H",
+      "first_32_file_bytes": "48 89 5c 24 08 48 89 6c 24 10 48 89 74 24 18 57 48 83 ec 20 48 8b f9 e8 a4 9a 01 00 c5 fa 10 15",
+      "research_label": "VSWorldSetup",
+      "rva": "0x16f860",
+      "state": "STATIC_CANDIDATE_NOT_RUNTIME_APPROVED",
+      "va": "0x14016f860",
+      "warning": "Decompiler prototype is not a callable ABI certificate; verify instruction boundaries and all side effects."
+    },
+    {
+      "abi": "undefined FUN_14016fa80()",
+      "confidence": "S/H",
+      "first_32_file_bytes": "40 53 55 57 41 56 48 83 ec 38 48 89 74 24 78 48 8b e9 4c 89 64 24 30 4c 89 6c 24 28 4c 89 7c 24",
+      "research_label": "VSControlOptions",
+      "rva": "0x16fa80",
+      "state": "STATIC_CANDIDATE_NOT_RUNTIME_APPROVED",
+      "va": "0x14016fa80",
+      "warning": "Decompiler prototype is not a callable ABI certificate; verify instruction boundaries and all side effects."
+    },
+    {
+      "abi": "undefined FUN_14016ff00()",
+      "confidence": "S/H",
+      "first_32_file_bytes": "48 89 5c 24 08 57 48 83 ec 20 48 8b fa 48 8b d1 48 8b 0d e1 c9 1b 00 0f b6 41 28 3c ff 74 05 fe",
+      "research_label": "GameEndEnter",
+      "rva": "0x16ff00",
+      "state": "STATIC_CANDIDATE_NOT_RUNTIME_APPROVED",
+      "va": "0x14016ff00",
+      "warning": "Decompiler prototype is not a callable ABI certificate; verify instruction boundaries and all side effects."
+    },
+    {
+      "abi": "undefined FUN_14016fff0()",
+      "confidence": "S/H",
+      "first_32_file_bytes": "48 89 5c 24 08 48 89 74 24 10 57 48 83 ec 20 80 3d 12 cf 1a 00 00 48 8b f2 48 8b d1 74 17 44 8b",
+      "research_label": "GameEndUpdate",
+      "rva": "0x16fff0",
+      "state": "STATIC_CANDIDATE_NOT_RUNTIME_APPROVED",
+      "va": "0x14016fff0",
+      "warning": "Decompiler prototype is not a callable ABI certificate; verify instruction boundaries and all side effects."
+    },
+    {
+      "abi": "undefined FUN_140179120()",
+      "confidence": "S",
+      "first_32_file_bytes": "40 53 48 83 ec 20 48 8b d9 ba 20 00 00 00 48 8b 0d c3 37 1b 00 41 b8 10 00 00 00 e8 a0 7c 08 00",
+      "research_label": "VSControlConstruct",
+      "rva": "0x179120",
+      "state": "STATIC_CANDIDATE_NOT_RUNTIME_APPROVED",
+      "va": "0x140179120",
+      "warning": "Decompiler prototype is not a callable ABI certificate; verify instruction boundaries and all side effects."
+    },
+    {
+      "abi": "undefined FUN_1401796f0()",
+      "confidence": "S",
+      "first_32_file_bytes": "40 53 48 83 ec 20 48 8b d9 ba 20 00 00 00 48 8b 0d f3 31 1b 00 41 b8 10 00 00 00 e8 d0 76 08 00",
+      "research_label": "CampaignControlConstruct",
+      "rva": "0x1796f0",
+      "state": "STATIC_CANDIDATE_NOT_RUNTIME_APPROVED",
+      "va": "0x1401796f0",
+      "warning": "Decompiler prototype is not a callable ABI certificate; verify instruction boundaries and all side effects."
+    },
+    {
+      "abi": "undefined FUN_140187390()",
+      "confidence": "S",
+      "first_32_file_bytes": "48 89 5c 24 08 48 89 7c 24 10 8b 51 38 4c 8d 59 38 8b 79 24 48 8d 59 24 4c 8d 49 3c 4c 8b c1 4c",
+      "research_label": "ComputeInputEdgesAndRepeat",
+      "rva": "0x187390",
+      "state": "STATIC_CANDIDATE_NOT_RUNTIME_APPROVED",
+      "va": "0x140187390",
+      "warning": "Decompiler prototype is not a callable ABI certificate; verify instruction boundaries and all side effects."
+    },
+    {
+      "abi": "uchar FUN_140187c80(ulonglong arg1, uchar arg2, uchar arg3)",
+      "confidence": "S/H",
+      "first_32_file_bytes": "48 89 5c 24 08 48 89 7c 24 10 4c 8b 0d 5f 4c 1a 00 0f b6 ca 41 0f b6 d8 42 80 bc 09 b6 02 00 00",
+      "research_label": "QueryActionPressed",
+      "rva": "0x187c80",
+      "state": "STATIC_CANDIDATE_NOT_RUNTIME_APPROVED",
+      "va": "0x140187c80",
+      "warning": "Decompiler prototype is not a callable ABI certificate; verify instruction boundaries and all side effects."
+    },
+    {
+      "abi": "undefined FUN_140187ec0()",
+      "confidence": "H",
+      "first_32_file_bytes": "48 89 5c 24 10 48 89 6c 24 18 48 89 74 24 20 57 41 54 41 55 41 56 41 57 48 83 ec 30 48 8b 35 0d",
+      "research_label": "QueryActionMagnitude",
+      "rva": "0x187ec0",
+      "state": "STATIC_CANDIDATE_NOT_RUNTIME_APPROVED",
+      "va": "0x140187ec0",
+      "warning": "Decompiler prototype is not a callable ABI certificate; verify instruction boundaries and all side effects."
+    },
+    {
+      "abi": "undefined FUN_140188180()",
+      "confidence": "S",
+      "first_32_file_bytes": "48 89 5c 24 08 48 89 6c 24 10 48 89 74 24 18 48 89 7c 24 20 41 56 48 83 ec 20 48 8b 1d 47 47 1a",
+      "research_label": "BuildAndSelectInputDevices",
+      "rva": "0x188180",
+      "state": "STATIC_CANDIDATE_NOT_RUNTIME_APPROVED",
+      "va": "0x140188180",
+      "warning": "Decompiler prototype is not a callable ABI certificate; verify instruction boundaries and all side effects."
+    },
+    {
+      "abi": "void FUN_140188550(ushort arg1, uchar * arg2, uchar * arg3)",
+      "confidence": "S",
+      "first_32_file_bytes": "48 89 5c 24 08 0f b6 c1 4c 8b d2 24 08 44 0f b7 d9 f6 d8 bb ff 00 00 00 1a c0 41 88 00 0f b6 c1",
+      "research_label": "ConvertRawLaneToActions",
+      "rva": "0x188550",
+      "state": "STATIC_CANDIDATE_NOT_RUNTIME_APPROVED",
+      "va": "0x140188550",
+      "warning": "Decompiler prototype is not a callable ABI certificate; verify instruction boundaries and all side effects."
+    },
+    {
+      "abi": "undefined FUN_140188a80()",
+      "confidence": "S",
+      "first_32_file_bytes": "48 89 5c 24 08 48 89 6c 24 10 48 89 74 24 18 57 41 56 41 57 48 83 ec 50 48 8b 1d 41 3e 1a 00 48",
+      "research_label": "PollAndNormalizeTwoInputLanes",
+      "rva": "0x188a80",
+      "state": "STATIC_CANDIDATE_NOT_RUNTIME_APPROVED",
+      "va": "0x140188a80",
+      "warning": "Decompiler prototype is not a callable ABI certificate; verify instruction boundaries and all side effects."
+    },
+    {
+      "abi": "undefined FUN_1401b6480()",
+      "confidence": "S/H",
+      "first_32_file_bytes": "48 8b c4 48 89 58 10 48 89 48 08 55 56 57 41 54 41 55 41 56 41 57 48 8d 68 a1 48 81 ec c0 00 00",
+      "research_label": "PrepareHistoryPlaybackWindow",
+      "rva": "0x1b6480",
+      "state": "STATIC_CANDIDATE_NOT_RUNTIME_APPROVED",
+      "va": "0x1401b6480",
+      "warning": "Decompiler prototype is not a callable ABI certificate; verify instruction boundaries and all side effects."
+    },
+    {
+      "abi": "undefined FUN_1401b7480()",
+      "confidence": "S/H",
+      "first_32_file_bytes": "40 56 48 81 ec 80 00 00 00 8b 81 90 87 0a 00 33 f6 48 89 7c 24 70 48 8b f9 c7 84 24 90 00 00 00",
+      "research_label": "HistoryPlaybackWorldStep",
+      "rva": "0x1b7480",
+      "state": "STATIC_CANDIDATE_NOT_RUNTIME_APPROVED",
+      "va": "0x1401b7480",
+      "warning": "Decompiler prototype is not a callable ABI certificate; verify instruction boundaries and all side effects."
+    },
+    {
+      "abi": "undefined FUN_1401b7ce0()",
+      "confidence": "S/H",
+      "first_32_file_bytes": "41 55 41 57 48 83 ec 48 48 89 6c 24 70 48 8b e9 4c 89 64 24 38 e8 f6 21 e6 ff 4c 8b f8 48 8b 85",
+      "research_label": "CaptureWorldHistory",
+      "rva": "0x1b7ce0",
+      "state": "STATIC_CANDIDATE_NOT_RUNTIME_APPROVED",
+      "va": "0x1401b7ce0",
+      "warning": "Decompiler prototype is not a callable ABI certificate; verify instruction boundaries and all side effects."
+    },
+    {
+      "abi": "undefined FUN_1401b8130()",
+      "confidence": "S/H",
+      "first_32_file_bytes": "48 89 5c 24 18 88 54 24 10 55 56 57 41 54 41 55 41 56 41 57 48 83 ec 30 45 33 db 48 8b f1 bb ff",
+      "research_label": "EnterOrRestartHistoryPlayback",
+      "rva": "0x1b8130",
+      "state": "STATIC_CANDIDATE_NOT_RUNTIME_APPROVED",
+      "va": "0x1401b8130",
+      "warning": "Decompiler prototype is not a callable ABI certificate; verify instruction boundaries and all side effects."
+    },
+    {
+      "abi": "undefined FUN_1401b9400()",
+      "confidence": "S/H",
+      "first_32_file_bytes": "48 8b c4 55 41 57 48 8d a8 b8 fd ff ff 48 81 ec 38 03 00 00 48 89 58 10 4c 8b fa 48 89 78 e0 4c",
+      "research_label": "ApplyAndInterpolateHistoryWorld",
+      "rva": "0x1b9400",
+      "state": "STATIC_CANDIDATE_NOT_RUNTIME_APPROVED",
+      "va": "0x1401b9400",
+      "warning": "Decompiler prototype is not a callable ABI certificate; verify instruction boundaries and all side effects."
+    },
+    {
+      "abi": "undefined FUN_1401eda90()",
+      "confidence": "S",
+      "first_32_file_bytes": "48 89 5c 24 08 48 89 6c 24 10 48 89 74 24 18 57 48 83 ec 20 8b f2 48 8d 59 10 48 8b e9 bf 10 00",
+      "research_label": "BroadcastUIControlPlayer",
+      "rva": "0x1eda90",
+      "state": "STATIC_CANDIDATE_NOT_RUNTIME_APPROVED",
+      "va": "0x1401eda90",
+      "warning": "Decompiler prototype is not a callable ABI certificate; verify instruction boundaries and all side effects."
+    },
+    {
+      "abi": "undefined FUN_1401ef650()",
+      "confidence": "S",
+      "first_32_file_bytes": "48 c7 02 00 00 00 00 c3 cc cc cc cc cc cc cc cc 49 63 09 48 8d 15 36 ce 13 00 41 8b 41 08 89 04",
+      "research_label": "UIZeroResultStub",
+      "rva": "0x1ef650",
+      "state": "STATIC_CANDIDATE_NOT_RUNTIME_APPROVED",
+      "va": "0x1401ef650",
+      "warning": "Decompiler prototype is not a callable ABI certificate; verify instruction boundaries and all side effects."
+    },
+    {
+      "abi": "undefined FUN_1401ef7b0()",
+      "confidence": "S",
+      "first_32_file_bytes": "41 8b 11 48 8d 0d 06 e8 12 00 e9 d1 e2 ff ff cc 48 89 5c 24 08 57 48 83 ec 20 48 8b da bf ff ff",
+      "research_label": "UISetControlPlayerBinding",
+      "rva": "0x1ef7b0",
+      "state": "STATIC_CANDIDATE_NOT_RUNTIME_APPROVED",
+      "va": "0x1401ef7b0",
+      "warning": "Decompiler prototype is not a callable ABI certificate; verify instruction boundaries and all side effects."
+    },
+    {
+      "abi": "undefined FUN_1401f51a0()",
+      "confidence": "H",
+      "first_32_file_bytes": "48 89 5c 24 08 48 89 6c 24 10 48 89 74 24 18 48 89 7c 24 20 41 56 48 83 ec 20 41 8b 31 48 8d 1d",
+      "research_label": "UIVSPlayerStateBinding",
+      "rva": "0x1f51a0",
+      "state": "STATIC_CANDIDATE_NOT_RUNTIME_APPROVED",
+      "va": "0x1401f51a0",
+      "warning": "Decompiler prototype is not a callable ABI certificate; verify instruction boundaries and all side effects."
+    },
+    {
+      "abi": "undefined FUN_1401fbec0()",
+      "confidence": "S/H",
+      "first_32_file_bytes": "48 8b c4 48 89 58 08 48 89 70 10 48 89 78 18 4c 89 70 20 55 48 8d 68 98 48 81 ec 60 01 00 00 c5",
+      "research_label": "UpdateCameraMatrices",
+      "rva": "0x1fbec0",
+      "state": "STATIC_CANDIDATE_NOT_RUNTIME_APPROVED",
+      "va": "0x1401fbec0",
+      "warning": "Decompiler prototype is not a callable ABI certificate; verify instruction boundaries and all side effects."
+    },
+    {
+      "abi": "undefined FUN_1401ff820()",
+      "confidence": "S",
+      "first_32_file_bytes": "41 57 48 83 ec 60 80 3d 0f d1 12 00 00 4c 8b f9 74 09 b0 01 48 83 c4 60 41 5f c3 48 89 5c 24 70",
+      "research_label": "InputModeAndRenderFrame",
+      "rva": "0x1ff820",
+      "state": "STATIC_CANDIDATE_NOT_RUNTIME_APPROVED",
+      "va": "0x1401ff820",
+      "warning": "Decompiler prototype is not a callable ABI certificate; verify instruction boundaries and all side effects."
+    },
+    {
+      "abi": "undefined FUN_140200c00()",
+      "confidence": "S/H",
+      "first_32_file_bytes": "4c 8b dc 56 48 81 ec 60 01 00 00 c5 fa 6f 05 cd 25 0d 00 33 f6 48 8d 05 dc ad 0a 00 48 89 44 24",
+      "research_label": "OuterFrameCaller",
+      "rva": "0x200c00",
+      "state": "STATIC_CANDIDATE_NOT_RUNTIME_APPROVED",
+      "va": "0x140200c00",
+      "warning": "Decompiler prototype is not a callable ABI certificate; verify instruction boundaries and all side effects."
+    },
+    {
+      "abi": "undefined FUN_140201dc0()",
+      "confidence": "S",
+      "first_32_file_bytes": "48 83 ec 28 e8 b7 6c f8 ff e8 b2 63 f8 ff 4c 8b 05 13 ab 12 00 45 33 c9 48 8b 0d e1 aa 12 00 49",
+      "research_label": "PumpNormalizeAndBindInput",
+      "rva": "0x201dc0",
+      "state": "STATIC_CANDIDATE_NOT_RUNTIME_APPROVED",
+      "va": "0x140201dc0",
+      "warning": "Decompiler prototype is not a callable ABI certificate; verify instruction boundaries and all side effects."
+    },
+    {
+      "abi": "undefined FUN_14021d4c0()",
+      "confidence": "S/H",
+      "first_32_file_bytes": "48 89 5c 24 20 55 56 57 41 55 41 56 48 8d ac 24 20 fa ff ff 48 81 ec e0 06 00 00 48 8b 05 5e bb",
+      "research_label": "AggregatePlatformInput",
+      "rva": "0x21d4c0",
+      "state": "STATIC_CANDIDATE_NOT_RUNTIME_APPROVED",
+      "va": "0x14021d4c0",
+      "warning": "Decompiler prototype is not a callable ABI certificate; verify instruction boundaries and all side effects."
+    },
+    {
+      "abi": "undefined FUN_140242630()",
+      "confidence": "S",
+      "first_32_file_bytes": "48 83 ec 28 e8 13 fe 00 00 69 48 28 fd 43 03 00 81 c1 c3 9e 26 00 89 48 28 c1 e9 10 81 e1 ff 7f",
+      "research_label": "CrtStyleRand",
+      "rva": "0x242630",
+      "state": "STATIC_CANDIDATE_NOT_RUNTIME_APPROVED",
+      "va": "0x140242630",
+      "warning": "Decompiler prototype is not a callable ABI certificate; verify instruction boundaries and all side effects."
+    },
+    {
+      "abi": "undefined FUN_14024265c()",
+      "confidence": "S",
+      "first_32_file_bytes": "40 53 48 83 ec 20 8b d9 e8 e3 fd 00 00 89 58 28 48 83 c4 20 5b c3 cc cc 48 89 5c 24 10 48 89 74",
+      "research_label": "CrtStyleSeed",
+      "rva": "0x24265c",
+      "state": "STATIC_CANDIDATE_NOT_RUNTIME_APPROVED",
+      "va": "0x14024265c",
+      "warning": "Decompiler prototype is not a callable ABI certificate; verify instruction boundaries and all side effects."
+    }
+  ],
+  "image_base": "0x140000000",
+  "production_approved": false,
+  "sha256": "43814d4b3292efd0a07fd71bef2f1670c0e5ac7cf2595c9e136d78451380a664"
+}

@@ -1,0 +1,67 @@
+{
+  "area": "history",
+  "callees": [
+    "0x1400197d0",
+    "0x140019ef0",
+    "0x14001ddc0",
+    "0x14001df10",
+    "0x140031f80",
+    "0x14010ae70",
+    "0x140116e10",
+    "0x140118040",
+    "0x140126980",
+    "0x14013ace0",
+    "0x14013d140",
+    "0x140141200",
+    "0x140189320",
+    "0x1401b8130",
+    "0x1401c56d0",
+    "0x1401c5d20",
+    "0x1401c5e10",
+    "0x1401c6150",
+    "0x140203270",
+    "0x14022d4d4",
+    "0x14022d540"
+  ],
+  "callers": [
+    "0x1401b7480"
+  ],
+  "confidence": "S/H",
+  "decompile_completed": true,
+  "decompile_error": "",
+  "incoming_references": [
+    {
+      "from": "0x1437ee1b4",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x1402fcbe8",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x1402fcc30",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x1402fcc68",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x1401b76c9",
+      "function": "0x1401b7480",
+      "type": "UNCONDITIONAL_CALL"
+    }
+  ],
+  "name": "FUN_1401b9400",
+  "prototype": "undefined FUN_1401b9400()",
+  "research_label": "ApplyAndInterpolateHistoryWorld",
+  "review_depth": "focused data-flow/assembly checks",
+  "rva": "0x1b9400",
+  "size": 6176,
+  "usage_boundary": "Writes actor/player pose/flags and replays weapon/death/effect events; pointer-bearing records and no complete rollback proof.",
+  "va": "0x1401b9400"
+}

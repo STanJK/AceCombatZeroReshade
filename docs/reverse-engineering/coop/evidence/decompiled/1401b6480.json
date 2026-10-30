@@ -1,0 +1,41 @@
+{
+  "area": "history",
+  "callees": [
+    "0x140019da0",
+    "0x140019ef0",
+    "0x140019f80",
+    "0x14001ddc0",
+    "0x140119280",
+    "0x14014ca50",
+    "0x140197b30",
+    "0x1402011a0",
+    "0x14022d4d4",
+    "0x14022d540"
+  ],
+  "callers": [
+    "0x1401b8130"
+  ],
+  "confidence": "S/H",
+  "decompile_completed": true,
+  "decompile_error": "",
+  "incoming_references": [
+    {
+      "from": "0x1437ee088",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x1401b86d4",
+      "function": "0x1401b8130",
+      "type": "UNCONDITIONAL_CALL"
+    }
+  ],
+  "name": "FUN_1401b6480",
+  "prototype": "undefined FUN_1401b6480()",
+  "research_label": "PrepareHistoryPlaybackWindow",
+  "review_depth": "focused data-flow/assembly checks",
+  "rva": "0x1b6480",
+  "size": 3238,
+  "usage_boundary": "Chooses bounded playback window and record cursors, writes actor state/HP=255 and builds replay actor list; not exact live-world restore.",
+  "va": "0x1401b6480"
+}

@@ -1,0 +1,53 @@
+{
+  "area": "entity",
+  "callees": [
+    "0x140114c30"
+  ],
+  "callers": [
+    "0x140138480",
+    "0x140139680"
+  ],
+  "confidence": "S/H",
+  "decompile_completed": true,
+  "decompile_error": "",
+  "incoming_references": [
+    {
+      "from": "0x1437e8c58",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x1402f60d0",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x1402f6104",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x140138496",
+      "function": "0x140138480",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x140139695",
+      "function": "0x140139680",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x1402acd40",
+      "function": "",
+      "type": "DATA"
+    }
+  ],
+  "name": "FUN_14012c740",
+  "prototype": "undefined FUN_14012c740()",
+  "research_label": "UnitResetActors",
+  "review_depth": "focused data-flow/assembly checks",
+  "rva": "0x12c740",
+  "size": 372,
+  "usage_boundary": "Unit vtable slot 8 resets actors and data-driven controls.",
+  "va": "0x14012c740"
+}

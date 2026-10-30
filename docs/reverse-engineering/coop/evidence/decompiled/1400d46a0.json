@@ -1,0 +1,38 @@
+{
+  "area": "campaign",
+  "callees": [
+    "0x14006da40",
+    "0x140189320"
+  ],
+  "callers": [
+    "0x1400d1780"
+  ],
+  "confidence": "H",
+  "decompile_completed": true,
+  "decompile_error": "",
+  "incoming_references": [
+    {
+      "from": "0x1437e5f70",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x1400d1b6e",
+      "function": "0x1400d1780",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x1400d1d3e",
+      "function": "0x1400d1780",
+      "type": "UNCONDITIONAL_CALL"
+    }
+  ],
+  "name": "FUN_1400d46a0",
+  "prototype": "undefined FUN_1400d46a0()",
+  "research_label": "MissionControlFlagUpdate",
+  "review_depth": "focused data-flow/assembly checks",
+  "rva": "0xd46a0",
+  "size": 501,
+  "usage_boundary": "Count-based state/flag update; full semantics require traces.",
+  "va": "0x1400d46a0"
+}

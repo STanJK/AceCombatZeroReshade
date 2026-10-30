@@ -1,0 +1,73 @@
+{
+  "area": "history",
+  "callees": [],
+  "callers": [
+    "0x140014f00",
+    "0x1401b6480",
+    "0x1401b71e0",
+    "0x1401b9400"
+  ],
+  "confidence": "S/H",
+  "decompile_completed": true,
+  "decompile_error": "",
+  "incoming_references": [
+    {
+      "from": "0x1400152d4",
+      "function": "0x140014f00",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x140015519",
+      "function": "0x140014f00",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x1401b72c4",
+      "function": "0x1401b71e0",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x1401b734f",
+      "function": "0x1401b71e0",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x1401b73a4",
+      "function": "0x1401b71e0",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x1401b66e2",
+      "function": "0x1401b6480",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x1401b6c87",
+      "function": "0x1401b6480",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x1401b9935",
+      "function": "0x1401b9400",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x1401b99e8",
+      "function": "0x1401b9400",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x1401b9a61",
+      "function": "0x1401b9400",
+      "type": "UNCONDITIONAL_CALL"
+    }
+  ],
+  "name": "FUN_14001ddc0",
+  "prototype": "undefined FUN_14001ddc0()",
+  "research_label": "DecodeHistoryPoseRecord",
+  "review_depth": "focused data-flow/assembly checks",
+  "rva": "0x1ddc0",
+  "size": 325,
+  "usage_boundary": "Decodes tag-specific record fields into an intermediate pose/state block; units and orientation representation remain open.",
+  "va": "0x14001ddc0"
+}

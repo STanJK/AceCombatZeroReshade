@@ -1,0 +1,35 @@
+{
+  "area": "lifecycle",
+  "callees": [
+    "0x14016e4c0",
+    "0x1401c56d0",
+    "0x1401c5740",
+    "0x1401c93c0",
+    "0x14022d4d4",
+    "0x14022d540"
+  ],
+  "callers": [],
+  "confidence": "S",
+  "decompile_completed": true,
+  "decompile_error": "",
+  "incoming_references": [
+    {
+      "from": "0x1437eb2b0",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x1402b3fd8",
+      "function": "",
+      "type": "DATA"
+    }
+  ],
+  "name": "FUN_14016f4c0",
+  "prototype": "undefined FUN_14016f4c0()",
+  "research_label": "VSControlLeave",
+  "review_depth": "focused data-flow/assembly checks",
+  "rva": "0x16f4c0",
+  "size": 138,
+  "usage_boundary": "Additional VS cleanup followed by common leave.",
+  "va": "0x14016f4c0"
+}

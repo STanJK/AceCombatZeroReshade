@@ -1,0 +1,6 @@
+0x1400a3f80  XOR EAX,EAX
+0x1400a3f82  MOV dword ptr [RCX + 0x60],0xffffffff
+0x1400a3f89  MOV dword ptr [RCX + 0x5c],EAX
+0x1400a3f8c  MOV word ptr [RCX + 0x64],AX
+0x1400a3f90  MOV word ptr [RCX + 0x7c],0xffff
+0x1400a3f96  RET

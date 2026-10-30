@@ -1,0 +1,38 @@
+{
+  "area": "player",
+  "callees": [
+    "0x14022d480"
+  ],
+  "callers": [
+    "0x1401040c0",
+    "0x140106f30"
+  ],
+  "confidence": "H",
+  "decompile_completed": true,
+  "decompile_error": "",
+  "incoming_references": [
+    {
+      "from": "0x1437e7b90",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x140105b4b",
+      "function": "0x1401040c0",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x140107073",
+      "function": "0x140106f30",
+      "type": "UNCONDITIONAL_CALL"
+    }
+  ],
+  "name": "FUN_14010b000",
+  "prototype": "undefined FUN_14010b000()",
+  "research_label": "PlayerPresentationStateBuild",
+  "review_depth": "focused data-flow/assembly checks",
+  "rva": "0x10b000",
+  "size": 2710,
+  "usage_boundary": "Copies flight/weapon/target state into presentation data; not a network serializer.",
+  "va": "0x14010b000"
+}

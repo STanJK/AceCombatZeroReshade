@@ -1,0 +1,53 @@
+{
+  "area": "camera",
+  "callees": [
+    "0x140014960",
+    "0x140036fe0",
+    "0x1400781c0",
+    "0x14007b080",
+    "0x140080620",
+    "0x1400c5070",
+    "0x140106f30",
+    "0x140136540",
+    "0x140187ec0",
+    "0x140189320",
+    "0x1401fbec0",
+    "0x1402784f0"
+  ],
+  "callers": [
+    "0x1400d1780"
+  ],
+  "confidence": "H",
+  "decompile_completed": true,
+  "decompile_error": "",
+  "incoming_references": [
+    {
+      "from": "0x1437e5d84",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x1402f1470",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x1402f14e8",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x1400d1bfc",
+      "function": "0x1400d1780",
+      "type": "UNCONDITIONAL_CALL"
+    }
+  ],
+  "name": "FUN_1400d03a0",
+  "prototype": "undefined FUN_1400d03a0()",
+  "research_label": "SpecialViewMissionBranch",
+  "review_depth": "focused data-flow/assembly checks",
+  "rva": "0xd03a0",
+  "size": 2166,
+  "usage_boundary": "Special mission/camera branch; not a network synchronization function.",
+  "va": "0x1400d03a0"
+}

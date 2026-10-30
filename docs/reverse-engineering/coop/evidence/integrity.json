@@ -1,0 +1,4066 @@
+{
+  "files": [
+    {
+      "bytes": 5181,
+      "path": "README.md",
+      "sha256": "391d558cb623b79451373153db16a6adc606396e51968f6c90e8f19bc205597f"
+    },
+    {
+      "bytes": 5157,
+      "path": "docs/README.md",
+      "sha256": "692bd07b54cc65856e83470a289da858faa829371892e70e327839e5c1f8783d"
+    },
+    {
+      "bytes": 21679,
+      "path": "docs/mp/COOP_PATCH_IMPLEMENTATION.md",
+      "sha256": "119f33256f86a2e2be55ecc1325b00330daaead0942fe0223a8d646108f6ac38"
+    },
+    {
+      "bytes": 12935,
+      "path": "docs/mp/COOP_PATCH_IMPLEMENTATION.zh-CN.md",
+      "sha256": "59c687b76e847109cade0083d713859bf8537020d081f7bc4c4ecadd78ec3306"
+    },
+    {
+      "bytes": 44672,
+      "path": "docs/mp/HOOK_CANDIDATES.json",
+      "sha256": "91747757f928e9393d904d8c25aafa41d9e2527f47ea4664f78311c65d2742be"
+    },
+    {
+      "bytes": 1059,
+      "path": "docs/mp/README.md",
+      "sha256": "0eb5acfe5392ff17519281eb2eee6d50ba13b9ace40532203d289ce0c83305b0"
+    },
+    {
+      "bytes": 10646,
+      "path": "docs/mp/REVERSE_ENGINEERING_PLAN.md",
+      "sha256": "3b7686238867c65a04bec85cbc2e4b73e77ecf45cf3e9db2d2ec0a937808d078"
+    },
+    {
+      "bytes": 12838,
+      "path": "docs/reverse-engineering/MODE_LIFECYCLE.md",
+      "sha256": "06efcddfdd435cedccaad4d624bab9a8fe14bd4b4848fd23e87ad4c056154226"
+    },
+    {
+      "bytes": 2205,
+      "path": "docs/reverse-engineering/coop/ARCHIVE.md",
+      "sha256": "d6613f00ea7097e5759fbdc69ba27c7aeac1f96b0a5a78de860b36f535ba1a74"
+    },
+    {
+      "bytes": 5748,
+      "path": "docs/reverse-engineering/coop/CAMPAIGN_VS.md",
+      "sha256": "6e332b73302a14c0e5f36e6e863c7b741e3ec84c0115bec19656f065b4fc62dc"
+    },
+    {
+      "bytes": 4489,
+      "path": "docs/reverse-engineering/coop/EVIDENCE.md",
+      "sha256": "f772ce053baec82213257fd61dc9ddbe889eaf57d275631b93d88d1fd9836250"
+    },
+    {
+      "bytes": 16762,
+      "path": "docs/reverse-engineering/coop/FUNCTION_MAP.md",
+      "sha256": "692b09fa13357cd34546cf2b33aa24807647ab6deef1e04d1c1586f3186ab545"
+    },
+    {
+      "bytes": 6598,
+      "path": "docs/reverse-engineering/coop/PLAYBACK_AND_WEAPONS.md",
+      "sha256": "861ace3b568fe7648f2e5d38286d9697e45d13d56023aba0a0eb4f8e55fc652e"
+    },
+    {
+      "bytes": 8536,
+      "path": "docs/reverse-engineering/coop/PLAYER_STATE.md",
+      "sha256": "731fad12dc6fb780994d6eeac152963282d272e09ada89881d57d93deecf1b8b"
+    },
+    {
+      "bytes": 4533,
+      "path": "docs/reverse-engineering/coop/README.md",
+      "sha256": "dc84a29e00a451187f164df28ab4fc2465bd28b6017bf647e257a3011c74fdeb"
+    },
+    {
+      "bytes": 8580,
+      "path": "docs/reverse-engineering/coop/SIMULATION_AND_SYNC.md",
+      "sha256": "086a4b224efbd7244c0b6cdec9916608a2d1262b6c5f1b07fa41d7b40103f195"
+    },
+    {
+      "bytes": 1891,
+      "path": "docs/reverse-engineering/coop/archive/manifest.json",
+      "sha256": "6cc77e1e1602f903b2564b6054e8acc3976a9917111b09e1423edbb2c662ad4d"
+    },
+    {
+      "bytes": 44721,
+      "path": "docs/reverse-engineering/coop/archive/plans-and-usage.tar.gz",
+      "sha256": "317fcb10ac27b71f8731367eafe300fa721f99b8837403bdae2be6d097114d2c"
+    },
+    {
+      "bytes": 509,
+      "path": "docs/reverse-engineering/coop/evidence/coverage.json",
+      "sha256": "1bcc14bd2e447b1ccd2ad491a1f34db5a4ec99184cd089775f9c481edd607a25"
+    },
+    {
+      "bytes": 4486,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/140014960.asm",
+      "sha256": "75f53442019ffc74b75e12966738ada0442836aad5ea879651cd51593eb45dc3"
+    },
+    {
+      "bytes": 5414,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/140014960.c",
+      "sha256": "fc57746780980cd4b4f6246a20545273ea1c008b43d8e3ec699ab522abdd1b36"
+    },
+    {
+      "bytes": 2447,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/140014960.json",
+      "sha256": "5531caae71bdde30bf906693b539ffc87f401f77f110c8f198b862ce831e575e"
+    },
+    {
+      "bytes": 754,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/140019ef0.asm",
+      "sha256": "b447d049f7a5ea944e7d1b74e49e4edf774e55d0c2e87c9f4fd9eb9059ea8faf"
+    },
+    {
+      "bytes": 551,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/140019ef0.c",
+      "sha256": "71a7b62c8ce5ddfb5120fb392f220e4f98d5e63912cef1c414b7315f22323845"
+    },
+    {
+      "bytes": 4532,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/140019ef0.json",
+      "sha256": "0e1515b85ab731b72390b29a9d10344f53adc5479dc95b9edcc8b4e83d158880"
+    },
+    {
+      "bytes": 2309,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/140019f80.asm",
+      "sha256": "8ae80b424deebfc25bba05c9998f4d226cec3c87fc002f527dfe6314a63c04df"
+    },
+    {
+      "bytes": 2089,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/140019f80.c",
+      "sha256": "3c939dbba20305be7a93c4970f9758206ecc6fc9d836dce03f2b9ef9281bbf9d"
+    },
+    {
+      "bytes": 1033,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/140019f80.json",
+      "sha256": "215095f31d2ba24b93d50807ac50020f333191ea55dce6b59d08b99f66f9b1ef"
+    },
+    {
+      "bytes": 4271,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14001a0c0.asm",
+      "sha256": "0cab91afeb3ebd400af53b8da61b36f7dddf4e125b83fccd58e0c9b69c1b2c74"
+    },
+    {
+      "bytes": 3479,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14001a0c0.c",
+      "sha256": "9d0aa3c8a856f8f1a2e2305520ecc1b94ef6ecd896f8e7e123a8cc49f2c46107"
+    },
+    {
+      "bytes": 1381,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14001a0c0.json",
+      "sha256": "8d209286cf88b53e4f3b064a9356e71976c0d50daca90de4e5f0f3b20e92215f"
+    },
+    {
+      "bytes": 11011,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14001a2a0.asm",
+      "sha256": "12061693707557b55729d16474793e3a1767cc67a3882607c85c972721e755ea"
+    },
+    {
+      "bytes": 7824,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14001a2a0.c",
+      "sha256": "57e201df1acbba0ab5a21376a515a55900bad949b830ed61464f17380887169c"
+    },
+    {
+      "bytes": 1061,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14001a2a0.json",
+      "sha256": "bf18a71f1983ca32b240f1ba46b3c03ecb0e56470b56aeff941c7c42e4ce6ffd"
+    },
+    {
+      "bytes": 6552,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14001aac0.asm",
+      "sha256": "cd810a2d7a42aa038ede999d36cb388805df3b588518da23151c65b799fa5329"
+    },
+    {
+      "bytes": 5281,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14001aac0.c",
+      "sha256": "e212687fb705338484b1c3f7229052cdff26faaf9065c1e5650ece59a7091b0f"
+    },
+    {
+      "bytes": 878,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14001aac0.json",
+      "sha256": "da7e47a6af0df33c7664f95a615756eb389b3f8a0e15ae778d698fd8f9196068"
+    },
+    {
+      "bytes": 5383,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14001adc0.asm",
+      "sha256": "737f410a2953e60b126de6836c615486b6b61b819feb242ec874f7d339785865"
+    },
+    {
+      "bytes": 4595,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14001adc0.c",
+      "sha256": "aebb6d09942659e324a7854c4831d0d90f6c5b5d54452eddfbbc38bef666b104"
+    },
+    {
+      "bytes": 687,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14001adc0.json",
+      "sha256": "66b2ebc34be15f86902977c16d12cf28c8f29451459728f46af4d452aae00e1a"
+    },
+    {
+      "bytes": 5095,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14001b010.asm",
+      "sha256": "4a972b62fae35973943a51eb4d5da0a5d024758807a00927fc269b7b5d897d54"
+    },
+    {
+      "bytes": 4441,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14001b010.c",
+      "sha256": "3ef91f60f2d6ca7f005c3602c8c5d8d60c3510253b3a03b8d3d5f85fdd4225e0"
+    },
+    {
+      "bytes": 871,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14001b010.json",
+      "sha256": "f8cb2bec9945f858d6843c73f548c24e38bdcecf452b0bacf7ecebacb3543777"
+    },
+    {
+      "bytes": 3344,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14001ddc0.asm",
+      "sha256": "cc54bb97e8ea93218dff6b6b27b4195d48b787a22c5f4608d534ae9276aa735c"
+    },
+    {
+      "bytes": 2456,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14001ddc0.c",
+      "sha256": "5b67a1200b778c362c76c142cb41f96e814f9693c874ea82ca443943a660a21d"
+    },
+    {
+      "bytes": 1724,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14001ddc0.json",
+      "sha256": "a9ab552fb66194f166ffbb07971c2055c2f04762d909f8284399ec107d09399a"
+    },
+    {
+      "bytes": 10429,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14001df10.asm",
+      "sha256": "0b9d6a493e00fadd5c0b47536fba05f2a1810e38f7cdda276125322bba97322f"
+    },
+    {
+      "bytes": 6652,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14001df10.c",
+      "sha256": "16dac2dfe04ec6a70fc510e26e0eea08f6c6ca7129e02c2971210f28b7b3e2b2"
+    },
+    {
+      "bytes": 1067,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14001df10.json",
+      "sha256": "f96d8235024de3f78553dbf4b855645148b4add2a2efaa87bffae0d87cccdfd5"
+    },
+    {
+      "bytes": 28684,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/140036fe0.asm",
+      "sha256": "3df26d039503770896a7ecebf739cf1e97a1644a370c0572d04879e60c03cbc7"
+    },
+    {
+      "bytes": 25128,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/140036fe0.c",
+      "sha256": "68cb1fa948156ddcd46d2a25b998564dab4cbe6b79e880c8ca0d6a53e41143c8"
+    },
+    {
+      "bytes": 1385,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/140036fe0.json",
+      "sha256": "fd901f86453d906d19c8b2ef371563f3e88a5993347db09500d53797777bf482"
+    },
+    {
+      "bytes": 21,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14006a470.asm",
+      "sha256": "634059ba7f4c6c4fc8ea2495ee4f86981c056055db62ac83ef9d8e908a022871"
+    },
+    {
+      "bytes": 239,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14006a470.c",
+      "sha256": "ae9dbf564b493b8988494cd7bf16c31bd5f465a15e0a2861ef1fe0185ccd6d63"
+    },
+    {
+      "bytes": 483012,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14006a470.json",
+      "sha256": "23ab82066695fcfb325029dd64fd4bc1cca0bce9e7d50c50653c9bc4878b5027"
+    },
+    {
+      "bytes": 42,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14006a960.asm",
+      "sha256": "7dc64ec50eb844988795ed804b507eef478b73c229ba70b8a8864f1e18b5e862"
+    },
+    {
+      "bytes": 242,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14006a960.c",
+      "sha256": "9a8a1d80e8d5b8981f745d4285e66142e6e56c74d810f9830f8bc54910ca855b"
+    },
+    {
+      "bytes": 552596,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14006a960.json",
+      "sha256": "98505017081abaffab7b2355f423030ccdd1ad34edc9e36adabdf6aaaad65ae3"
+    },
+    {
+      "bytes": 2065,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400781c0.asm",
+      "sha256": "f620908bff6402913ed32a378882540ac2355cf2d41dd36abfa330bb5baa353d"
+    },
+    {
+      "bytes": 1440,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400781c0.c",
+      "sha256": "f26b21c45d00081d9dbb09e5736afe2ac98e100a1725535015d32d01db5ff7f3"
+    },
+    {
+      "bytes": 990,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400781c0.json",
+      "sha256": "14ba659b231232e8a49a7e8ce62cd85c7339605dbd04b9c38bf2662dc8c73034"
+    },
+    {
+      "bytes": 1060,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14007b080.asm",
+      "sha256": "87c9a12b262934eb39bd551df49bd9fe9c3a98419f99009132ff87a879275bc9"
+    },
+    {
+      "bytes": 1000,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14007b080.c",
+      "sha256": "92ad508556726589f29a3f28a8a410bf3a7c30491c92b88d3167df3453d9aa1f"
+    },
+    {
+      "bytes": 884,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14007b080.json",
+      "sha256": "c2fce64d98fba95eb8632527c56158a30fe6259dd54b40083551fd1efe7b2cc1"
+    },
+    {
+      "bytes": 5898,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/140080620.asm",
+      "sha256": "347db9d90c3a9684b02fd5250edbce66ad37ae154596fae28804a3ac689aadda"
+    },
+    {
+      "bytes": 3895,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/140080620.c",
+      "sha256": "3183f961fb4aca91576864a3d65d503d405ce3b5b6bbed0d9c1671617ea85fd0"
+    },
+    {
+      "bytes": 1198,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/140080620.json",
+      "sha256": "dec8f01c67c0cfb4d39cf642b454ee757e2e8ebc7e2acd649c51e8fb0e7d3f63"
+    },
+    {
+      "bytes": 350,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/140090360.asm",
+      "sha256": "ad4dddc35444e925b792f58661d57fe622cd9ae76efa89e32e066db501f6d791"
+    },
+    {
+      "bytes": 432,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/140090360.c",
+      "sha256": "109d8466a37a88666dea1f01d7377dcb07118a408c5571998b02526f878eeb6b"
+    },
+    {
+      "bytes": 1344,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/140090360.json",
+      "sha256": "e883b4da436963702cbad8ea95cf2d1125e7cd2931505f1e5b174674d6789de2"
+    },
+    {
+      "bytes": 9473,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/140091880.asm",
+      "sha256": "f812cc6facb20378c74cb70ab13908a1214ed11dee3c42d3dd2c3997c30000c0"
+    },
+    {
+      "bytes": 6531,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/140091880.c",
+      "sha256": "f7caf8222d1bacf821b0cd1c924cc0c6ce5d32f32c5005e17497c8a8d735f48b"
+    },
+    {
+      "bytes": 2489,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/140091880.json",
+      "sha256": "c7d75b143314e1bea25b3e6f6d03323d502860d9f94bd0002a0618d352b2fa9b"
+    },
+    {
+      "bytes": 10867,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/140092e60.asm",
+      "sha256": "facb483a76912019dd26285b87d2fa9fc8d55ae38b8013626b223cb0a63eea59"
+    },
+    {
+      "bytes": 9634,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/140092e60.c",
+      "sha256": "4a54880a4d41ed737d58eee702f0cd9981a5a1a6e74387152c3e53ed4f7becdf"
+    },
+    {
+      "bytes": 3379,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/140092e60.json",
+      "sha256": "dfbe28cba0ae7d4b757391fe8bf0f3db59b61f77e3219c0c04493b2f6a231cdd"
+    },
+    {
+      "bytes": 2022,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/140093390.asm",
+      "sha256": "3b3f026ad155a411a9f2cf81c9d8a4b3e91fff3f5615bbc0e8d4088b09b902b2"
+    },
+    {
+      "bytes": 1309,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/140093390.c",
+      "sha256": "d430176a0c9bcb8c177f8696a99b1a64196baeee3dbfeb5514d1b5e4ef9f11b6"
+    },
+    {
+      "bytes": 2811,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/140093390.json",
+      "sha256": "45660d6525b74e45aaf903de3ca586263ebcddd04502fa00db14a44bc0e830a0"
+    },
+    {
+      "bytes": 895,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/140093a00.asm",
+      "sha256": "0caa30b6b9cc5721428532907af3afd6cd0e5f306e1ee778484170a729583caa"
+    },
+    {
+      "bytes": 754,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/140093a00.c",
+      "sha256": "f7c11cb357cda80f3c657d2c10a3cc5213682a8488a78494a7d2ecb34e75b1f8"
+    },
+    {
+      "bytes": 3321,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/140093a00.json",
+      "sha256": "7cca557e2ca19a17afad03b7c9eec09d349b1b320298337b69f190a9e0d53c84"
+    },
+    {
+      "bytes": 4036,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400943a0.asm",
+      "sha256": "ab0d21f0c91fb369faa427ef801b834b2c6d535d0ff4738031ab76e0b80f67cc"
+    },
+    {
+      "bytes": 2797,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400943a0.c",
+      "sha256": "d6e6291c4bf52104c706f6ef8c92a84e2d9ca0489fd3b6196d1aae7be49aa1bc"
+    },
+    {
+      "bytes": 1508,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400943a0.json",
+      "sha256": "c84230518ee1b30cc6633b0581a7390105cd31d2e7a07eaef6034f69fcec3b94"
+    },
+    {
+      "bytes": 42,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400980f0.asm",
+      "sha256": "4cbd08fcb71052fc7198d452e3b8616521ec36cef6df3195956cf37e355b3f7b"
+    },
+    {
+      "bytes": 281,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400980f0.c",
+      "sha256": "216bb8642988b5842b624a7f108c609130011930aa50f13b3edbbf1486c7d8f4"
+    },
+    {
+      "bytes": 3723,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400980f0.json",
+      "sha256": "54ee97b43b8f9f77ffaaa3db989c64d8832c49183ec5e50b280fc697832e0d3f"
+    },
+    {
+      "bytes": 1055,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14009db70.asm",
+      "sha256": "90d3a670b6caae15c151051dfaf7443485e8f0f4580be5a725dbf4e4d24b2f31"
+    },
+    {
+      "bytes": 655,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14009db70.c",
+      "sha256": "44c97ae64e0a8d990b7fd1f901bb41ba1a61240f4938b3de98b10be3b5625ed5"
+    },
+    {
+      "bytes": 1026,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14009db70.json",
+      "sha256": "4c20dd9f39127f6dcc2295cba89ad02be7efbd93b19a7a43c03b45ca34bbd169"
+    },
+    {
+      "bytes": 4224,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14009f000.asm",
+      "sha256": "d2ea9af1816ba7909fbcfed0724670345e531902981c73099da1a0bf82dbbb4e"
+    },
+    {
+      "bytes": 3394,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14009f000.c",
+      "sha256": "d0a638832d0eee2b082018f3a190429a5faa09b98c081e619fd26325cf39f37d"
+    },
+    {
+      "bytes": 875,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14009f000.json",
+      "sha256": "cff91db1b0da0b94d551c5e9b6937140347db78ccda151f19f2a57dde016ab0d"
+    },
+    {
+      "bytes": 8795,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14009f1f0.asm",
+      "sha256": "fcc1903677c59f1376073c236a51c9bff6ad3e5729e673dbfc0ee220e820ba4a"
+    },
+    {
+      "bytes": 6399,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14009f1f0.c",
+      "sha256": "cfcadd1a7d6ff8b21a5eab48e5921c79fad3200499fb0283545ac408d92ff308"
+    },
+    {
+      "bytes": 801,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14009f1f0.json",
+      "sha256": "3de7cde2ca4626e7eb40e81c2dd30db9d8601eec72b39d4b3eb1e25bdde2ec97"
+    },
+    {
+      "bytes": 10076,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400a1a80.asm",
+      "sha256": "cd6d679f3b4f6beab5fcd62268876abe059a6d579c1555c2bf201d11685d0b3f"
+    },
+    {
+      "bytes": 7890,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400a1a80.c",
+      "sha256": "7559c49592aee92a3d2b9466f33b6f76c9369328b7e679aba5e5c5c3dfa73f72"
+    },
+    {
+      "bytes": 3549,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400a1a80.json",
+      "sha256": "00b02ea138965bc77ae3b4eb3381f922107b555dd0766ebef709ad93cc303006"
+    },
+    {
+      "bytes": 237,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400a3950.asm",
+      "sha256": "1a5e1adc929c3b0f84431949c4073ad568a98c8ebb139ea1ae54c1d9c4bfaebf"
+    },
+    {
+      "bytes": 374,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400a3950.c",
+      "sha256": "03a3ed8c2665649c5f4c31e6f6266faeb5937fbf7f60367e40fb86c1c4223dd3"
+    },
+    {
+      "bytes": 2364,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400a3950.json",
+      "sha256": "5a00738c5a341dbd36f6d820b0843f5989ed329605dcd71b600ec6273e2226b5"
+    },
+    {
+      "bytes": 49,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400a3970.asm",
+      "sha256": "f9ae19e7733643165c0fc995826d2d030361ddfe159826672be386cdc18a844b"
+    },
+    {
+      "bytes": 251,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400a3970.c",
+      "sha256": "86bd50500187129b63cacdbbd581e48ccb5ea08a28582d153cec5da6b7f72bed"
+    },
+    {
+      "bytes": 3386,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400a3970.json",
+      "sha256": "4f5d6c6f15d5bffbc160ce0b4efc0568c601e5db0209bd4488d34d29a0f58bf8"
+    },
+    {
+      "bytes": 63,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400a3980.asm",
+      "sha256": "ab3f406a2d8121c8666b30dd6af05231bee9f83a859228c308215e05d918ae24"
+    },
+    {
+      "bytes": 285,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400a3980.c",
+      "sha256": "8f0ef9d32c9aded2e2bcdc2ba52ab4edc74091bf0f90bd130633c31030732180"
+    },
+    {
+      "bytes": 1003,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400a3980.json",
+      "sha256": "4db1e3ebbd2a606e4c0708ec97fc167b3a2820b18702db7735eb401d39eef508"
+    },
+    {
+      "bytes": 8142,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400a3b80.asm",
+      "sha256": "2849e30f790686057804225621899bd57d3ed9273f244ba6a0d62ea7aa2fd70f"
+    },
+    {
+      "bytes": 5812,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400a3b80.c",
+      "sha256": "058763f97f8fb4849f0a022a0338460d3092b25cec8b44546b3a45b0ca2577be"
+    },
+    {
+      "bytes": 905,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400a3b80.json",
+      "sha256": "065c1284420cec73569d8c928750a855cf4aa0f9db7d3c4a124cc02694aad125"
+    },
+    {
+      "bytes": 225,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400a3f80.asm",
+      "sha256": "4f14220c5111b775d4ef11cf077fdfb442bbe5a719ae4fba2a70892129293769"
+    },
+    {
+      "bytes": 415,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400a3f80.c",
+      "sha256": "2398a88a89cf03022fba6c41e61bb01d7067b3092da7a2a6e94ef7c681fbb187"
+    },
+    {
+      "bytes": 2619,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400a3f80.json",
+      "sha256": "6f10a4fe2c741a80241a47b32321f24d9c804934426c121d38828d65c5c386f2"
+    },
+    {
+      "bytes": 41,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400a3fa0.asm",
+      "sha256": "5b30391205c983916952ee0d8d36f2c94e4e8835588f7b3c488d0ae55876d69f"
+    },
+    {
+      "bytes": 242,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400a3fa0.c",
+      "sha256": "8cd500591b4811a4bb8d64093ed959e6a4819328beefb0b907c3fbf9f7547874"
+    },
+    {
+      "bytes": 17714,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400a3fa0.json",
+      "sha256": "b5891f490348fe959bfcb661997079acd1b176d93b76d2b3e0c05817f64f20de"
+    },
+    {
+      "bytes": 66,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400a3fd0.asm",
+      "sha256": "c94267ea9c6ea81b4aeeb31c00eb0b58e9bd1ed1c53f0718f38fd84d79c8405c"
+    },
+    {
+      "bytes": 254,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400a3fd0.c",
+      "sha256": "a6138a389aed7ee2ef56a800116b11ffbbc25e39030049bd92b58e0a0ba38e6d"
+    },
+    {
+      "bytes": 833,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400a3fd0.json",
+      "sha256": "0574da5bf9cf0e0492d618366890da2b4e10a34fa78c9e6dd1c189b2a19dd74c"
+    },
+    {
+      "bytes": 1947,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400a4880.asm",
+      "sha256": "45b2b5e134a7d83fa04e5c51d8065c0a94704dcb04ae5727a126395c5a966d0b"
+    },
+    {
+      "bytes": 950,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400a4880.c",
+      "sha256": "3a2078f34770031df1bfb876f53b32b777f8c9a8d57898ae96befacbc00afaa7"
+    },
+    {
+      "bytes": 1149,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400a4880.json",
+      "sha256": "0bd03b9740db6eec65ab8de8f1b8bb1932d4272a5c9e0ef20e5af1b357128bc2"
+    },
+    {
+      "bytes": 475,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400a4980.asm",
+      "sha256": "98bf82b5fc49e779087dce7e631d4f5d27f1e1cf36eb6be34bf59e60309a6e67"
+    },
+    {
+      "bytes": 678,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400a4980.c",
+      "sha256": "a8b48422aa8b5eec25fb8af314fb78ab66f8ab7ef0e6e8901a2b7ef3068e53e2"
+    },
+    {
+      "bytes": 1004,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400a4980.json",
+      "sha256": "9520119ddc3880ae4217ebc932018baeb201bc2026906581d26cbe268be5bb1b"
+    },
+    {
+      "bytes": 4335,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400a4ea0.asm",
+      "sha256": "9a3ca19567540cd26359d1038cd9acc196da4edda30593745a387ad1981c675a"
+    },
+    {
+      "bytes": 3157,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400a4ea0.c",
+      "sha256": "7c3cb0a2dde9106833aff1c2679c620d1a8c374d3f3e01f2c60c880674f0371d"
+    },
+    {
+      "bytes": 1206,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400a4ea0.json",
+      "sha256": "bba3c0c8292590e071233433fb79a58eb4485e679efeb57ebdbbe7f711550e56"
+    },
+    {
+      "bytes": 6958,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400a5100.asm",
+      "sha256": "67c0a39e1cdde6b6450c77aa964dad31f47a4a5b0399c53412169ddd6c261976"
+    },
+    {
+      "bytes": 4586,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400a5100.c",
+      "sha256": "fc73404751307f7326e1fe0808f30b5acda807493ca65ea23318301bb018ef79"
+    },
+    {
+      "bytes": 1130,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400a5100.json",
+      "sha256": "ac8010a1a1f3d01a63b04b9ab3e280250f74b68f0c523691a186eb507429a004"
+    },
+    {
+      "bytes": 4048,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400a5490.asm",
+      "sha256": "398d86daa3a9806c8f586de038367f1439eb580d4a0dd57049d2326813368f1f"
+    },
+    {
+      "bytes": 3022,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400a5490.c",
+      "sha256": "72dea0ea915b4085f075be36eafa673d8a5ef2cef334765c2f0140a4f9cdb8af"
+    },
+    {
+      "bytes": 1111,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400a5490.json",
+      "sha256": "68604ca908e24db599f8136f7c3a8ee0a75d86502f41011aecc8276d2083e9e8"
+    },
+    {
+      "bytes": 1942,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400a56d0.asm",
+      "sha256": "7780bdf9b80a53d0c9ff2b23505d30cf275577d102cb5bbef5c8a0637cd7ab80"
+    },
+    {
+      "bytes": 1260,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400a56d0.c",
+      "sha256": "1315b53f8079d35a81d524331e6a44db6dbd79c25a7c54d70b93feeadeef9014"
+    },
+    {
+      "bytes": 1187,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400a56d0.json",
+      "sha256": "c896107176bd1d49c6314573d919b58a501e4b37f8333c56d5ab263b60d7d704"
+    },
+    {
+      "bytes": 24536,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400a57e0.asm",
+      "sha256": "11f432685c3c33f770a7ebe7ac4cc097b328920e3e4d64e02e4c59173ede7e9f"
+    },
+    {
+      "bytes": 20825,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400a57e0.c",
+      "sha256": "c1c0f21b3a9e96b5da2b5f004f05d26c15d6e2fd028e0cf96e06deabd0d0731f"
+    },
+    {
+      "bytes": 1339,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400a57e0.json",
+      "sha256": "91b6dcdac80a58c9e7114f9a0def9213b2f10764710587ceb65788f3b31e801b"
+    },
+    {
+      "bytes": 10514,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400a6730.asm",
+      "sha256": "9a9f2dd713569cf12480fb7f1dac14714742a613d41e7edefaa72b71a4c4fa40"
+    },
+    {
+      "bytes": 6771,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400a6730.c",
+      "sha256": "7ff77380c99ee1becee7723dbace063c69adb5904d7c33c00e11faa596081df1"
+    },
+    {
+      "bytes": 1056,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400a6730.json",
+      "sha256": "98515b7ac15066dcd3574131cd14284858ac7894d7f9ab5d78d5fcc20299d4f5"
+    },
+    {
+      "bytes": 1442,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400a8a70.asm",
+      "sha256": "1e1f97dc334c7b31d1055a7cef198e035746fe7ae385ca4275b7937a1a66ff0f"
+    },
+    {
+      "bytes": 719,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400a8a70.c",
+      "sha256": "fe3ef491cc1b92f68a3c9441d2cb56488347ce62c8be324ccd49ae47dcc09706"
+    },
+    {
+      "bytes": 790,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400a8a70.json",
+      "sha256": "e487757abaf4a4491d8961407794b3d894758d88043aadd6118d2ddf2216b0f2"
+    },
+    {
+      "bytes": 5350,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400a8b30.asm",
+      "sha256": "07945a1418e5560c66869162904fe432e6dc3ab07fa33ea9b7ba7999a5a9fe71"
+    },
+    {
+      "bytes": 3145,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400a8b30.c",
+      "sha256": "28c597d20317161f095ab45338790e037f551a071add2ff9740a324703ed7684"
+    },
+    {
+      "bytes": 979,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400a8b30.json",
+      "sha256": "a9775869bba7e79aed1af6c1cb5eb265426fd60edd7d0f022d5b1f54317d4ca8"
+    },
+    {
+      "bytes": 3990,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400a8dc0.asm",
+      "sha256": "ccee19b5755555ecae78003a4bf3f5ac903ae1ed97abeb10c5b99459416ab5c8"
+    },
+    {
+      "bytes": 2283,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400a8dc0.c",
+      "sha256": "84da9f57ddb1afa8ff329f7cdfc32b12dcfa394d973185607e6cf2162827a66d"
+    },
+    {
+      "bytes": 1036,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400a8dc0.json",
+      "sha256": "c0a1b302c90a27c7b62aad07dd738ff0e5ddf84c1274d67cc89b9e4f68d8532a"
+    },
+    {
+      "bytes": 2312,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400a8fb0.asm",
+      "sha256": "730d48982bc704d1da71286c90a045a580d1ff1472cece7422f57ccae0f0cc74"
+    },
+    {
+      "bytes": 1952,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400a8fb0.c",
+      "sha256": "9d5424220900550319ae47f8139d576e959608fd4bc70e5309838ec661904c52"
+    },
+    {
+      "bytes": 686,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400a8fb0.json",
+      "sha256": "482ee250addaa290f3cc6acea513bd6e759db46a36ce84b8475eb908ca38e2f8"
+    },
+    {
+      "bytes": 7703,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400a9100.asm",
+      "sha256": "644d1ec68c3d530614af293b901cfd5b1f2725416497cc9b88c3794c5e58a0d7"
+    },
+    {
+      "bytes": 4109,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400a9100.c",
+      "sha256": "422e0c96f2bbbf15cda0ed3fcdad2f58e77272343e7aee457e8ddca29532ef52"
+    },
+    {
+      "bytes": 771,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400a9100.json",
+      "sha256": "0d5d4c87e3cd4c155bbf36db9284cc8bb947b64567efb0feb687c289d90697df"
+    },
+    {
+      "bytes": 3932,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400a94d0.asm",
+      "sha256": "f520fb415627c539e5a1fce3c99d5269300d2feaa24be9758779995e6f2d9353"
+    },
+    {
+      "bytes": 2475,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400a94d0.c",
+      "sha256": "468edd68b3be81a2cf44b46753dd8634d27e741ddefa5be90b44106271173f5a"
+    },
+    {
+      "bytes": 1066,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400a94d0.json",
+      "sha256": "bc60d604fca90da4670baa0647377822dd96660822b2b56958fbdd19c69de9ca"
+    },
+    {
+      "bytes": 476,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400a9700.asm",
+      "sha256": "7e03406caecc3763c2d4a8dda7f4f958cfd38d7e0d276f94e23916dd7e9b4f22"
+    },
+    {
+      "bytes": 677,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400a9700.c",
+      "sha256": "8a5ea281ebb56d21330cbb12e22ff44682381303ec4ae0e0e62e5d0f7821473a"
+    },
+    {
+      "bytes": 625,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400a9700.json",
+      "sha256": "5911a73713f674d981f17b08d795a43e2bd437a5d954712977bfe43a55ad8e8d"
+    },
+    {
+      "bytes": 66,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400aa7e0.asm",
+      "sha256": "1dd7093f453975690d01068647e075fddc5588ff648243fe85524c76b9e2747d"
+    },
+    {
+      "bytes": 311,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400aa7e0.c",
+      "sha256": "889e0d788d75ecdf7241fc02f2ef98e49e494acde4f65794b7f634909e12843c"
+    },
+    {
+      "bytes": 2193,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400aa7e0.json",
+      "sha256": "dfc6a5f2181e891075e1f1a28f9d32e2a724e9dc4dd2dbe7c7c1a0846b778ac2"
+    },
+    {
+      "bytes": 66,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400aa7f0.asm",
+      "sha256": "1f348cb3744562243c7671d12f3a211bdd09ec0e10faf4bb0173dd782a44811b"
+    },
+    {
+      "bytes": 285,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400aa7f0.c",
+      "sha256": "c76baec9212c22d4ef66c220c628431627506ad4deca815d10371f46d2170f9b"
+    },
+    {
+      "bytes": 2193,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400aa7f0.json",
+      "sha256": "d9a5780dbfea536bef4d8269a2f266c13f7df1d0de634fe024cebd0784c74e25"
+    },
+    {
+      "bytes": 2090,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400aaab0.asm",
+      "sha256": "27b20479e6c818e8ccc3a7b139a3d08183bc5ef96c793220a09203fc46a1fecd"
+    },
+    {
+      "bytes": 1224,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400aaab0.c",
+      "sha256": "5604c2aeec8422b78f29a329396b20cee8dbfc2f4033aa8149b4aff8aaec3792"
+    },
+    {
+      "bytes": 899,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400aaab0.json",
+      "sha256": "390be23ef67b002cf00dcf8e6c9f772503720e122eed4a0224fd77decbe86368"
+    },
+    {
+      "bytes": 705,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400aac80.asm",
+      "sha256": "ac241fd9a4c2ca703c42a67345232230158e21559968af0616370a0f059a1af3"
+    },
+    {
+      "bytes": 674,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400aac80.c",
+      "sha256": "5616300e9972aa9497c747a9d8cf0559c2ea9d896e74d01a700f3f3ea6abeb6a"
+    },
+    {
+      "bytes": 579,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400aac80.json",
+      "sha256": "c5f8f4f08b0ece1974d9201c68ac62679c720d4bcb647c80bd088414aa11f653"
+    },
+    {
+      "bytes": 705,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400aacd0.asm",
+      "sha256": "e1929977a7ad118b57f0d17412b801483528025bd1190318de8d5e696d639e6a"
+    },
+    {
+      "bytes": 674,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400aacd0.c",
+      "sha256": "dac1304705545298bae6cae5ba3440c50e1ebae84a33cc957685356c5c42a2b0"
+    },
+    {
+      "bytes": 579,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400aacd0.json",
+      "sha256": "f52280b4778eb837325a415daa0336ab4d6c28f9806f6d01c17bc665ba192a70"
+    },
+    {
+      "bytes": 344,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400aad20.asm",
+      "sha256": "ee0a4ef0b8d9e931d3fb6932c9435797751756a6da83cc82b9ad95edffe529a5"
+    },
+    {
+      "bytes": 388,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400aad20.c",
+      "sha256": "692292776204577fda49675ee812371efff3cf0f7f7cbb41947418fc15990f9b"
+    },
+    {
+      "bytes": 685,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400aad20.json",
+      "sha256": "43d5fa09fbb0e70ba4b74d4296839c4f4fae8bdc248713b5ce94566801af210d"
+    },
+    {
+      "bytes": 8222,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400abff0.asm",
+      "sha256": "138b53a07944c95dcf368be14b6c271413abb650c2fd92b942d02c04d5df28c6"
+    },
+    {
+      "bytes": 5472,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400abff0.c",
+      "sha256": "c157ca50eded8bb4bfbe5c3575bf889dccb531802ffa7ca7cac768296ff94295"
+    },
+    {
+      "bytes": 1054,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400abff0.json",
+      "sha256": "4a770f5272b807668c5e85dd8287eed826e01ef550758b353f70966ec179efb5"
+    },
+    {
+      "bytes": 4867,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400c04e0.asm",
+      "sha256": "03b80daf4b87723588584831253896192f8b741e2c1fa28a9860f631cf0a2268"
+    },
+    {
+      "bytes": 4753,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400c04e0.c",
+      "sha256": "b2b453cafb4132da247e631942a098e96930464416249c1be39cc3c9b76988eb"
+    },
+    {
+      "bytes": 1193,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400c04e0.json",
+      "sha256": "4a5d02e5884eb7ddbcf5fc0993e480ede60db7b8e7aec2d5aaca72453cfbbb8e"
+    },
+    {
+      "bytes": 1473,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400c1030.asm",
+      "sha256": "e11d00d1203f4cbbaf47ad260bcdbeb64e64db6ba912510ef7bab95cf2f1a7fa"
+    },
+    {
+      "bytes": 1403,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400c1030.c",
+      "sha256": "ffac6606fa3279feb9dabf47e5ef2ea90e967500d12cf5353587eb33a1c5ed1a"
+    },
+    {
+      "bytes": 1447,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400c1030.json",
+      "sha256": "2a77160c0c304d884d7e40ecbbbe5190eef7248ba397810234adfe25fc7a6a80"
+    },
+    {
+      "bytes": 8040,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400c11c0.asm",
+      "sha256": "873c43f3b655f1f7950d38db846840bb9a1570187d7646cb745a0978518a78dc"
+    },
+    {
+      "bytes": 5749,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400c11c0.c",
+      "sha256": "ff72b0e995cef67fe6e1591b8d3cf3080031a4659875bf87bff864b0ab56fc0f"
+    },
+    {
+      "bytes": 994,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400c11c0.json",
+      "sha256": "81546da7eec75b87dc0dad940aab3562b986d0128f1ab52e4fe3cdd2454feb87"
+    },
+    {
+      "bytes": 572,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400c2630.asm",
+      "sha256": "a73ac10d9c3c4518265f60018db35032455b82618169205c63d6b9aa3b7eddc8"
+    },
+    {
+      "bytes": 582,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400c2630.c",
+      "sha256": "6d61bf0effb73d3f3a316ddcaa30f6a14c16e473b9fe8e610bf6762d54893c37"
+    },
+    {
+      "bytes": 610,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400c2630.json",
+      "sha256": "a49bf8bf6a9eb6049a958b5c7ab8a3865fbaee89169b2530fa0d53a25f23093f"
+    },
+    {
+      "bytes": 572,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400c2680.asm",
+      "sha256": "95dbfc0263be88dd8f122e894a431475b215de98fcf371b454b0125efba8d2ae"
+    },
+    {
+      "bytes": 582,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400c2680.c",
+      "sha256": "fc4da240d31474adbb8cade124bb009f488dc5bb7d4d695acb0f788f66643f05"
+    },
+    {
+      "bytes": 610,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400c2680.json",
+      "sha256": "3df6890fd180cd2ad53d4c1973aecf57297b3bc43d70d4fbf1f41a6637800e01"
+    },
+    {
+      "bytes": 5915,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400c3e50.asm",
+      "sha256": "de0a524a57a21d766031460adff60789ac4da6a1d7ed829374fd0b8bd1c458ba"
+    },
+    {
+      "bytes": 3957,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400c3e50.c",
+      "sha256": "9f6731ebb9857bc8aae1248fbeceed238a3da5e32928dca7bc7aaa664730fc8f"
+    },
+    {
+      "bytes": 626,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400c3e50.json",
+      "sha256": "c69763c03010aa73417ab4bfab2a037c9564762e02fde60c417eb519c8ecb2f1"
+    },
+    {
+      "bytes": 1432,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400c4210.asm",
+      "sha256": "a67f06e99967907996de4ee3a068048f132873c2b5629fe51b77a1e5ce9419ab"
+    },
+    {
+      "bytes": 1270,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400c4210.c",
+      "sha256": "5943084b8e366fd5a8e9b556f2b0fc8bdde2b419c82ef57e1a7bc8ada9b346f3"
+    },
+    {
+      "bytes": 626,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400c4210.json",
+      "sha256": "28b891fd2eeaafb36a37cdf57a3a683a0df0589c6b8331615a263fd9a5e906d7"
+    },
+    {
+      "bytes": 439,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400c42f0.asm",
+      "sha256": "66775ab642b2684c1b999a374295c1e14d00ee4c19a075540ad9ded4db7a4ec6"
+    },
+    {
+      "bytes": 371,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400c42f0.c",
+      "sha256": "e27544661d230b1c6cacc9ba81c088bd2785e9ffce8dbda33b4ad0ed1191cefc"
+    },
+    {
+      "bytes": 704,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400c42f0.json",
+      "sha256": "3d00d958b90a0f09e0f3106ad3f78b508c6d9c0670fe8a017d8a1e028e84528e"
+    },
+    {
+      "bytes": 14972,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400c4660.asm",
+      "sha256": "ca0dde1739d890ec1aa8d48c07a9a73802d4c52cede45c2ce35685c79f6af66f"
+    },
+    {
+      "bytes": 11825,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400c4660.c",
+      "sha256": "641d54dbfe99ffd8ba23c3faae937116bec9aa67ddfcbe3663ffc6db3741c746"
+    },
+    {
+      "bytes": 819,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400c4660.json",
+      "sha256": "d88b79f42db53020b01b137852a0d4c4dca81db61429890c519d66d4edc2a58b"
+    },
+    {
+      "bytes": 1657,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400c5070.asm",
+      "sha256": "13a40d6e63fc1732a6394bd61478bbd6d77eebb3b7aad1baea1ae76fb0a2626d"
+    },
+    {
+      "bytes": 1407,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400c5070.c",
+      "sha256": "656fc1a49d108bea2648205e684df3ed9c8f9ab8a0433d7a444a7d7b2f3dea2d"
+    },
+    {
+      "bytes": 1009,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400c5070.json",
+      "sha256": "6d8414f37692d655f75ddb8135e98c8f05f5f0a521ed9df6413e7587b5ec6263"
+    },
+    {
+      "bytes": 728,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400c51e0.asm",
+      "sha256": "af02d9ed88a228e3f875e9e8e285934934751ee0879e9dd66e0a7d1446c2535a"
+    },
+    {
+      "bytes": 636,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400c51e0.c",
+      "sha256": "ac5e8c7dddba62cb798fad976775847456bb0be8bf93c7ec40f6f1edf663361c"
+    },
+    {
+      "bytes": 750,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400c51e0.json",
+      "sha256": "a133d6378013dae7b5dd94bf465db3a274ba0ab5d8a62ba0e8fe31e1023b4699"
+    },
+    {
+      "bytes": 10695,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400c6a50.asm",
+      "sha256": "1ea8ace641674aeb7b5f4a2a468bde988431aca8186761a517b2a1b4c57cf714"
+    },
+    {
+      "bytes": 7805,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400c6a50.c",
+      "sha256": "9e766a991ff5687cfa611288e8dde818252ba2f0141ee6eeaaebcc255e90c1b5"
+    },
+    {
+      "bytes": 1257,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400c6a50.json",
+      "sha256": "da8ce5e332d897be4ab0ab37520cb3b16857ba8c9779d7ff826114cd65a17877"
+    },
+    {
+      "bytes": 31368,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400c70e0.asm",
+      "sha256": "3dc6b177ef4fb8b944b2b965165f1a9d6aa4ce08d78651fb77c9cf501b268dc7"
+    },
+    {
+      "bytes": 27192,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400c70e0.c",
+      "sha256": "73d9fa2b897e2b1be6fc8abc30eb5c5f33decea14939ce2203281c9c41e6c970"
+    },
+    {
+      "bytes": 1264,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400c70e0.json",
+      "sha256": "8963e96a8d92e934419f7e3e9291a4ef29e5de92e4e4de491d3305f6727e0773"
+    },
+    {
+      "bytes": 1599,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400c7f90.asm",
+      "sha256": "455d40db27b2a86179a7b4793ffc0241f1c055629485096e0f1d88eb94a911a1"
+    },
+    {
+      "bytes": 1104,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400c7f90.c",
+      "sha256": "b35849d48a1ef557bef9850f4452d1c79a5728459e3ee57d6924aae00a6489a9"
+    },
+    {
+      "bytes": 1093,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400c7f90.json",
+      "sha256": "b6b356df2af935db9b13e81f2193c8a0e70ba808d3e03468324bbd24d902e642"
+    },
+    {
+      "bytes": 1600,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400c9690.asm",
+      "sha256": "05487159bfbc7a8d8974f53fbb8518fb3cbf23c00432dae63efb65986eb17236"
+    },
+    {
+      "bytes": 1107,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400c9690.c",
+      "sha256": "b4e0b3500827c790dc7d7f6f2659a06f48226256963d428ff85a12add1af0665"
+    },
+    {
+      "bytes": 1077,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400c9690.json",
+      "sha256": "dc32a0971b68413cd54c8fdff659c577dfd77db4024fc27338fa006e97e3046c"
+    },
+    {
+      "bytes": 51785,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400cbcc0.asm",
+      "sha256": "f0c06f2983cbb4bffe92623c19375b7084a13bdc1d6347f2b72672294b259985"
+    },
+    {
+      "bytes": 41168,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400cbcc0.c",
+      "sha256": "b090e905eb4e5702cf1b88924ae5c401953129fde57f34e2802b2d6eeae57a4e"
+    },
+    {
+      "bytes": 1520,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400cbcc0.json",
+      "sha256": "f1f801fd31d48cb27a6a1217d619973a9d0e16b1e0e64a2b65ea02b3af67e828"
+    },
+    {
+      "bytes": 26735,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400cd880.asm",
+      "sha256": "b861c876db216948e17250e132be679b9c1fc5efc6779794862b7ef67042f527"
+    },
+    {
+      "bytes": 21871,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400cd880.c",
+      "sha256": "fa765f1f1d2d5f8fc9e2e7ef8383120979c69be111cc65bab0d8fef95341bad2"
+    },
+    {
+      "bytes": 1965,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400cd880.json",
+      "sha256": "76f4b094ad1743679d093147b76560c19147ee996bb657d93ceda3d4d58aef1d"
+    },
+    {
+      "bytes": 51760,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400ce880.asm",
+      "sha256": "1062418f72a0d460f3e7e0c721ccb5ebd0dcc0198f9c1866991048648e95ada6"
+    },
+    {
+      "bytes": 42609,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400ce880.c",
+      "sha256": "626ef90a9ff0d3667d481450f0b0351237df4275fa9a8967ed9f86034f0c48d3"
+    },
+    {
+      "bytes": 1846,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400ce880.json",
+      "sha256": "40a888fe1e5026afccba8a127fe7c1c75099d3543d913704e19129a5f57bc972"
+    },
+    {
+      "bytes": 15441,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400d03a0.asm",
+      "sha256": "5a3171a9b21bdb32302b6688ef2dd1aa176d6348e07e444ae82a81927026def2"
+    },
+    {
+      "bytes": 12048,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400d03a0.c",
+      "sha256": "5cd8edff4f73026202cf1256b3f67cb8407ff70cde94749d8678e9ee7b4f15ec"
+    },
+    {
+      "bytes": 1108,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400d03a0.json",
+      "sha256": "a41ecc32fe6e540e274adb944341a0cecc6d0ff5d5fdd4a33e0229bfe6f7f9b1"
+    },
+    {
+      "bytes": 8570,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400d0c40.asm",
+      "sha256": "254cbd739faaf80ada9a5a04bb48e207142ff02e1dde5235b5cd4d8ebe3171ba"
+    },
+    {
+      "bytes": 5660,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400d0c40.c",
+      "sha256": "3fd0508404a68b849521979086c157de886ab641c0cbebaba4de20825eebb208"
+    },
+    {
+      "bytes": 1273,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400d0c40.json",
+      "sha256": "afa35d8dec13f6320cf452be5272a2f1a478b50d480d5fb7fb537e3cc18549d7"
+    },
+    {
+      "bytes": 3339,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400d1110.asm",
+      "sha256": "cd4a2358991043dbc5d527bb9ccbab5e573b1b082aaee16f9f6e682c2cca4593"
+    },
+    {
+      "bytes": 2759,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400d1110.c",
+      "sha256": "06bcdc8d52c8980bf99fab874fd709a2c5c7ff37277524e6f66a4bb7288f8939"
+    },
+    {
+      "bytes": 921,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400d1110.json",
+      "sha256": "c9ca99f1a99fd2c223dd57aecfdc533c61d342dc67a1df39a48ffd85217048a0"
+    },
+    {
+      "bytes": 4825,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400d1300.asm",
+      "sha256": "ea89f17659f50aebf29bae0cbeda6714baabdbf5147d452bdd315bad5393fe45"
+    },
+    {
+      "bytes": 3816,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400d1300.c",
+      "sha256": "7c248defca02afd10392bada809154ba0e26eb05a70a256f93ca3aa0721f4789"
+    },
+    {
+      "bytes": 940,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400d1300.json",
+      "sha256": "12c94432ee15768a9ea7a04d884d2d7a74b9844c8f118bc8869f852a5548b878"
+    },
+    {
+      "bytes": 26529,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400d1780.asm",
+      "sha256": "d17a349bbc7b392bec7308989ce8fe4c07cb51a87906ac655dc33b4181c67ac5"
+    },
+    {
+      "bytes": 19765,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400d1780.c",
+      "sha256": "185eabc61a16af3e4d671d4d5f7a953f151dc3e21f9b4b3a3641206446478045"
+    },
+    {
+      "bytes": 1403,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400d1780.json",
+      "sha256": "f6a565a93a36f91579b779a5de647289506db5d0a97025bf4842a3c852b5f2f3"
+    },
+    {
+      "bytes": 48498,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400d2580.asm",
+      "sha256": "72054495dd25cdf9a5801ae58a6b6530b74015366d86941e3cf932fdf0189525"
+    },
+    {
+      "bytes": 38983,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400d2580.c",
+      "sha256": "69256592a6ffb287b2a4862243730b7b7a663d3cffc44354323b8ff7515dbf56"
+    },
+    {
+      "bytes": 1777,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400d2580.json",
+      "sha256": "2df256a85213246209884f9ad3c5086d51208d0b39431ecb1043ca32a75cad09"
+    },
+    {
+      "bytes": 3628,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400d46a0.asm",
+      "sha256": "1276dc02bb4a8b35a3d1921d286a32a3774ac13c66918304fa6494aaa66a9fe4"
+    },
+    {
+      "bytes": 2591,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400d46a0.c",
+      "sha256": "86514d2a57b94244a0b47bb49fbedd6a9591179269611992bd205addb1ee05ee"
+    },
+    {
+      "bytes": 850,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400d46a0.json",
+      "sha256": "6f5aabf726c13f11b222d77d37c6b4ea1124317c34beeaf778b4e9bac4f6a377"
+    },
+    {
+      "bytes": 7580,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400d4c40.asm",
+      "sha256": "e883c831bb09125ea28a85f8fc0d801bc598ced89fe06f29d09fb47259c7329e"
+    },
+    {
+      "bytes": 5492,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400d4c40.c",
+      "sha256": "8cb1f031dd212641b0e04596dfef5895033a74ec17bc5052bae18eb062f6ad32"
+    },
+    {
+      "bytes": 1086,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400d4c40.json",
+      "sha256": "6eb8b11f1ee0cd9c7445e3d787a1d010679363dbbd63f45ab36213d29d347b49"
+    },
+    {
+      "bytes": 1056,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400d55c0.asm",
+      "sha256": "4a32a9049f9728330fdb8714ba7ced6d76a32463ec426d99b203aca0a0023198"
+    },
+    {
+      "bytes": 1019,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400d55c0.c",
+      "sha256": "add3401afa5d52025c2af3f1c779c8c2a0e06eb309317b4ea8b9d49d1683000e"
+    },
+    {
+      "bytes": 994,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400d55c0.json",
+      "sha256": "bf8cd334201922927832e39df740b0ad234801c9af5ae59f88879f4db2a5be89"
+    },
+    {
+      "bytes": 1635,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400d5680.asm",
+      "sha256": "433376a6874231a5438216f99abf19390e84536f8e78cf3fb78f1e930a7cf3c0"
+    },
+    {
+      "bytes": 1479,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400d5680.c",
+      "sha256": "13e04c16ab09894def1ae5b2ba803d180e76419e5b12ae2e274d758ec737919e"
+    },
+    {
+      "bytes": 755,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400d5680.json",
+      "sha256": "4a82a8255f0aa8d547cd593679d052ead9e4057b53476de84e1db08721039c21"
+    },
+    {
+      "bytes": 37941,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400f7540.asm",
+      "sha256": "f12992c46da325e10121a20ac486a6bf7eef733fee0fbab6815596dd49eea69b"
+    },
+    {
+      "bytes": 28601,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400f7540.c",
+      "sha256": "785e50c97847127352ef94b52db12fd16e87a86df8e28715935f5b97b5d7b2cd"
+    },
+    {
+      "bytes": 1188,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1400f7540.json",
+      "sha256": "d62bdb5ee541c6bc2a3b2620ad1f23535f0413e58ac9702fab58380e1b773ace"
+    },
+    {
+      "bytes": 343,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/140102510.asm",
+      "sha256": "edd4dc6189bfc1ccc5b58f999d70100273ec2356c85065fdaa1d6df3483fc853"
+    },
+    {
+      "bytes": 388,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/140102510.c",
+      "sha256": "9b8ccfa52fdbe133311eca0cbb9122b7a7562676334af9f557fa2736069998de"
+    },
+    {
+      "bytes": 686,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/140102510.json",
+      "sha256": "7ff13d2d6ab64771fb0d38804dc2340032a3ef9b16580679df536c657b735b51"
+    },
+    {
+      "bytes": 786,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/140102540.asm",
+      "sha256": "7601b69a0dbabcc4d412622b75cbbea8dee29874a2e5d2ca0786182318c422f7"
+    },
+    {
+      "bytes": 703,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/140102540.c",
+      "sha256": "a75f0362d72bd86a280ad5f95e8d37709d5e3eb9c44c0b92ef3f124f39319dd3"
+    },
+    {
+      "bytes": 734,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/140102540.json",
+      "sha256": "47d38f7cdab0ae88e8808fd86927971e27443f5043a4999561ae0a148b8dab0f"
+    },
+    {
+      "bytes": 1763,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401029f0.asm",
+      "sha256": "93a148422fb423b637a7f03f3bb25364f9c26a3a425443f3e7a263780d1ba067"
+    },
+    {
+      "bytes": 1334,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401029f0.c",
+      "sha256": "6a34e767a1d93b89b16e31c64ae2ffd0fa61d17212e749de3e11ff21ab8ba0cb"
+    },
+    {
+      "bytes": 1962,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401029f0.json",
+      "sha256": "edd4c4eae8090c023b512156ae7e1a2bea69b563196ce804b2c4c5acbfc57f2b"
+    },
+    {
+      "bytes": 2344,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/140103080.asm",
+      "sha256": "0eccb5a995279d0170b30a24f4aa4fed1d9123f16b6c3802e9ba6cebc6c2b933"
+    },
+    {
+      "bytes": 2051,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/140103080.c",
+      "sha256": "1026241b9d1b907ac4e1f1b2ce6d20c879a3784e70beb6abad10f883f5cbb0a1"
+    },
+    {
+      "bytes": 627,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/140103080.json",
+      "sha256": "0aff9f9f3a70014222e629d75d5889b3572b98d439b7327cb3029a6e19e4634f"
+    },
+    {
+      "bytes": 84438,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401040c0.asm",
+      "sha256": "fac007b2857eab7e94cedb8751063ed2733e5200f47193d04a05dd75cacb3ade"
+    },
+    {
+      "bytes": 71773,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401040c0.c",
+      "sha256": "cd3063fb0d44a661a9fa364ca1596b2b152cfdf30773a2f79b351e737e74f48e"
+    },
+    {
+      "bytes": 2543,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401040c0.json",
+      "sha256": "0a2bb2aa1d1e3e40c5603a09284de86b83037f04e8de708f768390cc7785b5f6"
+    },
+    {
+      "bytes": 6885,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/140106f30.asm",
+      "sha256": "49a50763b065c882db22eaccd4df8266e2251d13cc774ab6c058a6b39bd55697"
+    },
+    {
+      "bytes": 5170,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/140106f30.c",
+      "sha256": "4ed0686e7584b50ecd34e4bf2750653b638115d6c28cb1a0b76f8f7bac30950c"
+    },
+    {
+      "bytes": 1055,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/140106f30.json",
+      "sha256": "4e714e1b16220fcc97971c1880e84744b17f9dae951a8838be673c374eef119e"
+    },
+    {
+      "bytes": 32671,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401075c0.asm",
+      "sha256": "a9081a44457f84e150edf65234350d8249a182b9ef8623ab30f260c7be2ba173"
+    },
+    {
+      "bytes": 25825,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401075c0.c",
+      "sha256": "500444f394c36a9aaaf336c9cd2b10e251c6953122a90fb77dbdc9c97bdbf78b"
+    },
+    {
+      "bytes": 1266,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401075c0.json",
+      "sha256": "b5fa5868b56f4dfeb10e767af16b8f1af4493983804522a1e733b6a34054dc9b"
+    },
+    {
+      "bytes": 20439,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14010b000.asm",
+      "sha256": "a3a4fff793278230901741ef5fd0f496995dacbdf5b293b27da9c06bdc88cf67"
+    },
+    {
+      "bytes": 12572,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14010b000.c",
+      "sha256": "e8b4659eed7ab02b84228457b8ea004ba7c8fac371bfe8eaf7f453e099df1d1d"
+    },
+    {
+      "bytes": 876,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14010b000.json",
+      "sha256": "8702ddd8a89c90eec75516622eeafb083d8d75e75ead8cb906307de164435ec1"
+    },
+    {
+      "bytes": 10402,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14010be70.asm",
+      "sha256": "e5dcf4a534532e577a414d864c5edf73e34b279d1839566d6b0667d8afeefa5d"
+    },
+    {
+      "bytes": 7607,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14010be70.c",
+      "sha256": "efeef4b00b25550fd233c43037b680c9149cae9555f7c030da20980443ead707"
+    },
+    {
+      "bytes": 1327,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14010be70.json",
+      "sha256": "ed185590d917175f37eb1889305af9ed70c2546c2c9126ac05a0d959a263cdb6"
+    },
+    {
+      "bytes": 11304,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14010c3f0.asm",
+      "sha256": "cb8cb66c5f1d2a1bff6957d04d2700ddef687bd866e6d94e7c264f50313a9a21"
+    },
+    {
+      "bytes": 7038,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14010c3f0.c",
+      "sha256": "aa74176d7377646bb342a6674e019be812f864847fb1c82e4299b872fd3d36a9"
+    },
+    {
+      "bytes": 1175,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14010c3f0.json",
+      "sha256": "fd2760af264986996699ee4964aa6cbae9613fd89dccdae744a49112e4c1ffce"
+    },
+    {
+      "bytes": 40771,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14010c9a0.asm",
+      "sha256": "51e3c22f1c73d671c79c002ffd2d5fee8709ef73ffee4d802967ff8cb8a54533"
+    },
+    {
+      "bytes": 34928,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14010c9a0.c",
+      "sha256": "1f20c4e60ffb29bf958d4b534b31d19e6f1a5511e72cc7922f70311fc50992b3"
+    },
+    {
+      "bytes": 1250,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14010c9a0.json",
+      "sha256": "d6f774ae6d886d9697b413f3e7abc30a936073438c188d8e9041c73a65e48fd5"
+    },
+    {
+      "bytes": 6498,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14010dec0.asm",
+      "sha256": "1807363f2ee7f5789348905911cfdb3220fb85c0f264da5ed24e94d2a12c3da6"
+    },
+    {
+      "bytes": 4468,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14010dec0.c",
+      "sha256": "93e5fd7cccdbda60d8861a81c5a9b7cf11dda83a7cd7aeedf89eb4d493c95eee"
+    },
+    {
+      "bytes": 1014,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14010dec0.json",
+      "sha256": "0a74e86fce8bfcc634731adf9e863f61531d575c4535bf5a72e228a88f3e2ed4"
+    },
+    {
+      "bytes": 5652,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14010e220.asm",
+      "sha256": "abb9fb7fb127cd3312471a8cd802c9f9c461af10fc71a28a79ba9d994a7c89ea"
+    },
+    {
+      "bytes": 2939,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14010e220.c",
+      "sha256": "d41e48e300cd4d6e6c9d21d6bf1181becf35ab2a38c27d425cb94fecd53019c2"
+    },
+    {
+      "bytes": 1972,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14010e220.json",
+      "sha256": "8d9ebb14ed60efeb6269d9883d1b8fa20ed149ca630d044ebd9dfdeeb4f238cf"
+    },
+    {
+      "bytes": 13740,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14010ead0.asm",
+      "sha256": "e7a07281f349dd2ca75db1385a1efb32d10aca29ef2191aa7e88f9c391b66637"
+    },
+    {
+      "bytes": 10290,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14010ead0.c",
+      "sha256": "62d8f8746146e6e4a324e134afd443a5afad8b9983619c2964db4d2a60564619"
+    },
+    {
+      "bytes": 1105,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14010ead0.json",
+      "sha256": "e0468ade606eda9f1522ea9df785819e99cb626f12221b3cc981632f2c69db19"
+    },
+    {
+      "bytes": 1122,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14010f560.asm",
+      "sha256": "6e5b90bbb329767dc1eb3b5ac8e4f1bb9b23bec609cb4ca79d25faeae6f22f93"
+    },
+    {
+      "bytes": 1118,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14010f560.c",
+      "sha256": "82565d6833b186f650ece3c0e47aa514382c8a3299ca2918348164b46ff256f9"
+    },
+    {
+      "bytes": 756,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14010f560.json",
+      "sha256": "3e256278a39ac5b2db2d9ee0966f1c859ec74761c7f3faf975ebc1697a095e48"
+    },
+    {
+      "bytes": 36146,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/140111d40.asm",
+      "sha256": "d18ed4669d469591e5fa66dd454bc83fe0329f66a7df4acb77ecded864bc5fc1"
+    },
+    {
+      "bytes": 24678,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/140111d40.c",
+      "sha256": "869b31aa900a537b392305155c9b17a861d01cf0a5081440e460c2ec362493bf"
+    },
+    {
+      "bytes": 1162,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/140111d40.json",
+      "sha256": "94c8bac470210a558ad8dd65609e5ba6d14f908d1af364cc0421fc755d1193d0"
+    },
+    {
+      "bytes": 2968,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/140115a70.asm",
+      "sha256": "252d7ef966eed119d7f47f0da25c923142c9bd5f1fc70a80598b05256d14015f"
+    },
+    {
+      "bytes": 1922,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/140115a70.c",
+      "sha256": "065bb9b597877de6869feca225f0707fcf235edb6adc5a7830e8de2c3ad44fbf"
+    },
+    {
+      "bytes": 1325,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/140115a70.json",
+      "sha256": "cbfa8ac9940c9f2b41e059f01274a632cf247ee3bfa98bf3d2cb5a98984075cf"
+    },
+    {
+      "bytes": 31350,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/140115c20.asm",
+      "sha256": "ad81aee9844cae6b2cf45efc599675fabe790dbd7c16bc12e42ab16dcdaedbff"
+    },
+    {
+      "bytes": 23572,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/140115c20.c",
+      "sha256": "c6d4bfdc9c17ad7d46339ef948f87385e968c9f3d503f945266ba5d571a85262"
+    },
+    {
+      "bytes": 1357,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/140115c20.json",
+      "sha256": "4a84acc5f1918adb051846fc13a97ecf15c66448d1f53aa89f2e228894493aa0"
+    },
+    {
+      "bytes": 15121,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/140116e10.asm",
+      "sha256": "51a6d2fda34d3d6c184106e6cdf43d46d9866f98a38ce7ed297d4c8563daf2ce"
+    },
+    {
+      "bytes": 11044,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/140116e10.c",
+      "sha256": "f42287ee0a16fc0c002e2a42d2dda28b7153d14d6e4788b5e4e8896a2a2e3ee4"
+    },
+    {
+      "bytes": 1037,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/140116e10.json",
+      "sha256": "e27adb9f01e6ae7f7e83877aab467261e01c9fc259cd2cbacd4e3e6f80f0d13c"
+    },
+    {
+      "bytes": 12143,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/140117a10.asm",
+      "sha256": "cd2187f3d6338973f9ef72871f11375d41a6b18c15f3ad22cca82d7b7dc91d07"
+    },
+    {
+      "bytes": 7496,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/140117a10.c",
+      "sha256": "c52670cc4126dfc6dfb4e89d4f84fb943d32e741e5a9cb512e6debc6e06913bf"
+    },
+    {
+      "bytes": 1649,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/140117a10.json",
+      "sha256": "8e289b289cb05d51caa4b044762ed399bf719681ed068bd4ecbe42de71bfa28b"
+    },
+    {
+      "bytes": 21711,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/140118040.asm",
+      "sha256": "7e56b7dff9d500ba0d76be8a3cf35359697cf74173717ee2fcd568a59715e733"
+    },
+    {
+      "bytes": 15656,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/140118040.c",
+      "sha256": "024b5633ff27510f174c39b41d1461ae5e74a37caba1afdbf5cabd52b41fbb5d"
+    },
+    {
+      "bytes": 3731,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/140118040.json",
+      "sha256": "1262201fa9ebe8f575979c31f552bf0ef7d776c1ee0ba04f1a41b96925057187"
+    },
+    {
+      "bytes": 2974,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14012bf60.asm",
+      "sha256": "53fe904778f1a282457ba144f4f4e1173bb9c1f26f05ffdd96cd7af0fdb461e3"
+    },
+    {
+      "bytes": 2169,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14012bf60.c",
+      "sha256": "f2ebd152fb7a753e222d69f4c45d85aef8d337936cdf32774170e48437e03df3"
+    },
+    {
+      "bytes": 756,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14012bf60.json",
+      "sha256": "fd8bea67b9bf4a9be362ce958b097b31344bb21f14aec7abace0c448046544a9"
+    },
+    {
+      "bytes": 3500,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14012c1a0.asm",
+      "sha256": "c12ad87abdeebb2248104e6c18f63a8641b2fccb324b1610cbeae6258fe69006"
+    },
+    {
+      "bytes": 2554,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14012c1a0.c",
+      "sha256": "f344f8492a2aed5af10a35b8b9d258aa87b242fb60478e1a982df5e0d3dc2d71"
+    },
+    {
+      "bytes": 862,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14012c1a0.json",
+      "sha256": "0875974e5f103442ad905f3b6a0b65c94b5c56f32be928e99128625df4a13395"
+    },
+    {
+      "bytes": 424,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14012c3d0.asm",
+      "sha256": "8ec07fd7b35dcc7ae50280508587fc10bf75b28efe5c16ff3d0f9171c7b4ba2e"
+    },
+    {
+      "bytes": 427,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14012c3d0.c",
+      "sha256": "d346e444cab95dd90682c5746a9af0655a1c405fdb6814f3e7ea682e7e375965"
+    },
+    {
+      "bytes": 686,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14012c3d0.json",
+      "sha256": "d052d03d51327ab15f28b82a1dacd1b04e84a592fcb91d2589ce553e9decb4d3"
+    },
+    {
+      "bytes": 2193,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14012c410.asm",
+      "sha256": "3e48f472de112dcd6cf7df23c3f0535f83d58364aad69480db246b8bf97292f6"
+    },
+    {
+      "bytes": 1563,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14012c410.c",
+      "sha256": "be16079c01b2fe5e855975967eeb377869852129f525c107cadd23e8adc830fc"
+    },
+    {
+      "bytes": 978,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14012c410.json",
+      "sha256": "830544978b38bbeda0365da84eeb3f28ded32936e4116d2ae344ac4ef8a39178"
+    },
+    {
+      "bytes": 4320,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14012c520.asm",
+      "sha256": "bcac5aa74c0581cf4b37a5c1b0e5a91151903d83198acdf52894b91bf5aa903f"
+    },
+    {
+      "bytes": 2804,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14012c520.c",
+      "sha256": "844296ca50adfce652c0b894c8349d1c426c0559e5eef45c762090aab0a374d7"
+    },
+    {
+      "bytes": 1176,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14012c520.json",
+      "sha256": "572bb3b9d3e110dcbc483b5ceeeb6e998b6f5a9cb53c54910e9cd9d0d3b84b6b"
+    },
+    {
+      "bytes": 3090,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14012c740.asm",
+      "sha256": "e3739890219483abe748b75a5e396e18be8087541d12c38d10739062d51b80c2"
+    },
+    {
+      "bytes": 2225,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14012c740.c",
+      "sha256": "2308114312fc8bfc2b39a5c2e7d444bcb5206822f6d82508191981a13bf360db"
+    },
+    {
+      "bytes": 1094,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14012c740.json",
+      "sha256": "97f67214d772b90e8bffc8bdfa033d314aca25453fdce8dc5bfa8f26669b8a7f"
+    },
+    {
+      "bytes": 44609,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/140132240.asm",
+      "sha256": "bf1a19433aa1e77e69174309219f0804c1970f186d4643c53c8343d876ca3572"
+    },
+    {
+      "bytes": 40412,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/140132240.c",
+      "sha256": "114337691e9a5df8b31fb438a02e895333613fc34cb8c10d644844361eaf548d"
+    },
+    {
+      "bytes": 1398,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/140132240.json",
+      "sha256": "b14a5eaaec09cca29cd9bc5bddc8bb539b6afc01d470ea01b52df837872017b3"
+    },
+    {
+      "bytes": 4006,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401338c0.asm",
+      "sha256": "4fd7291e510cd4bffd44bfc3b567ddbc04c9c9c1e61d66558764b99011144684"
+    },
+    {
+      "bytes": 3010,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401338c0.c",
+      "sha256": "9862d55f9eb5f2cd34607e3866f2c1c5457c67e4ac489a6c0c42ce180e795588"
+    },
+    {
+      "bytes": 950,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401338c0.json",
+      "sha256": "04cdcaaee1595398e2049d69e454dafc15210c092586a2865fad73f4c80a6926"
+    },
+    {
+      "bytes": 1198,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/140135aa0.asm",
+      "sha256": "0344004c7572cffdd29eca37ef4144c4fb148a663dedfe0f4a5fa74d5ba56ef1"
+    },
+    {
+      "bytes": 1000,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/140135aa0.c",
+      "sha256": "94051284d0c623e4576b219f5558969af0030a13fe3596946d5f5f2e0e8f5227"
+    },
+    {
+      "bytes": 1063,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/140135aa0.json",
+      "sha256": "6379d20c2510ed2910c0f103b78c41f496e051f5385118dd97511724969027d2"
+    },
+    {
+      "bytes": 3022,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/140135b50.asm",
+      "sha256": "3e532aee5539f382c90a18c9dc60deeb399061c6201c1dde47b84d692a978c06"
+    },
+    {
+      "bytes": 1970,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/140135b50.c",
+      "sha256": "82758538e035a0b39a79e5a13bd224081ce073fbd084dc7a495a58d595cf2553"
+    },
+    {
+      "bytes": 897,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/140135b50.json",
+      "sha256": "93254c71dca1ceeabf9e499a3880bf86b1053fe0ff5c13c115e2ce9cabaa2938"
+    },
+    {
+      "bytes": 6391,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/140135cb0.asm",
+      "sha256": "16bd359f50945a9cd4b03d4d831e0113691df327fce69f98f2e77c5d14ea4b77"
+    },
+    {
+      "bytes": 4854,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/140135cb0.c",
+      "sha256": "54b4cdb676c460be6a27d1849a485db56029385c40f068e3d075c848285493c5"
+    },
+    {
+      "bytes": 943,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/140135cb0.json",
+      "sha256": "3c9a3113ec9c7c20fa160128ce8307c1b4163376d051d7ea1e6edea380dabf8b"
+    },
+    {
+      "bytes": 3057,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401363c0.asm",
+      "sha256": "fd7b32ed5e24fe5ed7533951aea256c4032c742f54b9b2f84212a68bcf5f3627"
+    },
+    {
+      "bytes": 2104,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401363c0.c",
+      "sha256": "0bd2a67968050b3e658bbf1765a482124b265e401d2fca7b00d42adab45577a5"
+    },
+    {
+      "bytes": 1156,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401363c0.json",
+      "sha256": "caf0fa9307f8827b3258a637c7909fc0bb95938ad92165e7e536f9293a08e01b"
+    },
+    {
+      "bytes": 51764,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/140136540.asm",
+      "sha256": "c63942c8b44a5a898d82f957efc65ea02a69755a60d550484af4ea57bb94cfd0"
+    },
+    {
+      "bytes": 51169,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/140136540.c",
+      "sha256": "9b386eb3ea9f28978375ae87a55fbf9209e5454304e72918cf26406d420f3437"
+    },
+    {
+      "bytes": 1388,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/140136540.json",
+      "sha256": "e7662a4bb5a4f80556966b1314f9b95a107adac26d42b48a0c8d1ded9e9fafc9"
+    },
+    {
+      "bytes": 120,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14013a790.asm",
+      "sha256": "6ae68216b38ff49c43195362ec8f391e35cf29d4b2c6a762ffb12caaa4e5fdc3"
+    },
+    {
+      "bytes": 305,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14013a790.c",
+      "sha256": "5294079cd6dbf544b4e1fa5b3e0f8437b1cbbdc4967ff21724e8818ddb02007f"
+    },
+    {
+      "bytes": 835,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14013a790.json",
+      "sha256": "2e949c3885dbc9870f1bbb1ac0f953b36d1947fc3f4a743c6e162d8f03cc81a9"
+    },
+    {
+      "bytes": 1043,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14013a820.asm",
+      "sha256": "6ee5b277e133dc9782040e83e711f7bcce567e27a18e24f2122937ae30ea0bb6"
+    },
+    {
+      "bytes": 840,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14013a820.c",
+      "sha256": "e3c0b92a8aa9efcccfda0c41d887d08f3bd0ab58b4d4cea27278c9081030bcc7"
+    },
+    {
+      "bytes": 843,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14013a820.json",
+      "sha256": "f9450168910c29c63ce290cd7bd684904e9bce14eaa265fc7edacec0cc64e03c"
+    },
+    {
+      "bytes": 50,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14013a8c0.asm",
+      "sha256": "59bd6f2cb7a3413899fa38b2350468f6c5c22097e43d0b43c8fe0d5d2a27e9b2"
+    },
+    {
+      "bytes": 274,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14013a8c0.c",
+      "sha256": "5b451211dacf31604909c57253e5bf82be70bbf8b48bc55241db3e83d419847a"
+    },
+    {
+      "bytes": 749,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14013a8c0.json",
+      "sha256": "132bd1e7cab3009bbc71c363310b6bf8f059ce335cfd78006690f3076c22cf2a"
+    },
+    {
+      "bytes": 66,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14013a8d0.asm",
+      "sha256": "e6584e205d94e9beb75bb0babc88c1d9b1668687f6bc829a819c9a582e732338"
+    },
+    {
+      "bytes": 255,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14013a8d0.c",
+      "sha256": "c161caf10fd9eadad3f4af73077d3c4add328be9a847da54d8a76edc7af0462e"
+    },
+    {
+      "bytes": 749,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14013a8d0.json",
+      "sha256": "149404120ee986ba9190f17eaba59012aec679b6ade233877e2bf598da5e2965"
+    },
+    {
+      "bytes": 66,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14013a8e0.asm",
+      "sha256": "39e195eb949872dd780e735325a8f7a113a9cc0efc9da3640ccab889414ace4b"
+    },
+    {
+      "bytes": 255,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14013a8e0.c",
+      "sha256": "ea4d8daa7cfa08cb5a583fade3b6a9d91936349a1547a1df454ade89463dee29"
+    },
+    {
+      "bytes": 749,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14013a8e0.json",
+      "sha256": "af98fe51858745ba39ada6798dc8c9d248a6e8292244339abdc4dea1caaacf1e"
+    },
+    {
+      "bytes": 66,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14013a8f0.asm",
+      "sha256": "cc49dc9554da2239eaa417e827f7876e49159ed7bb97e73a66c18e625191bfb7"
+    },
+    {
+      "bytes": 255,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14013a8f0.c",
+      "sha256": "ea8fa8182bc5109b618c56b8208e38d834d408dc7de2a4fe31f721e852e46cce"
+    },
+    {
+      "bytes": 749,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14013a8f0.json",
+      "sha256": "8219deae0240484836acab235e417b4d854d7ca2056a8266ae3a5b0f843266fe"
+    },
+    {
+      "bytes": 66,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14013a900.asm",
+      "sha256": "41b10c39e973cd070427ec210b995d38ca080869c9712bb6d85193c3fbb33749"
+    },
+    {
+      "bytes": 255,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14013a900.c",
+      "sha256": "3c80db269b172c47afda27eb226ba13beb1afe920bde4def35b3afa61ddad7aa"
+    },
+    {
+      "bytes": 749,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14013a900.json",
+      "sha256": "5784d35d6cdad0201a2f1909fc0ce8b25cb5b310ca603bb948140da729cedd88"
+    },
+    {
+      "bytes": 344,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14013a910.asm",
+      "sha256": "744c808f10ad64741d76fc4e926960c0ca070052dd1f610ff916e327fe238712"
+    },
+    {
+      "bytes": 389,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14013a910.c",
+      "sha256": "f09d0419321da7b8f975ecf23e67576a5abe4c156a3ad5d8a4078e71cdb1925f"
+    },
+    {
+      "bytes": 771,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14013a910.json",
+      "sha256": "130e731b624b53b29e04db728fd7c0953af81b225b496c9ac728dad57e223c81"
+    },
+    {
+      "bytes": 17104,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14013ace0.asm",
+      "sha256": "960e03e2efab5c2cb8666c431d629dab6a083040a7ef66cd759312b1373d20fb"
+    },
+    {
+      "bytes": 10324,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14013ace0.c",
+      "sha256": "f294cea9f84d969ed65dbfa3076f9732027ae2dcc220ae5a82ae4d6b6799c2f5"
+    },
+    {
+      "bytes": 1692,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14013ace0.json",
+      "sha256": "8381b4e6f199b279fa35ab5adbe4720f59e12ea38c6e522b397bd301b16c8d14"
+    },
+    {
+      "bytes": 7627,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14013cbd0.asm",
+      "sha256": "bd902a18e9a08c0316ed542ab2afc024cfbb71072b8fdeee02aed225734db082"
+    },
+    {
+      "bytes": 4520,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14013cbd0.c",
+      "sha256": "1bd3115128bca5c4e2ee3f90f47ed30965a2c52b0db78620f27a4b6abc6c06b4"
+    },
+    {
+      "bytes": 733,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14013cbd0.json",
+      "sha256": "d19aa3d26cfd203a159c7f08920f15366eaace6cbcc906ef896ab6005b382d64"
+    },
+    {
+      "bytes": 19154,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14013d140.asm",
+      "sha256": "9f06e1cd31828bc80f3315f9c3aab52e5733ce4d22d3cf8b1a2f1a8714125b06"
+    },
+    {
+      "bytes": 17060,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14013d140.c",
+      "sha256": "91f1d21553b4c44dd2e9dde529a2a2e344ed58472f764062aa49baf385e02c22"
+    },
+    {
+      "bytes": 1763,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14013d140.json",
+      "sha256": "44ece0b85389bfdf5631399c25d5c779aa6ee52c79eb06246e4d14825444f041"
+    },
+    {
+      "bytes": 36918,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14013f8a0.asm",
+      "sha256": "88e65cc3b4bf4f9bc203a6aa8b40789b61164362ded820933429d20fbcca5bac"
+    },
+    {
+      "bytes": 25861,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14013f8a0.c",
+      "sha256": "fa0dda4eae10eb92850894ac417b74d4ae6a397792df381670959bf85a9b1a04"
+    },
+    {
+      "bytes": 996,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14013f8a0.json",
+      "sha256": "e9aabe3d57bc550f1d5cf3f6d262f67cf20806c5a4200281d38964716c8cca0d"
+    },
+    {
+      "bytes": 1492,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/140140b50.asm",
+      "sha256": "d72567d6aceec11f431e6ae3b0d055ec100ff0456b6b26f2093199ed438ee3bf"
+    },
+    {
+      "bytes": 1579,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/140140b50.c",
+      "sha256": "318fb4a14bcffa327376187dafcd38108757cba679511d52d3928f59569cfc3f"
+    },
+    {
+      "bytes": 1228,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/140140b50.json",
+      "sha256": "04dfda427a05689948b206cb287ee4deac3c7e4e1a7296c9bad27085fc32ab30"
+    },
+    {
+      "bytes": 6610,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/140141200.asm",
+      "sha256": "fc7ef000b5a31b7e00ac724d0ce1f46cb7707986ba56fe1bf8b4b4249e4bb63f"
+    },
+    {
+      "bytes": 5289,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/140141200.c",
+      "sha256": "48dbf070dc8589e6f0f8b8d1ffc19a745a6ec2f9f2e7a25aa626fb27cec7c9b8"
+    },
+    {
+      "bytes": 1970,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/140141200.json",
+      "sha256": "1cdb5b1f0cbbad8662fb349f839cd4c76d126a2994a2bc5a19b17bd4ccbc5265"
+    },
+    {
+      "bytes": 8449,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14014b4c0.asm",
+      "sha256": "6500305651e89c098dceebbf874e5861d601d28b38f5f539c35c14891fb79f3f"
+    },
+    {
+      "bytes": 6062,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14014b4c0.c",
+      "sha256": "87a08364d4037e064d7e8096c409c69a65aa8d5739c0870afa4d5164a1402319"
+    },
+    {
+      "bytes": 842,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14014b4c0.json",
+      "sha256": "fec2d2e31821a384bc9c4caaa5efbd2d5b14f7a601e5fca6743224c8e0bd3701"
+    },
+    {
+      "bytes": 17330,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/140158f80.asm",
+      "sha256": "22f6e37709f4d79ab211cc1f219a0020f74f0429104cf5c2a1eb933d33f3bb3a"
+    },
+    {
+      "bytes": 11158,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/140158f80.c",
+      "sha256": "fdbf19d3fe87e12f92eae5f429f96cbf6aef44a6cb6f898a57669c9bab09a9ee"
+    },
+    {
+      "bytes": 842,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/140158f80.json",
+      "sha256": "c7eaffbf140bb391775755ba670677c513b8372224adccf5828fe0766bff53e7"
+    },
+    {
+      "bytes": 3691,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14016d740.asm",
+      "sha256": "21af9f1913931045e2924a0ec763e895eb3675a0f4ead8dbb81164c6586352af"
+    },
+    {
+      "bytes": 2455,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14016d740.c",
+      "sha256": "e8d4423d4b9c156f3fb1def1a7cf971c13554d46e7dd4cf31c69de9cb18f101a"
+    },
+    {
+      "bytes": 733,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14016d740.json",
+      "sha256": "8113736f2f32035e4b3c4d372e8a216e9ad7f3b9e59dd6d6baf68c898a0bd151"
+    },
+    {
+      "bytes": 8164,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14016d940.asm",
+      "sha256": "857f6e2b3ab58749681f1561bb619e9406f465f9ddf5cb4ad2efda844972c335"
+    },
+    {
+      "bytes": 6737,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14016d940.c",
+      "sha256": "902d3fe5ace7899a660101bf5cfcc22eb6af7eb29ba76902569f9d9b1adc5a59"
+    },
+    {
+      "bytes": 841,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14016d940.json",
+      "sha256": "55e328130201a98d2e9aad81e1d563b6c68bb537150ea313b8615d4444473eb8"
+    },
+    {
+      "bytes": 343,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14016e080.asm",
+      "sha256": "9d307f32dcd7c58082846e0bc1188dab843759987b86d4cf1a9ade9b85da3e2f"
+    },
+    {
+      "bytes": 388,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14016e080.c",
+      "sha256": "217e3d4dfe5ae2c714362de6eb9542e0ecf71731d0d15ce0e81035b7ce8148d5"
+    },
+    {
+      "bytes": 771,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14016e080.json",
+      "sha256": "4b7050b9e259b8402851eb687459ba9fde9ce5645f4821bfbc502009f5d3c5b8"
+    },
+    {
+      "bytes": 6778,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14016e0b0.asm",
+      "sha256": "11d32e2f59bcb29ca14c571dd73c410ceabbbfe9470d229e07f223f83986378a"
+    },
+    {
+      "bytes": 5291,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14016e0b0.c",
+      "sha256": "c57ff2ead547f2f1fc60e1def4125b410bf23633a5b7aa1c6d04aea4f118c88f"
+    },
+    {
+      "bytes": 1013,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14016e0b0.json",
+      "sha256": "711d906211f63180223dd82e41dbdfe3eaa3a214dd9ffbf940348f22510cfb45"
+    },
+    {
+      "bytes": 7064,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14016e4c0.asm",
+      "sha256": "4c765dc6e615d31ba84920403de1522a2e034a56d5458de60bd492c6081c1163"
+    },
+    {
+      "bytes": 4475,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14016e4c0.c",
+      "sha256": "9fa3a0114b26b6b093d9b705cd21c48c4f5710775f1be1359bf42fa46b566de4"
+    },
+    {
+      "bytes": 1186,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14016e4c0.json",
+      "sha256": "bbba2b12d45f1b0f2ab799ea1f51fcba9188fe43e7ee013a21899a61cef9f344"
+    },
+    {
+      "bytes": 2422,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14016e880.asm",
+      "sha256": "424f0761678009036f120dfdb60d78db44f75c8162dc25d19615f22f4e79ed90"
+    },
+    {
+      "bytes": 1762,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14016e880.c",
+      "sha256": "8f509de8fa9c41315c1f82bb4d4b0d7eacbba48ea7881fe49106f11d20b58af8"
+    },
+    {
+      "bytes": 708,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14016e880.json",
+      "sha256": "35babc06e00e541bceddd23b0021671a2640e557624bdb5694edbb086126e52f"
+    },
+    {
+      "bytes": 1459,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14016e9b0.asm",
+      "sha256": "55ca1b3a16eea2fcf36f62aefd3da0a40343ed1205b2958a2dbdc3f7556ddf06"
+    },
+    {
+      "bytes": 1033,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14016e9b0.c",
+      "sha256": "95149875bab722ad8345c48b10730c689e16ce1bdbbf9175289f1980122213e2"
+    },
+    {
+      "bytes": 983,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14016e9b0.json",
+      "sha256": "6f7d4955a032d9b19144594b64f970eaa35302d95dbf18ef5e8c57d716a8fb00"
+    },
+    {
+      "bytes": 123,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14016ea60.asm",
+      "sha256": "ea0c27b4d7b0f461ff50f9d5273e61981078eee7467f934e7425cad623d957c6"
+    },
+    {
+      "bytes": 262,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14016ea60.c",
+      "sha256": "1d6bcbdcbef77ab22f1408bee39adc2edb01c3b0708b72b2c4fa2202b16580cc"
+    },
+    {
+      "bytes": 771,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14016ea60.json",
+      "sha256": "0e33699b37a874708ff666fedf42d4807272492c325c1962bf6c4ed86d910cbe"
+    },
+    {
+      "bytes": 190,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14016ea70.asm",
+      "sha256": "af1d18c86c36b55e1a1e6bdcf9230a65e79b1f170ad9a5d923f38507c152a042"
+    },
+    {
+      "bytes": 329,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14016ea70.c",
+      "sha256": "2b79e70cc3e52d4cecc727c0c8c16ead276524a007e0b9a671da20a3d280b69a"
+    },
+    {
+      "bytes": 771,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14016ea70.json",
+      "sha256": "93cd0c65dc5264822b6ffe07b01cb4c8de5cae37536266cedd34bab09d6a22cb"
+    },
+    {
+      "bytes": 190,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14016ea90.asm",
+      "sha256": "5d577a7572880999d027879ca7df389837a344dd0d76eab3c2deb0efbf71ef21"
+    },
+    {
+      "bytes": 329,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14016ea90.c",
+      "sha256": "040fee8997e681d3e1214eb91e438f4b400a515bcac3b819aebd4ce858a8148c"
+    },
+    {
+      "bytes": 771,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14016ea90.json",
+      "sha256": "0ba5b3c030d395bee5407b4ab2c974d2b6854df5988a6e63b4b66a7fda361cad"
+    },
+    {
+      "bytes": 330,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14016eab0.asm",
+      "sha256": "7a072ce657dc632c7d21e069ebd28657c341cb28f131ee8b0da8cf5906bfe558"
+    },
+    {
+      "bytes": 430,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14016eab0.c",
+      "sha256": "0b0678966969060565be3339e691d172389a70eed9fc729cf8e3462f81867ecd"
+    },
+    {
+      "bytes": 686,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14016eab0.json",
+      "sha256": "504be5a9ee33a8b5c8177cc4cba3784f8b6a3f2617669f8726205f4d0a60003a"
+    },
+    {
+      "bytes": 190,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14016eae0.asm",
+      "sha256": "7f75e1fca2fdcae6e977c9638bdd79650b45447f07739fc30001a2857b504453"
+    },
+    {
+      "bytes": 329,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14016eae0.c",
+      "sha256": "eb0727853764c8939348473f19d1dadc017b92229c9ee7f6af7d500764d0f3a9"
+    },
+    {
+      "bytes": 771,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14016eae0.json",
+      "sha256": "02b55c5fb0c509311d87eddf172f191037f4e1c733072085c24efbae4597a3b3"
+    },
+    {
+      "bytes": 190,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14016eb00.asm",
+      "sha256": "2a5dbf640a1b1abd7ce2170b33ae6f7f66b4d3c8678d72cd3b8de1e812896c21"
+    },
+    {
+      "bytes": 329,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14016eb00.c",
+      "sha256": "3b9518a303cb05a36352b087a74198066e61882359aaff4cab57bf06f45abaf5"
+    },
+    {
+      "bytes": 771,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14016eb00.json",
+      "sha256": "88d0215a53c53cae689988a4f46dfe7b7443f4137b006230ffe835d874839d84"
+    },
+    {
+      "bytes": 1932,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14016eb20.asm",
+      "sha256": "8acab98b465513eb88b1ba49da74e77e073253a5179a0bc19f6dd4761591a99d"
+    },
+    {
+      "bytes": 1232,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14016eb20.c",
+      "sha256": "f1a34f94f631db8ebd92cc722546c13325735ef24b6c2e4c741f246c8976daeb"
+    },
+    {
+      "bytes": 697,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14016eb20.json",
+      "sha256": "8d260d1dae2eab0c2046db863b533bd45e8569e3dd79c04045057a113ca9375f"
+    },
+    {
+      "bytes": 190,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14016ec40.asm",
+      "sha256": "9cba9791514334cc18b4def7e8acdc258dc0d1a6b017cd571fe2794ceb4f95a2"
+    },
+    {
+      "bytes": 329,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14016ec40.c",
+      "sha256": "7a2c1237a6a0fa58184809ec29d218c64c8b118a78d5da54617b2e426f8759fd"
+    },
+    {
+      "bytes": 771,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14016ec40.json",
+      "sha256": "a69c5d24f00c433a7547141f628c0b79e1563fdaabe5d14671f015405550dd2b"
+    },
+    {
+      "bytes": 190,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14016ec60.asm",
+      "sha256": "be1fc935b54bcbbdb5771bab40cfdb06f454449ad6f068f5fc47dac3eb1aae47"
+    },
+    {
+      "bytes": 329,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14016ec60.c",
+      "sha256": "8554605e9a0685e27209d5c902f03fba769105d26aec2f0132d2ba95967ae7d8"
+    },
+    {
+      "bytes": 771,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14016ec60.json",
+      "sha256": "f05c5a7895a56c66c0bd3b6284189431d06d7d0e4f81bf4089b46167a1e393ae"
+    },
+    {
+      "bytes": 330,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14016ec80.asm",
+      "sha256": "6cb8ae97963d8ea252abfe51dd8acbb90213fed483002cd326c88058af55be03"
+    },
+    {
+      "bytes": 430,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14016ec80.c",
+      "sha256": "b42ba69c38dd86908a6039ccb32e23b34214825430117e81e6b4b471dfc68fb5"
+    },
+    {
+      "bytes": 686,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14016ec80.json",
+      "sha256": "6cd9d500355a1ff670e65483a9d9f21de49b9b9bc52d24ee3610647e9df36832"
+    },
+    {
+      "bytes": 190,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14016ecb0.asm",
+      "sha256": "92b733032c78b061b550bfc91247182389423cf69ca9956bad469cb05c2539b1"
+    },
+    {
+      "bytes": 329,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14016ecb0.c",
+      "sha256": "1a56218ccdb2a40154a1da7277365178551182b4f4fc39e048d8a34ec905a9f9"
+    },
+    {
+      "bytes": 771,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14016ecb0.json",
+      "sha256": "8ef0e6dffa899b2c52d94446bbbe56be7fd6aa86ea15c2ebe69a8b89128719e4"
+    },
+    {
+      "bytes": 190,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14016ecd0.asm",
+      "sha256": "1d3f12a97316acb3d7af6b4f9f3406e46e5eb97bc4b3c52d83b00b61fd82bc7a"
+    },
+    {
+      "bytes": 329,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14016ecd0.c",
+      "sha256": "6ad588548010e4028ac10bc72b76e3dff1b43df90893c3e5ead99d6eb25da718"
+    },
+    {
+      "bytes": 771,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14016ecd0.json",
+      "sha256": "feb1880fc045ee0756ba037f4c206f3542ef62728536a2f29b8df6fc1d45dedc"
+    },
+    {
+      "bytes": 166,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14016ecf0.asm",
+      "sha256": "4feb7f91c5c4fbd6f21db2cc6fba8a31bbbbf53f97486d273960a19373beafca"
+    },
+    {
+      "bytes": 302,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14016ecf0.c",
+      "sha256": "3f46bda57e190312fe0cebf8dd538ffcdfc7abb3e591c0b2f695ae8217bde2d3"
+    },
+    {
+      "bytes": 686,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14016ecf0.json",
+      "sha256": "7d496ec3bae4cbd6f109d4cea30d250a457e0089d6d6a62bd2efac7ed01e895f"
+    },
+    {
+      "bytes": 1698,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14016ed10.asm",
+      "sha256": "695904e9ed2e8406c173772fc04bce09534b1f170ac61dd119749f772359cd7a"
+    },
+    {
+      "bytes": 1215,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14016ed10.c",
+      "sha256": "5654d4700d3f25f688ec1e1cb351e3bd0a8663950e192e68671be23454329b0a"
+    },
+    {
+      "bytes": 857,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14016ed10.json",
+      "sha256": "5f3dd7c4bb9925f4ecdb555a8849abeba59082db64ed5bd1b99bc396e7a80e99"
+    },
+    {
+      "bytes": 3242,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14016edd0.asm",
+      "sha256": "5d2069fef22531ac99d6ce010761da6d8809180fa1a7eae4ab0b7037734ef0ce"
+    },
+    {
+      "bytes": 2398,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14016edd0.c",
+      "sha256": "177748b2b1b9ffa5995aae29cb97e354dee3c45220c51f555af381bc9ec47093"
+    },
+    {
+      "bytes": 952,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14016edd0.json",
+      "sha256": "4bcd8ce26577398c68a7518f6cd81f4eb2f3cb048d3c88fa8d6b72be0b27e22d"
+    },
+    {
+      "bytes": 2275,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14016ef50.asm",
+      "sha256": "3e2f2c353337979572d383d710c4f703da8f663093b5bae11292085f5ced2efe"
+    },
+    {
+      "bytes": 1771,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14016ef50.c",
+      "sha256": "e7a92b37c4900bc608e29f7a6c073b309b1a038157c034878bff679222277b75"
+    },
+    {
+      "bytes": 704,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14016ef50.json",
+      "sha256": "48597de33947614521e8ccafd2e8b07b7e6e01bf1af56cbf9800503f490feba5"
+    },
+    {
+      "bytes": 7956,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14016f080.asm",
+      "sha256": "c35c0749200d469fc9fde70bb4ae09fd8607f806fab59e8740306df3bee00180"
+    },
+    {
+      "bytes": 5846,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14016f080.c",
+      "sha256": "f9b9fa3b7ac0da8f8faddde15aecff3147857a8c5ac90c303577838be40d5661"
+    },
+    {
+      "bytes": 954,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14016f080.json",
+      "sha256": "2d97ecd27b51d6c046ee7b832e28db0b91d2a57b731f506e248757464d867d54"
+    },
+    {
+      "bytes": 465,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14016f470.asm",
+      "sha256": "941d26bdcf4519501bab29adfa0e0e66bf8d0e5bb4a43b33cfb69fee146b7819"
+    },
+    {
+      "bytes": 476,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14016f470.c",
+      "sha256": "b9e4eb3abcb94d414406383d13eaf2c71693243343bc6b2747872b53d3ce9545"
+    },
+    {
+      "bytes": 671,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14016f470.json",
+      "sha256": "688790be0351c0de701dd42996c7f57a717a320c60e6bba4c591f42b19254f50"
+    },
+    {
+      "bytes": 981,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14016f4c0.asm",
+      "sha256": "4459f8aca0915801ed70e9e33cf8b0d3b4dcf2462116a769824760a9e6326774"
+    },
+    {
+      "bytes": 720,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14016f4c0.c",
+      "sha256": "81eb758da1633fabc3d21fb7db44b875229c59f9634e395276834a3df688e75d"
+    },
+    {
+      "bytes": 748,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14016f4c0.json",
+      "sha256": "b52089751de4ac9b5b9c8a6e55a028687ed807dd02a9c9715d44b94073d70244"
+    },
+    {
+      "bytes": 1968,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14016f550.asm",
+      "sha256": "d7092201806680edf1c866f920d9ab629fb2e52716c709443bb71ff2f0911835"
+    },
+    {
+      "bytes": 1442,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14016f550.c",
+      "sha256": "21c3fb468a627a8b4ad1e1cd1e48adfd24bb6566e4243786e8023a0315a425fd"
+    },
+    {
+      "bytes": 669,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14016f550.json",
+      "sha256": "9c3c6faeae2bca5b0e4edb3ebaadb4d44000824a13ba22d2ae48d7aaffbb2348"
+    },
+    {
+      "bytes": 766,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14016f640.asm",
+      "sha256": "477c666522428b0dfdef120ad44aa7ddb8c89c6986656361fb9e9fd795f87e7d"
+    },
+    {
+      "bytes": 586,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14016f640.c",
+      "sha256": "f15737b2bf06e2507472bb1c2cc7e3b2e783335ef7529372e5b628552d64cb59"
+    },
+    {
+      "bytes": 686,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14016f640.json",
+      "sha256": "4a21e721e45f9603d6cbf23b291248bf9f47ab64e23741a5bea5efb804ebf01f"
+    },
+    {
+      "bytes": 2183,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14016f6c0.asm",
+      "sha256": "e792ddf6a3b5ae59a22d4c90bbd73d518101aa4898fba4c7ae00a200eab3464d"
+    },
+    {
+      "bytes": 1451,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14016f6c0.c",
+      "sha256": "bfa06381a0f8e930ab7fe17f4ab74ccda5ee24229fe48c8ed2a45c632ec30f1a"
+    },
+    {
+      "bytes": 675,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14016f6c0.json",
+      "sha256": "ec929afeae28c4902cbbc342ed2c0f3ced310b60eae4964e1373af3bbd48fa55"
+    },
+    {
+      "bytes": 766,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14016f7e0.asm",
+      "sha256": "f155030058c847b65b07ab00fa1de67d359ac894cbc921e39bda2a29f57f105d"
+    },
+    {
+      "bytes": 586,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14016f7e0.c",
+      "sha256": "ab661e7dca23411cb664248dab0136a18c76d5bbc8ff4f6d0fa600d8b1c06238"
+    },
+    {
+      "bytes": 686,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14016f7e0.json",
+      "sha256": "b82df8169331defb6f312c700f76bc2fa5f1f4e6be9a2c24dcc78e1158683832"
+    },
+    {
+      "bytes": 4415,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14016f860.asm",
+      "sha256": "d49c1c38bef34cc50f02e7a79e3edfb86dd37c5a8ead4e3cac210636debfef37"
+    },
+    {
+      "bytes": 3034,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14016f860.c",
+      "sha256": "b1ebdec5284f25b23c37e0bd0877dd4e8fea85409bdff41c89a3319ef7e5c732"
+    },
+    {
+      "bytes": 787,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14016f860.json",
+      "sha256": "fa9ac5418554d08f49ee74d1480b9c5bd5090522b52434abfa93926b2ca94bc1"
+    },
+    {
+      "bytes": 8841,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14016fa80.asm",
+      "sha256": "d0ec6a88e6373ecdca14a86b3c255ee38f273832449e780f3dc80f9ef31e7e80"
+    },
+    {
+      "bytes": 6513,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14016fa80.c",
+      "sha256": "03ab9389eda94f400af5fedb3bb3382898bd0b55689cb49d04514160d8205c22"
+    },
+    {
+      "bytes": 981,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14016fa80.json",
+      "sha256": "4fdb27a8a1e1a2ecee2c2c96f27becf7af83dc3eebe38537f41463373b314a55"
+    },
+    {
+      "bytes": 1850,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14016ff00.asm",
+      "sha256": "b34e9b54c546d80c695735ca1c5a26bb8ab498de9001a8fb22b56e67b9881f5b"
+    },
+    {
+      "bytes": 1430,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14016ff00.c",
+      "sha256": "5220cfe7fb8581c38ebd18fa20004e449468261406b1590068638c4d884809b3"
+    },
+    {
+      "bytes": 676,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14016ff00.json",
+      "sha256": "7141669bbadf319dfc7d4892cf3cded1816f55a601e84c70e556273e72f4f554"
+    },
+    {
+      "bytes": 2251,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14016fff0.asm",
+      "sha256": "b1b42370c73e26275f575e1bd411fe4c01ece4f1972b26cefec31ab9f5104283"
+    },
+    {
+      "bytes": 1681,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14016fff0.c",
+      "sha256": "c51c6c55e79f8fba4a21f79ca9342413e4db6a343763d9414e8f56ee4e94b48e"
+    },
+    {
+      "bytes": 678,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14016fff0.json",
+      "sha256": "87daf520daea610c41b786f1f8f00bcd3f1a728a73a410341812549fdbbb3435"
+    },
+    {
+      "bytes": 3333,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/140178330.asm",
+      "sha256": "b3edbd66c5c09fd21ae85d1b1ab1a5699c1cc17fbf6fda6147443879f8b0e838"
+    },
+    {
+      "bytes": 1967,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/140178330.c",
+      "sha256": "71cdfafa86732c6bb33bfad2c506202d97af8c987f6cc79ba62bcf9db66f9063"
+    },
+    {
+      "bytes": 1666,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/140178330.json",
+      "sha256": "1b1ce2a06a2408dcc35bf378756829c992272385fe46e39cdcd3ea189fc8262c"
+    },
+    {
+      "bytes": 372,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/140178530.asm",
+      "sha256": "612c33af3be5d4c357d6339d553dbebc46bdc86d85908984d86e6b3c41be9e25"
+    },
+    {
+      "bytes": 393,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/140178530.c",
+      "sha256": "da11285df6bae252523722463d864eff07a3780bf7ba0c4561ab23458908ff07"
+    },
+    {
+      "bytes": 1964,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/140178530.json",
+      "sha256": "fb807d96a1d6b3a09d9375582281cfc266e2363ec799a6fa5ac1e9ec72820281"
+    },
+    {
+      "bytes": 1136,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401788d0.asm",
+      "sha256": "604bec691465a4440c76661fb63ed0c7ea830c06694c6c27638d7aee3b2cd6d3"
+    },
+    {
+      "bytes": 692,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401788d0.c",
+      "sha256": "c7b55c02eba9a65ff20415a23a24743cd2c6badb9cf82b3d750f1fe281df6df3"
+    },
+    {
+      "bytes": 1216,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401788d0.json",
+      "sha256": "7cf6707cbb01bd7e3d4d39870ded9d0d46d334cd929d336ce0d6e01ee540ca73"
+    },
+    {
+      "bytes": 616,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/140179120.asm",
+      "sha256": "fa366b0ebe409896ddd691541feac3449347c3ca97c824a8ce6fa5e37ac52bb9"
+    },
+    {
+      "bytes": 531,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/140179120.c",
+      "sha256": "ad0a662f153199474c0435744c9b241e88e88260a6cb65ffb0e3a8f5a03f4768"
+    },
+    {
+      "bytes": 672,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/140179120.json",
+      "sha256": "e4e83abafa697f145c699cb3bbd5db8d9f21a1378e49d5a691e1dd2525c59ea7"
+    },
+    {
+      "bytes": 616,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401796f0.asm",
+      "sha256": "86ddbd384fd2281c7ce6418d4e550da49a68e8f43d2cddecb6e2a7bad84343fc"
+    },
+    {
+      "bytes": 531,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401796f0.c",
+      "sha256": "12fe3910f7e78d2a95de15c7e4ddfd34b657ede6d4b637b9513dd87dfcb878cf"
+    },
+    {
+      "bytes": 682,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401796f0.json",
+      "sha256": "c50954644090ac18fc7d244aec0e4ae7bf3327c93f6120f4e179edb9166e7d62"
+    },
+    {
+      "bytes": 1065,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/140187110.asm",
+      "sha256": "60056ca0e77ea09ee31ba73a3ec2cd5599fd1023ae2aaafe5f156a4c4125872c"
+    },
+    {
+      "bytes": 632,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/140187110.c",
+      "sha256": "c07096a20cddfaeaa2368dabf80d29dcea24abc6360c13186cb9b7ab88fb39ce"
+    },
+    {
+      "bytes": 4162,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/140187110.json",
+      "sha256": "6d2186a97a13803c17f30b521884a3e147d70ec064ea5e71ce082d413e775a38"
+    },
+    {
+      "bytes": 2366,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/140187390.asm",
+      "sha256": "db11a3ef3a45bac74afe74b79ff3f43c3b8cef4ad205228e5f32ee395007437e"
+    },
+    {
+      "bytes": 1622,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/140187390.c",
+      "sha256": "96926f098b21bb668fe2dc966db9cd2cfb5fafb102f40d24c8e17f7edb7205a9"
+    },
+    {
+      "bytes": 699,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/140187390.json",
+      "sha256": "d8449bd086cc6d743af3b3f9ccc9bdc4224fc276af3a8be2d2eb11999d11339d"
+    },
+    {
+      "bytes": 4358,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/140187a40.asm",
+      "sha256": "beaca1685958c254a6d23e63021698e9b9312eb6ebbce82a8dc216573524d25a"
+    },
+    {
+      "bytes": 4009,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/140187a40.c",
+      "sha256": "283f8d66aacd7dd0be86cf8005016085b23a22aee113efaefffe0a9e5a08db44"
+    },
+    {
+      "bytes": 1539,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/140187a40.json",
+      "sha256": "8e24a3f49246e403770da4534b5a18ccee9b3a785d34106ef68f4b9e1b1119af"
+    },
+    {
+      "bytes": 4597,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/140187c80.asm",
+      "sha256": "262ed9a5c1e17b27ade5ef2da9b8b09164895dc778a01848e338867fc4e0d13d"
+    },
+    {
+      "bytes": 3825,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/140187c80.c",
+      "sha256": "a82cfb79a4ecc45b45f04315fb5e136c75c5966d0578fef0fe96a30bc8e002a3"
+    },
+    {
+      "bytes": 2800,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/140187c80.json",
+      "sha256": "f14678eb719bf71668311d88805ab233d285b722219f5d3862d59fdb12d4e61d"
+    },
+    {
+      "bytes": 5711,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/140187ec0.asm",
+      "sha256": "20e1f1ed80188808177b3ea3b0804e393f1aa76e6ffd2c3f4b3099148983e23d"
+    },
+    {
+      "bytes": 4500,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/140187ec0.c",
+      "sha256": "d929ca22a8ebde57dc611bae7799037ef55258076e8cbd22cf93e942d7da61e8"
+    },
+    {
+      "bytes": 5994,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/140187ec0.json",
+      "sha256": "ba2ba9c5bce93a3ff31158c70e9ff1bfdb3e26dd6c5aa70337e344c72ad3220c"
+    },
+    {
+      "bytes": 6696,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/140188180.asm",
+      "sha256": "369fab678a648a0ab01c440b3db91d5735ebe63f59ea1caf53b058361ca7b019"
+    },
+    {
+      "bytes": 4446,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/140188180.c",
+      "sha256": "97feb440604c9959b707dc349724c8eda8fcbef4b9a0609f2dc855b79ccef533"
+    },
+    {
+      "bytes": 748,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/140188180.json",
+      "sha256": "6897ab68c42d388b67e8e4bac17341bcbb61975317fee5c6105cda8c83ece586"
+    },
+    {
+      "bytes": 12254,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/140188550.asm",
+      "sha256": "1a2e5cffeb122f5c7c11b866506525874f95757d20ac5ce82259282bdd8c48f9"
+    },
+    {
+      "bytes": 7383,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/140188550.c",
+      "sha256": "4e5ff254199ec181c6910fb2727ed34a1e49f037605401648b6584822f6368b6"
+    },
+    {
+      "bytes": 860,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/140188550.json",
+      "sha256": "d9d3358d19a06382a9bcaf5e1f10536a45dc1b8f4bf751e5602c05a82ea713b5"
+    },
+    {
+      "bytes": 6607,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/140188a80.asm",
+      "sha256": "189c6dd4993b798857cf89874bc37d2b74a60bb7d97b898b83810f688a55a718"
+    },
+    {
+      "bytes": 2849,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/140188a80.c",
+      "sha256": "f11360bd8d11883d605a301b3d9ed01bc8e9c487cde07acb60983e62b436c6a5"
+    },
+    {
+      "bytes": 759,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/140188a80.json",
+      "sha256": "2dadb87ea6345fd7301854cc3180e8ad277b6304d6d0f4437b5644dafc2aa367"
+    },
+    {
+      "bytes": 626,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/140189320.asm",
+      "sha256": "056264707073945fa59b8fc23339424bfc48e9fbe52c121bca82a198ae3473c3"
+    },
+    {
+      "bytes": 530,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/140189320.c",
+      "sha256": "f66105b299eed3a311a7de7400c377ff76113cd5b9ec088796c2f8e1f773bfac"
+    },
+    {
+      "bytes": 45014,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/140189320.json",
+      "sha256": "db9567752939117703423786ac4db8a5d4691911b291646df3cd1e3d6c88bf92"
+    },
+    {
+      "bytes": 1038,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14019fe80.asm",
+      "sha256": "45799741c10add3ce6cf7fd4a23e5f41aaf7c8280f91908f820be1abba67b277"
+    },
+    {
+      "bytes": 965,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14019fe80.c",
+      "sha256": "a2ab2a902f5be82443cfcd07b984357efa02c62722dc5a38fa76632c2a806943"
+    },
+    {
+      "bytes": 687,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14019fe80.json",
+      "sha256": "6709a1b96a1c2fecb9e7f2e5335983456a13fb6c34340ddf78c05789fe622356"
+    },
+    {
+      "bytes": 2611,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401a06e0.asm",
+      "sha256": "0ff733554fbfc04e8574321fcefe735cd93a06adb03fcc4646fc11ceee513794"
+    },
+    {
+      "bytes": 2252,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401a06e0.c",
+      "sha256": "6a50d5b6aaeb1bf77dd2751dd67ec6e34fe9f8d53613948413decd35c7a5902c"
+    },
+    {
+      "bytes": 706,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401a06e0.json",
+      "sha256": "f8ed401e562be2d6e52205c2de7cb9288b51630a26fe77b5ad2363037f5e25f3"
+    },
+    {
+      "bytes": 28202,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401a08d0.asm",
+      "sha256": "f0d387ebf9b54bdda55981af9bb5628b2049eb06e4084a732791d1d5e961497d"
+    },
+    {
+      "bytes": 14850,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401a08d0.c",
+      "sha256": "f59622254f6e920231809515131c072deb6b8ecdbc340d1373bf5fcfd5e727cc"
+    },
+    {
+      "bytes": 1200,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401a08d0.json",
+      "sha256": "1f0ff763e6440895752a487ec40aba9a89f2a552eccaa9f5b4c2a0a540b16f17"
+    },
+    {
+      "bytes": 6435,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401a3570.asm",
+      "sha256": "4b7252bb6d095f07527b264bef8fd0a29f98b36bfc46a439c4e58b85d3732afe"
+    },
+    {
+      "bytes": 5881,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401a3570.c",
+      "sha256": "a707e10507a8ff6b576de5aa74ff7928d39befd6a56eb776929a82cfe83c3aba"
+    },
+    {
+      "bytes": 756,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401a3570.json",
+      "sha256": "382ee4a508f2feb585b4ca3d07bed3a45a126ec71b0f86a96fc6d23af787a7d0"
+    },
+    {
+      "bytes": 1431,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401a5f00.asm",
+      "sha256": "1df3007f861bc50a877a4e6d6bbb6dd74c39a2b8b6080093c0bd0167b596b785"
+    },
+    {
+      "bytes": 1281,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401a5f00.c",
+      "sha256": "13b6f92d55496da393d21b758dbec594774672744b6b330b42a7bb00383b8487"
+    },
+    {
+      "bytes": 2300,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401a5f00.json",
+      "sha256": "51e01e1ac1133939e5367a2f29c2da4ae787448acef93dc0997ef429406ca590"
+    },
+    {
+      "bytes": 8979,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401a9ba0.asm",
+      "sha256": "542a92df65c41b2f1e9771d71dd2a64c2e0a78851e85eb50680bd86926b577c1"
+    },
+    {
+      "bytes": 6821,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401a9ba0.c",
+      "sha256": "1030caf3e87c191ef80919295b8e19ac78344579df2f23dad8d9be686f6027b8"
+    },
+    {
+      "bytes": 1151,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401a9ba0.json",
+      "sha256": "e71534e3d17139f854fb56eb0174a713f7c4238829985722199b6b1b23a870d4"
+    },
+    {
+      "bytes": 6733,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401aa060.asm",
+      "sha256": "f50654e1d88a0d6d96ad091315a73313fe3fa1039167b7291faac1b71449ad4b"
+    },
+    {
+      "bytes": 4464,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401aa060.c",
+      "sha256": "ebd3242bfb2f4b5b5373f3e255188795c0e738ab5e12b3af2ea4d36a9d5571f5"
+    },
+    {
+      "bytes": 922,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401aa060.json",
+      "sha256": "f822a0ae6a1af16f375912f26bcb5b24bae04d173d712bd767d52012263cb721"
+    },
+    {
+      "bytes": 23959,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401ab000.asm",
+      "sha256": "d90b0a9fdf2505ea26b1942fc3b807fe7a93634f468a6b1f084adb9232e4c3fc"
+    },
+    {
+      "bytes": 15715,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401ab000.c",
+      "sha256": "f9012fc5f8732345f712a4ea83a55bd4b08b20276ce6f624123d3811de538a80"
+    },
+    {
+      "bytes": 1261,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401ab000.json",
+      "sha256": "a218a3a079dad8019d32d5eaf0624bddba553218f5177be00f6a8d8c92a8cf0d"
+    },
+    {
+      "bytes": 20158,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401abcf0.asm",
+      "sha256": "699bade72cab1d63d4c150573b87fbe03143f9372c0b706c7d478e6df47ee370"
+    },
+    {
+      "bytes": 13321,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401abcf0.c",
+      "sha256": "07ce734a63b02e230311fbf96cc104f903698bd2ebaac39d217b61549a6cafd7"
+    },
+    {
+      "bytes": 1223,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401abcf0.json",
+      "sha256": "0af56cba65ba21ea81cae753bccca15e686c522cb48c6baae7991e67443a445f"
+    },
+    {
+      "bytes": 10896,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401ac760.asm",
+      "sha256": "16aebb94a3bb552aad1b9189a8ce5a918ac2e56ccf9e5bfe436bc66d6c772353"
+    },
+    {
+      "bytes": 6893,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401ac760.c",
+      "sha256": "c08b39fea722718b2bf41380b15a6beb28108996458156272c0ec622da7391b3"
+    },
+    {
+      "bytes": 848,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401ac760.json",
+      "sha256": "711725677601c2249507cd1bfedf3a76eea38c1330c5a96d8c23771ee838fe95"
+    },
+    {
+      "bytes": 7101,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401accb0.asm",
+      "sha256": "47b8fd5169d3a62ab59054d3420b20d50da845ba28cc01e1e5d4650ec22cd4d5"
+    },
+    {
+      "bytes": 4689,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401accb0.c",
+      "sha256": "a3d16181efdbe5135a5ed55f0908688712c4f43dc77306cf0fde376fe0bfaf99"
+    },
+    {
+      "bytes": 733,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401accb0.json",
+      "sha256": "a625482b231ce45e4b706c6502b0443c5f7298c4d23da591f5b4a0a60d847341"
+    },
+    {
+      "bytes": 5066,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401ad010.asm",
+      "sha256": "79d2d7a99b7c71c5c03bed93abad5c95a544bb10598fbb69f4a7972f350469a7"
+    },
+    {
+      "bytes": 3551,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401ad010.c",
+      "sha256": "667561fdee86a2ab828f03e713661017f5ad042b26d6675c23abf785b9db1d4a"
+    },
+    {
+      "bytes": 900,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401ad010.json",
+      "sha256": "920973f3d726071545adc4318269c334e757281ec3c970bbcbd93daaf35cb1d9"
+    },
+    {
+      "bytes": 19578,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401ad2a0.asm",
+      "sha256": "3e527c5c264c317a7c3c4403534e05548a62bd26e4e25a43daa65bfdf57bc953"
+    },
+    {
+      "bytes": 14379,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401ad2a0.c",
+      "sha256": "da41322432c6fccadf8e90cb5db904e7b403437985a06b2a8601aea5db96e024"
+    },
+    {
+      "bytes": 1046,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401ad2a0.json",
+      "sha256": "fae04dd473427a6273b9fde93438bcae0465516b25c653ee064efbad62d21c78"
+    },
+    {
+      "bytes": 15508,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401adc40.asm",
+      "sha256": "3ef2396a1ab02725c7426a0f0ca75760b22c4140a08388ff4e0ddfacb121533c"
+    },
+    {
+      "bytes": 9354,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401adc40.c",
+      "sha256": "c4d222a2986eab878c23992082dd34b42ab7b05a8e161340e11351bee776304f"
+    },
+    {
+      "bytes": 1166,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401adc40.json",
+      "sha256": "22247f532b02c527dc4673f26dbb49348574a5ff3860b71827cb09e04f46d7f8"
+    },
+    {
+      "bytes": 33472,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401aee20.asm",
+      "sha256": "1ce26c6122ee1daacb8e9d0acb2fe3da44a8c1beae32961a90fc01fdee9a3018"
+    },
+    {
+      "bytes": 26921,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401aee20.c",
+      "sha256": "0fa0443999ec571a9ab5240e1d1e39c53ab71a2b108fee48c0410b84f35d3672"
+    },
+    {
+      "bytes": 1481,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401aee20.json",
+      "sha256": "bca3c16a1d41b46638cedbe9d486d696d0aa80a6826ce826b587b1dc960bc722"
+    },
+    {
+      "bytes": 5363,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401b0900.asm",
+      "sha256": "c9513ba122202fded0f63b056b28521a5b6cc2cd00b6e6bb90821c0124970dc9"
+    },
+    {
+      "bytes": 3471,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401b0900.c",
+      "sha256": "43cf259c2e332f1af8049d0619847a86d51d79934148368875f7beccbec4631c"
+    },
+    {
+      "bytes": 960,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401b0900.json",
+      "sha256": "129dbcb6191bcc85f7fa7beb54d286f0aac39182d7c30f557e3abbfe399d37a3"
+    },
+    {
+      "bytes": 6489,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401b0bc0.asm",
+      "sha256": "9796046d4e5e6e8f02766fffec6b06178b8e5d5102b2eaab59379500eaafa341"
+    },
+    {
+      "bytes": 4032,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401b0bc0.c",
+      "sha256": "6d24a930366ff613177e307d8be20286eeb31901d3a5bb2d811d330065c35511"
+    },
+    {
+      "bytes": 979,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401b0bc0.json",
+      "sha256": "df452b25130d78b3f2cbfcaf1db56f32e135419283b72ee97bc01e6e5a66c674"
+    },
+    {
+      "bytes": 12655,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401b11d0.asm",
+      "sha256": "0a59f2d5f92960c408cdade2fc7fc46dbe4d76391a3ed60ab92218be3b91b167"
+    },
+    {
+      "bytes": 9627,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401b11d0.c",
+      "sha256": "fb24584ee5bdc244cd25f9aeb475aa143845e06008d5648ac542bf19a980f4e5"
+    },
+    {
+      "bytes": 1141,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401b11d0.json",
+      "sha256": "69c3700da07e42d0480b6d40214c871c252a7b4571aba2a45cb3888b7b2b27fb"
+    },
+    {
+      "bytes": 6568,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401b1860.asm",
+      "sha256": "4fc7c47738e7eb4d2d80400e31225075dcd4644b4b428cc5c9d4b0abcd4f9c29"
+    },
+    {
+      "bytes": 4230,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401b1860.c",
+      "sha256": "a8e3551844c02a07042deb1e04dab9bce96d7c1ef3b54fffdeb10a9e40636ccb"
+    },
+    {
+      "bytes": 790,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401b1860.json",
+      "sha256": "8f13cb5f5e34f95b03708a9fbbd1d045d4d9a5fdd98bec9b1725d7388bdbcec1"
+    },
+    {
+      "bytes": 905,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401b1f20.asm",
+      "sha256": "3f425188625bf9f5be62c2a406e1867f5b3b744a7f6aa2a4bb966c9e0bcb6f37"
+    },
+    {
+      "bytes": 669,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401b1f20.c",
+      "sha256": "d96b01a5db93672031cdd33110741bcd807f0577bb48c127bbe27783ba1f12ef"
+    },
+    {
+      "bytes": 756,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401b1f20.json",
+      "sha256": "a81dd8aa9c1087f96a8b37fd0f755a061a4cbf812d2c517f88747260b3fb5235"
+    },
+    {
+      "bytes": 16992,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401b1fc0.asm",
+      "sha256": "c3f4b0a57b0d700c91432b609a2d15b1fbad8fe6c54ae2ca8defcb1a968ba25f"
+    },
+    {
+      "bytes": 10588,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401b1fc0.c",
+      "sha256": "9b681c576ae875603c333e304b312b4402eaed69c719ce33f6adb3165450e29b"
+    },
+    {
+      "bytes": 1094,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401b1fc0.json",
+      "sha256": "174caac33238140dce7a3bf4ba219c7f851a51b4f221127f24ff5670032d0d53"
+    },
+    {
+      "bytes": 2003,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401b2ce0.asm",
+      "sha256": "ff3bd2ce161f8b3a76ab8c8d8066b0c2ba71e0e4a1776a731479b0d6dbb7815e"
+    },
+    {
+      "bytes": 1689,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401b2ce0.c",
+      "sha256": "5d1e269099a72d6f22329b0289b1ca32124bb09789977068af92fe44150ac184"
+    },
+    {
+      "bytes": 756,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401b2ce0.json",
+      "sha256": "388213cd800159fa725758c7ca4f8dfaf9b7890f390a8993a7a5105ee527b873"
+    },
+    {
+      "bytes": 36865,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401b2de0.asm",
+      "sha256": "1991d841db084ca9f961307592be1af076c774bf03d6f1273146c6aeba263be9"
+    },
+    {
+      "bytes": 22521,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401b2de0.c",
+      "sha256": "67241186fb3dafa00dc52e214f8b6a11af84f27db75c7b360de7277e7b52551a"
+    },
+    {
+      "bytes": 1018,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401b2de0.json",
+      "sha256": "b04588caeaf44ee241ddcef7b21713ab93beeb0527d691e5480cc6d7749ed404"
+    },
+    {
+      "bytes": 1524,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401b4eb0.asm",
+      "sha256": "df4c9ddf8a1bf35f3411d9b3aa4c3495366899c73a6e9bb0d652c9f4f761d4ef"
+    },
+    {
+      "bytes": 1572,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401b4eb0.c",
+      "sha256": "298b1dddbfc8b5d5350b37122c8757b5f3ca6025f713324596df944e1a2aa8e4"
+    },
+    {
+      "bytes": 737,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401b4eb0.json",
+      "sha256": "991a3eb7258312ee517ff461fab9d95250ae089432f0c66a8dccb956f9868b1f"
+    },
+    {
+      "bytes": 25761,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401b6480.asm",
+      "sha256": "091e9ba93fe8d6e821b361489913b804595317266d6853ffa1351e11521abd95"
+    },
+    {
+      "bytes": 20220,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401b6480.c",
+      "sha256": "3d1baedf3838455572915001b002eaab5e5f50a32497b97dc24cd7549fa62804"
+    },
+    {
+      "bytes": 975,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401b6480.json",
+      "sha256": "7d27501a2b9164b6c0ed029a37c4e7790b987cfb86a6487a69bdad671e580b9d"
+    },
+    {
+      "bytes": 15541,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401b7480.asm",
+      "sha256": "c7c0df161475ca7949f0efcdcd1f27fa678765bf73962f41924ae642cac68470"
+    },
+    {
+      "bytes": 11215,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401b7480.c",
+      "sha256": "4ada7c3f1abe5bc57b9cc56d3457a44639609964db711421e2e404f85e941083"
+    },
+    {
+      "bytes": 1349,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401b7480.json",
+      "sha256": "3323695675f018eabd28dc059c16fbcad3ce73933a17e9ffe0c0dbae3d6edf50"
+    },
+    {
+      "bytes": 8032,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401b7ce0.asm",
+      "sha256": "ce5c10bfab9575163b63cbcf815e54020f32998a779c4f699342549026d7b005"
+    },
+    {
+      "bytes": 5485,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401b7ce0.c",
+      "sha256": "149bdac0a8641ad101fd874ed2b28cae0bc78f289763586b25934d1486148c4c"
+    },
+    {
+      "bytes": 1083,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401b7ce0.json",
+      "sha256": "23434a52407fd7a216eb9cebfb6fc8cffb0a93597a074a44fae81a13544d0cac"
+    },
+    {
+      "bytes": 19712,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401b8130.asm",
+      "sha256": "a121131c75df19e822aa25662303b717f45a29812c3900a3b1bdff4628271429"
+    },
+    {
+      "bytes": 15366,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401b8130.c",
+      "sha256": "4598a7df6d7549421944c8d2b7eca23a11cd490582357cc2cb3759c680212b06"
+    },
+    {
+      "bytes": 1210,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401b8130.json",
+      "sha256": "5365ba2b64089cc3ff2d8fad3232dd66c668d6ca4e970e8e0909903c87acc31c"
+    },
+    {
+      "bytes": 48588,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401b9400.asm",
+      "sha256": "2033f51798f4923d41237a9080c077396a835310348832505892041b92248f7a"
+    },
+    {
+      "bytes": 40065,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401b9400.c",
+      "sha256": "81791d0fa24fd26d4181897ce24040c7d3dfeedc60334fb5b782fdb62312fa35"
+    },
+    {
+      "bytes": 1431,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401b9400.json",
+      "sha256": "cd82dbce722e9f08221dbdc73e8b6d2fef49a311300eb30b65fac218471cf706"
+    },
+    {
+      "bytes": 754,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401c56d0.asm",
+      "sha256": "a5a7780bd9f8dc684a81bf04432fab8487a5b9c8008bbc4728e3d4c348213b55"
+    },
+    {
+      "bytes": 708,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401c56d0.c",
+      "sha256": "307406616f58ea6f08be2f8d69aec5684b45c716e3568b5cffdaa5daec4bda6a"
+    },
+    {
+      "bytes": 28803,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401c56d0.json",
+      "sha256": "b6027b75a5dfa7141fd55f9c1e400563612037e49a5cc277192a9f6df1aaa916"
+    },
+    {
+      "bytes": 3107,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401c6a00.asm",
+      "sha256": "2516ffb20b0033d9ea8cb58b9b861f9b79698c2032acd777895480c2610fdada"
+    },
+    {
+      "bytes": 2439,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401c6a00.c",
+      "sha256": "aba4229c1d6f3516facd1c9778a6913e22454b85f8073e3ca368fae3a2497ac2"
+    },
+    {
+      "bytes": 10794,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401c6a00.json",
+      "sha256": "940367fea1fab5de43a8beddaab61d3c7f8116beb94047bf9a70c2942ba07313"
+    },
+    {
+      "bytes": 6977,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401c93c0.asm",
+      "sha256": "b451db1781dc32556033e5f6e5c7c937d2a0a9da8b614a5dcc2a4739588b05f6"
+    },
+    {
+      "bytes": 5003,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401c93c0.c",
+      "sha256": "4fad73679dd6d05b07411d01408fd96953a39aa4ebbea60fcddd13eb30a975fb"
+    },
+    {
+      "bytes": 13958,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401c93c0.json",
+      "sha256": "f00adb2f4957d0f5d0fed70949ef1e74a998d3ff92bf696a4a172b858125d834"
+    },
+    {
+      "bytes": 591,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401c97a0.asm",
+      "sha256": "27c8538f7cdc0a4d2616afddf9a7153c482257ed8fb32cdf53e8ade35745a10c"
+    },
+    {
+      "bytes": 509,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401c97a0.c",
+      "sha256": "74d5839c4f3ee25e59faf530f6a0bc60f914de4e4f0b4de05e3125bf808a6eee"
+    },
+    {
+      "bytes": 11328,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401c97a0.json",
+      "sha256": "b3d504d57b8a57a1049983531696264c06b8da0b4801a3a9825b0858a0d36ef0"
+    },
+    {
+      "bytes": 1778,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401c9e60.asm",
+      "sha256": "c8601f371ed474862b1576505c68a0390a859c6db5da1257168291c6ebca287c"
+    },
+    {
+      "bytes": 1169,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401c9e60.c",
+      "sha256": "ce8895461446cbc3ba761109e7b32825192bed09eca871795d1aac4e02292aa6"
+    },
+    {
+      "bytes": 10170,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401c9e60.json",
+      "sha256": "0c0bee4fc9b5463e1b2b2e9ccacab2a5a5ac1a6aa4088f10a5354a5271d51f0d"
+    },
+    {
+      "bytes": 1383,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401cb090.asm",
+      "sha256": "d18f88491a5066e65b4d32105ea2e4b9179561396078b6fc296a8f204defbf4f"
+    },
+    {
+      "bytes": 1255,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401cb090.c",
+      "sha256": "ae0d48d5acc6ddde6f6907d978b307c7eed70adc528762827e2c57172c70e41f"
+    },
+    {
+      "bytes": 2152,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401cb090.json",
+      "sha256": "c3762d1ee3ce6fcccb0393becc5d7913425c1a8b810ab5699def3fb5e4fe1e9f"
+    },
+    {
+      "bytes": 958,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401eda90.asm",
+      "sha256": "7b30a973f2635b887e353459159305f71db86188d69210b78d045849a79cd593"
+    },
+    {
+      "bytes": 724,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401eda90.c",
+      "sha256": "681b94a1fd288ead367e3d9486b7e5f4fb2f17aea0fe47aabac8699c76f7364f"
+    },
+    {
+      "bytes": 1798,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401eda90.json",
+      "sha256": "7416f82e70120de8d9e6552efb1b6ff5ba5157c325a29166c56f33a255a2ce8c"
+    },
+    {
+      "bytes": 54,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401ef650.asm",
+      "sha256": "62d100617cbc7b785cc89040d6bb2279c203ac5d93f3663cce126b4fda0c752c"
+    },
+    {
+      "bytes": 285,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401ef650.c",
+      "sha256": "9e723dd0d50768ed5c0eeea5ea374a3584adc953ad0c01256bef620f5685fc7c"
+    },
+    {
+      "bytes": 1008,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401ef650.json",
+      "sha256": "3c5acf515cf0db763d9176967cc06d5eb75e566e9f8344b823c91916f84be033"
+    },
+    {
+      "bytes": 1074,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401ef720.asm",
+      "sha256": "43eb7140b4b548eed0db229bbd422581814d49e8cabb3df89b939f88971e2c27"
+    },
+    {
+      "bytes": 663,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401ef720.c",
+      "sha256": "97b7b546b5bcb080c8963a6b6115aa0576445ab5a3c0618d61651e73703366dc"
+    },
+    {
+      "bytes": 687,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401ef720.json",
+      "sha256": "edad1eab05e29f793f036f4b73e6f37299f71342e7f400c32b981923574f3820"
+    },
+    {
+      "bytes": 100,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401ef7b0.asm",
+      "sha256": "165fd9fdc007ad58cdc19ed00e7ddee2d31d6941e4da9f7f97758ac15dcb378b"
+    },
+    {
+      "bytes": 303,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401ef7b0.c",
+      "sha256": "bb1fd93537b92568aa4343c3e556a5841eda1f10f61208df76733165e4cc74a5"
+    },
+    {
+      "bytes": 585,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401ef7b0.json",
+      "sha256": "9340df32b4e13b8bd5a0af7dae2c334ef0bf827b5b9d6b7edae13334561fa1d7"
+    },
+    {
+      "bytes": 1577,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401efb80.asm",
+      "sha256": "d2491ffee04dcf51bd64f034cff3aab110e24d8e96d07059c53a587c5589f194"
+    },
+    {
+      "bytes": 923,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401efb80.c",
+      "sha256": "8c899b966c51a78a7f1f8c58f92df52e9b6983db8e161a72d06e04efd23d3861"
+    },
+    {
+      "bytes": 666,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401efb80.json",
+      "sha256": "e8f4deb38cee765ba311c5c4975a3189d3423e7b2c93c1f80de6e13c35c2c1c2"
+    },
+    {
+      "bytes": 685,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401efc30.asm",
+      "sha256": "7540a0511e9be012a767fbc70861d8460e74bc21044e90858ee578069275e389"
+    },
+    {
+      "bytes": 597,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401efc30.c",
+      "sha256": "867e8b3e84103a50581ad3b340b0784d0532664dc2cfe5b4c0d4ef8ba916cc3a"
+    },
+    {
+      "bytes": 665,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401efc30.json",
+      "sha256": "e5fbd33c09918fa7ad8ce73451b062fcd806dc50752cc8ce798a627bd721a4ae"
+    },
+    {
+      "bytes": 859,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401efc80.asm",
+      "sha256": "ef1b794625bf8014a0671561f76156944b825db7e6f4a454ea7753d060559107"
+    },
+    {
+      "bytes": 715,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401efc80.c",
+      "sha256": "0cb8f1af50014420225f1dad5b33bbe92b5ac244efdb694e5f6b88e7045e3b86"
+    },
+    {
+      "bytes": 665,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401efc80.json",
+      "sha256": "e6f9899718a72250c001f4f72e1d5d360241647840e3adbe57b708c237742057"
+    },
+    {
+      "bytes": 685,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401efce0.asm",
+      "sha256": "bb01b17d140bbc71deaa10d848ac1e81989bcdca605cbcf1077d753050cea81c"
+    },
+    {
+      "bytes": 597,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401efce0.c",
+      "sha256": "c4c599d3909101e4cf279aa7d484609d2b14308cf3a3bfca39d6f78685920275"
+    },
+    {
+      "bytes": 665,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401efce0.json",
+      "sha256": "df7906637e75d477bc8407e0cddb60bcb66b631a0c2ad629322ebf586182841c"
+    },
+    {
+      "bytes": 685,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401efd30.asm",
+      "sha256": "d4e73ac449fb4ecedbb8e14c77cade00986d5e7216a382769ff973f63078eddf"
+    },
+    {
+      "bytes": 597,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401efd30.c",
+      "sha256": "ee5818eb0518450c8ebe996a4835c84644643f9063606553192fbbb26fdce2e5"
+    },
+    {
+      "bytes": 665,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401efd30.json",
+      "sha256": "a5a6df1a0973f5b6cf1b91359f58b2575c99e860bb2bcf280626f21d55a19639"
+    },
+    {
+      "bytes": 685,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401efd80.asm",
+      "sha256": "052416fa34caf6c2beefdff693e4c2415d4b3f71add2a10a8491e3c320101e3b"
+    },
+    {
+      "bytes": 597,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401efd80.c",
+      "sha256": "a887ee32634e95acf1795e966995285fe7bea3200415bba2c58c73d23b343672"
+    },
+    {
+      "bytes": 665,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401efd80.json",
+      "sha256": "46a753a8550085c9d8dec84ada68bc32812fda23d07d14079b267dc63c4c33b0"
+    },
+    {
+      "bytes": 685,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401efdd0.asm",
+      "sha256": "7e155151c557c9e0af43390a2eb74c362d02065a9a951b3bce9ca11f7108626e"
+    },
+    {
+      "bytes": 597,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401efdd0.c",
+      "sha256": "3ecf678143629fc6e3ab8fe3aa163d7dc731a9585390dfbbacf4d32c19c77a71"
+    },
+    {
+      "bytes": 665,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401efdd0.json",
+      "sha256": "74747f4cd8eaa1fdeac3cd855311eeafa9db670c18680c7c40ff75f38e55384f"
+    },
+    {
+      "bytes": 685,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401efe20.asm",
+      "sha256": "41e9dc64ed9b5487cfe9b986fdf3f77809ec3a2c06a38fb9c4994b92cc03b174"
+    },
+    {
+      "bytes": 597,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401efe20.c",
+      "sha256": "c5cb86bf8b0013a339c2e46c8bfb1656f89638054347df83eb03c72cd91ad524"
+    },
+    {
+      "bytes": 665,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401efe20.json",
+      "sha256": "37550b606490e0469cde2453d58d65e278f17d5483ea3fe29aadfffb9bb16feb"
+    },
+    {
+      "bytes": 687,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401f4d60.asm",
+      "sha256": "b238296c6431523c70e7e030d9c8cf13fc1845b67ff54f85ad1f6eb6985ad062"
+    },
+    {
+      "bytes": 599,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401f4d60.c",
+      "sha256": "80804754f35c7ba78f0a1894830235ca45eb16a99123fa47438c06703883b3e6"
+    },
+    {
+      "bytes": 665,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401f4d60.json",
+      "sha256": "260b968a7ad16d80211257614e55c70d24b7cf5a0e137fe9c78c461db8a5da6d"
+    },
+    {
+      "bytes": 687,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401f4dc0.asm",
+      "sha256": "9a80a22336e63dbde1429aadbad3053856a5b90158f5d85173d61f4c7fd7455f"
+    },
+    {
+      "bytes": 599,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401f4dc0.c",
+      "sha256": "96c0890308e6b644d829b76900ef036a31bea2c83bf84fde1096f637dcdf0eb4"
+    },
+    {
+      "bytes": 665,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401f4dc0.json",
+      "sha256": "1a64f22641376bd08dd2b27a87b480dc730a0211b96b540c17e249e943c8695e"
+    },
+    {
+      "bytes": 687,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401f4e20.asm",
+      "sha256": "f0f27a02e738b260faae6c67a2011bfa61d77e6e034ca0ed9bdc58cb63923e99"
+    },
+    {
+      "bytes": 599,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401f4e20.c",
+      "sha256": "db4012ee864ad8e71ee293fd30a2c6d1217be36ec871eac5cba1abd3f5ea668d"
+    },
+    {
+      "bytes": 665,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401f4e20.json",
+      "sha256": "bd01078fe6816a44362215d64171ce8ff4b73c4f245d223514c430d92b3a0e88"
+    },
+    {
+      "bytes": 687,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401f4e80.asm",
+      "sha256": "047d7da5777a2332f7f53854659fe3471274c31a0ccdd73fefd9735f6ccfd244"
+    },
+    {
+      "bytes": 599,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401f4e80.c",
+      "sha256": "2630d4c59b9061c21332aaef3697ffa19e7802ac9a152c73b79e9d884ced7d93"
+    },
+    {
+      "bytes": 665,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401f4e80.json",
+      "sha256": "1dcbf47f1bfe25383abd0b7152681f1a538b5b004c826a4c6b02f45798a9ce4b"
+    },
+    {
+      "bytes": 861,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401f4ee0.asm",
+      "sha256": "d63f2ad3a19fe3cd4b79ddf8f76507236d77438ef8c75075f7acf08e93cc8e8c"
+    },
+    {
+      "bytes": 717,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401f4ee0.c",
+      "sha256": "faf1b296da5a1e22f25fcf305250a32ad330aa0622295b549569251e7e1ee0ae"
+    },
+    {
+      "bytes": 665,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401f4ee0.json",
+      "sha256": "90a41e96d4ac79bb626c2b9009873701ac33914ee46521d93ff8e57d1c866946"
+    },
+    {
+      "bytes": 861,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401f4f50.asm",
+      "sha256": "e4e91e8a6ba51b203c934162e0bd0578f25e44656938799f58fcc0e8ce959012"
+    },
+    {
+      "bytes": 717,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401f4f50.c",
+      "sha256": "ce226209f408f374eef9c6ea5c27d8540a0ced281038176df2aa57551827b05c"
+    },
+    {
+      "bytes": 665,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401f4f50.json",
+      "sha256": "166ad83665ade4e39f30ddd5bbb31d51dfea302a05cef8b53a1b8e6db16a5f69"
+    },
+    {
+      "bytes": 861,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401f4fc0.asm",
+      "sha256": "2d284fb1993d3d393bc1b37f1f2590cbd44b2d20b1d1250d7d2a34a237fb9fc9"
+    },
+    {
+      "bytes": 717,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401f4fc0.c",
+      "sha256": "69e076e7ee017865bb769f59e2b38fa57de7b083b48bc68210f33909b67cbc89"
+    },
+    {
+      "bytes": 665,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401f4fc0.json",
+      "sha256": "46aba5d5c3c397da7e35ca8efc521c42f1be6605ce1eef8bcf30efa3e81b879c"
+    },
+    {
+      "bytes": 1064,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401f5030.asm",
+      "sha256": "1f073713bbac50890260fdb27110f1bd8ede219c95fbadd3fd9a9b22da651994"
+    },
+    {
+      "bytes": 833,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401f5030.c",
+      "sha256": "15c23e582927535ac8937357ee36d955471467f9613e855a43e47f1b4422a2a9"
+    },
+    {
+      "bytes": 666,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401f5030.json",
+      "sha256": "828d9f0c4f636ff284b4c27e2ee8eb73cc8a44fa5bd2d4dbc83676dbc36d43bd"
+    },
+    {
+      "bytes": 1041,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401f50b0.asm",
+      "sha256": "1b97678bf08fad52b32e7c07076b3a9d7dec4c01e8e0d1ebeb17605d26c81135"
+    },
+    {
+      "bytes": 769,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401f50b0.c",
+      "sha256": "d1f0800160e707ee99925f794683865638a7e6f3c1cce7c5280cb88f98d4927a"
+    },
+    {
+      "bytes": 666,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401f50b0.json",
+      "sha256": "85de349d246d8e308a169cb96fcfb426546419c644f8717e53091bad0049a71c"
+    },
+    {
+      "bytes": 861,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401f5130.asm",
+      "sha256": "58433b3ed877577dfb438b67e0551a49f0ed9649f9791cb45acfa943ff5149e8"
+    },
+    {
+      "bytes": 717,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401f5130.c",
+      "sha256": "6337b70878d19a8be16f9edab66c5e0fbbb1291401b9d6a1471b6ffe7aa06e38"
+    },
+    {
+      "bytes": 665,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401f5130.json",
+      "sha256": "beea19b56c470b1a3cbd9692f100dbd94dc358959a837429b17461212494003f"
+    },
+    {
+      "bytes": 1244,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401f51a0.asm",
+      "sha256": "43dd02234c26d5f1d7c29ee28f6930d01f4bb0e0fb959eebdfb3b40a91c16168"
+    },
+    {
+      "bytes": 887,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401f51a0.c",
+      "sha256": "e940149d5a8d66b059ba2e93d06c695edce496961fd9d9fd85cbc13ad0cda320"
+    },
+    {
+      "bytes": 641,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401f51a0.json",
+      "sha256": "0903c3fa15616fe8754e1839a2e06fd7b2a8b728b7a67e1b1302f01dcb0f0ef2"
+    },
+    {
+      "bytes": 9670,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401fbec0.asm",
+      "sha256": "4ab1e6adb30703997dba948547c9c86e66abc027fdaed3d50cca3317cf676ed3"
+    },
+    {
+      "bytes": 6220,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401fbec0.c",
+      "sha256": "4986f63fc99c9e370c1b77f8d8bad22b99ef08872b8535b5caa6e0d0850a1b9f"
+    },
+    {
+      "bytes": 11463,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401fbec0.json",
+      "sha256": "b1c9e99c513d99e0aac82d95eee1a62b2cb5861ba7119c3a98a5444e8f9fa91b"
+    },
+    {
+      "bytes": 8792,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401ff340.asm",
+      "sha256": "67306d9c6b56c615b10050e4b90191538ff7c70212479ba44f4685cf2d0adf2f"
+    },
+    {
+      "bytes": 5924,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401ff340.c",
+      "sha256": "8eda649ed9383fc4717f3297fa99b7e15a495cfacf21780cd102df672237d6b0"
+    },
+    {
+      "bytes": 1170,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401ff340.json",
+      "sha256": "4f59596178ab1e116304c6db97256ee9fae244461a3e1ee790952fa6a17840b3"
+    },
+    {
+      "bytes": 8074,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401ff820.asm",
+      "sha256": "a2d27b7d718c901c8e0c5953fc6ff14f3926ce0a6868505ca683d170231f24b9"
+    },
+    {
+      "bytes": 5201,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401ff820.c",
+      "sha256": "38577ca1c5bf5a6ad9dd966668dcf0b08e3059fc584bf60faf19e80ef5323e06"
+    },
+    {
+      "bytes": 1165,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1401ff820.json",
+      "sha256": "9926546666ff83503e9dc2fa3cc834d9f82cb134cb5988285f122528c400b069"
+    },
+    {
+      "bytes": 3226,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/140200c00.asm",
+      "sha256": "2b96080e22c763868f360f78d8a9c6e41442d270210035f2f0a429533cb0c393"
+    },
+    {
+      "bytes": 2190,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/140200c00.c",
+      "sha256": "7f517e3a3e751f03e5701f1708305ddeacc0488ed78cae2a466e08cc5223838f"
+    },
+    {
+      "bytes": 1104,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/140200c00.json",
+      "sha256": "3ae0a4235d4d7f7b2802f6067b5a32858a8f9670ac4b9c1773baf2022ceb23cb"
+    },
+    {
+      "bytes": 656,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1402014c0.asm",
+      "sha256": "5034151abe819ebf8a24dbd98fd8fcf8ac22778789ed968ac60c8c6102de93fb"
+    },
+    {
+      "bytes": 538,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1402014c0.c",
+      "sha256": "201f96f799da8b05a1f11a3d62cb6f830e65573bb690ed64426bfcfc38b3e785"
+    },
+    {
+      "bytes": 30932,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/1402014c0.json",
+      "sha256": "831b35e093db6d40a305d680ca0c11635a29f3f9dac749e3b85c8dd3b3a05a02"
+    },
+    {
+      "bytes": 3722,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/140201c00.asm",
+      "sha256": "c82f4a5078f0e67471bbd4342903841c08950290472caac47441ff5873383080"
+    },
+    {
+      "bytes": 2588,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/140201c00.c",
+      "sha256": "13f4d068b873c94405ef71fdfad2a4b72cf71cc770478fa5f51ec0b0278972f4"
+    },
+    {
+      "bytes": 627,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/140201c00.json",
+      "sha256": "234a8fa60aa5a520015550b6d2ff0186c44712e4a63cf6170e64e5e7d76259a2"
+    },
+    {
+      "bytes": 4333,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/140201dc0.asm",
+      "sha256": "f8dd71e8656a2f83ac24d3c3ae88aae1e8df6d505637d756ff1385670e1ff516"
+    },
+    {
+      "bytes": 3648,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/140201dc0.c",
+      "sha256": "e57389dd4f71e84bc80dbdd240db63206f77f3388740e32e092f457538003cec"
+    },
+    {
+      "bytes": 751,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/140201dc0.json",
+      "sha256": "03c7900cfe84ab0603b5c8724e9b83b424c8607c5a4ab7b546f5e4bcadccb8a7"
+    },
+    {
+      "bytes": 606,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/140201fd0.asm",
+      "sha256": "00c93249f115a3f393edfdec184e3f9a132759d17796279abd4a05c12a21f323"
+    },
+    {
+      "bytes": 773,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/140201fd0.c",
+      "sha256": "ec68034f7a244ae14b19851779e8cf63cae89ec9ec6dbec301b1c42f16bb13ed"
+    },
+    {
+      "bytes": 1635,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/140201fd0.json",
+      "sha256": "a061300ef2fbf6eed1ba596992eee3e0e877bb7b8d4b7712766ba6bd442b6b25"
+    },
+    {
+      "bytes": 606,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/140202020.asm",
+      "sha256": "922bf4bbdc669c3726a2b8457d4469ed8ccab5881cb4b70fcf407c3e9fea351a"
+    },
+    {
+      "bytes": 773,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/140202020.c",
+      "sha256": "e1e83fb01e3dbe4f33154674f987de89633a054b6516f3d6a54d7d71c6fa585a"
+    },
+    {
+      "bytes": 1802,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/140202020.json",
+      "sha256": "929b977c009b4f3d2c0f497dc3c8c3563c650460517f761692317858ab909d94"
+    },
+    {
+      "bytes": 20675,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14021d4c0.asm",
+      "sha256": "48c0018a8a6601e783f5c76d2a4825cf4cd66ea6df6abbd6c09cf766eb2ac919"
+    },
+    {
+      "bytes": 16410,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14021d4c0.c",
+      "sha256": "c3eefa86e30f2c919af8bffd059940b087a5a63cf15fff55569f20486f5dbcaf"
+    },
+    {
+      "bytes": 1268,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14021d4c0.json",
+      "sha256": "362ad0d7b48d0491b39ea7480d9329310c62769c4a4de3e0146395318441624c"
+    },
+    {
+      "bytes": 8610,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/140222e00.asm",
+      "sha256": "f4240b1ad8326ef3bfa6d8a481d3df5bc18604a2e1ebce14d7aae4d32e7c7c4d"
+    },
+    {
+      "bytes": 6329,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/140222e00.c",
+      "sha256": "5993b741963043f0cca5d4cf8a14be0cfc6ba78d103189e1b083a19c6a34eeb8"
+    },
+    {
+      "bytes": 980,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/140222e00.json",
+      "sha256": "3e6a4a9074264cc26867ed117ae9daadc0b3d4862725c368ca5a79a6a7e6ff69"
+    },
+    {
+      "bytes": 6300,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14022c750.asm",
+      "sha256": "d93b276efdca09202fef195edde8aeac02aa42deac09eabb17c3fa8c8a30041e"
+    },
+    {
+      "bytes": 3933,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14022c750.c",
+      "sha256": "9e9fd35dfd8bc59389dccaeb233f04cd726c7c00dbab56150dbccaa9d1d3e519"
+    },
+    {
+      "bytes": 1092,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14022c750.json",
+      "sha256": "1c06d74e6c4da4eb69d2b2e20afd2e2df2ee2ea1bad335f7dd2829168263e9df"
+    },
+    {
+      "bytes": 305,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/140242630.asm",
+      "sha256": "7b5294c324b7f2f958f9a962bf4f5f82c5fd2f8e82cec131c4545847ce906780"
+    },
+    {
+      "bytes": 410,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/140242630.c",
+      "sha256": "ea03ca5a7fdeee6840a6e2c2b61634efeec80c1c62cfb7e1b2063f0e6f47d47f"
+    },
+    {
+      "bytes": 32315,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/140242630.json",
+      "sha256": "723426833e4c17cb179186e6113cae8da5c3512d49556dc6996c512282bf6f5d"
+    },
+    {
+      "bytes": 211,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14024265c.asm",
+      "sha256": "51da0ddd58c1ba1e5c3ceff753e1c8fd74cb0bbcdaee459e04208311533691c5"
+    },
+    {
+      "bytes": 340,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14024265c.c",
+      "sha256": "67f408b585f3b563f7804a074fa33e197a3ed14cabe54a97d91867e5da4ee9e1"
+    },
+    {
+      "bytes": 2537,
+      "path": "docs/reverse-engineering/coop/evidence/decompiled/14024265c.json",
+      "sha256": "27d7852597c4616805bf572896dc86de2ab6603f7af1201fe4bd067ab3980533"
+    },
+    {
+      "bytes": 1699645,
+      "path": "docs/reverse-engineering/coop/evidence/function-manifest.json",
+      "sha256": "86194fda82eaf81eaa5fa08b6597299c4329568aa49757edbfe9863fa154479a"
+    },
+    {
+      "bytes": 24107,
+      "path": "docs/reverse-engineering/coop/evidence/imports.json",
+      "sha256": "2dfc4d3c6896317f05c3212a9a3816dbcf9263d31750aa79deb1316edfe8fe6f"
+    },
+    {
+      "bytes": 1770,
+      "path": "docs/reverse-engineering/coop/evidence/metadata.json",
+      "sha256": "1dc50a52d4aeb78551f4da57ad21f792449b28cba1dea62d209cfeb03961c6b4"
+    },
+    {
+      "bytes": 204,
+      "path": "docs/reverse-engineering/coop/evidence/passes/seeds-pass1.txt",
+      "sha256": "d853a6a81890a751e7c9cd1f6fd8dc9c9b7b5a317b14a74ae52742e2110ac095"
+    },
+    {
+      "bytes": 888,
+      "path": "docs/reverse-engineering/coop/evidence/passes/seeds-pass2.txt",
+      "sha256": "b034f8fc7c34a5886a7c13e91e946e56daa594d7b9c97038ec69d3025d4714b1"
+    },
+    {
+      "bytes": 660,
+      "path": "docs/reverse-engineering/coop/evidence/passes/seeds-pass3.txt",
+      "sha256": "323c1bb3ebbc98d23e141d7c5657f94e47369650a2759d73f98ea1be645cfd47"
+    },
+    {
+      "bytes": 1224,
+      "path": "docs/reverse-engineering/coop/evidence/passes/seeds-pass4.txt",
+      "sha256": "f7e3394729aaeaaa89e3c5afba93a7f130028467888fc8bb361935ad0a2a885f"
+    },
+    {
+      "bytes": 132,
+      "path": "docs/reverse-engineering/coop/evidence/passes/seeds-pass5.txt",
+      "sha256": "e6a561b0948e003f1dd95488f2babde9ea3187e2e3dcf18e298c13d6ed8124da"
+    },
+    {
+      "bytes": 84,
+      "path": "docs/reverse-engineering/coop/evidence/passes/seeds-pass6.txt",
+      "sha256": "8cab3bd767ae04fe53ca050334f4cd7768cf66c11d81c70a29b438e5a613c14b"
+    },
+    {
+      "bytes": 1513,
+      "path": "docs/reverse-engineering/coop/evidence/pe-layout.json",
+      "sha256": "030fccdf3f564e53471e578664ede47eabd329107c4237f05b716f77233a8848"
+    },
+    {
+      "bytes": 560709,
+      "path": "docs/reverse-engineering/coop/evidence/program-index.json.gz",
+      "sha256": "9ab4666491e721a7a740d77a1df276b0bb342b5a60da40ca203c9acdb71268ea"
+    },
+    {
+      "bytes": 935069,
+      "path": "docs/reverse-engineering/coop/evidence/rtti-vtables.json",
+      "sha256": "f5a9c04f67af56b1ca5b30e6594abda2e70defeb3875d5e719bbf78532680595"
+    },
+    {
+      "bytes": 3060,
+      "path": "docs/reverse-engineering/coop/evidence/selection.txt",
+      "sha256": "af8375ab1f499f2a68dba690b3526cb46c7d70f1e45426a6d2fe1fc21e137a8c"
+    },
+    {
+      "bytes": 272606,
+      "path": "docs/reverse-engineering/coop/evidence/structural-review.json",
+      "sha256": "bd8c0bd62fa1f9d55bf228faaa5f9efdccecec166cfc2c3686900c7629dbf059"
+    },
+    {
+      "bytes": 5641,
+      "path": "docs/usage/CODE_READING_NOTES.md",
+      "sha256": "765b4d318f77e98ad0b2bea2389ac685da2e2f00b00e3526619471d65f7c4180"
+    },
+    {
+      "bytes": 74669,
+      "path": "docs/usage/FUNCTION_REVIEW_LEDGER.md",
+      "sha256": "37e3e3cbd267d80f325d3e15cc93c5c7b13fe6e5881155e885c4ce35f08a4d31"
+    },
+    {
+      "bytes": 7028,
+      "path": "docs/usage/NATIVE_ADAPTERS.md",
+      "sha256": "362a72f370b3b6f86aab9d60b705a3ca2994a901924a9aeb73f38fc92a06ddc2"
+    },
+    {
+      "bytes": 2174,
+      "path": "docs/usage/README.md",
+      "sha256": "81f4ceba7958a67d7e25877dcec2fdf579ee87ba2296b656e84c941857de818e"
+    },
+    {
+      "bytes": 5911,
+      "path": "docs/usage/RESEARCH_TOOLING.md",
+      "sha256": "847f6fbc637be8b455505bef806cc31150426e542e17c02439ce0b9a54dd852f"
+    },
+    {
+      "bytes": 19,
+      "path": "tools/ghidra/.gitignore",
+      "sha256": "862263fa1f46c20f0d1e4dac5ffcc75abd55c08211b2c3864c5f8764b9d87793"
+    },
+    {
+      "bytes": 1484,
+      "path": "tools/ghidra/ApplyKnownInputContracts.java",
+      "sha256": "48085e5d88694e0cafd3621db49b74f69083e252884a7b7d7d477ea7008cb9f5"
+    },
+    {
+      "bytes": 5498,
+      "path": "tools/ghidra/ExportProgramIndex.java",
+      "sha256": "edeaaa21dedfe183528552f4fb9ea25b90b3242f08657366cde56e00e5b0e50e"
+    },
+    {
+      "bytes": 4884,
+      "path": "tools/ghidra/ExportSelectedFunctions.java",
+      "sha256": "3544d4a3b907abfca453ef4a7683927a4b03907361178468be3180f3d831c703"
+    },
+    {
+      "bytes": 14461,
+      "path": "tools/ghidra/coop_catalog.json",
+      "sha256": "5d494a136f1265b6f8894e3d4268c03574144797cdb20fe2257c56520b833353"
+    },
+    {
+      "bytes": 8586,
+      "path": "tools/ghidra/package_coop_evidence.py",
+      "sha256": "a3e5d9e13abac505ef48ba8d84b27da28508899ffd76ffca13820dcfd6bd7fd7"
+    },
+    {
+      "bytes": 6224,
+      "path": "tools/ghidra/pe_evidence.py",
+      "sha256": "7fec865012f681abe05ec4bdfe851cc9c14f0e62eab987075d44f34c852441b3"
+    },
+    {
+      "bytes": 1540,
+      "path": "tools/ghidra/run_coop_research.sh",
+      "sha256": "cf8a52f200ceaec04b1433d38f6d6c76dc8a44ae51369b741e13fbefe187b2bc"
+    },
+    {
+      "bytes": 10889,
+      "path": "tools/ghidra/verify_coop_archive.py",
+      "sha256": "9cad70dbe2856fc86bdf59c378444c786514c9ac708f62a0a737e6b13665c39f"
+    }
+  ],
+  "format": 1,
+  "target_sha256": "43814d4b3292efd0a07fd71bef2f1670c0e5ac7cf2595c9e136d78451380a664"
+}

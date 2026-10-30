@@ -1,0 +1,40 @@
+0x1400c1030  MOV qword ptr [RSP + 0x8],RBX
+0x1400c1035  MOV qword ptr [RSP + 0x10],RDI
+0x1400c103a  XOR EDI,EDI
+0x1400c103c  MOV RBX,RCX
+0x1400c103f  MOV R10D,EDI
+0x1400c1042  CMP byte ptr [RCX + 0x90],DIL
+0x1400c1049  JBE 0x1400c10d9
+0x1400c104f  LEA R9,[RCX + 0x1c]
+0x1400c1053  MOVZX EAX,byte ptr [R9 + -0x1]
+0x1400c1058  CMP AL,0xff
+0x1400c105a  JZ 0x1400c10b3
+0x1400c105c  MOVZX R11D,byte ptr [R9]
+0x1400c1060  CMP R11B,0xff
+0x1400c1064  JZ 0x1400c10b3
+0x1400c1066  MOV EDX,EAX
+0x1400c1068  MOV RAX,qword ptr [R9 + -0x1c]
+0x1400c106c  MOV RCX,qword ptr [RAX]
+0x1400c106f  MOV R8,qword ptr [RCX + RDX*0x8]
+0x1400c1073  IMUL RCX,R11,0x520
+0x1400c107a  MOV RAX,qword ptr [R8 + 0x110]
+0x1400c1081  AND dword ptr [RAX + RCX*0x1 + 0x1f0],0xffffffef
+0x1400c1089  MOV RAX,qword ptr [R9 + -0x1c]
+0x1400c108d  MOVZX EDX,byte ptr [R9 + -0x1]
+0x1400c1092  MOV RCX,qword ptr [RAX]
+0x1400c1095  MOVZX EAX,byte ptr [R9]
+0x1400c1099  MOV R8,qword ptr [RCX + RDX*0x8]
+0x1400c109d  IMUL RCX,RAX,0x520
+0x1400c10a4  MOV RAX,qword ptr [R8 + 0x110]
+0x1400c10ab  AND dword ptr [RAX + RCX*0x1 + 0x1f4],0xffffffdf
+0x1400c10b3  MOV word ptr [R9 + -0x1],0xffff
+0x1400c10ba  INC R10D
+0x1400c10bd  MOV qword ptr [R9 + -0xc],RDI
+0x1400c10c1  MOV byte ptr [R9 + 0x1],DIL
+0x1400c10c5  ADD R9,0x20
+0x1400c10c9  MOVZX EAX,byte ptr [RBX + 0x90]
+0x1400c10d0  CMP R10D,EAX
+0x1400c10d3  JL 0x1400c1053
+0x1400c10d9  MOV RBX,qword ptr [RSP + 0x8]
+0x1400c10de  MOV RDI,qword ptr [RSP + 0x10]
+0x1400c10e3  RET

@@ -1,0 +1,45 @@
+{
+  "area": "history",
+  "callees": [
+    "0x140019da0"
+  ],
+  "callers": [
+    "0x140019ef0",
+    "0x1400cd880",
+    "0x1401b6480",
+    "0x1401b7ce0"
+  ],
+  "confidence": "S",
+  "decompile_completed": true,
+  "decompile_error": "",
+  "incoming_references": [
+    {
+      "from": "0x140019f3e",
+      "function": "0x140019ef0",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x1400cde7c",
+      "function": "0x1400cd880",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x1401b8113",
+      "function": "0x1401b7ce0",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x1401b7110",
+      "function": "0x1401b6480",
+      "type": "UNCONDITIONAL_CALL"
+    }
+  ],
+  "name": "FUN_140019f80",
+  "prototype": "undefined FUN_140019f80()",
+  "research_label": "HistoryPoolReset",
+  "review_depth": "focused data-flow/assembly checks",
+  "rva": "0x19f80",
+  "size": 292,
+  "usage_boundary": "Rebuilds record lists/free pools and resets counters; invalidates history links.",
+  "va": "0x140019f80"
+}

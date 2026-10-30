@@ -1,0 +1,116 @@
+{
+  "area": "determinism",
+  "callees": [
+    "0x14025244c"
+  ],
+  "callers": [
+    "0x14007fc50",
+    "0x140089ac0",
+    "0x14008d140",
+    "0x1400cbcc0",
+    "0x1400d5ab0",
+    "0x1400d5c20",
+    "0x1400d5d80",
+    "0x1400d5f10",
+    "0x1400d6060",
+    "0x1400d62d0",
+    "0x1400d6f40",
+    "0x1400d93b0",
+    "0x1400dc0c0",
+    "0x14025eca0",
+    "0x140260f20"
+  ],
+  "confidence": "S",
+  "decompile_completed": true,
+  "decompile_error": "",
+  "incoming_references": [
+    {
+      "from": "0x1437f5bf4",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x14007fe83",
+      "function": "0x14007fc50",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x140089c0c",
+      "function": "0x140089ac0",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x14008d153",
+      "function": "0x14008d140",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x1400cc90c",
+      "function": "0x1400cbcc0",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x1400d5afa",
+      "function": "0x1400d5ab0",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x1400d5c71",
+      "function": "0x1400d5c20",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x1400d5df2",
+      "function": "0x1400d5d80",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x1400d5f53",
+      "function": "0x1400d5f10",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x1400d60ad",
+      "function": "0x1400d6060",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x1400d631f",
+      "function": "0x1400d62d0",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x1400d6f88",
+      "function": "0x1400d6f40",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x1400d9455",
+      "function": "0x1400d93b0",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x1400dc47e",
+      "function": "0x1400dc0c0",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x14025ece4",
+      "function": "0x14025eca0",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x140261036",
+      "function": "0x140260f20",
+      "type": "UNCONDITIONAL_CALL"
+    }
+  ],
+  "name": "FUN_14024265c",
+  "prototype": "undefined FUN_14024265c()",
+  "research_label": "CrtStyleSeed",
+  "review_depth": "focused data-flow/assembly checks",
+  "rva": "0x24265c",
+  "size": 22,
+  "usage_boundary": "Writes seed to the same thread-context field; not a fixed module-global pointer.",
+  "va": "0x14024265c"
+}

@@ -1,0 +1,30 @@
+{
+  "area": "input",
+  "callees": [],
+  "callers": [
+    "0x140188180"
+  ],
+  "confidence": "S",
+  "decompile_completed": true,
+  "decompile_error": "",
+  "incoming_references": [
+    {
+      "from": "0x1437ec798",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x14018826b",
+      "function": "0x140188180",
+      "type": "UNCONDITIONAL_CALL"
+    }
+  ],
+  "name": "FUN_140187390",
+  "prototype": "undefined FUN_140187390()",
+  "research_label": "ComputeInputEdgesAndRepeat",
+  "review_depth": "focused data-flow/assembly checks",
+  "rva": "0x187390",
+  "size": 228,
+  "usage_boundary": "Builds pressed-edge/previous/repeat bitmaps from held state.",
+  "va": "0x140187390"
+}

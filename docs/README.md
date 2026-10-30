@@ -48,6 +48,9 @@ Analysis names such as `CombatHudPacketEmitter`, `CameraMode`, `DeviceResources`
 | [`reshade/BRIDGE.md`](reshade/BRIDGE.md) | `ACZRenderBridge.addon64` production architecture |
 | [`reshade/SHADERS.md`](reshade/SHADERS.md) | `ACZ_SCENE_CLEAN`, freshness contract and effect behavior |
 | [`reshade/BUILD_TEST.md`](reshade/BUILD_TEST.md) | Build, install, acceptance and calibration procedures |
+| [`reverse-engineering/coop/README.md`](reverse-engineering/coop/README.md) | Same-build player/entity/input/synchronization research and archived evidence |
+| [`mp/README.md`](mp/README.md) | Executed co-op research plan and two-player online campaign patch specification |
+| [`usage/README.md`](usage/README.md) | Extraction tools, native adapter reading notes and per-function usage ledger |
 
 ## Current closure
 

@@ -1,0 +1,30 @@
+{
+  "area": "history",
+  "callees": [],
+  "callers": [
+    "0x14001a2a0"
+  ],
+  "confidence": "H",
+  "decompile_completed": true,
+  "decompile_error": "",
+  "incoming_references": [
+    {
+      "from": "0x1437e0f18",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x14001a583",
+      "function": "0x14001a2a0",
+      "type": "UNCONDITIONAL_CALL"
+    }
+  ],
+  "name": "FUN_14001adc0",
+  "prototype": "undefined FUN_14001adc0()",
+  "research_label": "HistoryEncodeEventRecord",
+  "review_depth": "focused data-flow/assembly checks",
+  "rva": "0x1adc0",
+  "size": 586,
+  "usage_boundary": "Record encoder; not accepted as a network packet.",
+  "va": "0x14001adc0"
+}

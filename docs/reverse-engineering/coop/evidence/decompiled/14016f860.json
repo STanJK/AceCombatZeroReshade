@@ -1,0 +1,36 @@
+{
+  "area": "campaign",
+  "callees": [
+    "0x1400cbcc0",
+    "0x1400cd800",
+    "0x140189320",
+    "0x1401c56d0",
+    "0x1401c93c0",
+    "0x14022d4d4",
+    "0x14022d540"
+  ],
+  "callers": [],
+  "confidence": "S/H",
+  "decompile_completed": true,
+  "decompile_error": "",
+  "incoming_references": [
+    {
+      "from": "0x1437eb2ec",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x140290ed0",
+      "function": "",
+      "type": "DATA"
+    }
+  ],
+  "name": "FUN_14016f860",
+  "prototype": "undefined FUN_14016f860()",
+  "research_label": "VSWorldSetup",
+  "review_depth": "focused data-flow/assembly checks",
+  "rva": "0x16f860",
+  "size": 528,
+  "usage_boundary": "VS options, shared world wiring/reset, different rule configuration.",
+  "va": "0x14016f860"
+}

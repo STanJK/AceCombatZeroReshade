@@ -1,0 +1,33 @@
+{
+  "area": "input",
+  "callees": [
+    "0x14021d4c0",
+    "0x140243ea0"
+  ],
+  "callers": [
+    "0x140201dc0"
+  ],
+  "confidence": "S",
+  "decompile_completed": true,
+  "decompile_error": "",
+  "incoming_references": [
+    {
+      "from": "0x1437ec7e0",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x140201dc4",
+      "function": "0x140201dc0",
+      "type": "UNCONDITIONAL_CALL"
+    }
+  ],
+  "name": "FUN_140188a80",
+  "prototype": "undefined FUN_140188a80()",
+  "research_label": "PollAndNormalizeTwoInputLanes",
+  "review_depth": "focused data-flow/assembly checks",
+  "rva": "0x188a80",
+  "size": 751,
+  "usage_boundary": "Raw lanes stride 0x24; candidate remote-input injection after native polling.",
+  "va": "0x140188a80"
+}

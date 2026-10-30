@@ -1,0 +1,48 @@
+{
+  "area": "history",
+  "callees": [
+    "0x140203270"
+  ],
+  "callers": [
+    "0x1401b71e0",
+    "0x1401b9400"
+  ],
+  "confidence": "S/H",
+  "decompile_completed": true,
+  "decompile_error": "",
+  "incoming_references": [
+    {
+      "from": "0x1437e10bc",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x1402e85d4",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x1402e8620",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x1401b7404",
+      "function": "0x1401b71e0",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x1401b9ac0",
+      "function": "0x1401b9400",
+      "type": "UNCONDITIONAL_CALL"
+    }
+  ],
+  "name": "FUN_14001df10",
+  "prototype": "undefined FUN_14001df10()",
+  "research_label": "InterpolateHistoryPose",
+  "review_depth": "focused data-flow/assembly checks",
+  "rva": "0x1df10",
+  "size": 1243,
+  "usage_boundary": "Interpolates decoded position and orientation using record times; not a full integrator or rollback restore.",
+  "va": "0x14001df10"
+}

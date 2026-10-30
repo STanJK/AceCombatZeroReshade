@@ -1,0 +1,48 @@
+{
+  "area": "ui",
+  "callees": [],
+  "callers": [],
+  "confidence": "S",
+  "decompile_completed": true,
+  "decompile_error": "",
+  "incoming_references": [
+    {
+      "from": "0x14030cbd8",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x14030cdf8",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x14030ce18",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x14030ce78",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x14030ce98",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x14030ceb8",
+      "function": "",
+      "type": "DATA"
+    }
+  ],
+  "name": "FUN_1401ef650",
+  "prototype": "undefined FUN_1401ef650()",
+  "research_label": "UIZeroResultStub",
+  "review_depth": "focused data-flow/assembly checks",
+  "rva": "0x1ef650",
+  "size": 8,
+  "usage_boundary": "Writes zero to the result pointer; getMissionTime/getMissionScore bindings are misleading.",
+  "va": "0x1401ef650"
+}

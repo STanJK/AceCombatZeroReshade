@@ -1,0 +1,2 @@
+0x1400a3980  MOVZX EAX,byte ptr [RCX + 0xeb8]
+0x1400a3987  RET

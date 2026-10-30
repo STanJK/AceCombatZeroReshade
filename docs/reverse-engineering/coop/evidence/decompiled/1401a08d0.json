@@ -1,0 +1,58 @@
+{
+  "area": "supporting",
+  "callees": [
+    "0x1400b7690",
+    "0x140189320",
+    "0x14019fc40",
+    "0x1401a0810",
+    "0x1401a1620",
+    "0x1401a1820",
+    "0x1401a19e0",
+    "0x1401a1cf0",
+    "0x1401a20f0",
+    "0x1401a2290",
+    "0x1401a2650",
+    "0x1401a27a0",
+    "0x1401a2930",
+    "0x1401a2d50",
+    "0x1401a2e80",
+    "0x1401a30e0",
+    "0x1401a63e0",
+    "0x14022d480",
+    "0x140242630"
+  ],
+  "callers": [],
+  "confidence": "O",
+  "decompile_completed": true,
+  "decompile_error": "",
+  "incoming_references": [
+    {
+      "from": "0x1437ed548",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x1402fb8a8",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x1402fb8e4",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x1402c4370",
+      "function": "",
+      "type": "DATA"
+    }
+  ],
+  "name": "FUN_1401a08d0",
+  "prototype": "undefined FUN_1401a08d0()",
+  "research_label": "FUN_1401a08d0",
+  "review_depth": "automated structural inventory; semantic review open",
+  "rva": "0x1a08d0",
+  "size": 3406,
+  "usage_boundary": "Supporting export: semantic and callable contract remain open.",
+  "va": "0x1401a08d0"
+}

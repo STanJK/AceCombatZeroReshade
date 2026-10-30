@@ -144,6 +144,11 @@ Key pages:
 
 ## Next phase
 
+The `mp` research branch adds a separate [two-player campaign co-op dossier](docs/reverse-engineering/coop/README.md),
+[implementation specification](docs/mp/COOP_PATCH_IMPLEMENTATION.md), and
+[code-usage handoff](docs/usage/README.md). These are static research and a gated
+patch plan; no playable co-op patch is claimed by this documentation.
+
 The clean-scene capture problem is considered closed for the tested gameplay/camera states.
 
 Next problem:

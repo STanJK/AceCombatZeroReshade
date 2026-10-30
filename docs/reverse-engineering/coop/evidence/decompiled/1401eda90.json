@@ -1,0 +1,80 @@
+{
+  "area": "ui",
+  "callees": [],
+  "callers": [
+    "0x140167080",
+    "0x14016b120",
+    "0x140170c90",
+    "0x14017c300",
+    "0x14017cc60",
+    "0x1401ef7b0"
+  ],
+  "confidence": "S",
+  "decompile_completed": true,
+  "decompile_error": "",
+  "incoming_references": [
+    {
+      "from": "0x1437f0914",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x1401679f3",
+      "function": "0x140167080",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x140171020",
+      "function": "0x140170c90",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x140171097",
+      "function": "0x140170c90",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x14017c372",
+      "function": "0x14017c300",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x14017c3b4",
+      "function": "0x14017c300",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x14017c5bf",
+      "function": "0x14017c300",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x14017cd54",
+      "function": "0x14017cc60",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x14017ce9b",
+      "function": "0x14017cc60",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x14016b1fa",
+      "function": "0x14016b120",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x1401ef7ba",
+      "function": "0x1401ef7b0",
+      "type": "UNCONDITIONAL_CALL"
+    }
+  ],
+  "name": "FUN_1401eda90",
+  "prototype": "undefined FUN_1401eda90()",
+  "research_label": "BroadcastUIControlPlayer",
+  "review_depth": "focused data-flow/assembly checks",
+  "rva": "0x1eda90",
+  "size": 98,
+  "usage_boundary": "Broadcasts an integer to registered UI listeners; not proven aircraft ownership.",
+  "va": "0x1401eda90"
+}

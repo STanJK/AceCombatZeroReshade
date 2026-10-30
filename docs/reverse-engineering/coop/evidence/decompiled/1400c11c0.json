@@ -1,0 +1,47 @@
+{
+  "area": "targeting",
+  "callees": [
+    "0x1400c0740",
+    "0x1400c15d0",
+    "0x1400c1c20",
+    "0x1400c1f80",
+    "0x1400c22c0",
+    "0x140202920"
+  ],
+  "callers": [
+    "0x1401040c0"
+  ],
+  "confidence": "H",
+  "decompile_completed": true,
+  "decompile_error": "",
+  "incoming_references": [
+    {
+      "from": "0x1437e5844",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x1402f0ccc",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x1402f0d0c",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x140105b43",
+      "function": "0x1401040c0",
+      "type": "UNCONDITIONAL_CALL"
+    }
+  ],
+  "name": "FUN_1400c11c0",
+  "prototype": "undefined FUN_1400c11c0()",
+  "research_label": "TargetSelectionStep",
+  "review_depth": "focused data-flow/assembly checks",
+  "rva": "0xc11c0",
+  "size": 1038,
+  "usage_boundary": "Player target-selection substate; full selection semantics need tracing.",
+  "va": "0x1400c11c0"
+}

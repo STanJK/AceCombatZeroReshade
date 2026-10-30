@@ -1,0 +1,57 @@
+{
+  "area": "lifecycle",
+  "callees": [
+    "0x140189320",
+    "0x1401c5740",
+    "0x1401c93c0",
+    "0x1401cb840",
+    "0x14022d4d4",
+    "0x14022d540"
+  ],
+  "callers": [
+    "0x14016f4c0"
+  ],
+  "confidence": "S/H",
+  "decompile_completed": true,
+  "decompile_error": "",
+  "incoming_references": [
+    {
+      "from": "0x1437eb0c4",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x1402f9438",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x1402f94a0",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x1402f94b4",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x14016f51d",
+      "function": "0x14016f4c0",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x1402b3fa0",
+      "function": "",
+      "type": "DATA"
+    }
+  ],
+  "name": "FUN_14016e4c0",
+  "prototype": "undefined FUN_14016e4c0()",
+  "research_label": "CampaignControlLeave",
+  "review_depth": "focused data-flow/assembly checks",
+  "rva": "0x16e4c0",
+  "size": 955,
+  "usage_boundary": "Copies result state and releases arena state; invalidate network work before lifetime ends.",
+  "va": "0x14016e4c0"
+}

@@ -1,0 +1,53 @@
+{
+  "area": "history",
+  "callees": [
+    "0x140019ef0",
+    "0x1400b95a0",
+    "0x140115a70",
+    "0x140140b50",
+    "0x140187110",
+    "0x1401a9a20",
+    "0x1401b5680",
+    "0x1401b6130",
+    "0x1401b6480",
+    "0x1401c5fe0",
+    "0x1401c93c0",
+    "0x1401cb090",
+    "0x140229640",
+    "0x14022d4d4",
+    "0x14022d540",
+    "0x140277ba0"
+  ],
+  "callers": [
+    "0x1401b7480",
+    "0x1401b9400"
+  ],
+  "confidence": "S/H",
+  "decompile_completed": true,
+  "decompile_error": "",
+  "incoming_references": [
+    {
+      "from": "0x1437ee19c",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x1401b74b6",
+      "function": "0x1401b7480",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x1401bab02",
+      "function": "0x1401b9400",
+      "type": "UNCONDITIONAL_CALL"
+    }
+  ],
+  "name": "FUN_1401b8130",
+  "prototype": "undefined FUN_1401b8130()",
+  "research_label": "EnterOrRestartHistoryPlayback",
+  "review_depth": "focused data-flow/assembly checks",
+  "rva": "0x1b8130",
+  "size": 2830,
+  "usage_boundary": "Saves selected player/world fields on first entry, resets effects/controllers and prepares playback cursors; broad side effects.",
+  "va": "0x1401b8130"
+}

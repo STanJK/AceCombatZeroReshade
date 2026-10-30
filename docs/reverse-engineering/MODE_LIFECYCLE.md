@@ -170,16 +170,20 @@ Because `ModeHolder::replace` and `ModeHolder::pop` call the current mode's `+0x
 
 `sub_14016E880` / RVA `0x016E880` is the `ModeGameControl` vtable `+0x20` function.
 
-Before the exit phase it:
+The 2026-10-30 same-build headless analysis corrects the earlier interpretation:
+`mode + 0x18` is an **initialization-ready** gate, not an exit-complete flag.
+While initialization is incomplete it:
 
 - increments `dword_14033BBA4`;
 - advances an internal phase index at `mode + 0x1C` through `funcs_14016E966`;
-- eventually marks `mode + 0x18` as complete.
+- completes 18 setup callbacks, then sets `mode + 0x18` once the phase counter
+  exceeds `0xEF`.
 
-Once `mode + 0x18` is set, it examines gameplay state at:
+Once `mode + 0x18` is set, it first calls `sub_1400D1780(world)` on each update,
+then examines gameplay state at:
 
 ```text
-*(game_state + 690210)
+*(game_state + 0xA8822) // 690210 decimal
 ```
 
 and chooses the next mode constructor.
@@ -215,6 +219,10 @@ GameEnd or another return mode
 ```
 
 lifecycle independent of render fingerprints.
+
+The campaign/VS setup tables, player allocation and evidence are archived in
+[`coop/CAMPAIGN_VS.md`](coop/CAMPAIGN_VS.md). The VS update uses a separate
+15-callback table and shares the active mission driver.
 
 ## 4. ModeGameEnd
 

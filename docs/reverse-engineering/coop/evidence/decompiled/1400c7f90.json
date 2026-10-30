@@ -1,0 +1,49 @@
+{
+  "area": "campaign",
+  "callees": [
+    "0x140200de0",
+    "0x1402014c0"
+  ],
+  "callers": [
+    "0x14016eab0",
+    "0x14016f640"
+  ],
+  "confidence": "H",
+  "decompile_completed": true,
+  "decompile_error": "",
+  "incoming_references": [
+    {
+      "from": "0x1437e5b14",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x14016ead0",
+      "function": "0x14016eab0",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x14016f697",
+      "function": "0x14016f640",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x14016f66d",
+      "function": "0x14016f640",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x14016f682",
+      "function": "0x14016f640",
+      "type": "UNCONDITIONAL_CALL"
+    }
+  ],
+  "name": "FUN_1400c7f90",
+  "prototype": "undefined FUN_1400c7f90()",
+  "research_label": "MissionResourceSelectA",
+  "review_depth": "focused data-flow/assembly checks",
+  "rva": "0xc7f90",
+  "size": 194,
+  "usage_boundary": "Campaign/VS resource selection path; asset meanings need game data.",
+  "va": "0x1400c7f90"
+}

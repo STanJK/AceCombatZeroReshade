@@ -1,0 +1,54 @@
+{
+  "area": "entity",
+  "callees": [
+    "0x1401338c0"
+  ],
+  "callers": [
+    "0x1400ce880",
+    "0x1400f4d40",
+    "0x1400f6380"
+  ],
+  "confidence": "S",
+  "decompile_completed": true,
+  "decompile_error": "",
+  "incoming_references": [
+    {
+      "from": "0x1437e8fb8",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x1402f66f0",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x1402f6700",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x1400cfd88",
+      "function": "0x1400ce880",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x1400f514c",
+      "function": "0x1400f4d40",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x1400f6eb6",
+      "function": "0x1400f6380",
+      "type": "UNCONDITIONAL_CALL"
+    }
+  ],
+  "name": "FUN_1401363c0",
+  "prototype": "undefined FUN_1401363c0()",
+  "research_label": "DispatchGroupUpdates",
+  "review_depth": "focused data-flow/assembly checks",
+  "rva": "0x1363c0",
+  "size": 359,
+  "usage_boundary": "Group virtual-update loop, actor stamping and periodic relationship pass.",
+  "va": "0x1401363c0"
+}

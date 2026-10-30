@@ -1,0 +1,2 @@
+0x1401ef650  MOV qword ptr [RDX],0x0
+0x1401ef657  RET

@@ -1,0 +1,88 @@
+{
+  "area": "supporting",
+  "callees": [
+    "0x140162840"
+  ],
+  "callers": [
+    "0x1400abff0",
+    "0x1400c70e0"
+  ],
+  "confidence": "O",
+  "decompile_completed": true,
+  "decompile_error": "",
+  "incoming_references": [
+    {
+      "from": "0x1437e7980",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x1400ac298",
+      "function": "0x1400abff0",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x1400ac2fa",
+      "function": "0x1400abff0",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x1400ac362",
+      "function": "0x1400abff0",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x1400c7624",
+      "function": "0x1400c70e0",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x1400c7678",
+      "function": "0x1400c70e0",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x1400c7699",
+      "function": "0x1400c70e0",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x1400c76ed",
+      "function": "0x1400c70e0",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x1400c770e",
+      "function": "0x1400c70e0",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x1400c7762",
+      "function": "0x1400c70e0",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x1400c7dd9",
+      "function": "0x1400c70e0",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x1400c7de8",
+      "function": "0x1400c70e0",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x1400c7df7",
+      "function": "0x1400c70e0",
+      "type": "UNCONDITIONAL_CALL"
+    }
+  ],
+  "name": "FUN_1401029f0",
+  "prototype": "undefined FUN_1401029f0()",
+  "research_label": "FUN_1401029f0",
+  "review_depth": "automated structural inventory; semantic review open",
+  "rva": "0x1029f0",
+  "size": 183,
+  "usage_boundary": "Supporting export: semantic and callable contract remain open.",
+  "va": "0x1401029f0"
+}

@@ -1,0 +1,60 @@
+{
+  "area": "input",
+  "callees": [
+    "0x140219e60",
+    "0x14021a480",
+    "0x14021aaa0",
+    "0x14021c530",
+    "0x14021c9c0",
+    "0x14021cca0",
+    "0x14021ea80",
+    "0x14021ee20",
+    "0x140220fc0",
+    "0x14022d480",
+    "0x14025d530",
+    "0x14025d800",
+    "0x14025d8b0",
+    "0x14025df70",
+    "0x14025e150",
+    "0x14025e1d0",
+    "0x1402777e0",
+    "EXTERNAL:00000006"
+  ],
+  "callers": [
+    "0x140188a80",
+    "0x14022c040"
+  ],
+  "confidence": "S/H",
+  "decompile_completed": true,
+  "decompile_error": "",
+  "incoming_references": [
+    {
+      "from": "0x1437f3e48",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x1403022e0",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x140188ab8",
+      "function": "0x140188a80",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x14022c0c1",
+      "function": "0x14022c040",
+      "type": "UNCONDITIONAL_CALL"
+    }
+  ],
+  "name": "FUN_14021d4c0",
+  "prototype": "undefined FUN_14021d4c0()",
+  "research_label": "AggregatePlatformInput",
+  "review_depth": "focused data-flow/assembly checks",
+  "rva": "0x21d4c0",
+  "size": 2589,
+  "usage_boundary": "Steam/controller/platform aggregation and lifecycle-mirror checks.",
+  "va": "0x14021d4c0"
+}

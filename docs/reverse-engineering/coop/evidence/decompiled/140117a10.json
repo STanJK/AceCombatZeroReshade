@@ -1,0 +1,77 @@
+{
+  "area": "damage",
+  "callees": [
+    "0x140031f80",
+    "0x1401c56d0",
+    "0x1401c5d20",
+    "0x1401c6150",
+    "0x1401c6a00",
+    "0x1401c97a0",
+    "0x1401c9e60"
+  ],
+  "callers": [
+    "0x1401040c0",
+    "0x140115c20",
+    "0x140116e10",
+    "0x140118040",
+    "0x140119a30"
+  ],
+  "confidence": "S/H",
+  "decompile_completed": true,
+  "decompile_error": "",
+  "incoming_references": [
+    {
+      "from": "0x1437e8034",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x1402f4dc4",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x1402f4de8",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x14011888c",
+      "function": "0x140118040",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x14010692a",
+      "function": "0x1401040c0",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x140116e6c",
+      "function": "0x140116e10",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x14011712b",
+      "function": "0x140116e10",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x140116829",
+      "function": "0x140115c20",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x140119d58",
+      "function": "0x140119a30",
+      "type": "UNCONDITIONAL_CALL"
+    }
+  ],
+  "name": "FUN_140117a10",
+  "prototype": "undefined FUN_140117a10()",
+  "research_label": "ActorDeathEffectsAndState",
+  "review_depth": "focused data-flow/assembly checks",
+  "rva": "0x117a10",
+  "size": 1554,
+  "usage_boundary": "Lethal-state/effect path; does not prove object destruction or pool release.",
+  "va": "0x140117a10"
+}

@@ -1,0 +1,25 @@
+{
+  "area": "targeting",
+  "callees": [],
+  "callers": [
+    "0x1401040c0"
+  ],
+  "confidence": "S",
+  "decompile_completed": true,
+  "decompile_error": "",
+  "incoming_references": [
+    {
+      "from": "0x140104ba6",
+      "function": "0x1401040c0",
+      "type": "UNCONDITIONAL_CALL"
+    }
+  ],
+  "name": "FUN_1400c2630",
+  "prototype": "undefined FUN_1400c2630()",
+  "research_label": "TargetOptionBitA",
+  "review_depth": "focused data-flow/assembly checks",
+  "rva": "0xc2630",
+  "size": 75,
+  "usage_boundary": "Updates local flag bits; semantic name intentionally unresolved.",
+  "va": "0x1400c2630"
+}

@@ -1,0 +1,208 @@
+{
+  "area": "history",
+  "callees": [
+    "0x140019f80",
+    "0x14022d4d4",
+    "0x14022d540"
+  ],
+  "callers": [
+    "0x140014d00",
+    "0x140014f00",
+    "0x1400cbcc0",
+    "0x1400cd880",
+    "0x1400ce880",
+    "0x1400d1780",
+    "0x1400f4d40",
+    "0x1401006b0",
+    "0x140125400",
+    "0x14012aa30",
+    "0x14013ace0",
+    "0x14013d140",
+    "0x140141200",
+    "0x1401b6480",
+    "0x1401b7480",
+    "0x1401b7ce0",
+    "0x1401b8130",
+    "0x1401b8c40",
+    "0x1401b9400",
+    "0x1401c6a00"
+  ],
+  "confidence": "S/H",
+  "decompile_completed": true,
+  "decompile_error": "",
+  "incoming_references": [
+    {
+      "from": "0x1437e0e34",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x140014d1a",
+      "function": "0x140014d00",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x140014f30",
+      "function": "0x140014f00",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x1401c6a38",
+      "function": "0x1401c6a00",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x1400cd5c3",
+      "function": "0x1400cbcc0",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x1400cd70d",
+      "function": "0x1400cbcc0",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x1400cde74",
+      "function": "0x1400cd880",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x1400ce8e3",
+      "function": "0x1400ce880",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x14012b80a",
+      "function": "0x14012aa30",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x14012b83d",
+      "function": "0x14012aa30",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x14012bcbc",
+      "function": "0x14012aa30",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x14012bcc4",
+      "function": "0x14012aa30",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x14012bcd3",
+      "function": "0x14012aa30",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x14013b05b",
+      "function": "0x14013ace0",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x14013d6b3",
+      "function": "0x14013d140",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x1401412d2",
+      "function": "0x140141200",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x1401b7cf5",
+      "function": "0x1401b7ce0",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x1401b7d57",
+      "function": "0x1401b7ce0",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x1400d1d9a",
+      "function": "0x1400d1780",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x1400d1da8",
+      "function": "0x1400d1780",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x1400d1dbc",
+      "function": "0x1400d1780",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x1400d2239",
+      "function": "0x1400d1780",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x1400f52eb",
+      "function": "0x1400f4d40",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x140100be6",
+      "function": "0x1401006b0",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x140100d51",
+      "function": "0x1401006b0",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x1401b7b8b",
+      "function": "0x1401b7480",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x1401b818d",
+      "function": "0x1401b8130",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x1401b8642",
+      "function": "0x1401b8130",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x1401b864c",
+      "function": "0x1401b8130",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x1401b64c2",
+      "function": "0x1401b6480",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x1401b935e",
+      "function": "0x1401b8c40",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x1401ba111",
+      "function": "0x1401b9400",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x14012564e",
+      "function": "0x140125400",
+      "type": "UNCONDITIONAL_CALL"
+    }
+  ],
+  "name": "FUN_140019ef0",
+  "prototype": "undefined FUN_140019ef0()",
+  "research_label": "HistorySingleton",
+  "review_depth": "focused data-flow/assembly checks",
+  "rva": "0x19ef0",
+  "size": 104,
+  "usage_boundary": "Returns lazy singleton at RVA 0x31E980; not a complete save-state API.",
+  "va": "0x140019ef0"
+}

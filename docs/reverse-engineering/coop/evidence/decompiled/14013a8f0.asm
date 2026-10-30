@@ -1,0 +1,2 @@
+0x14013a8f0  VMOVSS XMM0,dword ptr [0x1402d26d8]
+0x14013a8f8  RET

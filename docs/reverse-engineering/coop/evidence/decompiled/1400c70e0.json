@@ -1,0 +1,61 @@
+{
+  "area": "player",
+  "callees": [
+    "0x1400aba40",
+    "0x1400abff0",
+    "0x1401029f0",
+    "0x14010f560",
+    "0x140128fe0",
+    "0x140149270",
+    "0x14014a8c0",
+    "0x14014a9d0",
+    "0x14014b4c0",
+    "0x1401533a0",
+    "0x140153c20",
+    "0x140154200",
+    "0x140158f80",
+    "0x140162780",
+    "0x140162840",
+    "0x140162a80",
+    "0x140189320",
+    "0x1401c6f40",
+    "0x140200de0",
+    "0x14022d480"
+  ],
+  "callers": [
+    "0x14016ec60"
+  ],
+  "confidence": "H",
+  "decompile_completed": true,
+  "decompile_error": "",
+  "incoming_references": [
+    {
+      "from": "0x1437e5af0",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x1402f1038",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x1402f1048",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x14016ec68",
+      "function": "0x14016ec60",
+      "type": "UNCONDITIONAL_CALL"
+    }
+  ],
+  "name": "FUN_1400c70e0",
+  "prototype": "undefined FUN_1400c70e0()",
+  "research_label": "PlayerResourceLoadContinue",
+  "review_depth": "focused data-flow/assembly checks",
+  "rva": "0xc70e0",
+  "size": 3746,
+  "usage_boundary": "Resource/setup continuation; requires loaded assets and native ordering.",
+  "va": "0x1400c70e0"
+}

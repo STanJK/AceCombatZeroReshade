@@ -1,0 +1,18 @@
+{
+  "data_references": 47655,
+  "defined_strings": 1918,
+  "direct_call_sites": 19313,
+  "focused_catalog_entries": 90,
+  "functions": 4792,
+  "imported_dlls": 17,
+  "imports": 255,
+  "instruction_lines": 50057,
+  "playable_coop_patch": false,
+  "pseudocode_lines": 38575,
+  "rand_direct_callers": 101,
+  "rand_direct_sites": 271,
+  "rtti_vtable_candidates": 404,
+  "runtime_scenarios_executed": 0,
+  "selected_functions": 255,
+  "sha256": "43814d4b3292efd0a07fd71bef2f1670c0e5ac7cf2595c9e136d78451380a664"
+}

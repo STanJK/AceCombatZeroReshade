@@ -1,0 +1,272 @@
+{
+  "area": "input",
+  "callees": [
+    "0x140187a40"
+  ],
+  "callers": [
+    "0x1400d03a0",
+    "0x1401040c0",
+    "0x14010f600",
+    "0x140110bd0",
+    "0x140110f80",
+    "0x140111d40"
+  ],
+  "confidence": "H",
+  "decompile_completed": true,
+  "decompile_error": "",
+  "incoming_references": [
+    {
+      "from": "0x1437ec7bc",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x140104464",
+      "function": "0x1401040c0",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x140104474",
+      "function": "0x1401040c0",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x140104484",
+      "function": "0x1401040c0",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x14010449c",
+      "function": "0x1401040c0",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x14010f9ed",
+      "function": "0x14010f600",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x14010f9fd",
+      "function": "0x14010f600",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x14010fa0d",
+      "function": "0x14010f600",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x14010fa1d",
+      "function": "0x14010f600",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x14010fa2d",
+      "function": "0x14010f600",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x14010fa3d",
+      "function": "0x14010f600",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x14010fa4d",
+      "function": "0x14010f600",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x14010fa5d",
+      "function": "0x14010f600",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x140110c41",
+      "function": "0x140110bd0",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x140110c51",
+      "function": "0x140110bd0",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x140110c61",
+      "function": "0x140110bd0",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x140110c84",
+      "function": "0x140110bd0",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x140110c9f",
+      "function": "0x140110bd0",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x140110caf",
+      "function": "0x140110bd0",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x140110dee",
+      "function": "0x140110bd0",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x140110dfe",
+      "function": "0x140110bd0",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x140110e0e",
+      "function": "0x140110bd0",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x140110e1e",
+      "function": "0x140110bd0",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x140110e2e",
+      "function": "0x140110bd0",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x1401110e2",
+      "function": "0x140110f80",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x1401110f1",
+      "function": "0x140110f80",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x1401113e1",
+      "function": "0x140110f80",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x1401113f0",
+      "function": "0x140110f80",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x14011141a",
+      "function": "0x140110f80",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x140111429",
+      "function": "0x140110f80",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x140111450",
+      "function": "0x140110f80",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x14011145f",
+      "function": "0x140110f80",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x140111f66",
+      "function": "0x140111d40",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x140111f76",
+      "function": "0x140111d40",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x140111f86",
+      "function": "0x140111d40",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x140111f96",
+      "function": "0x140111d40",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x140111ffc",
+      "function": "0x140111d40",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x1401120ef",
+      "function": "0x140111d40",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x1401120ff",
+      "function": "0x140111d40",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x14011210f",
+      "function": "0x140111d40",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x14011211f",
+      "function": "0x140111d40",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x1400d076b",
+      "function": "0x1400d03a0",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x1400d0779",
+      "function": "0x1400d03a0",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x1400d079c",
+      "function": "0x1400d03a0",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x1400d07aa",
+      "function": "0x1400d03a0",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x1400d07ed",
+      "function": "0x1400d03a0",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x1400d07fb",
+      "function": "0x1400d03a0",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x1400d0878",
+      "function": "0x1400d03a0",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x1400d0886",
+      "function": "0x1400d03a0",
+      "type": "UNCONDITIONAL_CALL"
+    }
+  ],
+  "name": "FUN_140187ec0",
+  "prototype": "undefined FUN_140187ec0()",
+  "research_label": "QueryActionMagnitude",
+  "review_depth": "focused data-flow/assembly checks",
+  "rva": "0x187ec0",
+  "size": 664,
+  "usage_boundary": "Related mapped analog/action query; exact return units/ABI need validation.",
+  "va": "0x140187ec0"
+}

@@ -1,0 +1,40 @@
+{
+  "area": "history",
+  "callees": [],
+  "callers": [
+    "0x14001a2a0"
+  ],
+  "confidence": "H",
+  "decompile_completed": true,
+  "decompile_error": "",
+  "incoming_references": [
+    {
+      "from": "0x1437e0f24",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x1402e8270",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x1402e8280",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x14001a798",
+      "function": "0x14001a2a0",
+      "type": "UNCONDITIONAL_CALL"
+    }
+  ],
+  "name": "FUN_14001b010",
+  "prototype": "undefined FUN_14001b010()",
+  "research_label": "HistoryEncodeAuxRecord",
+  "review_depth": "focused data-flow/assembly checks",
+  "rva": "0x1b010",
+  "size": 621,
+  "usage_boundary": "Auxiliary history record path; ownership and inverse remain open.",
+  "va": "0x14001b010"
+}

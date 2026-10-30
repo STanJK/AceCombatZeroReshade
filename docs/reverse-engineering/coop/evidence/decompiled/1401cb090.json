@@ -1,0 +1,98 @@
+{
+  "area": "supporting",
+  "callees": [
+    "0x140184120",
+    "0x1401c9330"
+  ],
+  "callers": [
+    "0x1400d0c40",
+    "0x140165dc0",
+    "0x140167080",
+    "0x14016bd20",
+    "0x14016c1f0",
+    "0x1401744e0",
+    "0x1401b8130",
+    "0x1401b8c40",
+    "0x1401bff30",
+    "0x1401c5740",
+    "0x1401c6980"
+  ],
+  "confidence": "O",
+  "decompile_completed": true,
+  "decompile_error": "",
+  "incoming_references": [
+    {
+      "from": "0x1437eee44",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x1401c57a9",
+      "function": "0x1401c5740",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x1400d0d58",
+      "function": "0x1400d0c40",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x1401b8941",
+      "function": "0x1401b8130",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x1401b91f9",
+      "function": "0x1401b8c40",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x1401c69b8",
+      "function": "0x1401c6980",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x140165ee0",
+      "function": "0x140165dc0",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x1401bff9b",
+      "function": "0x1401bff30",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x140167157",
+      "function": "0x140167080",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x14016be2d",
+      "function": "0x14016bd20",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x14016c2bf",
+      "function": "0x14016c1f0",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x140174574",
+      "function": "0x1401744e0",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x140174750",
+      "function": "0x1401744e0",
+      "type": "UNCONDITIONAL_CALL"
+    }
+  ],
+  "name": "FUN_1401cb090",
+  "prototype": "undefined FUN_1401cb090()",
+  "research_label": "FUN_1401cb090",
+  "review_depth": "automated structural inventory; semantic review open",
+  "rva": "0x1cb090",
+  "size": 154,
+  "usage_boundary": "Supporting export: semantic and callable contract remain open.",
+  "va": "0x1401cb090"
+}

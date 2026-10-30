@@ -1,0 +1,62 @@
+0x140019f80  XOR R11D,R11D
+0x140019f83  LEA RAX,[RCX + 0x20]
+0x140019f87  LEA R10,[RCX + 0x1a0]
+0x140019f8e  MOV qword ptr [RAX],RAX
+0x140019f91  MOV qword ptr [RAX + 0x8],RAX
+0x140019f95  MOV R8,RCX
+0x140019f98  MOV dword ptr [RAX + 0x70],R11D
+0x140019f9c  MOV R9D,R11D
+0x140019f9f  LEA RAX,[RCX + 0x290]
+0x140019fa6  MOV qword ptr [R10],R10
+0x140019fa9  MOV qword ptr [RAX],RAX
+0x140019fac  MOV qword ptr [RAX + 0x8],RAX
+0x140019fb0  MOV dword ptr [RAX + 0x70],R11D
+0x140019fb4  MOV qword ptr [R10 + 0x8],R10
+0x140019fb8  MOV dword ptr [R10 + 0x70],R11D
+0x140019fbc  CMP dword ptr [RCX + 0x198],R11D
+0x140019fc3  JBE 0x140019ffd
+0x140019fc5  MOV EAX,R9D
+0x140019fc8  INC R9D
+0x140019fcb  IMUL RDX,RAX,0x70
+0x140019fcf  MOV RAX,qword ptr [RCX + 0x1a8]
+0x140019fd6  ADD RDX,qword ptr [RCX + 0x190]
+0x140019fdd  MOV qword ptr [RAX],RDX
+0x140019fe0  MOV qword ptr [RCX + 0x1a8],RDX
+0x140019fe7  MOV qword ptr [RDX],R10
+0x140019fea  MOV qword ptr [RDX + 0x8],RAX
+0x140019fee  INC dword ptr [RCX + 0x210]
+0x140019ff4  CMP R9D,dword ptr [RCX + 0x198]
+0x140019ffb  JC 0x140019fc5
+0x140019ffd  LEA RAX,[RCX + 0x98]
+0x14001a004  MOV R9D,R11D
+0x14001a007  LEA RDX,[RCX + 0x218]
+0x14001a00e  MOV qword ptr [RAX],RAX
+0x14001a011  MOV qword ptr [RAX + 0x8],RAX
+0x14001a015  MOV dword ptr [RAX + 0x70],R11D
+0x14001a019  MOV qword ptr [RDX],RDX
+0x14001a01c  MOV qword ptr [RDX + 0x8],RDX
+0x14001a020  MOV dword ptr [RDX + 0x70],R11D
+0x14001a024  CMP dword ptr [RCX + 0x308],R11D
+0x14001a02b  JLE 0x14001a069
+0x14001a02d  MOV R10,R11
+0x14001a030  MOV RCX,qword ptr [R8 + 0x310]
+0x14001a037  INC R9D
+0x14001a03a  MOV RAX,qword ptr [R8 + 0x220]
+0x14001a041  ADD RCX,R10
+0x14001a044  ADD R10,0x70
+0x14001a048  MOV qword ptr [RAX],RCX
+0x14001a04b  MOV qword ptr [R8 + 0x220],RCX
+0x14001a052  MOV qword ptr [RCX],RDX
+0x14001a055  MOV qword ptr [RCX + 0x8],RAX
+0x14001a059  INC dword ptr [R8 + 0x288]
+0x14001a060  CMP R9D,dword ptr [R8 + 0x308]
+0x14001a067  JL 0x14001a030
+0x14001a069  MOV RCX,R8
+0x14001a06c  MOV qword ptr [R8],R11
+0x14001a06f  MOV dword ptr [R8 + 0x8],0x4
+0x14001a077  MOV qword ptr [R8 + 0xc],0x2
+0x14001a07f  MOV qword ptr [R8 + 0x18],R11
+0x14001a083  MOV qword ptr [R8 + 0x318],R11
+0x14001a08a  MOV word ptr [R8 + 0x320],0xffff
+0x14001a094  MOV dword ptr [R8 + 0x324],0xffffffff
+0x14001a09f  JMP 0x140019da0

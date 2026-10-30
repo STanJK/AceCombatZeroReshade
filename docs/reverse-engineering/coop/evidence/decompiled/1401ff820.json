@@ -1,0 +1,55 @@
+{
+  "area": "simulation",
+  "callees": [
+    "0x140184180",
+    "0x140184780",
+    "0x140187060",
+    "0x140189320",
+    "0x140197b30",
+    "0x1401c56d0",
+    "0x1401c6b70",
+    "0x1401c93c0",
+    "0x1401ca370",
+    "0x1401fe9c0",
+    "0x1402011a0",
+    "0x140201dc0",
+    "0x14022d4d4",
+    "0x14022d540"
+  ],
+  "callers": [
+    "0x140200c00"
+  ],
+  "confidence": "S",
+  "decompile_completed": true,
+  "decompile_error": "",
+  "incoming_references": [
+    {
+      "from": "0x1437f2174",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x1402ffcc4",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x1402ffd5c",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x140200c99",
+      "function": "0x140200c00",
+      "type": "UNCONDITIONAL_CALL"
+    }
+  ],
+  "name": "FUN_1401ff820",
+  "prototype": "undefined FUN_1401ff820()",
+  "research_label": "InputModeAndRenderFrame",
+  "review_depth": "focused data-flow/assembly checks",
+  "rva": "0x1ff820",
+  "size": 942,
+  "usage_boundary": "Pumps input then virtual mode update/auxiliary dispatch; broader than simulation tick.",
+  "va": "0x1401ff820"
+}

@@ -1,0 +1,42 @@
+{
+  "area": "entity",
+  "callees": [
+    "0x14012c410"
+  ],
+  "callers": [
+    "0x1400cbcc0"
+  ],
+  "confidence": "S",
+  "decompile_completed": true,
+  "decompile_error": "",
+  "incoming_references": [
+    {
+      "from": "0x1437e8ef8",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x1402f65c0",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x1402f65f4",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x1400cca2e",
+      "function": "0x1400cbcc0",
+      "type": "UNCONDITIONAL_CALL"
+    }
+  ],
+  "name": "FUN_140135b50",
+  "prototype": "undefined FUN_140135b50()",
+  "research_label": "SizeInitialGroupArena",
+  "review_depth": "focused data-flow/assembly checks",
+  "rva": "0x135b50",
+  "size": 345,
+  "usage_boundary": "Sizes initial group table/objects and actor resources from definitions.",
+  "va": "0x140135b50"
+}

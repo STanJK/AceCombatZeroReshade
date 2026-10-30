@@ -1,0 +1,46 @@
+{
+  "area": "campaign",
+  "callees": [
+    "0x1400cd880",
+    "0x1400ce700",
+    "0x1400d55c0",
+    "0x1400d5680",
+    "0x140189320",
+    "0x140197b30",
+    "0x1402011a0"
+  ],
+  "callers": [],
+  "confidence": "S/H",
+  "decompile_completed": true,
+  "decompile_error": "",
+  "incoming_references": [
+    {
+      "from": "0x1437eb2f8",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x1402f95f4",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x1402f9630",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x140290ee0",
+      "function": "",
+      "type": "DATA"
+    }
+  ],
+  "name": "FUN_14016fa80",
+  "prototype": "undefined FUN_14016fa80()",
+  "research_label": "VSControlOptions",
+  "review_depth": "focused data-flow/assembly checks",
+  "rva": "0x16fa80",
+  "size": 1095,
+  "usage_boundary": "Per-player mappings plus VS limits/options; do not transplant whole body into campaign.",
+  "va": "0x14016fa80"
+}

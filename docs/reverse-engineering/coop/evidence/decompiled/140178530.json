@@ -1,0 +1,100 @@
+{
+  "area": "supporting",
+  "callees": [
+    "0x140200de0"
+  ],
+  "callers": [],
+  "confidence": "O",
+  "decompile_completed": true,
+  "decompile_error": "",
+  "incoming_references": [
+    {
+      "from": "0x1437eb94c",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x140170093",
+      "function": "0x14016fff0",
+      "type": "DATA"
+    },
+    {
+      "from": "0x14017009a",
+      "function": "0x14016fff0",
+      "type": "DATA"
+    },
+    {
+      "from": "0x140171498",
+      "function": "0x140171360",
+      "type": "DATA"
+    },
+    {
+      "from": "0x1401714b5",
+      "function": "0x140171360",
+      "type": "DATA"
+    },
+    {
+      "from": "0x14017158b",
+      "function": "0x1401714e0",
+      "type": "DATA"
+    },
+    {
+      "from": "0x1401715a0",
+      "function": "0x1401714e0",
+      "type": "DATA"
+    },
+    {
+      "from": "0x14016d70b",
+      "function": "0x14016d5d0",
+      "type": "DATA"
+    },
+    {
+      "from": "0x14016d723",
+      "function": "0x14016d5d0",
+      "type": "DATA"
+    },
+    {
+      "from": "0x1402910f8",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x140290ef8",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x140291078",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x140291048",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x14017133e",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x140171353",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x140291160",
+      "function": "",
+      "type": "DATA"
+    }
+  ],
+  "name": "FUN_140178530",
+  "prototype": "undefined FUN_140178530()",
+  "research_label": "FUN_140178530",
+  "review_depth": "automated structural inventory; semantic review open",
+  "rva": "0x178530",
+  "size": 48,
+  "usage_boundary": "Supporting export: semantic and callable contract remain open.",
+  "va": "0x140178530"
+}

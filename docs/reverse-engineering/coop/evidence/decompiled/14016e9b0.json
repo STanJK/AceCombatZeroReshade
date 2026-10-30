@@ -1,0 +1,48 @@
+{
+  "area": "lifecycle",
+  "callees": [
+    "0x1400d2580",
+    "0x140197b30",
+    "0x1402011a0",
+    "0x140205050"
+  ],
+  "callers": [],
+  "confidence": "S/H",
+  "decompile_completed": true,
+  "decompile_error": "",
+  "incoming_references": [
+    {
+      "from": "0x1437eb13c",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x1402f94d8",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x1402f94e8",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x1402b3ff0",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x1402b3fb8",
+      "function": "",
+      "type": "DATA"
+    }
+  ],
+  "name": "FUN_14016e9b0",
+  "prototype": "undefined FUN_14016e9b0()",
+  "research_label": "GameControlAuxiliary",
+  "review_depth": "focused data-flow/assembly checks",
+  "rva": "0x16e9b0",
+  "size": 163,
+  "usage_boundary": "Shares campaign/VS auxiliary render path after readiness.",
+  "va": "0x14016e9b0"
+}

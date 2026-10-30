@@ -1,0 +1,51 @@
+{
+  "area": "player",
+  "callees": [
+    "0x140005940",
+    "0x140202920",
+    "0x140272150",
+    "0x140272370"
+  ],
+  "callers": [
+    "0x1401040c0",
+    "0x1401075c0"
+  ],
+  "confidence": "H",
+  "decompile_completed": true,
+  "decompile_error": "",
+  "incoming_references": [
+    {
+      "from": "0x1437e7c80",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x1402f4800",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x1402f4810",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x140106979",
+      "function": "0x1401040c0",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x14010827f",
+      "function": "0x1401075c0",
+      "type": "UNCONDITIONAL_CALL"
+    }
+  ],
+  "name": "FUN_14010ead0",
+  "prototype": "undefined FUN_14010ead0()",
+  "research_label": "PlayerPostStepConstraints",
+  "review_depth": "focused data-flow/assembly checks",
+  "rva": "0x10ead0",
+  "size": 1861,
+  "usage_boundary": "Touches movement/transform and constraints; not the complete flight integrator contract.",
+  "va": "0x14010ead0"
+}

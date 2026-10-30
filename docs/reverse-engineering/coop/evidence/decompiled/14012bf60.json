@@ -1,0 +1,33 @@
+{
+  "area": "campaign",
+  "callees": [
+    "0x1400f4d40",
+    "0x14012c0a0"
+  ],
+  "callers": [
+    "0x1400d1780"
+  ],
+  "confidence": "H",
+  "decompile_completed": true,
+  "decompile_error": "",
+  "incoming_references": [
+    {
+      "from": "0x1437e8bf8",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x1400d1919",
+      "function": "0x1400d1780",
+      "type": "UNCONDITIONAL_CALL"
+    }
+  ],
+  "name": "FUN_14012bf60",
+  "prototype": "undefined FUN_14012bf60()",
+  "research_label": "MissionControllerStep",
+  "review_depth": "focused data-flow/assembly checks",
+  "rva": "0x12bf60",
+  "size": 299,
+  "usage_boundary": "Mission-controller subobject update; VM/event semantics remain a separate gate.",
+  "va": "0x14012bf60"
+}

@@ -1,0 +1,49 @@
+{
+  "area": "campaign",
+  "callees": [
+    "0x140200de0",
+    "0x1402014c0"
+  ],
+  "callers": [
+    "0x14016ec80",
+    "0x14016f7e0"
+  ],
+  "confidence": "H",
+  "decompile_completed": true,
+  "decompile_error": "",
+  "incoming_references": [
+    {
+      "from": "0x1437e5b8c",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x14016eca0",
+      "function": "0x14016ec80",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x14016f837",
+      "function": "0x14016f7e0",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x14016f80d",
+      "function": "0x14016f7e0",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x14016f822",
+      "function": "0x14016f7e0",
+      "type": "UNCONDITIONAL_CALL"
+    }
+  ],
+  "name": "FUN_1400c9690",
+  "prototype": "undefined FUN_1400c9690()",
+  "research_label": "MissionResourceSelectB",
+  "review_depth": "focused data-flow/assembly checks",
+  "rva": "0xc9690",
+  "size": 194,
+  "usage_boundary": "Second setup resource path, not a proven spawn API.",
+  "va": "0x1400c9690"
+}

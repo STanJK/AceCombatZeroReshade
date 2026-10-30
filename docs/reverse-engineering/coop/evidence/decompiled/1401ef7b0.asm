@@ -1,0 +1,3 @@
+0x1401ef7b0  MOV EDX,dword ptr [R9]
+0x1401ef7b3  LEA RCX,[0x14031dfc0]
+0x1401ef7ba  JMP 0x1401eda90

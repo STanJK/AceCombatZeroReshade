@@ -1,0 +1,65 @@
+{
+  "area": "targeting",
+  "callees": [],
+  "callers": [
+    "0x1400c15d0",
+    "0x1400c1c20",
+    "0x1400c1f80",
+    "0x1400c22c0",
+    "0x1400f43c0",
+    "0x1401040c0"
+  ],
+  "confidence": "S/H",
+  "decompile_completed": true,
+  "decompile_error": "",
+  "incoming_references": [
+    {
+      "from": "0x1437e5838",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x1400c1f1d",
+      "function": "0x1400c1c20",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x1400c2255",
+      "function": "0x1400c1f80",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x1400c25b5",
+      "function": "0x1400c22c0",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x140104af1",
+      "function": "0x1401040c0",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x140104c7e",
+      "function": "0x1401040c0",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x1400f49b4",
+      "function": "0x1400f43c0",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x1400c1c13",
+      "function": "0x1400c15d0",
+      "type": "UNCONDITIONAL_CALL"
+    }
+  ],
+  "name": "FUN_1400c1030",
+  "prototype": "undefined FUN_1400c1030()",
+  "research_label": "TargetSlotClear",
+  "review_depth": "focused data-flow/assembly checks",
+  "rva": "0xc1030",
+  "size": 180,
+  "usage_boundary": "Clears target selector pairs and corresponding actor flags.",
+  "va": "0x1400c1030"
+}

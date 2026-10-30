@@ -1,0 +1,78 @@
+{
+  "image_base": "0x140000000",
+  "sections": [
+    {
+      "flags": 1610612768,
+      "name": ".text",
+      "raw": 1024,
+      "raw_size": 2596864,
+      "rva": 4096,
+      "size": 2596703
+    },
+    {
+      "flags": 1073741888,
+      "name": ".rdata",
+      "raw": 2597888,
+      "raw_size": 581632,
+      "rva": 2600960,
+      "size": 581372
+    },
+    {
+      "flags": 3221225536,
+      "name": ".data",
+      "raw": 3179520,
+      "raw_size": 112128,
+      "rva": 3182592,
+      "size": 55405916
+    },
+    {
+      "flags": 1073741888,
+      "name": ".pdata",
+      "raw": 3291648,
+      "raw_size": 98304,
+      "rva": 58589184,
+      "size": 98268
+    },
+    {
+      "flags": 3221225536,
+      "name": ".fptable",
+      "raw": 3389952,
+      "raw_size": 512,
+      "rva": 58687488,
+      "size": 256
+    },
+    {
+      "flags": 1073741888,
+      "name": "_RDATA",
+      "raw": 3390464,
+      "raw_size": 88576,
+      "rva": 58691584,
+      "size": 88336
+    },
+    {
+      "flags": 3254779968,
+      "name": ".xbld",
+      "raw": 3479040,
+      "raw_size": 512,
+      "rva": 58781696,
+      "size": 225
+    },
+    {
+      "flags": 1073741888,
+      "name": ".rsrc",
+      "raw": 3479552,
+      "raw_size": 272384,
+      "rva": 58785792,
+      "size": 271968
+    },
+    {
+      "flags": 1107296320,
+      "name": ".reloc",
+      "raw": 3751936,
+      "raw_size": 40960,
+      "rva": 59060224,
+      "size": 40784
+    }
+  ],
+  "sha256": "43814d4b3292efd0a07fd71bef2f1670c0e5ac7cf2595c9e136d78451380a664"
+}

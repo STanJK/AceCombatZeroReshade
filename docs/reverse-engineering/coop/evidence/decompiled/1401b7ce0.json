@@ -1,0 +1,52 @@
+{
+  "area": "history",
+  "callees": [
+    "0x140019ef0",
+    "0x140019f80",
+    "0x14001a0c0",
+    "0x14001a2a0",
+    "0x14022d4d4",
+    "0x14022d540"
+  ],
+  "callers": [
+    "0x1400ce880"
+  ],
+  "confidence": "S/H",
+  "decompile_completed": true,
+  "decompile_error": "",
+  "incoming_references": [
+    {
+      "from": "0x1437ee118",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x1402fcaf0",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x1402fcb70",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x1402fcb88",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x1400cfde1",
+      "function": "0x1400ce880",
+      "type": "UNCONDITIONAL_CALL"
+    }
+  ],
+  "name": "FUN_1401b7ce0",
+  "prototype": "undefined FUN_1401b7ce0()",
+  "research_label": "CaptureWorldHistory",
+  "review_depth": "focused data-flow/assembly checks",
+  "rva": "0x1b7ce0",
+  "size": 1097,
+  "usage_boundary": "Traverses actor state, records selected events and copies previous vectors.",
+  "va": "0x1401b7ce0"
+}

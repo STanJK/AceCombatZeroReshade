@@ -1,0 +1,50 @@
+{
+  "area": "history",
+  "callees": [
+    "0x14001a0c0",
+    "0x14001aac0",
+    "0x14001adc0",
+    "0x14001b010"
+  ],
+  "callers": [
+    "0x1401b7ce0"
+  ],
+  "confidence": "S/H",
+  "decompile_completed": true,
+  "decompile_error": "",
+  "incoming_references": [
+    {
+      "from": "0x1437e0e7c",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x1402e8180",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x1402e81b4",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x1401b7da6",
+      "function": "0x1401b7ce0",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x1401b7e5c",
+      "function": "0x1401b7ce0",
+      "type": "UNCONDITIONAL_CALL"
+    }
+  ],
+  "name": "FUN_14001a2a0",
+  "prototype": "undefined FUN_14001a2a0()",
+  "research_label": "HistoryCaptureActor",
+  "review_depth": "focused data-flow/assembly checks",
+  "rva": "0x1a2a0",
+  "size": 1311,
+  "usage_boundary": "Selective actor-event capture; includes capacity/decimation policy.",
+  "va": "0x14001a2a0"
+}

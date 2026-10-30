@@ -1,0 +1,88 @@
+{
+  "area": "weapon",
+  "callees": [
+    "0x140019ef0",
+    "0x14001b280"
+  ],
+  "callers": [
+    "0x1401040c0",
+    "0x14011b6d0",
+    "0x14011fdd0",
+    "0x1401251b0",
+    "0x140125400",
+    "0x1401b9400"
+  ],
+  "confidence": "S/H",
+  "decompile_completed": true,
+  "decompile_error": "",
+  "incoming_references": [
+    {
+      "from": "0x1437e93e4",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x1402f6edc",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x1402f6eec",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x1401052b4",
+      "function": "0x1401040c0",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x1401ba7ca",
+      "function": "0x1401b9400",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x140125d9c",
+      "function": "0x140125400",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x140125fe3",
+      "function": "0x140125400",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x1401262b8",
+      "function": "0x140125400",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x14012640c",
+      "function": "0x140125400",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x14011b7e5",
+      "function": "0x14011b6d0",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x14011ff16",
+      "function": "0x14011fdd0",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x1401252a9",
+      "function": "0x1401251b0",
+      "type": "UNCONDITIONAL_CALL"
+    }
+  ],
+  "name": "FUN_140141200",
+  "prototype": "undefined FUN_140141200()",
+  "research_label": "DispatchWeaponFamilyLaunch",
+  "review_depth": "focused data-flow/assembly checks",
+  "rva": "0x141200",
+  "size": 834,
+  "usage_boundary": "Chooses weapon controller by type byte and calls virtual +0x38; records subtype 1 on accepted launch; inferred float/register ABI remains open.",
+  "va": "0x140141200"
+}

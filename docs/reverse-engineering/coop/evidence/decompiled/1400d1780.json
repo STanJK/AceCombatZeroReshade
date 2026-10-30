@@ -1,0 +1,66 @@
+{
+  "area": "simulation",
+  "callees": [
+    "0x140019ef0",
+    "0x1400c3910",
+    "0x1400c5c00",
+    "0x1400c5ff0",
+    "0x1400ce880",
+    "0x1400d03a0",
+    "0x1400d0c40",
+    "0x1400d1300",
+    "0x1400d46a0",
+    "0x1401023b0",
+    "0x14010e220",
+    "0x140113080",
+    "0x140128d90",
+    "0x14012bf60",
+    "0x140187190",
+    "0x1401b7480",
+    "0x1401b8c40",
+    "0x1401c56d0",
+    "0x1401c6150",
+    "0x1401c93c0",
+    "0x140202020",
+    "0x140229640",
+    "0x14022d4d4",
+    "0x14022d540"
+  ],
+  "callers": [
+    "0x14016e880",
+    "0x14016f550"
+  ],
+  "confidence": "S/H",
+  "decompile_completed": true,
+  "decompile_error": "",
+  "incoming_references": [
+    {
+      "from": "0x1437e5ebc",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x1402f164c",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x14016e89e",
+      "function": "0x14016e880",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x14016f56a",
+      "function": "0x14016f550",
+      "type": "UNCONDITIONAL_CALL"
+    }
+  ],
+  "name": "FUN_1400d1780",
+  "prototype": "undefined FUN_1400d1780()",
+  "research_label": "MissionStateDriver",
+  "review_depth": "focused data-flow/assembly checks",
+  "rva": "0xd1780",
+  "size": 3580,
+  "usage_boundary": "Called by campaign and VS after setup readiness; drives special states and active world step.",
+  "va": "0x1400d1780"
+}

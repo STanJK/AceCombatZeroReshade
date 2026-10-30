@@ -1,0 +1,65 @@
+{
+  "area": "entity",
+  "callees": [
+    "0x140031f80",
+    "0x140035b10",
+    "0x1401153a0",
+    "0x140116c40",
+    "0x140117a10",
+    "0x140118b90",
+    "0x140119040",
+    "0x140119950",
+    "0x140119a30",
+    "0x14011e140",
+    "0x14011f160",
+    "0x140126430",
+    "0x140127650",
+    "0x1401278c0",
+    "0x140189320",
+    "0x1401c56d0",
+    "0x1401c6a00",
+    "0x1401c97a0",
+    "0x1401c9e60"
+  ],
+  "callers": [
+    "0x140132240"
+  ],
+  "confidence": "H",
+  "decompile_completed": true,
+  "decompile_error": "",
+  "incoming_references": [
+    {
+      "from": "0x1437e7f20",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x1402f4c28",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x1402f4c64",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x1401323f8",
+      "function": "0x140132240",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x1401333fc",
+      "function": "0x140132240",
+      "type": "UNCONDITIONAL_CALL"
+    }
+  ],
+  "name": "FUN_140115c20",
+  "prototype": "undefined FUN_140115c20()",
+  "research_label": "ActorLifecycleAux",
+  "review_depth": "focused data-flow/assembly checks",
+  "rva": "0x115c20",
+  "size": 4082,
+  "usage_boundary": "Participates in actor state/death behavior; not a recovered free/despawn contract.",
+  "va": "0x140115c20"
+}

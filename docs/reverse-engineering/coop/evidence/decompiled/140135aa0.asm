@@ -1,0 +1,31 @@
+0x140135aa0  SUB RSP,0x28
+0x140135aa4  XOR R8D,R8D
+0x140135aa7  LEA RAX,[0x1402acd38]
+0x140135aae  MOV qword ptr [RCX],RAX
+0x140135ab1  MOV RDX,RCX
+0x140135ab4  MOV qword ptr [RCX + 0x8],R8
+0x140135ab8  MOV qword ptr [RCX + 0x10],R8
+0x140135abc  MOV qword ptr [RCX + 0x18],R8
+0x140135ac0  MOV qword ptr [RCX + 0x20],R8
+0x140135ac4  MOV qword ptr [RCX + 0x28],R8
+0x140135ac8  MOV qword ptr [RCX + 0x30],R8
+0x140135acc  MOV qword ptr [RCX + 0x38],R8
+0x140135ad0  MOV qword ptr [RCX + 0x40],R8
+0x140135ad4  ADD RCX,0x48
+0x140135ad8  CALL 0x140113950
+0x140135add  MOV word ptr [RDX + 0x15f],0x3c
+0x140135ae6  MOV RAX,RDX
+0x140135ae9  MOV dword ptr [RDX + 0x118],R8D
+0x140135af0  MOV qword ptr [RDX + 0x120],R8
+0x140135af7  MOV byte ptr [RDX + 0x15d],0x4
+0x140135afe  MOV dword ptr [RDX + 0x128],R8D
+0x140135b05  MOV dword ptr [RDX + 0x12c],0x477fff00
+0x140135b0f  MOV qword ptr [RDX + 0x110],R8
+0x140135b16  MOV qword ptr [RDX + 0x130],R8
+0x140135b1d  MOV qword ptr [RDX + 0x140],R8
+0x140135b24  MOV qword ptr [RDX + 0x148],R8
+0x140135b2b  MOV qword ptr [RDX + 0x150],R8
+0x140135b32  MOV word ptr [RDX + 0x170],R8W
+0x140135b3a  MOV byte ptr [RDX + 0x161],R8B
+0x140135b41  ADD RSP,0x28
+0x140135b45  RET

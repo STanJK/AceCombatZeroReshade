@@ -1,0 +1,124 @@
+{
+  "area": "input",
+  "callees": [],
+  "callers": [
+    "0x1400ce880",
+    "0x1401031b0",
+    "0x1401040c0",
+    "0x140106f30",
+    "0x140110bd0"
+  ],
+  "confidence": "S/H",
+  "decompile_completed": true,
+  "decompile_error": "",
+  "incoming_references": [
+    {
+      "from": "0x1437ec7b0",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x1400cec06",
+      "function": "0x1400ce880",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x1400cec31",
+      "function": "0x1400ce880",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x1400cecfd",
+      "function": "0x1400ce880",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x1401042c2",
+      "function": "0x1401040c0",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x1401043be",
+      "function": "0x1401040c0",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x1401043cc",
+      "function": "0x1401040c0",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x1401043da",
+      "function": "0x1401040c0",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x1401043ec",
+      "function": "0x1401040c0",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x140104a3f",
+      "function": "0x1401040c0",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x140104ab1",
+      "function": "0x1401040c0",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x140104ecc",
+      "function": "0x1401040c0",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x140105a6d",
+      "function": "0x1401040c0",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x140105b5e",
+      "function": "0x1401040c0",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x14010338e",
+      "function": "0x1401031b0",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x140110cdc",
+      "function": "0x140110bd0",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x140110cf9",
+      "function": "0x140110bd0",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x140110d0f",
+      "function": "0x140110bd0",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x140110d8f",
+      "function": "0x140110bd0",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x14010707d",
+      "function": "0x140106f30",
+      "type": "UNCONDITIONAL_CALL"
+    }
+  ],
+  "name": "FUN_140187c80",
+  "prototype": "uchar FUN_140187c80(ulonglong arg1, uchar arg2, uchar arg3)",
+  "research_label": "QueryActionPressed",
+  "review_depth": "focused data-flow/assembly checks",
+  "rva": "0x187c80",
+  "size": 538,
+  "usage_boundary": "AL boolean; DL logical player slot, R8B action; RCX unused in recovered body.",
+  "va": "0x140187c80"
+}

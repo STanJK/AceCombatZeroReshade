@@ -1,0 +1,44 @@
+{
+  "area": "entity",
+  "callees": [
+    "0x140118040",
+    "0x14022d4a0",
+    "0x14022da9c"
+  ],
+  "callers": [
+    "0x1401363c0"
+  ],
+  "confidence": "S/H",
+  "decompile_completed": true,
+  "decompile_error": "",
+  "incoming_references": [
+    {
+      "from": "0x1437e8d6c",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x1402f62dc",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x1402f6334",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x1401364e8",
+      "function": "0x1401363c0",
+      "type": "UNCONDITIONAL_CALL"
+    }
+  ],
+  "name": "FUN_1401338c0",
+  "prototype": "undefined FUN_1401338c0()",
+  "research_label": "UnitRelationshipDamageStep",
+  "review_depth": "focused data-flow/assembly checks",
+  "rva": "0x1338c0",
+  "size": 533,
+  "usage_boundary": "Category/proximity path can apply damage; client authority gates must cover it.",
+  "va": "0x1401338c0"
+}
