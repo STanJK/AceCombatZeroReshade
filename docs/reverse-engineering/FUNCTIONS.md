@@ -40,6 +40,20 @@ Analysis names are descriptive labels, not original symbols.
 | F22 | ActionStateCopy | `0x140188550` | `0x0188550` | Verified | Copies raw fields into normalized action state. |
 | F23 | ActionQuery | `0x140187C80` | `0x0187C80` | Verified | Gameplay action query used by camera mode and other systems. |
 | F24 | InputAggregate | `0x14021D4C0` | `0x021D4C0` | High-confidence | Unified Steam/controller/keyboard input aggregation. |
+| F25 | ModeGameControlCtor | `0x1401796F0` | `0x01796F0` | Verified | Allocates/initializes the 32-byte `ModeGameControl` object and installs its vtable. |
+| F26 | ModeGameControlEnter | `0x14016E0B0` | `0x016E0B0` | High-confidence | `ModeGameControl` vfunc `+0x08`; large gameplay initialization path; writes lifecycle/control flag `0x14032C933 = 1`. |
+| F27 | ModeGameControlLeave | `0x14016E4C0` | `0x016E4C0` | High-confidence | `ModeGameControl` vfunc `+0x10`; gameplay shutdown/result-copy path; writes `0x14032C933 = 0`. |
+| F28 | ModeGameControlUpdate | `0x14016E880` | `0x016E880` | Verified | `ModeGameControl` vfunc `+0x20`; advances mission-exit phases and selects `ModeGameEnd`/return modes. |
+| F29 | ModeGameControlAux | `0x14016E9B0` | `0x016E9B0` | Open/high-confidence | `ModeGameControl` vfunc `+0x28`; additional gameplay/update-render work; exact semantic label open. |
+| F30 | ModeGameEndCtor | `0x1401798C0` | `0x01798C0` | Verified | Allocates/initializes the 16-byte `ModeGameEnd` object. |
+| F31 | ModeGameEndEnter | `0x14016FF00` | `0x016FF00` | High-confidence | `ModeGameEnd` vfunc `+0x08`; selects/pushes a `CModeSelector` return path. |
+| F32 | ModeGameEndUpdate | `0x14016FFF0` | `0x016FFF0` | High-confidence | `ModeGameEnd` vfunc `+0x20`; continues to return/reload/game-sequence constructors. |
+| F33 | ModeGameSeqCtor | `0x140178530` | `0x0178530` | Verified | Allocates a `ModeGameSeq` object; used by a `ModeGameEnd` return path. |
+| F34 | ModeHolderSetInitial | `0x140200FD0` | `0x0200FD0` | Verified | Sets holder index to 0, stores first mode, invokes new mode vfunc `+0x08`. |
+| F35 | ModeHolderReplace | `0x140200FF0` | `0x0200FF0` | Verified | Calls current `+0x10`, replaces top mode, invokes new `+0x08`. |
+| F36 | ModeHolderPush | `0x140201040` | `0x0201040` | Verified | Increments holder top, stores mode, invokes new `+0x08`. |
+| F37 | ModeHolderPop | `0x140201070` | `0x0201070` | Verified | Calls current `+0x10`, decrements top and invokes resumed mode `+0x18`. |
+| F38 | ModeHolderReenter | `0x1402010B0` | `0x02010B0` | Verified | Invokes current mode vfunc `+0x08`. |
 
 ## Important globals
 
@@ -49,6 +63,11 @@ Analysis names are descriptive labels, not original symbols.
 | GameplayInputRaw | `0x14032C8E0` | `0x032C8E0` | Raw normalized gameplay input state pointer/global. |
 | GameplayActionState | `0x14032C8E8` | `0x032C8E8` | Higher-level action-state pointer/global. |
 | CameraGlobalAngle | `0x140328448` | `0x0328448` | Camera/render angle-related global used by `sub_1401580C0`; not yet identified as FOV. |
+| GameControlLifecycleFlag | `0x14032C933` | `0x032C933` | GameControl/control-active byte. Enter writes 1, leave writes 0, but gameplay code also toggles it; diagnostic only for now. |
+| GameControlLifecycleMirror | `0x14032C932` | `0x032C932` | Compared/mirrored against `0x14032C933` by input aggregation code. Exact role open. |
+| PendingModeCtorTable | `0x140328458` | `0x0328458` | Global table/stack of pending mode-constructor function pointers used by mode transitions. |
+| PendingModeCtorIndex | `0x14030CAB4` | `0x030CAB4` | Index used with `PendingModeCtorTable`; not the `ModeHolder +0x48` top index. |
+| GameControlPhaseCounter | `0x14033BBA4` | `0x033BBA4` | Reset by GameControl constructors and incremented by `ModeGameControlUpdate`; exact gameplay semantic is internal/phase timing. |
 
 ## DeviceResources approximate layout
 
@@ -214,3 +233,21 @@ confirm sub_140202C90 projection role
     ↓
 apply FOV multiplier per CameraMode
 ```
+
+
+## Mode lifecycle cross-reference
+
+Detailed structure, transition behavior and production implications are in:
+
+- [`MODE_LIFECYCLE.md`](MODE_LIFECYCLE.md)
+
+Key static relation:
+
+```text
+ModeHolder replace/pop
+    → current mode vfunc +0x10
+    → ModeGameControlLeave (when current mode is GameControl)
+    → GameControl/control-active flag written 0
+```
+
+The raw flag at RVA `0x032C933` is not yet a production `combat_active` contract because other gameplay paths also write it.
