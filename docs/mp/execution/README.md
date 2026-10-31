@@ -5,6 +5,11 @@
 
 要先运行现有成果，直接阅读 [demo 操作说明](../../usage/COOP_DEMO.zh-CN.md)。
 
+最新原战役僚机方向请先读 [三轮研究](../wingman/REVERSE_PLAN.md)、
+[新版实行书](WINGMAN_LOCAL.md)、[新模块审计](WINGMAN_AUDIT.md) 和
+[取证操作](../../usage/WINGMAN_LOCAL.zh-CN.md)。旧九模块保留，新增第十个 wingman 模块。
+原生可玩接管尚未完成。
+
 阅读顺序：
 
 1. [项目结构扫描](REPOSITORY_SURVEY.md)

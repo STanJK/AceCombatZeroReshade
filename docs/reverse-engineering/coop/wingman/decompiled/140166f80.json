@@ -1,0 +1,38 @@
+{
+  "va": "0x140166f80",
+  "rva": "0x166f80",
+  "name": "FUN_140166f80",
+  "prototype": "undefined FUN_140166f80()",
+  "size": 211,
+  "callers": [],
+  "callees": [
+    "0x1401cba00",
+    "0x1401ef180",
+    "0x1401f6b40",
+    "0x140202100"
+  ],
+  "incoming_references": [
+    {
+      "from": "0x1437eab30",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x1402af940",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x1402bdea0",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x1402bc428",
+      "function": "",
+      "type": "DATA"
+    }
+  ],
+  "decompile_completed": true,
+  "decompile_error": ""
+}

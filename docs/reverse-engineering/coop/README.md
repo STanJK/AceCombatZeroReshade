@@ -1,5 +1,9 @@
 # Two-player campaign co-op research
 
+2026-10-31 supplemental [campaign-wingman investigation](wingman/README.md) records
+three recursive rounds, 169 selected exports (including rechecks), native probe modules
+and the remaining unimplemented takeover gates. It adds no new gameplay-confirmed claims.
+
 Research date: **2026-10-30**. Branch: **`mp`**. Baseline commit:
 `56cb5594fe199e93129380ce76dd5ae42345256c`.
 

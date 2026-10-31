@@ -10,6 +10,7 @@ crate-type = ["cdylib", "rlib"]
 [dependencies]
 acz-coop-contracts.workspace = true
 acz-coop-game.workspace = true
+acz-coop-wingman.workspace = true
 acz-coop-trace.workspace = true
 [target.'cfg(windows)'.dependencies]
 minhook-sys = "=0.1.1"

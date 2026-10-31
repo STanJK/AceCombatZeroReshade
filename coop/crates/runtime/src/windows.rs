@@ -35,6 +35,8 @@ static STOP: AtomicBool = AtomicBool::new(false);
 static ORIGINAL: [AtomicUsize; 4] = [const { AtomicUsize::new(0) }; 4];
 struct Context {
     observer: Mutex<Observer>,
+    image: VerifiedImage,
+    wingman_probe: bool,
     trace: TraceSender,
 }
 static CONTEXT: OnceLock<Context> = OnceLock::new();
@@ -204,6 +206,32 @@ fn observe_before_update(mode: usize) {
         }
     }
 }
+fn observe_after_update(mode: usize) {
+    if STOP.load(Ordering::Acquire) {
+        return;
+    }
+    if let Some(c) = CONTEXT.get() {
+        if !c.wingman_probe {
+            return;
+        }
+        if let Ok(o) = c.observer.try_lock() {
+            // SAFETY: identity-only Win32 API. inspect never adopts a world after a native leave.
+            let thread = unsafe { GetCurrentThreadId() };
+            match o.inspect(&LocalMemory, mode, thread) {
+                Ok(frame) if frame.ready => {
+                    match acz_coop_wingman::capture(&LocalMemory, &c.image, &frame) {
+                        Ok(snapshot) => {
+                            c.trace.try_record(Record::Wingman(snapshot));
+                        }
+                        Err(e) => record(Status::WingmanProbeRejected, error_code(e)),
+                    }
+                }
+                Ok(_) | Err(Error::Unavailable) => {}
+                Err(e) => record(Status::WingmanProbeRejected, error_code(e)),
+            }
+        }
+    }
+}
 unsafe extern "system" fn on_campaign_update(mode: usize, holder: usize) {
     observe_before_update(mode);
     // SAFETY: assembly consumes both RCX and RDX, including a holder tail-call on mission exit.
@@ -212,6 +240,7 @@ unsafe extern "system" fn on_campaign_update(mode: usize, holder: usize) {
             mode, holder,
         );
     }
+    observe_after_update(mode);
 }
 unsafe extern "system" fn on_vs_update(mode: usize, holder: usize) {
     observe_before_update(mode);
@@ -221,6 +250,7 @@ unsafe extern "system" fn on_vs_update(mode: usize, holder: usize) {
             mode, holder,
         );
     }
+    observe_after_update(mode);
 }
 struct NativeHooks {
     targets: [usize; 4],
@@ -367,7 +397,9 @@ fn bootstrap(
     }
     CONTEXT
         .set(Context {
-            observer: Mutex::new(Observer::new(image)),
+            observer: Mutex::new(Observer::new(image.clone())),
+            image,
+            wingman_probe: config.wingman_probe,
             trace: tx,
         })
         .map_err(|_| Error::Conflict)?;

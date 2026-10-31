@@ -1,0 +1,61 @@
+{
+  "va": "0x14012aa30",
+  "rva": "0x12aa30",
+  "name": "FUN_14012aa30",
+  "prototype": "undefined FUN_14012aa30()",
+  "size": 5412,
+  "callers": [
+    "0x14010f600",
+    "0x140119a30"
+  ],
+  "callees": [
+    "0x1400110b0",
+    "0x140011150",
+    "0x1400111f0",
+    "0x140019ef0",
+    "0x14001a7c0",
+    "0x14001b280",
+    "0x14003a2e0",
+    "0x140078db0",
+    "0x140128d90",
+    "0x140128e00",
+    "0x1401293b0",
+    "0x140129660",
+    "0x140202920",
+    "0x140203050",
+    "0x140203270",
+    "0x140272150",
+    "0x140272370",
+    "0x140272c30",
+    "0x140275650"
+  ],
+  "incoming_references": [
+    {
+      "from": "0x1437e8b98",
+      "type": "DATA",
+      "function": ""
+    },
+    {
+      "from": "0x1402f5ff0",
+      "type": "DATA",
+      "function": ""
+    },
+    {
+      "from": "0x1402f605c",
+      "type": "DATA",
+      "function": ""
+    },
+    {
+      "from": "0x14010fbc0",
+      "type": "UNCONDITIONAL_CALL",
+      "function": "0x14010f600"
+    },
+    {
+      "from": "0x140119bfb",
+      "type": "UNCONDITIONAL_CALL",
+      "function": "0x140119a30"
+    }
+  ],
+  "decompile_completed": true,
+  "decompile_error": ""
+}

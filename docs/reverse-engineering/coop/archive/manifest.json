@@ -62,9 +62,9 @@
       "sha256": "fb38660468579d2eb81287ae7089028650147e57504f6585e3f6b12fd5e11461"
     },
     {
-      "bytes": 1046,
+      "bytes": 1350,
       "path": "docs/mp/execution/README.md",
-      "sha256": "0a2d890f17d1678f8228e484adee69163179576b252e5bc0b806819e2013e1e9"
+      "sha256": "5a91fa3b191e68e2c12ec4058540de3e4b389c680bf8f0fdca2582a06fa9a10d"
     },
     {
       "bytes": 2201,
@@ -80,6 +80,16 @@
       "bytes": 4550,
       "path": "docs/mp/execution/VALIDATION.md",
       "sha256": "32ea55c8de464f6c63dd7cb4e49d9e34d22de82618595da0d4ea1d2515224a14"
+    },
+    {
+      "bytes": 4433,
+      "path": "docs/mp/execution/WINGMAN_AUDIT.md",
+      "sha256": "0d53594a46ccc8b0f7ccb7526366fd1743a5560ab1f5b37547044c628f0a74a0"
+    },
+    {
+      "bytes": 5733,
+      "path": "docs/mp/execution/WINGMAN_LOCAL.md",
+      "sha256": "91efd745662bda1822c6db86b03bf66bee8fda4c037805b57397b614f8870389"
     },
     {
       "bytes": 198,
@@ -147,14 +157,59 @@
       "sha256": "0f6879b9e095a42fdc481bd581d80d97014bf63b0b2f71572231fd1b9d836005"
     },
     {
+      "bytes": 3163,
+      "path": "docs/mp/execution/evidence/wingman/build-logs.json.gz",
+      "sha256": "4f596882a6501ba94f0139ed91bdaa10fd98bced9cf6f00b6484b42c799f44a5"
+    },
+    {
+      "bytes": 155,
+      "path": "docs/mp/execution/evidence/wingman/evidence-validation.json",
+      "sha256": "7cd25e29f5970b7699c06bed2c065f8a48a4bc0e7fa429421e5f69bb528fa8c7"
+    },
+    {
+      "bytes": 258,
+      "path": "docs/mp/execution/evidence/wingman/interfaces-linux.json",
+      "sha256": "7b0674b024562a45ab21972fd206c6e8c1d93f0c36ee1b3cbad86052d0cf889f"
+    },
+    {
+      "bytes": 608,
+      "path": "docs/mp/execution/evidence/wingman/interfaces-windows-cross.json",
+      "sha256": "a478f0037c0f9388b22329c1ffdf07c7e8150f21b1a7d85ea9f32b6022135d1e"
+    },
+    {
+      "bytes": 5765,
+      "path": "docs/mp/execution/evidence/wingman/validation.json",
+      "sha256": "f44ec1d5355e36451062d642bea80775f9a4e04f823d829ba0c5308cf0757ecb"
+    },
+    {
+      "bytes": 4704,
+      "path": "docs/mp/wingman/REVERSE_PLAN.md",
+      "sha256": "025b9ef3a8f478822b41a76577f371d00c5fde3f2d349e6030f95a97ffb0ca68"
+    },
+    {
+      "bytes": 2266,
+      "path": "docs/mp/wingman/ROUND_1.md",
+      "sha256": "a1ff16bfde3435742f099f4811b7ece0f6230a069572700c31532bc0bc7a7b29"
+    },
+    {
+      "bytes": 4972,
+      "path": "docs/mp/wingman/ROUND_2.md",
+      "sha256": "0692695123b38ef2acc09f3b74756131330b78180771ea8999555c31525b3328"
+    },
+    {
+      "bytes": 3429,
+      "path": "docs/mp/wingman/ROUND_3.md",
+      "sha256": "98e68a25d1c8d47ac8934a29e43a9c234ae119ac485aacabc6620c0c4c411b1a"
+    },
+    {
       "bytes": 5990,
       "path": "docs/usage/CODE_READING_NOTES.md",
       "sha256": "570b88693dacb52ccd64f4aa4d1c9cd6ed42cbe110ce1e63a45351922bbf9c8e"
     },
     {
-      "bytes": 23117,
+      "bytes": 23309,
       "path": "docs/usage/COOP_DEMO.zh-CN.md",
-      "sha256": "74ba1195992d12ec469499c07de0ed20d1dad8256650dcb3a38e0ae9d727c115"
+      "sha256": "14de05616579a1fd0c56fecfb9488345de104d09fcfccc8a2f1cc92617a626b4"
     },
     {
       "bytes": 74669,
@@ -167,9 +222,9 @@
       "sha256": "362a72f370b3b6f86aab9d60b705a3ca2994a901924a9aeb73f38fc92a06ddc2"
     },
     {
-      "bytes": 2476,
+      "bytes": 2610,
       "path": "docs/usage/README.md",
-      "sha256": "696cd9e63a42730c30f3fb11024ade2fa78c6a9893be1c64092bb64e7212f4b9"
+      "sha256": "a7af3d5bc23241de878cef1857e026a34b686f5ede2bd418235525f450ff30f0"
     },
     {
       "bytes": 5911,
@@ -180,9 +235,14 @@
       "bytes": 4220,
       "path": "docs/usage/RUST_COOP_FOUNDATION.md",
       "sha256": "11413a63722262c95006cf0681bca1490f2547c74989435d4bb0fd12eb73f4e5"
+    },
+    {
+      "bytes": 4340,
+      "path": "docs/usage/WINGMAN_LOCAL.zh-CN.md",
+      "sha256": "8ee9c1176c257b2614646d241df0d6a63e8668d3603bacf768b7ef4fc2df7564"
     }
   ],
   "format": 1,
-  "research_date": "2026-10-30",
+  "research_date": "2026-10-31",
   "target_sha256": "43814d4b3292efd0a07fd71bef2f1670c0e5ac7cf2595c9e136d78451380a664"
 }

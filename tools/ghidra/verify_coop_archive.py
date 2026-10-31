@@ -84,7 +84,7 @@ def freeze():
     plans = files_in([Path("docs/mp"), Path("docs/usage")])
     rows = [entry(p) for p in plans]
     write_json(ARCHIVE / "manifest.json", dict(
-        format=1, research_date="2026-10-30", target_sha256=EXPECTED_SHA256,
+        format=1, research_date="2026-10-31", target_sha256=EXPECTED_SHA256,
         contents="Canonical docs/mp and docs/usage at this research revision", files=rows))
     stream = io.BytesIO()
     with tarfile.open(fileobj=stream, mode="w", format=tarfile.PAX_FORMAT) as tar:

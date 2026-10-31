@@ -1,0 +1,32 @@
+{
+  "va": "0x1401bd460",
+  "rva": "0x1bd460",
+  "name": "FUN_1401bd460",
+  "prototype": "undefined FUN_1401bd460()",
+  "size": 454,
+  "callers": [
+    "0x140164e80",
+    "0x140165fc0",
+    "0x140167080"
+  ],
+  "callees": [],
+  "incoming_references": [
+    {
+      "function": "0x140164e80",
+      "type": "UNCONDITIONAL_CALL",
+      "from": "0x1401656c1"
+    },
+    {
+      "function": "0x140165fc0",
+      "type": "UNCONDITIONAL_CALL",
+      "from": "0x1401668a4"
+    },
+    {
+      "function": "0x140167080",
+      "type": "UNCONDITIONAL_CALL",
+      "from": "0x1401678ee"
+    }
+  ],
+  "decompile_completed": true,
+  "decompile_error": ""
+}

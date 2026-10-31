@@ -1,0 +1,9 @@
+{
+  "result": "PASS",
+  "modules": 10,
+  "dependency_boundaries": "PASS",
+  "compatibility_sha256": "af6c7d228a09ccece18337cb75b3f0f133052dc509dda46abd4040ebda988409",
+  "native_candidates": 4,
+  "native_source_facts": "PASS",
+  "gameplay_executed": false
+}

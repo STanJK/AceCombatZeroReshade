@@ -7,3 +7,4 @@ publish.workspace = true
 [dependencies]
 acz-coop-contracts.workspace = true
 acz-coop-game.workspace = true
+acz-coop-wingman.workspace = true

@@ -1,5 +1,5 @@
 [workspace]
-members = ["crates/contracts", "crates/protocol", "crates/session", "crates/replication", "crates/transport", "crates/game", "crates/trace", "crates/runtime", "crates/cli"]
+members = ["crates/contracts", "crates/protocol", "crates/session", "crates/replication", "crates/transport", "crates/game", "crates/wingman", "crates/trace", "crates/runtime", "crates/cli"]
 resolver = "2"
 
 [workspace.package]
@@ -23,6 +23,8 @@ sha2 = "=0.10.9"
 getrandom = "=0.2.16"
 
 acz-coop-game = { path = "crates/game" }
+
+acz-coop-wingman = { path = "crates/wingman" }
 
 acz-coop-trace = { path = "crates/trace" }
 

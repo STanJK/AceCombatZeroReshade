@@ -1,0 +1,90 @@
+{
+  "va": "0x1400cd880",
+  "rva": "0xcd880",
+  "name": "FUN_1400cd880",
+  "prototype": "undefined FUN_1400cd880()",
+  "size": 3705,
+  "callers": [
+    "0x1400ce880",
+    "0x1400d4180",
+    "0x14016f080",
+    "0x14016fa80"
+  ],
+  "callees": [
+    "0x140004e80",
+    "0x140014960",
+    "0x140019ef0",
+    "0x140019f80",
+    "0x14007f380",
+    "0x14007fbe0",
+    "0x1400a98c0",
+    "0x1400ae310",
+    "0x1400b95a0",
+    "0x1400bab90",
+    "0x1400c3680",
+    "0x1400f5af0",
+    "0x140102ab0",
+    "0x140113820",
+    "0x14012c0a0",
+    "0x140136040",
+    "0x140138120",
+    "0x140140b50",
+    "0x140189320",
+    "0x1401a5fc0",
+    "0x1401a8b40",
+    "0x1401c5740",
+    "0x1401fbec0",
+    "0x14022d480",
+    "0x14022d4d4",
+    "0x14022d540"
+  ],
+  "incoming_references": [
+    {
+      "function": "",
+      "type": "DATA",
+      "from": "0x1437e5c64"
+    },
+    {
+      "function": "",
+      "type": "DATA",
+      "from": "0x1402f1258"
+    },
+    {
+      "function": "",
+      "type": "DATA",
+      "from": "0x1402f12d0"
+    },
+    {
+      "function": "",
+      "type": "DATA",
+      "from": "0x1402f12f8"
+    },
+    {
+      "function": "0x1400ce880",
+      "type": "UNCONDITIONAL_CALL",
+      "from": "0x1400cf17f"
+    },
+    {
+      "function": "0x1400ce880",
+      "type": "UNCONDITIONAL_CALL",
+      "from": "0x1400cf3f9"
+    },
+    {
+      "function": "0x1400d4180",
+      "type": "UNCONDITIONAL_CALL",
+      "from": "0x1400d42c6"
+    },
+    {
+      "function": "0x14016f080",
+      "type": "UNCONDITIONAL_CALL",
+      "from": "0x14016f0b8"
+    },
+    {
+      "function": "0x14016fa80",
+      "type": "UNCONDITIONAL_CALL",
+      "from": "0x14016fabf"
+    }
+  ],
+  "decompile_completed": true,
+  "decompile_error": ""
+}

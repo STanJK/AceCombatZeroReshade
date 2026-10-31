@@ -6,9 +6,9 @@
       "sha256": "5ecf288b66f9c4d021c095b2c089fa3599dad57b2b615dd6aa53b8b714205a55"
     },
     {
-      "bytes": 1711,
+      "bytes": 1771,
       "path": ".github/workflows/coop.yml",
-      "sha256": "1c418fcefb567c03b4eb5abbd9ee7e4057d7a89402b428550901dc0e3f718641"
+      "sha256": "c462ba7a87cf3625cda8f6049753224e2f0e77b3d7e6f073b486d34041ab8f6c"
     },
     {
       "bytes": 5328,
@@ -21,19 +21,19 @@
       "sha256": "920db8b80b21e35b41d1f9a46deb5936f3ed2a71dd59b2cbc3389b3a02563ff9"
     },
     {
-      "bytes": 5601,
+      "bytes": 5760,
       "path": "coop/Cargo.lock",
-      "sha256": "135e534a22bce036078150406ba7ffd2bbd11264c7970b8e556b8c52506b8689"
+      "sha256": "9e2980f7df5e65baf7c2100d6ecddf62442b00b4a0b28eebcc993f1ed8d68035"
     },
     {
-      "bytes": 873,
+      "bytes": 939,
       "path": "coop/Cargo.toml",
-      "sha256": "bb574dc39a2c02e384abf6425951cf8f082cd36fa91f34ac941bd116260d6e72"
+      "sha256": "72868d1cefe96499372b5eeac9ac3cb60fcb8d13960b9ed8d76cfcc9503a8b14"
     },
     {
-      "bytes": 4724,
+      "bytes": 5162,
       "path": "coop/README.md",
-      "sha256": "e72f8a841cf7f8c53961edcce29f94a830a53374f6808dbc489fa13b75d769d8"
+      "sha256": "9545fcda9902a1faeca217f9b1e9a467ba190860ad999167deda5ca8360e0144"
     },
     {
       "bytes": 211303,
@@ -46,9 +46,9 @@
       "sha256": "af6c7d228a09ccece18337cb75b3f0f133052dc509dda46abd4040ebda988409"
     },
     {
-      "bytes": 238,
+      "bytes": 347,
       "path": "coop/config/ACZCoop.ini",
-      "sha256": "810dfe5e9999e2e82aa494e9e43279d2738ba3879ddbb42da64a0e94c9d24e06"
+      "sha256": "bde6c1cbda8181148c809c43c1686fa1f332e8c002c4b24a998eadcb0b6acbc3"
     },
     {
       "bytes": 409,
@@ -96,9 +96,9 @@
       "sha256": "88ba80781edb5a6bdd59e4a5a9d6f86bc2140e021cdc4ceeb85ec32b6a2249d1"
     },
     {
-      "bytes": 18945,
+      "bytes": 20193,
       "path": "coop/crates/game/src/lib.rs",
-      "sha256": "e5362019cf83b2fa0e5d7b2ad79b52db093d13d72b0c6c0b66ad4f7e2a891e2a"
+      "sha256": "345fac9164c96a95e22d651d64c1fe6e0ade78549f38e238627458e0b4944085"
     },
     {
       "bytes": 193,
@@ -121,19 +121,19 @@
       "sha256": "fdf35fb0065278f8c697783a8ff6d064f9daf6cc1058e65eeea95042a024ce45"
     },
     {
-      "bytes": 547,
+      "bytes": 581,
       "path": "coop/crates/runtime/Cargo.toml",
-      "sha256": "a511d2ece88d22d9c2afd94bb32dd7cc2c0ca1099d514aad02aa640099e3fa4c"
+      "sha256": "88bca78fcdd4e6a28cddb18c1b680b2ea164d9ba38c7a683924564357f547bd4"
     },
     {
-      "bytes": 6212,
+      "bytes": 7191,
       "path": "coop/crates/runtime/src/lib.rs",
-      "sha256": "da520ca21b06b99db0acae7fd76e12e1ad6c087eb6d977935c794d87c7e0895f"
+      "sha256": "2fdd658bc70461a5712a11b83775b058bb2757d27786527cf409b91d647842b8"
     },
     {
-      "bytes": 15785,
+      "bytes": 17001,
       "path": "coop/crates/runtime/src/windows.rs",
-      "sha256": "76e81b842ab3de1a8e767ea6bd94304808d4a0a7abf2c7330485893a012d970f"
+      "sha256": "dc1605d4b573d87b2978d133a840c283c8d3f79012987e5e03fd547d173a0ca4"
     },
     {
       "bytes": 192,
@@ -146,14 +146,14 @@
       "sha256": "8242c33c2bfb2c79cee22c36abdcb3b0cf6066156a8848015ccb798d5325fe3a"
     },
     {
-      "bytes": 221,
+      "bytes": 255,
       "path": "coop/crates/trace/Cargo.toml",
-      "sha256": "3f480f96138bf9095368567b59ee64c9e1c5d9ed0eebf20368eb40ec025d130e"
+      "sha256": "4f5d03310bcfe937ae439d4f9bda0792a00577006ed89218714abcda76a617a4"
     },
     {
-      "bytes": 11703,
+      "bytes": 17346,
       "path": "coop/crates/trace/src/lib.rs",
-      "sha256": "03fdcd107a31736c2436d3398e28b96520ed151b5b01107631572fbf133c8552"
+      "sha256": "c03718d994390277815c126729d41af27fe75bb22f80fe3f7f8583289affbf6f"
     },
     {
       "bytes": 300,
@@ -164,6 +164,46 @@
       "bytes": 18131,
       "path": "coop/crates/transport/src/lib.rs",
       "sha256": "2d52bd25eaa92f97984ecdb9827b4f8c41730fd938f95307e85b2d38958b82f8"
+    },
+    {
+      "bytes": 223,
+      "path": "coop/crates/wingman/Cargo.toml",
+      "sha256": "adb15a2b0f7f39111d07de8f6a1c3e2caeda9de49dbf0662f7076ad1e43e9e66"
+    },
+    {
+      "bytes": 413,
+      "path": "coop/crates/wingman/src/lib.rs",
+      "sha256": "6290c40e75e2f92109dd3e51a35c79ef7e07ac97fe246d0f4e1bbdef54257080"
+    },
+    {
+      "bytes": 1508,
+      "path": "coop/crates/wingman/src/memory.rs",
+      "sha256": "4426014e25bb33a664013f80095fdd3795a39b0a139bfb4d51b20049cb3a623c"
+    },
+    {
+      "bytes": 7091,
+      "path": "coop/crates/wingman/src/native.rs",
+      "sha256": "6a38640f1e33309f0ac57d32efd29244b903b25eb29e69fc512356ca5efa8a96"
+    },
+    {
+      "bytes": 3310,
+      "path": "coop/crates/wingman/src/readiness.rs",
+      "sha256": "4d9237eeb162e160819d53bf7c8b672fc392c708df7cf2327e16cdf0b66b8235"
+    },
+    {
+      "bytes": 1588,
+      "path": "coop/crates/wingman/src/selection.rs",
+      "sha256": "8a73d9330c435bd8f6d698bd0888b7d75bc4c040c4619100db040edc10fffec3"
+    },
+    {
+      "bytes": 9728,
+      "path": "coop/crates/wingman/src/tests.rs",
+      "sha256": "a1afd4ab398405fad70597c9ed29384fd4061e1f55eaa676fa61a392328c33be"
+    },
+    {
+      "bytes": 1478,
+      "path": "coop/crates/wingman/src/views.rs",
+      "sha256": "24fa3fc377daff5918ca28e630f99f9097f081cfd1b16a7d6c71b80016c983ab"
     },
     {
       "bytes": 86,
@@ -181,9 +221,9 @@
       "sha256": "fedba458c25957e9b4a484f0ef4f6230f4f9ac50b2323eb047faf4243d4b3e37"
     },
     {
-      "bytes": 7921,
+      "bytes": 7989,
       "path": "coop/tools/verify_interfaces.py",
-      "sha256": "3f91ae30da71b0b43a8466df1a6ac91da8a93774c510fb787788f3a9fb5fc2b3"
+      "sha256": "1ff647e39a2f26d28030a4bb1d7e9b0f291828c427ea2c32c2a397f0f1229ca5"
     },
     {
       "bytes": 5416,
@@ -251,9 +291,9 @@
       "sha256": "fb38660468579d2eb81287ae7089028650147e57504f6585e3f6b12fd5e11461"
     },
     {
-      "bytes": 1046,
+      "bytes": 1350,
       "path": "docs/mp/execution/README.md",
-      "sha256": "0a2d890f17d1678f8228e484adee69163179576b252e5bc0b806819e2013e1e9"
+      "sha256": "5a91fa3b191e68e2c12ec4058540de3e4b389c680bf8f0fdca2582a06fa9a10d"
     },
     {
       "bytes": 2201,
@@ -269,6 +309,16 @@
       "bytes": 4550,
       "path": "docs/mp/execution/VALIDATION.md",
       "sha256": "32ea55c8de464f6c63dd7cb4e49d9e34d22de82618595da0d4ea1d2515224a14"
+    },
+    {
+      "bytes": 4433,
+      "path": "docs/mp/execution/WINGMAN_AUDIT.md",
+      "sha256": "0d53594a46ccc8b0f7ccb7526366fd1743a5560ab1f5b37547044c628f0a74a0"
+    },
+    {
+      "bytes": 5733,
+      "path": "docs/mp/execution/WINGMAN_LOCAL.md",
+      "sha256": "91efd745662bda1822c6db86b03bf66bee8fda4c037805b57397b614f8870389"
     },
     {
       "bytes": 198,
@@ -336,6 +386,51 @@
       "sha256": "0f6879b9e095a42fdc481bd581d80d97014bf63b0b2f71572231fd1b9d836005"
     },
     {
+      "bytes": 3163,
+      "path": "docs/mp/execution/evidence/wingman/build-logs.json.gz",
+      "sha256": "4f596882a6501ba94f0139ed91bdaa10fd98bced9cf6f00b6484b42c799f44a5"
+    },
+    {
+      "bytes": 155,
+      "path": "docs/mp/execution/evidence/wingman/evidence-validation.json",
+      "sha256": "7cd25e29f5970b7699c06bed2c065f8a48a4bc0e7fa429421e5f69bb528fa8c7"
+    },
+    {
+      "bytes": 258,
+      "path": "docs/mp/execution/evidence/wingman/interfaces-linux.json",
+      "sha256": "7b0674b024562a45ab21972fd206c6e8c1d93f0c36ee1b3cbad86052d0cf889f"
+    },
+    {
+      "bytes": 608,
+      "path": "docs/mp/execution/evidence/wingman/interfaces-windows-cross.json",
+      "sha256": "a478f0037c0f9388b22329c1ffdf07c7e8150f21b1a7d85ea9f32b6022135d1e"
+    },
+    {
+      "bytes": 5765,
+      "path": "docs/mp/execution/evidence/wingman/validation.json",
+      "sha256": "f44ec1d5355e36451062d642bea80775f9a4e04f823d829ba0c5308cf0757ecb"
+    },
+    {
+      "bytes": 4704,
+      "path": "docs/mp/wingman/REVERSE_PLAN.md",
+      "sha256": "025b9ef3a8f478822b41a76577f371d00c5fde3f2d349e6030f95a97ffb0ca68"
+    },
+    {
+      "bytes": 2266,
+      "path": "docs/mp/wingman/ROUND_1.md",
+      "sha256": "a1ff16bfde3435742f099f4811b7ece0f6230a069572700c31532bc0bc7a7b29"
+    },
+    {
+      "bytes": 4972,
+      "path": "docs/mp/wingman/ROUND_2.md",
+      "sha256": "0692695123b38ef2acc09f3b74756131330b78180771ea8999555c31525b3328"
+    },
+    {
+      "bytes": 3429,
+      "path": "docs/mp/wingman/ROUND_3.md",
+      "sha256": "98e68a25d1c8d47ac8934a29e43a9c234ae119ac485aacabc6620c0c4c411b1a"
+    },
+    {
       "bytes": 12838,
       "path": "docs/reverse-engineering/MODE_LIFECYCLE.md",
       "sha256": "06efcddfdd435cedccaad4d624bab9a8fe14bd4b4848fd23e87ad4c056154226"
@@ -371,9 +466,9 @@
       "sha256": "5d7de66ec1b3315a24370102063a266a71d6a1e86a26721f4161766b74b06ac1"
     },
     {
-      "bytes": 4671,
+      "bytes": 4934,
       "path": "docs/reverse-engineering/coop/README.md",
-      "sha256": "8bb22462a00e01ef31c1a77ef464a728a93e64f703aba2eb6d2ef099c30e1f3c"
+      "sha256": "ea3f2edf458c5a09a565374ad384f7968dc00b796ec21f59450efdf516597b6e"
     },
     {
       "bytes": 8580,
@@ -381,14 +476,14 @@
       "sha256": "086a4b224efbd7244c0b6cdec9916608a2d1262b6c5f1b07fa41d7b40103f195"
     },
     {
-      "bytes": 6495,
+      "bytes": 8604,
       "path": "docs/reverse-engineering/coop/archive/manifest.json",
-      "sha256": "648c7d75714e25baba82fd16ca40365fb98aabf43971b7498ebe679836d205c7"
+      "sha256": "35e9de454c69dc4bab743824035908f8393e5486d33c71ab96118027eb4ecb85"
     },
     {
-      "bytes": 88703,
+      "bytes": 109773,
       "path": "docs/reverse-engineering/coop/archive/plans-and-usage.tar.gz",
-      "sha256": "f803851e960d656427e1d806a7c39a8e8e1ec430abab3b136d88faf18bbe9095"
+      "sha256": "e5dac9d56a4a6751c63d6158c60417437befa33067f71036fa6764cb1739b20f"
     },
     {
       "bytes": 509,
@@ -4291,14 +4386,399 @@
       "sha256": "bd8c0bd62fa1f9d55bf228faaa5f9efdccecec166cfc2c3686900c7629dbf059"
     },
     {
+      "bytes": 2621,
+      "path": "docs/reverse-engineering/coop/wingman/README.md",
+      "sha256": "6ff31aa0dcacca83198ffaaaff67e80e015be2db15e2560c1de5afd0b98e68a1"
+    },
+    {
+      "bytes": 10695,
+      "path": "docs/reverse-engineering/coop/wingman/decompiled/1400c6a50.asm",
+      "sha256": "1ea8ace641674aeb7b5f4a2a468bde988431aca8186761a517b2a1b4c57cf714"
+    },
+    {
+      "bytes": 7727,
+      "path": "docs/reverse-engineering/coop/wingman/decompiled/1400c6a50.c",
+      "sha256": "ebac4772e6ea7f9ac24c8837e9ec5ab74baeb71387acced86028d670e73c98d1"
+    },
+    {
+      "bytes": 998,
+      "path": "docs/reverse-engineering/coop/wingman/decompiled/1400c6a50.json",
+      "sha256": "86c2d8f948034e6347722680ac13bf2d51a3a4e64bd203b34a87a73172ff09a6"
+    },
+    {
+      "bytes": 51785,
+      "path": "docs/reverse-engineering/coop/wingman/decompiled/1400cbcc0.asm",
+      "sha256": "f0c06f2983cbb4bffe92623c19375b7084a13bdc1d6347f2b72672294b259985"
+    },
+    {
+      "bytes": 41168,
+      "path": "docs/reverse-engineering/coop/wingman/decompiled/1400cbcc0.c",
+      "sha256": "b090e905eb4e5702cf1b88924ae5c401953129fde57f34e2802b2d6eeae57a4e"
+    },
+    {
+      "bytes": 1266,
+      "path": "docs/reverse-engineering/coop/wingman/decompiled/1400cbcc0.json",
+      "sha256": "ef31b8440ca1fb28a783e4894f62410ef3fa13a73668da685ec692e3d7161650"
+    },
+    {
+      "bytes": 26735,
+      "path": "docs/reverse-engineering/coop/wingman/decompiled/1400cd880.asm",
+      "sha256": "b861c876db216948e17250e132be679b9c1fc5efc6779794862b7ef67042f527"
+    },
+    {
+      "bytes": 21871,
+      "path": "docs/reverse-engineering/coop/wingman/decompiled/1400cd880.c",
+      "sha256": "fa765f1f1d2d5f8fc9e2e7ef8383120979c69be111cc65bab0d8fef95341bad2"
+    },
+    {
+      "bytes": 1718,
+      "path": "docs/reverse-engineering/coop/wingman/decompiled/1400cd880.json",
+      "sha256": "52288ea3ce328740edb6ae23fcb16810697bfc57db3ab7ccb5042cd9bcad40b4"
+    },
+    {
+      "bytes": 51760,
+      "path": "docs/reverse-engineering/coop/wingman/decompiled/1400ce880.asm",
+      "sha256": "1062418f72a0d460f3e7e0c721ccb5ebd0dcc0198f9c1866991048648e95ada6"
+    },
+    {
+      "bytes": 42609,
+      "path": "docs/reverse-engineering/coop/wingman/decompiled/1400ce880.c",
+      "sha256": "626ef90a9ff0d3667d481450f0b0351237df4275fa9a8967ed9f86034f0c48d3"
+    },
+    {
+      "bytes": 1582,
+      "path": "docs/reverse-engineering/coop/wingman/decompiled/1400ce880.json",
+      "sha256": "05c1beefefe5c569820ab2b27908234b97d8da16028c6bbd4ba8aaa4e75d646a"
+    },
+    {
+      "bytes": 26529,
+      "path": "docs/reverse-engineering/coop/wingman/decompiled/1400d1780.asm",
+      "sha256": "d17a349bbc7b392bec7308989ce8fe4c07cb51a87906ac655dc33b4181c67ac5"
+    },
+    {
+      "bytes": 19765,
+      "path": "docs/reverse-engineering/coop/wingman/decompiled/1400d1780.c",
+      "sha256": "185eabc61a16af3e4d671d4d5f7a953f151dc3e21f9b4b3a3641206446478045"
+    },
+    {
+      "bytes": 1142,
+      "path": "docs/reverse-engineering/coop/wingman/decompiled/1400d1780.json",
+      "sha256": "83f21395835c1e93af7d9bcb152423533645916a392a2abb4e73bab48279ff5a"
+    },
+    {
+      "bytes": 48498,
+      "path": "docs/reverse-engineering/coop/wingman/decompiled/1400d2580.asm",
+      "sha256": "72054495dd25cdf9a5801ae58a6b6530b74015366d86941e3cf932fdf0189525"
+    },
+    {
+      "bytes": 38983,
+      "path": "docs/reverse-engineering/coop/wingman/decompiled/1400d2580.c",
+      "sha256": "69256592a6ffb287b2a4862243730b7b7a663d3cffc44354323b8ff7515dbf56"
+    },
+    {
+      "bytes": 1525,
+      "path": "docs/reverse-engineering/coop/wingman/decompiled/1400d2580.json",
+      "sha256": "31f2a4ce6f3a0022fa944fff01b2eed7fdb46906638c18b8e3225e2280a2a238"
+    },
+    {
+      "bytes": 84438,
+      "path": "docs/reverse-engineering/coop/wingman/decompiled/1401040c0.asm",
+      "sha256": "fac007b2857eab7e94cedb8751063ed2733e5200f47193d04a05dd75cacb3ade"
+    },
+    {
+      "bytes": 71773,
+      "path": "docs/reverse-engineering/coop/wingman/decompiled/1401040c0.c",
+      "sha256": "cd3063fb0d44a661a9fa364ca1596b2b152cfdf30773a2f79b351e737e74f48e"
+    },
+    {
+      "bytes": 2285,
+      "path": "docs/reverse-engineering/coop/wingman/decompiled/1401040c0.json",
+      "sha256": "aa5a4ebea5402af4d6fdba505b96ac32c61e3da69ec29034740176cc7313b3a7"
+    },
+    {
+      "bytes": 31350,
+      "path": "docs/reverse-engineering/coop/wingman/decompiled/140115c20.asm",
+      "sha256": "ad81aee9844cae6b2cf45efc599675fabe790dbd7c16bc12e42ab16dcdaedbff"
+    },
+    {
+      "bytes": 23572,
+      "path": "docs/reverse-engineering/coop/wingman/decompiled/140115c20.c",
+      "sha256": "c6d4bfdc9c17ad7d46339ef948f87385e968c9f3d503f945266ba5d571a85262"
+    },
+    {
+      "bytes": 1114,
+      "path": "docs/reverse-engineering/coop/wingman/decompiled/140115c20.json",
+      "sha256": "226abea3e412e20ee763f1afc6d5a3b46522fed90a8043348251d9abd4b63c44"
+    },
+    {
+      "bytes": 7583,
+      "path": "docs/reverse-engineering/coop/wingman/decompiled/140119a30.asm",
+      "sha256": "b171f27feb6c18153b39faf562d28d87a437609faafe74a90eed09726bf27bee"
+    },
+    {
+      "bytes": 5548,
+      "path": "docs/reverse-engineering/coop/wingman/decompiled/140119a30.c",
+      "sha256": "d558dfaa5ee643e268034eaf1debdb7fdfb0d4091f4c77171189b3e951fe6d30"
+    },
+    {
+      "bytes": 890,
+      "path": "docs/reverse-engineering/coop/wingman/decompiled/140119a30.json",
+      "sha256": "7e539a9640bdbbba04659e6c31fcac532c019bbaed4aba843fb61dab5545da55"
+    },
+    {
+      "bytes": 10789,
+      "path": "docs/reverse-engineering/coop/wingman/decompiled/140121880.asm",
+      "sha256": "c215ba9e0f6455457a08f5cd7d26a21f79ecc6b10462b4df057df59aa12f7e78"
+    },
+    {
+      "bytes": 10068,
+      "path": "docs/reverse-engineering/coop/wingman/decompiled/140121880.c",
+      "sha256": "1e1029661075d4a462586c1b4ab099f2a74bdc6d0c183621bff89c024a244626"
+    },
+    {
+      "bytes": 757,
+      "path": "docs/reverse-engineering/coop/wingman/decompiled/140121880.json",
+      "sha256": "0e46a38b96efe46c9d8fea6b9423e1eee425a4d25ed5c94e87cd042525c88c41"
+    },
+    {
+      "bytes": 19371,
+      "path": "docs/reverse-engineering/coop/wingman/decompiled/140121eb0.asm",
+      "sha256": "9a06bc3ce5b04353e523419a5cb6f57af99eb2e77d566f26f7ef881019edf02e"
+    },
+    {
+      "bytes": 16739,
+      "path": "docs/reverse-engineering/coop/wingman/decompiled/140121eb0.c",
+      "sha256": "ed58ddf11008cdd817966835a41650218946297030ed5ca33537425e7dd0f3e7"
+    },
+    {
+      "bytes": 776,
+      "path": "docs/reverse-engineering/coop/wingman/decompiled/140121eb0.json",
+      "sha256": "414fa53a22f74bb0548f011009192e8323d390bc84eb956da250539d162f4cc9"
+    },
+    {
+      "bytes": 10636,
+      "path": "docs/reverse-engineering/coop/wingman/decompiled/1401228b0.asm",
+      "sha256": "de5823cc720ff78c52df7600337209e3f4c36b4e7f45927514303b62f708bfa3"
+    },
+    {
+      "bytes": 7943,
+      "path": "docs/reverse-engineering/coop/wingman/decompiled/1401228b0.c",
+      "sha256": "a0b887148b2d5ddad6fdb85e022785b38882ca79ac997416f0725e90f36f9dd0"
+    },
+    {
+      "bytes": 719,
+      "path": "docs/reverse-engineering/coop/wingman/decompiled/1401228b0.json",
+      "sha256": "9a94fa36ac079da8edb815be71bb38eb71ad0f3ca74ce2a71eee0d92356758a1"
+    },
+    {
+      "bytes": 42383,
+      "path": "docs/reverse-engineering/coop/wingman/decompiled/14012aa30.asm",
+      "sha256": "eedb8cf3b382f55e2b02b93aed01e26823814b1e6dcbebdbff07f120d8b41084"
+    },
+    {
+      "bytes": 25284,
+      "path": "docs/reverse-engineering/coop/wingman/decompiled/14012aa30.c",
+      "sha256": "4ee30b10986edfa872b2686fa3459ceae95ca6dfa0185c1216a40ad2f53ef384"
+    },
+    {
+      "bytes": 1133,
+      "path": "docs/reverse-engineering/coop/wingman/decompiled/14012aa30.json",
+      "sha256": "ae5e847661246b0cc4f051ea8830021574e1ef5e4be1216b94b9c267808c0153"
+    },
+    {
+      "bytes": 93685,
+      "path": "docs/reverse-engineering/coop/wingman/decompiled/14012f340.asm",
+      "sha256": "63c8df2e7ae3d9dacd697493aafae41a2396d51e58a3d6d9ff4b02f6b26fbf29"
+    },
+    {
+      "bytes": 83428,
+      "path": "docs/reverse-engineering/coop/wingman/decompiled/14012f340.c",
+      "sha256": "435ad518e24d2056b66adfb730f0089279a63fbe3f1b8890789850ea109feaba"
+    },
+    {
+      "bytes": 673,
+      "path": "docs/reverse-engineering/coop/wingman/decompiled/14012f340.json",
+      "sha256": "e477101c597f5fcafe9c10464c289c1703f317488da87dc0acf4eea747a55501"
+    },
+    {
+      "bytes": 44609,
+      "path": "docs/reverse-engineering/coop/wingman/decompiled/140132240.asm",
+      "sha256": "bf1a19433aa1e77e69174309219f0804c1970f186d4643c53c8343d876ca3572"
+    },
+    {
+      "bytes": 40412,
+      "path": "docs/reverse-engineering/coop/wingman/decompiled/140132240.c",
+      "sha256": "114337691e9a5df8b31fb438a02e895333613fc34cb8c10d644844361eaf548d"
+    },
+    {
+      "bytes": 1161,
+      "path": "docs/reverse-engineering/coop/wingman/decompiled/140132240.json",
+      "sha256": "96a036031a610ded421b1a5fb0b5162fbd2f38d7cc4f96db39e0ba8def902d6a"
+    },
+    {
+      "bytes": 987,
+      "path": "docs/reverse-engineering/coop/wingman/decompiled/140166ee0.asm",
+      "sha256": "6c950c817078675e402c4193af2b307804b0a13594fb21fd2787aa814c9af88a"
+    },
+    {
+      "bytes": 794,
+      "path": "docs/reverse-engineering/coop/wingman/decompiled/140166ee0.c",
+      "sha256": "eb2352b7b106a7fabe0d75546c5a8590ac94545d653831a16bca440b8201b269"
+    },
+    {
+      "bytes": 634,
+      "path": "docs/reverse-engineering/coop/wingman/decompiled/140166ee0.json",
+      "sha256": "94268e43c84142aa8d19048aac364b5a4091e940fbc0df115f108412edbfe65c"
+    },
+    {
+      "bytes": 1893,
+      "path": "docs/reverse-engineering/coop/wingman/decompiled/140166f80.asm",
+      "sha256": "d13f199c324e8270c0f7d90c9f51eda2c1de0ed0c20541e91bcc5bebc13ad0aa"
+    },
+    {
+      "bytes": 1319,
+      "path": "docs/reverse-engineering/coop/wingman/decompiled/140166f80.c",
+      "sha256": "f2f66da5d1b4443b6e1e34f1052b91ad821ed027591f48523434c25a9108d554"
+    },
+    {
+      "bytes": 672,
+      "path": "docs/reverse-engineering/coop/wingman/decompiled/140166f80.json",
+      "sha256": "2961421414285f48c5bdc4755c917463ad03364e8a79d334b253830f4cac0ad3"
+    },
+    {
+      "bytes": 19894,
+      "path": "docs/reverse-engineering/coop/wingman/decompiled/140167080.asm",
+      "sha256": "77c7b73b9c487d4018cc1f45dedf0c88eae4b427c42aac5489a0ce57ded4ea0d"
+    },
+    {
+      "bytes": 14390,
+      "path": "docs/reverse-engineering/coop/wingman/decompiled/140167080.c",
+      "sha256": "171ebd83e5d1db217504a933f4e5c3838841783782737ce3819dbe22e8814995"
+    },
+    {
+      "bytes": 1469,
+      "path": "docs/reverse-engineering/coop/wingman/decompiled/140167080.json",
+      "sha256": "98c887e04b4d4aa27e959a679d2e6a7a2c876d9cb8ef0051a51538e99643e1e5"
+    },
+    {
+      "bytes": 3497,
+      "path": "docs/reverse-engineering/coop/wingman/decompiled/140167b00.asm",
+      "sha256": "1425fe3118b69931d88a9606aa94a09c607eb735778e2395d242e93e7507b617"
+    },
+    {
+      "bytes": 2710,
+      "path": "docs/reverse-engineering/coop/wingman/decompiled/140167b00.c",
+      "sha256": "7afd8c3b7d95516fe866cd50d5aa28aa0e99e48ae45070e24e02f9c1852809bb"
+    },
+    {
+      "bytes": 880,
+      "path": "docs/reverse-engineering/coop/wingman/decompiled/140167b00.json",
+      "sha256": "d802eda4708a122abd8bf83d2ea6064cd84d7d1eaaa3a385f0618fdedfdaf59e"
+    },
+    {
+      "bytes": 4430,
+      "path": "docs/reverse-engineering/coop/wingman/decompiled/14016d1c0.asm",
+      "sha256": "92ceee025f903db6738365c62d9625e095213edb7ad70c9e21d2d4684630b199"
+    },
+    {
+      "bytes": 2841,
+      "path": "docs/reverse-engineering/coop/wingman/decompiled/14016d1c0.c",
+      "sha256": "723f82b49b7f61224ded4b49078e368ebf9208c4d4d622293781598a70375aff"
+    },
+    {
+      "bytes": 464,
+      "path": "docs/reverse-engineering/coop/wingman/decompiled/14016d1c0.json",
+      "sha256": "20410ed29e626bed4d0a51c113102b237669428f020e61dcd51aaecb515f9f34"
+    },
+    {
+      "bytes": 1932,
+      "path": "docs/reverse-engineering/coop/wingman/decompiled/14016eb20.asm",
+      "sha256": "8acab98b465513eb88b1ba49da74e77e073253a5179a0bc19f6dd4761591a99d"
+    },
+    {
+      "bytes": 1232,
+      "path": "docs/reverse-engineering/coop/wingman/decompiled/14016eb20.c",
+      "sha256": "f1a34f94f631db8ebd92cc722546c13325735ef24b6c2e4c741f246c8976daeb"
+    },
+    {
+      "bytes": 445,
+      "path": "docs/reverse-engineering/coop/wingman/decompiled/14016eb20.json",
+      "sha256": "764b8a67dc76774ec645d0603a21ee48fc7bbe10d1f808bea55ad402be59a3c6"
+    },
+    {
+      "bytes": 2183,
+      "path": "docs/reverse-engineering/coop/wingman/decompiled/14016f6c0.asm",
+      "sha256": "e792ddf6a3b5ae59a22d4c90bbd73d518101aa4898fba4c7ae00a200eab3464d"
+    },
+    {
+      "bytes": 1451,
+      "path": "docs/reverse-engineering/coop/wingman/decompiled/14016f6c0.c",
+      "sha256": "bfa06381a0f8e930ab7fe17f4ab74ccda5ee24229fe48c8ed2a45c632ec30f1a"
+    },
+    {
+      "bytes": 445,
+      "path": "docs/reverse-engineering/coop/wingman/decompiled/14016f6c0.json",
+      "sha256": "a7d8bbc4c5707d17de1ef00c690403d45367d081394c5a3db1f668c1b3d53081"
+    },
+    {
+      "bytes": 24593,
+      "path": "docs/reverse-engineering/coop/wingman/decompiled/14018c6c0.asm",
+      "sha256": "98ce0b806e9ff3e0cba0491afa203bc44cab39717e2e36be1a1d3bc13d8f338b"
+    },
+    {
+      "bytes": 18598,
+      "path": "docs/reverse-engineering/coop/wingman/decompiled/14018c6c0.c",
+      "sha256": "c2258229101523b169566f7d2a90aafa92168c2496f9bda61d5c3f334edb4891"
+    },
+    {
+      "bytes": 879,
+      "path": "docs/reverse-engineering/coop/wingman/decompiled/14018c6c0.json",
+      "sha256": "9c6911690420fda21395fdb5188fc9cd48e68188bc2d325dd96d9eb09c947e1c"
+    },
+    {
+      "bytes": 3540,
+      "path": "docs/reverse-engineering/coop/wingman/decompiled/1401bd460.asm",
+      "sha256": "5a44004f8afea355fddcfdeda3c221aaa91a5287d90118664c80da1d3bce1b2b"
+    },
+    {
+      "bytes": 3227,
+      "path": "docs/reverse-engineering/coop/wingman/decompiled/1401bd460.c",
+      "sha256": "f5bbf41cef551c35fa0ccc6b822467162fcd2cc4d586586a461bd9c8307da034"
+    },
+    {
+      "bytes": 643,
+      "path": "docs/reverse-engineering/coop/wingman/decompiled/1401bd460.json",
+      "sha256": "71997b4f84e40bb0a07dc2da407ae4253550096305d530651e95d44124b6b2fc"
+    },
+    {
+      "bytes": 672470,
+      "path": "docs/reverse-engineering/coop/wingman/exports.tar.gz",
+      "sha256": "02392173ef83f069472d2aeec6c5c430abd3498f068e121e39e6a9514b297549"
+    },
+    {
+      "bytes": 5458,
+      "path": "docs/reverse-engineering/coop/wingman/headless-logs.json.gz",
+      "sha256": "b3a1b7e55ee35606fcfeb2c2388fcc240a4477c5cf2c2683dc3c10d7c13b7d85"
+    },
+    {
+      "bytes": 114194,
+      "path": "docs/reverse-engineering/coop/wingman/manifest.json",
+      "sha256": "2fab04fe1c9567f6499fa1b7416befd0b2cdf08e661e4345de452194ff3cbb8a"
+    },
+    {
+      "bytes": 13917,
+      "path": "docs/reverse-engineering/coop/wingman/operand-candidates.json.gz",
+      "sha256": "3962931c8451ce0df023a79c20e4efefe81070aaeef253df4bf1bc9384d63ec2"
+    },
+    {
       "bytes": 5990,
       "path": "docs/usage/CODE_READING_NOTES.md",
       "sha256": "570b88693dacb52ccd64f4aa4d1c9cd6ed42cbe110ce1e63a45351922bbf9c8e"
     },
     {
-      "bytes": 23117,
+      "bytes": 23309,
       "path": "docs/usage/COOP_DEMO.zh-CN.md",
-      "sha256": "74ba1195992d12ec469499c07de0ed20d1dad8256650dcb3a38e0ae9d727c115"
+      "sha256": "14de05616579a1fd0c56fecfb9488345de104d09fcfccc8a2f1cc92617a626b4"
     },
     {
       "bytes": 74669,
@@ -4311,9 +4791,9 @@
       "sha256": "362a72f370b3b6f86aab9d60b705a3ca2994a901924a9aeb73f38fc92a06ddc2"
     },
     {
-      "bytes": 2476,
+      "bytes": 2610,
       "path": "docs/usage/README.md",
-      "sha256": "696cd9e63a42730c30f3fb11024ade2fa78c6a9893be1c64092bb64e7212f4b9"
+      "sha256": "a7af3d5bc23241de878cef1857e026a34b686f5ede2bd418235525f450ff30f0"
     },
     {
       "bytes": 5911,
@@ -4324,6 +4804,11 @@
       "bytes": 4220,
       "path": "docs/usage/RUST_COOP_FOUNDATION.md",
       "sha256": "11413a63722262c95006cf0681bca1490f2547c74989435d4bb0fd12eb73f4e5"
+    },
+    {
+      "bytes": 4340,
+      "path": "docs/usage/WINGMAN_LOCAL.zh-CN.md",
+      "sha256": "8ee9c1176c257b2614646d241df0d6a63e8668d3603bacf768b7ef4fc2df7564"
     },
     {
       "bytes": 19,
@@ -4346,6 +4831,11 @@
       "sha256": "3544d4a3b907abfca453ef4a7683927a4b03907361178468be3180f3d831c703"
     },
     {
+      "bytes": 2232,
+      "path": "tools/ghidra/ExportWingmanOperands.java",
+      "sha256": "9f937bf9018dc96ba8fe86468e733f16627f72f496c2a045e1bb056a483f9110"
+    },
+    {
       "bytes": 14461,
       "path": "tools/ghidra/coop_catalog.json",
       "sha256": "5d494a136f1265b6f8894e3d4268c03574144797cdb20fe2257c56520b833353"
@@ -4354,6 +4844,11 @@
       "bytes": 8586,
       "path": "tools/ghidra/package_coop_evidence.py",
       "sha256": "a3e5d9e13abac505ef48ba8d84b27da28508899ffd76ffca13820dcfd6bd7fd7"
+    },
+    {
+      "bytes": 4167,
+      "path": "tools/ghidra/package_wingman_evidence.py",
+      "sha256": "4b98ed3595447da7b484f862cadff43cda41ae9416299ab741e5af0338feef78"
     },
     {
       "bytes": 6224,
@@ -4368,7 +4863,12 @@
     {
       "bytes": 11233,
       "path": "tools/ghidra/verify_coop_archive.py",
-      "sha256": "b3e8ff1bec06e420d0b27731a5b8818e4239a5166bd797d09e943b0167ae5a50"
+      "sha256": "85a805696a483806ac8526191fdc7f7dc0ff8181deb136c3ed45a49ff90a1a7d"
+    },
+    {
+      "bytes": 3612,
+      "path": "tools/ghidra/verify_wingman_evidence.py",
+      "sha256": "af059e6141bd533eac522934d24ec45f0de0ceb78fdd1035001d463a2620cd90"
     }
   ],
   "format": 1,

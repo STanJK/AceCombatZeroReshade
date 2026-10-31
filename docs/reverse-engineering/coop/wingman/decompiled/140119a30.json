@@ -1,0 +1,49 @@
+{
+  "va": "0x140119a30",
+  "rva": "0x119a30",
+  "name": "FUN_140119a30",
+  "prototype": "undefined FUN_140119a30()",
+  "size": 1070,
+  "callers": [
+    "0x140115c20"
+  ],
+  "callees": [
+    "0x140031f80",
+    "0x140035b10",
+    "0x140079410",
+    "0x140079920",
+    "0x140102710",
+    "0x1401153a0",
+    "0x140117a10",
+    "0x140121880",
+    "0x140121eb0",
+    "0x1401228b0",
+    "0x140128d90",
+    "0x1401295b0",
+    "0x14012aa30"
+  ],
+  "incoming_references": [
+    {
+      "function": "",
+      "type": "DATA",
+      "from": "0x1437e80e8"
+    },
+    {
+      "function": "",
+      "type": "DATA",
+      "from": "0x1402f4ec8"
+    },
+    {
+      "function": "",
+      "type": "DATA",
+      "from": "0x1402f4f44"
+    },
+    {
+      "function": "0x140115c20",
+      "type": "UNCONDITIONAL_CALL",
+      "from": "0x140116141"
+    }
+  ],
+  "decompile_completed": true,
+  "decompile_error": ""
+}

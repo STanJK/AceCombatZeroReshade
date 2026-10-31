@@ -2,6 +2,7 @@
 #![forbid(unsafe_code)]
 use acz_coop_contracts::TARGET_SHA256;
 use acz_coop_game::NativeFrame;
+use acz_coop_wingman::{CameraSource, WingmanSnapshot, assess};
 use std::io::{self, Write};
 use std::sync::{
     Arc,
@@ -24,6 +25,7 @@ pub enum Status {
     WorldLeft,
     Adopted,
     Stopped,
+    WingmanProbeRejected,
 }
 impl Status {
     fn name(self) -> &'static str {
@@ -40,6 +42,7 @@ impl Status {
             Self::WorldLeft => "world_left",
             Self::Adopted => "adopted_at_update",
             Self::Stopped => "stopped",
+            Self::WingmanProbeRejected => "wingman_probe_rejected",
         }
     }
 }
@@ -47,6 +50,7 @@ impl Status {
 pub enum Record {
     Status { code: Status, detail: u64 },
     Native(NativeFrame),
+    Wingman(WingmanSnapshot),
 }
 #[derive(Default)]
 struct Counters {
@@ -172,6 +176,7 @@ fn write_record(w: &mut impl Write, record: &Record) -> io::Result<()> {
             "{{\"type\":\"status\",\"code\":\"{}\",\"detail\":{detail}}}",
             code.name()
         ),
+        Record::Wingman(s) => write_wingman(w, s),
         Record::Native(f) => {
             if f.players.len() > 2
                 || f.players.iter().any(|p| {
@@ -225,10 +230,181 @@ fn write_record(w: &mut impl Write, record: &Record) -> io::Result<()> {
     }
 }
 
+fn write_wingman(w: &mut impl Write, s: &WingmanSnapshot) -> io::Result<()> {
+    if s.candidates.len() > 8 || s.views.len() > 4 || s.player_selectors.len() > 2 {
+        return Err(io::Error::new(
+            io::ErrorKind::InvalidData,
+            "wingman trace bounds",
+        ));
+    }
+    let readiness = assess(s);
+    write!(
+        w,
+        "{{\"type\":\"wingman_post_update\",\"generation\":{},\"sample\":{},\"mode\":{},\"world\":{},\"campaign\":{},\"player_count\":{},\"world_flags\":{},\"world_phase\":{},\"camera_mode\":{},\"group\":{},\"group_category\":{},\"control_definition\":{},\"helper_count\":{},\"player_selectors\":[",
+        s.generation,
+        s.sample,
+        s.mode,
+        s.world,
+        s.campaign,
+        s.player_count,
+        s.world_flags,
+        s.world_phase,
+        s.camera_mode,
+        s.group,
+        s.group_category,
+        s.control_definition,
+        s.helper_count
+    )?;
+    for (i, p) in s.player_selectors.iter().enumerate() {
+        if i != 0 {
+            write!(w, ",")?
+        }
+        write!(w, "[{},{}]", p[0], p[1])?;
+    }
+    write!(w, "],\"event\":")?;
+    if let Some(e) = &s.event {
+        write!(
+            w,
+            "{{\"controller\":{},\"flags\":{},\"index\":{},\"substate\":{},\"kind\":",
+            e.controller, e.flags, e.index, e.substate
+        )?;
+        if let Some(k) = e.kind {
+            write!(w, "{k}")?
+        } else {
+            write!(w, "null")?
+        }
+        write!(w, "}}")?;
+    } else {
+        write!(w, "null")?
+    }
+    write!(
+        w,
+        ",\"selection\":{{\"alternate_profile\":{},\"slots\":[",
+        s.selection.alternate_profile
+    )?;
+    for (i, p) in s.selection.slots.iter().enumerate() {
+        if i != 0 {
+            write!(w, ",")?
+        }
+        write!(
+            w,
+            "{{\"aircraft\":{},\"weapon\":{},\"option\":{},\"color\":",
+            p.aircraft, p.weapon, p.option
+        )?;
+        if let Some(c) = p.color {
+            write!(w, "[{},{},{}]", c[0], c[1], c[2])?
+        } else {
+            write!(w, "null")?
+        }
+        write!(w, "}}")?;
+    }
+    write!(w, "]}},\"candidates\":[")?;
+    for (i, c) in s.candidates.iter().enumerate() {
+        if i != 0 {
+            write!(w, ",")?
+        }
+        write!(
+            w,
+            "{{\"actor_index\":{},\"address\":{},\"helper\":{},\"helper_bound\":{},\"model_bound\":{},\"foreign_human_link\":{},\"native_id\":{},\"flags\":{},\"human_slot\":",
+            c.actor_index,
+            c.address,
+            c.helper,
+            c.helper_bound,
+            c.model_bound,
+            c.foreign_human_link,
+            c.native_id,
+            c.flags
+        )?;
+        if let Some(slot) = c.human_slot {
+            write!(w, "{slot}")?
+        } else {
+            write!(w, "null")?
+        }
+        write!(w, "}}")?;
+    }
+    write!(w, "],\"views\":[")?;
+    for (i, v) in s.views.iter().enumerate() {
+        if i != 0 {
+            write!(w, ",")?
+        }
+        write!(
+            w,
+            "{{\"owner\":{},\"primary\":{},\"secondary\":{},\"player_camera_slot\":",
+            v.owner, v.primary, v.secondary
+        )?;
+        if let CameraSource::Player(slot) = v.source {
+            write!(w, "{slot}")?
+        } else {
+            write!(w, "null")?
+        }
+        write!(w, "}}")?;
+    }
+    write!(
+        w,
+        "],\"native_takeover_ready\":{},\"blockers\":[",
+        readiness.native_takeover_ready()
+    )?;
+    for (i, b) in readiness.blockers.iter().enumerate() {
+        if i != 0 {
+            write!(w, ",")?
+        }
+        write!(w, "\"{}\"", b.code())?;
+    }
+    writeln!(w, "]}}")
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
     use acz_coop_game::NativePlayer;
+    #[test]
+    fn wingman_evidence_is_labeled_post_update_with_explicit_unfinished_control_gates() {
+        use acz_coop_wingman::{EventSnapshot, Selection, SelectionSnapshot};
+        let s = WingmanSnapshot {
+            generation: 1,
+            sample: 42,
+            mode: 1,
+            world: 2,
+            campaign: true,
+            player_count: 1,
+            player_selectors: vec![[0, 0]],
+            world_flags: 0,
+            world_phase: 1,
+            camera_mode: 0,
+            group: 3,
+            group_category: 0,
+            control_definition: 0,
+            helper_count: 0,
+            candidates: vec![],
+            views: vec![],
+            event: Some(EventSnapshot {
+                controller: 4,
+                flags: 0x40,
+                index: 1,
+                substate: 2,
+                kind: None,
+            }),
+            selection: SelectionSnapshot {
+                alternate_profile: false,
+                slots: [Selection {
+                    aircraft: 0,
+                    weapon: 1,
+                    option: 2,
+                    color: None,
+                }; 2],
+            },
+        };
+        let mut out = Vec::new();
+        write_record(&mut out, &Record::Wingman(s)).unwrap();
+        let text = String::from_utf8(out).unwrap();
+        assert_eq!(text.lines().count(), 1);
+        assert!(text.contains("\"type\":\"wingman_post_update\""));
+        assert!(text.contains("\"sample\":42"));
+        assert!(text.contains("\"kind\":null"));
+        assert!(text.contains("\"native_takeover_ready\":false"));
+        assert!(text.contains("\"ai_exclusion_unimplemented\""));
+        assert!(text.contains("\"event_policy_unverified\""));
+    }
     #[test]
     fn queue_capacity_never_blocks_and_reports_drops() {
         let (tx, drain) = channel(1).unwrap();

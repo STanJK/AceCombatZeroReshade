@@ -1,0 +1,47 @@
+{
+  "va": "0x1400c6a50",
+  "rva": "0xc6a50",
+  "name": "FUN_1400c6a50",
+  "prototype": "void FUN_1400c6a50(uchar * arg1, uchar arg2, uchar arg3, uchar * arg4, uchar * arg5, uchar * arg6, ulonglong arg7, uchar * arg8, uchar * arg9, uchar * arg10)",
+  "size": 1412,
+  "callers": [
+    "0x14016eb20",
+    "0x14016f6c0"
+  ],
+  "callees": [
+    "0x1400adac0",
+    "0x1400c4660",
+    "0x1400c5010",
+    "0x140200de0",
+    "0x1402014c0"
+  ],
+  "incoming_references": [
+    {
+      "from": "0x1437e5aa8",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x1402f0fc0",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x1402f0fd0",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x14016ec2c",
+      "function": "0x14016eb20",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x14016f7cd",
+      "function": "0x14016f6c0",
+      "type": "UNCONDITIONAL_CALL"
+    }
+  ],
+  "decompile_completed": true,
+  "decompile_error": ""
+}

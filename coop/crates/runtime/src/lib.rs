@@ -6,13 +6,15 @@ mod windows;
 #[derive(Debug, Clone, Copy, Default, PartialEq, Eq)]
 pub struct ObserverConfig {
     pub hooks: bool,
+    pub wingman_probe: bool,
 }
 impl ObserverConfig {
     pub fn parse(text: &str) -> Result<Self> {
         if text.len() > 4096 {
             return Err(Error::Bounds("observer config"));
         }
-        let mut value = None;
+        let mut hooks = None;
+        let mut probe = None;
         for line in text.lines() {
             let line = line.trim();
             if line.is_empty() || line.starts_with('#') {
@@ -21,21 +23,28 @@ impl ObserverConfig {
             let (key, v) = line
                 .split_once('=')
                 .ok_or(Error::Invalid("observer config"))?;
-            if key.trim() != "observer_hooks" {
-                return Err(Error::Invalid("unknown observer option"));
-            }
-            if value.is_some() {
+            let field = match key.trim() {
+                "observer_hooks" => &mut hooks,
+                "wingman_probe" => &mut probe,
+                _ => return Err(Error::Invalid("unknown observer option")),
+            };
+            if field.is_some() {
                 return Err(Error::Conflict);
             }
-            value = Some(match v.trim() {
+            *field = Some(match v.trim() {
                 "true" => true,
                 "false" => false,
                 _ => return Err(Error::Invalid("observer boolean")),
             });
         }
-        Ok(Self {
-            hooks: value.unwrap_or(false),
-        })
+        let result = Self {
+            hooks: hooks.unwrap_or(false),
+            wingman_probe: probe.unwrap_or(false),
+        };
+        if result.wingman_probe && !result.hooks {
+            return Err(Error::Invalid("wingman probe requires observer hooks"));
+        }
+        Ok(result)
     }
 }
 
@@ -157,6 +166,18 @@ mod tests {
         );
         assert!(ObserverConfig::parse("observer_hooks=true\nobserver_hooks=false").is_err());
         assert!(ObserverConfig::parse("other=true").is_err());
+    }
+    #[test]
+    fn wingman_probe_is_explicit_and_cannot_enable_hooks_implicitly() {
+        assert!(!ObserverConfig::default().wingman_probe);
+        assert!(ObserverConfig::parse("wingman_probe=true").is_err());
+        assert!(ObserverConfig::parse("observer_hooks=false\nwingman_probe=true").is_err());
+        let c = ObserverConfig::parse("wingman_probe=true\nobserver_hooks=true").unwrap();
+        assert!(c.hooks && c.wingman_probe);
+        assert!(
+            ObserverConfig::parse("observer_hooks=true\nwingman_probe=true\nwingman_probe=false")
+                .is_err()
+        );
     }
     #[test]
     fn create_failure_rolls_back_without_enabling() {

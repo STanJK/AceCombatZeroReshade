@@ -1,0 +1,26 @@
+{
+  "va": "0x14016d1c0",
+  "rva": "0x16d1c0",
+  "name": "FUN_14016d1c0",
+  "prototype": "undefined FUN_14016d1c0()",
+  "size": 605,
+  "callers": [],
+  "callees": [
+    "0x140189320",
+    "0x14018a160"
+  ],
+  "incoming_references": [
+    {
+      "function": "",
+      "type": "DATA",
+      "from": "0x1437eb04c"
+    },
+    {
+      "function": "",
+      "type": "DATA",
+      "from": "0x1402b3e00"
+    }
+  ],
+  "decompile_completed": true,
+  "decompile_error": ""
+}

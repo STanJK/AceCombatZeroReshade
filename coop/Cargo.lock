@@ -49,6 +49,7 @@ dependencies = [
  "acz-coop-contracts",
  "acz-coop-game",
  "acz-coop-trace",
+ "acz-coop-wingman",
  "minhook-sys",
  "windows-sys",
 ]
@@ -66,6 +67,7 @@ version = "0.1.0"
 dependencies = [
  "acz-coop-contracts",
  "acz-coop-game",
+ "acz-coop-wingman",
 ]
 
 [[package]]
@@ -77,6 +79,14 @@ dependencies = [
  "getrandom",
  "hmac",
  "sha2",
+]
+
+[[package]]
+name = "acz-coop-wingman"
+version = "0.1.0"
+dependencies = [
+ "acz-coop-contracts",
+ "acz-coop-game",
 ]
 
 [[package]]

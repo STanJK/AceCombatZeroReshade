@@ -1,0 +1,160 @@
+{
+  "date": "2026-10-31",
+  "base_commit": "47179434357f70444f9a9baade5ab778bba88871",
+  "rust": "1.99.1",
+  "linux_tests": 66,
+  "linux_fmt": "PASS",
+  "linux_clippy": "PASS",
+  "windows_cross_release": "PASS",
+  "windows_cross_test_link": "PASS",
+  "windows_cross_tests_executed": false,
+  "windows_cross_clippy": "PASS",
+  "trace_json_smoke": {
+    "result": "PASS",
+    "fixture": "synthetic",
+    "records": 3
+  },
+  "native_gameplay_executed": false,
+  "complete_wingman_takeover": false,
+  "code_inputs": [
+    {
+      "path": "coop/Cargo.lock",
+      "sha256": "9e2980f7df5e65baf7c2100d6ecddf62442b00b4a0b28eebcc993f1ed8d68035"
+    },
+    {
+      "path": "coop/Cargo.toml",
+      "sha256": "72868d1cefe96499372b5eeac9ac3cb60fcb8d13960b9ed8d76cfcc9503a8b14"
+    },
+    {
+      "path": "coop/crates/cli/Cargo.toml",
+      "sha256": "ae261737d0db71f3b750667569f9c31a10f611758a60be20fe8339bd39f9156d"
+    },
+    {
+      "path": "coop/crates/cli/src/lib.rs",
+      "sha256": "52d86c676ca5982b5eef2713ab454c87b0684dc10f099fc9e77ea1b626245f58"
+    },
+    {
+      "path": "coop/crates/cli/src/main.rs",
+      "sha256": "41ea9a36611ae8f7ec4ddc87efd5c6bb27b99278a2772a23b4e2b12108e0993f"
+    },
+    {
+      "path": "coop/crates/cli/tests/cli.rs",
+      "sha256": "1f112c735351997977fe9262130e8b9f9d4dd0fd90a9052686c2d63ee7ff8445"
+    },
+    {
+      "path": "coop/crates/contracts/Cargo.toml",
+      "sha256": "7df259bc520737383953dedf9fdf8ce01fc3d40b55c003e49f5d2fc820775bcd"
+    },
+    {
+      "path": "coop/crates/contracts/src/compatibility.rs",
+      "sha256": "2857c5feb8a2d0fe4d893fbc4da7880d7206205f8b39384e6cdcb256157377c2"
+    },
+    {
+      "path": "coop/crates/contracts/src/lib.rs",
+      "sha256": "db241c97fa43efba10699faeef4c5672ca31990e8f62f733f459cbc799c1eb2d"
+    },
+    {
+      "path": "coop/crates/game/Cargo.toml",
+      "sha256": "e6fcf92bddcb517b2dc038e2fc1a9b2a34df1c446b5aafb55f925a1b63c11499"
+    },
+    {
+      "path": "coop/crates/game/src/build_manifest.rs",
+      "sha256": "88ba80781edb5a6bdd59e4a5a9d6f86bc2140e021cdc4ceeb85ec32b6a2249d1"
+    },
+    {
+      "path": "coop/crates/game/src/lib.rs",
+      "sha256": "345fac9164c96a95e22d651d64c1fe6e0ade78549f38e238627458e0b4944085"
+    },
+    {
+      "path": "coop/crates/protocol/Cargo.toml",
+      "sha256": "4386789a717079d5fe1b32908c9d05d26a06c47d6e2b9e04e7b97af33dba58d8"
+    },
+    {
+      "path": "coop/crates/protocol/src/lib.rs",
+      "sha256": "df7f4b2de06eef6e88d8a27eb44f352e287bc0c76eb2239d7349cfc0e8624aee"
+    },
+    {
+      "path": "coop/crates/replication/Cargo.toml",
+      "sha256": "eef9a31f48ca447f7ba2b908eccc9688a4f4196275a1c12ed555590b838b1f30"
+    },
+    {
+      "path": "coop/crates/replication/src/lib.rs",
+      "sha256": "fdf35fb0065278f8c697783a8ff6d064f9daf6cc1058e65eeea95042a024ce45"
+    },
+    {
+      "path": "coop/crates/runtime/Cargo.toml",
+      "sha256": "88bca78fcdd4e6a28cddb18c1b680b2ea164d9ba38c7a683924564357f547bd4"
+    },
+    {
+      "path": "coop/crates/runtime/src/lib.rs",
+      "sha256": "2fdd658bc70461a5712a11b83775b058bb2757d27786527cf409b91d647842b8"
+    },
+    {
+      "path": "coop/crates/runtime/src/windows.rs",
+      "sha256": "dc1605d4b573d87b2978d133a840c283c8d3f79012987e5e03fd547d173a0ca4"
+    },
+    {
+      "path": "coop/crates/session/Cargo.toml",
+      "sha256": "7b073fa87dea842073d2ac89ddd268ee74a0a2940ef7b5661db71b1eb3e33e32"
+    },
+    {
+      "path": "coop/crates/session/src/lib.rs",
+      "sha256": "8242c33c2bfb2c79cee22c36abdcb3b0cf6066156a8848015ccb798d5325fe3a"
+    },
+    {
+      "path": "coop/crates/trace/Cargo.toml",
+      "sha256": "4f5d03310bcfe937ae439d4f9bda0792a00577006ed89218714abcda76a617a4"
+    },
+    {
+      "path": "coop/crates/trace/src/lib.rs",
+      "sha256": "c03718d994390277815c126729d41af27fe75bb22f80fe3f7f8583289affbf6f"
+    },
+    {
+      "path": "coop/crates/transport/Cargo.toml",
+      "sha256": "ab6f72df005d0979d0defc885be1b6ea32d90fb4c0285585f5c35bf22d39b932"
+    },
+    {
+      "path": "coop/crates/transport/src/lib.rs",
+      "sha256": "2d52bd25eaa92f97984ecdb9827b4f8c41730fd938f95307e85b2d38958b82f8"
+    },
+    {
+      "path": "coop/crates/wingman/Cargo.toml",
+      "sha256": "adb15a2b0f7f39111d07de8f6a1c3e2caeda9de49dbf0662f7076ad1e43e9e66"
+    },
+    {
+      "path": "coop/crates/wingman/src/lib.rs",
+      "sha256": "6290c40e75e2f92109dd3e51a35c79ef7e07ac97fe246d0f4e1bbdef54257080"
+    },
+    {
+      "path": "coop/crates/wingman/src/memory.rs",
+      "sha256": "4426014e25bb33a664013f80095fdd3795a39b0a139bfb4d51b20049cb3a623c"
+    },
+    {
+      "path": "coop/crates/wingman/src/native.rs",
+      "sha256": "6a38640f1e33309f0ac57d32efd29244b903b25eb29e69fc512356ca5efa8a96"
+    },
+    {
+      "path": "coop/crates/wingman/src/readiness.rs",
+      "sha256": "4d9237eeb162e160819d53bf7c8b672fc392c708df7cf2327e16cdf0b66b8235"
+    },
+    {
+      "path": "coop/crates/wingman/src/selection.rs",
+      "sha256": "8a73d9330c435bd8f6d698bd0888b7d75bc4c040c4619100db040edc10fffec3"
+    },
+    {
+      "path": "coop/crates/wingman/src/tests.rs",
+      "sha256": "a1afd4ab398405fad70597c9ed29384fd4061e1f55eaa676fa61a392328c33be"
+    },
+    {
+      "path": "coop/crates/wingman/src/views.rs",
+      "sha256": "24fa3fc377daff5918ca28e630f99f9097f081cfd1b16a7d6c71b80016c983ab"
+    }
+  ],
+  "logs": {
+    "linux-tests.log": "3256a103a6b1e7b343d7f414418487a677202826f72c5ca820311fff8293f1f6",
+    "linux-clippy.log": "f8d39924bb991cb59c02f16a5809a11e1a64948a2bcf2223d337f25772d1af16",
+    "windows-cross.log": "c5cfeb7524aa575e2ef93600ecfe91e2a6def70a68c41f4f1d9d821d06c19bc9",
+    "windows-clippy.log": "30523261ad87e116626513e7e3cb7419557110e39fea373351e398e29143e7f7",
+    "windows-test-link.log": "c06fce859dd265b9c2cf74e4fb04fcb597137a77ecade5752e52e8458df3fa64"
+  }
+}

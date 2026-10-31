@@ -1,0 +1,50 @@
+{
+  "va": "0x140167b00",
+  "rva": "0x167b00",
+  "name": "FUN_140167b00",
+  "prototype": "undefined FUN_140167b00()",
+  "size": 385,
+  "callers": [],
+  "callees": [
+    "0x14015b6f0",
+    "0x140197b30",
+    "0x1401c5140",
+    "0x1401fac80",
+    "0x1402011a0",
+    "0x140205050"
+  ],
+  "incoming_references": [
+    {
+      "from": "0x1437eabc0",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x1402f8ffc",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x1402f900c",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x1402af958",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x1402bdeb8",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x1402bc440",
+      "function": "",
+      "type": "DATA"
+    }
+  ],
+  "decompile_completed": true,
+  "decompile_error": ""
+}

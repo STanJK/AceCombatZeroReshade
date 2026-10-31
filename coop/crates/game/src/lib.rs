@@ -273,6 +273,23 @@ impl Observer {
         mode: usize,
         thread: u32,
     ) -> Result<NativeFrame> {
+        let sample = self.sample.checked_add(1).ok_or(Error::Exhausted)?;
+        let frame = self.capture(m, mode, thread, sample)?;
+        self.sample = sample;
+        Ok(frame)
+    }
+    /// Validate current lifecycle and read state without advancing the pre-update sample number.
+    /// Used after native update; never adopts a world that was invalidated during that update.
+    pub fn inspect(&self, m: &impl MemoryReader, mode: usize, thread: u32) -> Result<NativeFrame> {
+        self.capture(m, mode, thread, self.sample)
+    }
+    fn capture(
+        &self,
+        m: &impl MemoryReader,
+        mode: usize,
+        thread: u32,
+        sample: u64,
+    ) -> Result<NativeFrame> {
         let live = self.live.ok_or(Error::Unavailable)?;
         if live.thread != thread {
             return Err(Error::WrongThread);
@@ -349,8 +366,6 @@ impl Observer {
         if pointer(m, mode, 8)? != w || byte(m, mode, 0x18)? != ready {
             return Err(Error::Conflict);
         }
-        let sample = self.sample.checked_add(1).ok_or(Error::Exhausted)?;
-        self.sample = sample;
         Ok(NativeFrame {
             generation: live.generation,
             sample,
@@ -562,5 +577,19 @@ mod tests {
         ] {
             assert!(matches!(require_capability(op), Err(Error::Unsupported(_))));
         }
+    }
+    #[test]
+    fn post_update_inspection_preserves_sample_and_never_adopts_after_leave() {
+        let m = memory();
+        let mut o = Observer::new(image());
+        o.enter(&m, MODE, 7).unwrap();
+        let pre = o.observe(&m, MODE, 7).unwrap();
+        let post = o.inspect(&m, MODE, 7).unwrap();
+        assert_eq!(pre.sample, post.sample);
+        assert_eq!(pre.generation, post.generation);
+        assert_eq!(o.inspect(&m, MODE, 8), Err(Error::WrongThread));
+        assert_eq!(o.observe(&m, MODE, 7).unwrap().sample, pre.sample + 1);
+        o.leave(MODE, 7).unwrap();
+        assert_eq!(o.inspect(&m, MODE, 7), Err(Error::Unavailable));
     }
 }

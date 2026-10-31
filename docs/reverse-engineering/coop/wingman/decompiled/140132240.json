@@ -1,0 +1,63 @@
+{
+  "va": "0x140132240",
+  "rva": "0x132240",
+  "name": "FUN_140132240",
+  "prototype": "undefined FUN_140132240()",
+  "size": 5707,
+  "callers": [
+    "0x140138bc0",
+    "0x140139a80"
+  ],
+  "callees": [
+    "0x140115c20",
+    "0x140118040",
+    "0x140126fd0",
+    "0x140127650",
+    "0x140127940",
+    "0x140128500",
+    "0x140128740",
+    "0x140128880",
+    "0x14012f340",
+    "0x140133ae0",
+    "0x140133cd0",
+    "0x1401344c0",
+    "0x140135500",
+    "0x140202920",
+    "0x140203050",
+    "0x14022d480"
+  ],
+  "incoming_references": [
+    {
+      "from": "0x1437e8d18",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x1402f6244",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x1402f62c8",
+      "function": "",
+      "type": "DATA"
+    },
+    {
+      "from": "0x14013929e",
+      "function": "0x140138bc0",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x140139ec6",
+      "function": "0x140139a80",
+      "type": "UNCONDITIONAL_CALL"
+    },
+    {
+      "from": "0x1402acd48",
+      "function": "",
+      "type": "DATA"
+    }
+  ],
+  "decompile_completed": true,
+  "decompile_error": ""
+}

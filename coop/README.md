@@ -4,6 +4,11 @@
 这是已实现的协议/会话/复制/传输基础与原生只读观测器，**尚不具备可玩的战役合作**。
 模型演练、DLL 编译、游戏内 HIL 分开验收。
 
+2026-10-31 新方向：原战役僚机接管、先本地分屏。见
+[三轮研究](../docs/mp/wingman/REVERSE_PLAN.md)、[实行书](../docs/mp/execution/WINGMAN_LOCAL.md)、
+[取证操作](../docs/usage/WINGMAN_LOCAL.zh-CN.md)。新增实际进程内取证；
+原生 P2 创建、AI 排他、选机/战役分屏接入仍未完成。
+
 逐步操作请先读 [完整 demo 文档](../docs/usage/COOP_DEMO.zh-CN.md)：
 单机自动/手动双进程、局域网双机、EXE 检查和单进程游戏观察分别说明。
 
@@ -15,11 +20,12 @@
 | replication | 分块完整提交、实体身份与事件去重、规范化状态摘要 |
 | transport | 双向随机挑战 PSK HMAC、逐帧完整性和计数器、有总截止时间的 TCP |
 | game | SHA/PE/指纹与只读 MemoryReader、生命周期/线程/Actor 绑定 |
+| wingman | 原僚机/helper 候选、选机结果、更新后原生视图及未通过门槛 |
 | trace | 有界 try-send、丢弃计数、独立 JSONL 写端 |
 | runtime | ReShade API 20 AddonInit、可选原生观测 Hook、Win64 FFI |
 | cli | doctor、双进程模型演练、直连模型端、密钥文件生成 |
 
-依赖有两个装配根：CLI → 可移植核心；runtime → game/trace → contracts。
+依赖有两个装配根：CLI → 可移植核心；runtime → trace/wingman/game → contracts。
 网络 DTO 不包含原生指针，原生 orientation-like 数据不等同于网络四元数。
 
 ## 本地运行

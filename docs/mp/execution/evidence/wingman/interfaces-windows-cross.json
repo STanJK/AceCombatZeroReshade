@@ -1,0 +1,25 @@
+{
+  "result": "PASS",
+  "modules": 10,
+  "dependency_boundaries": "PASS",
+  "compatibility_sha256": "af6c7d228a09ccece18337cb75b3f0f133052dc509dda46abd4040ebda988409",
+  "native_candidates": 4,
+  "native_source_facts": "PASS",
+  "gameplay_executed": false,
+  "windows_dll": {
+    "bytes": 628224,
+    "sha256": "efefdae5b62de578bba3d7e8cfde155f6718195a6b0b1faf0018ba06eb583426",
+    "exports": [
+      "AddonInit",
+      "AddonUninit",
+      "DESCRIPTION",
+      "NAME"
+    ],
+    "imports": [
+      "api-ms-win-core-synch-l1-2-0.dll",
+      "kernel32.dll",
+      "msvcrt.dll",
+      "ntdll.dll"
+    ]
+  }
+}

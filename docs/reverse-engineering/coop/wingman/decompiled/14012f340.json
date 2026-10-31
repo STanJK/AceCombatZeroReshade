@@ -1,0 +1,37 @@
+{
+  "va": "0x14012f340",
+  "rva": "0x12f340",
+  "name": "FUN_14012f340",
+  "prototype": "undefined FUN_14012f340()",
+  "size": 12026,
+  "callers": [
+    "0x140132240"
+  ],
+  "callees": [
+    "0x140079410",
+    "0x1400ac780",
+    "0x14012c8c0",
+    "0x140202920",
+    "0x14022d480",
+    "0x14022d904"
+  ],
+  "incoming_references": [
+    {
+      "function": "",
+      "type": "DATA",
+      "from": "0x1437e8ce8"
+    },
+    {
+      "function": "",
+      "type": "DATA",
+      "from": "0x1402f61f0"
+    },
+    {
+      "function": "0x140132240",
+      "type": "UNCONDITIONAL_CALL",
+      "from": "0x1401323d6"
+    }
+  ],
+  "decompile_completed": true,
+  "decompile_error": ""
+}

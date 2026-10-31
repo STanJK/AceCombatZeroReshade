@@ -15,12 +15,12 @@ ROOT=Path(__file__).resolve().parents[2]
 EXPECTED={
  'contracts':set(), 'protocol':{'contracts'}, 'session':{'contracts'},
  'replication':{'contracts','protocol'}, 'transport':{'contracts','protocol'},
- 'game':{'contracts'}, 'trace':{'contracts','game'},
- 'runtime':{'contracts','game','trace'},
+ 'game':{'contracts'}, 'wingman':{'contracts','game'}, 'trace':{'contracts','game','wingman'},
+ 'runtime':{'contracts','game','trace','wingman'},
  'cli':{'contracts','protocol','session','replication','transport','game'},
 }
 EXTERNAL={'contracts':set(),'protocol':set(),'session':set(),'replication':{'sha2'},
- 'transport':{'hmac','sha2','getrandom'},'game':{'sha2'},'trace':set(),
+ 'transport':{'hmac','sha2','getrandom'},'game':{'sha2'},'wingman':set(),'trace':set(),
  'runtime':{'minhook-sys','windows-sys'},'cli':set()}
 def check(condition,message):
  if not condition:raise ValueError(message)
