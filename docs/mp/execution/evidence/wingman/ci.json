@@ -1,0 +1,32 @@
+{
+  "code_commit": "54daf0581342dfcb10018cbfa634a720d83bbe20",
+  "run_id": 41155025882,
+  "run_url": "https://github.com/STanJK/AceCombatZeroReshade/actions/runs/41155025882",
+  "jobs": [
+    {
+      "id": 124399805075,
+      "name": "modules (ubuntu-latest)",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 124399805574,
+      "name": "modules (windows-latest)",
+      "status": "completed",
+      "conclusion": "success"
+    }
+  ],
+  "windows_tests_executed": 66,
+  "windows_tests_failed": 0,
+  "artifact": {
+    "id": 13024058032,
+    "name": "ACZCoop-read-only-observer-Windows-x64",
+    "url": "https://github.com/STanJK/AceCombatZeroReshade/actions/runs/41155025882/artifacts/13024058032",
+    "digest": "sha256:7ee3101d94c771aff211091211f2502eb497850179552f1333c563aa5bedc101",
+    "size_in_bytes": 459302,
+    "expires_at": "2027-01-29T01:22:15Z",
+    "code_commit": "54daf0581342dfcb10018cbfa634a720d83bbe20"
+  },
+  "native_gameplay_executed": false,
+  "complete_wingman_takeover": false
+}

@@ -15,6 +15,8 @@ Windows 安装 Rust 1.99.1、Visual Studio C++ Build Tools、Python 后，在仓
 
 产物在 `coop/dist/ACZCoop-observer/`，或从本分支对应提交的 GitHub Actions 下载
 `ACZCoop-read-only-observer-Windows-x64`。旧提交的包不支持新选项。
+本轮已通过构建的包：[54daf05 Windows 观察器](https://github.com/STanJK/AceCombatZeroReshade/actions/runs/41155025882/artifacts/13024058032)，
+对应 [CI 记录](https://github.com/STanJK/AceCombatZeroReshade/actions/runs/41155025882)。
 沿用已成功的 ReShade API20 add-on 注入链：full add-on ReShade 的 `dxgi.dll` 加载
 `ACZCoop.addon64`。安装/回退细节见 [demo 第 7–8 节](COOP_DEMO.zh-CN.md)。
 

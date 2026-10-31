@@ -82,9 +82,9 @@
       "sha256": "32ea55c8de464f6c63dd7cb4e49d9e34d22de82618595da0d4ea1d2515224a14"
     },
     {
-      "bytes": 4433,
+      "bytes": 5001,
       "path": "docs/mp/execution/WINGMAN_AUDIT.md",
-      "sha256": "0d53594a46ccc8b0f7ccb7526366fd1743a5560ab1f5b37547044c628f0a74a0"
+      "sha256": "c52b9ea83b08eb85745f185d513e86ad7f5ab2bc6aa5137c7e69c8c6ed8915dc"
     },
     {
       "bytes": 5733,
@@ -162,6 +162,11 @@
       "sha256": "4f596882a6501ba94f0139ed91bdaa10fd98bced9cf6f00b6484b42c799f44a5"
     },
     {
+      "bytes": 1036,
+      "path": "docs/mp/execution/evidence/wingman/ci.json",
+      "sha256": "6842563101087d2ae00fb447536d62a3c711f2d3fc8bbfdd70338bd9cc37a348"
+    },
+    {
       "bytes": 155,
       "path": "docs/mp/execution/evidence/wingman/evidence-validation.json",
       "sha256": "7cd25e29f5970b7699c06bed2c065f8a48a4bc0e7fa429421e5f69bb528fa8c7"
@@ -237,9 +242,9 @@
       "sha256": "11413a63722262c95006cf0681bca1490f2547c74989435d4bb0fd12eb73f4e5"
     },
     {
-      "bytes": 4340,
+      "bytes": 4591,
       "path": "docs/usage/WINGMAN_LOCAL.zh-CN.md",
-      "sha256": "8ee9c1176c257b2614646d241df0d6a63e8668d3603bacf768b7ef4fc2df7564"
+      "sha256": "c9a35ef920f95505fcf0bbe959ac6a7bea85926cbf5d0ad6ee244586b73418eb"
     }
   ],
   "format": 1,

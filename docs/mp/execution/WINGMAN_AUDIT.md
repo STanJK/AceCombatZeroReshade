@@ -30,7 +30,15 @@
 
 交叉编译来自官方 LLVM-MinGW 20261020 msvcrt，SHA-256
 `ceb8c5acc6f76e143f9c714772d2fa677027802561ce68c396e8dc990a80f0b6`，
-使用 `-C target-feature=+crt-static`。GitHub Windows CI 的实际执行结果另行记录，不以本地链接代替。
+使用 `-C target-feature=+crt-static`，不以本地链接代替 Windows 实际执行。
+
+代码提交 `54daf0581342dfcb10018cbfa634a720d83bbe20` 的
+[Linux / Windows CI](https://github.com/STanJK/AceCombatZeroReshade/actions/runs/41155025882)
+均已成功，Windows 实际执行 **66 项测试通过**。
+[Windows 观察器包](https://github.com/STanJK/AceCombatZeroReshade/actions/runs/41155025882/artifacts/13024058032)
+ZIP SHA-256：`7ee3101d94c771aff211091211f2502eb497850179552f1333c563aa5bedc101`。
+机器记录见 [ci.json](evidence/wingman/ci.json)。它仍是观察器包，不是可玩接管补丁；
+后续本轮文档收尾提交不改变这些经过验证的 Rust 源码。
 
 ## 未完成及下一步所需证据
 
