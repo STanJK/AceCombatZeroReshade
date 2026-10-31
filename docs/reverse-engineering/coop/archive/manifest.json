@@ -17,9 +17,9 @@
       "sha256": "91747757f928e9393d904d8c25aafa41d9e2527f47ea4664f78311c65d2742be"
     },
     {
-      "bytes": 1279,
+      "bytes": 1353,
       "path": "docs/mp/README.md",
-      "sha256": "4b28ea841653525dc9e72f699d79499243393837722fa6a8335c744961c452b6"
+      "sha256": "571c5e4442796998581ff04f24159803e4152f6a3e7dd1ed65b52026f36c6ead"
     },
     {
       "bytes": 10646,
@@ -62,9 +62,9 @@
       "sha256": "fb38660468579d2eb81287ae7089028650147e57504f6585e3f6b12fd5e11461"
     },
     {
-      "bytes": 950,
+      "bytes": 1046,
       "path": "docs/mp/execution/README.md",
-      "sha256": "c912d86d6e0e576d7a3a4ed9935aacb337120aadd31731aac08c69dfff051663"
+      "sha256": "0a2d890f17d1678f8228e484adee69163179576b252e5bc0b806819e2013e1e9"
     },
     {
       "bytes": 2201,
@@ -85,6 +85,11 @@
       "bytes": 198,
       "path": "docs/mp/execution/evidence/checkout-normalization.json",
       "sha256": "7170135b532a9b698b92073b6c197462d3c4f48b95e9417f0c412b343d1c4206"
+    },
+    {
+      "bytes": 1821,
+      "path": "docs/mp/execution/evidence/demo-guide-checks.json",
+      "sha256": "2c5e18854231252d236779c9df7d97a20d8ae90d1da4c57e9a3ceac6c815165d"
     },
     {
       "bytes": 607,
@@ -147,6 +152,11 @@
       "sha256": "570b88693dacb52ccd64f4aa4d1c9cd6ed42cbe110ce1e63a45351922bbf9c8e"
     },
     {
+      "bytes": 23117,
+      "path": "docs/usage/COOP_DEMO.zh-CN.md",
+      "sha256": "74ba1195992d12ec469499c07de0ed20d1dad8256650dcb3a38e0ae9d727c115"
+    },
+    {
       "bytes": 74669,
       "path": "docs/usage/FUNCTION_REVIEW_LEDGER.md",
       "sha256": "37e3e3cbd267d80f325d3e15cc93c5c7b13fe6e5881155e885c4ce35f08a4d31"
@@ -157,9 +167,9 @@
       "sha256": "362a72f370b3b6f86aab9d60b705a3ca2994a901924a9aeb73f38fc92a06ddc2"
     },
     {
-      "bytes": 2319,
+      "bytes": 2476,
       "path": "docs/usage/README.md",
-      "sha256": "b0c79947f40ec2cff24d65c311465650dd7face26483b580a9fe03695f55513b"
+      "sha256": "696cd9e63a42730c30f3fb11024ade2fa78c6a9893be1c64092bb64e7212f4b9"
     },
     {
       "bytes": 5911,

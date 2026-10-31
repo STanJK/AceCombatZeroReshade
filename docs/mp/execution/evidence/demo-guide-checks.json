@@ -1,0 +1,66 @@
+{
+  "schema": 1,
+  "date": "2026-10-31",
+  "source_commit": "62e8fa2fa38a0bd63e62affff9a87afdb958db9c",
+  "platform": "Linux x86_64",
+  "rust_toolchain": "1.99.1",
+  "scope": "CLI model demo guide verification",
+  "native_gameplay": false,
+  "physical_two_machine_test_executed": false,
+  "windows_powershell_steps_executed_this_round": false,
+  "auto_two_process": {
+    "exit": 0,
+    "report": {
+      "result": "PASS",
+      "scope": "model",
+      "transport": "authenticated_tcp",
+      "native_gameplay": false,
+      "epoch": 2,
+      "entities_after_retry": 0,
+      "host_save_permits": 1,
+      "guest_save_permits": 0,
+      "digest_checks": 4,
+      "input_duplicate_rejected": true,
+      "damage_duplicate_rejected": true,
+      "old_epoch_rejected": true
+    }
+  },
+  "keygen_existing_file_rejected": true,
+  "manual_two_process": {
+    "host_bind": "127.0.0.1:48123",
+    "host_exit": 0,
+    "guest_exit": 0,
+    "host_report": {
+      "result": "PASS",
+      "scope": "model",
+      "transport": "authenticated_tcp",
+      "native_gameplay": false,
+      "epoch": 2,
+      "entities_after_retry": 0,
+      "host_save_permits": 1,
+      "guest_save_permits": 0,
+      "digest_checks": 4,
+      "input_duplicate_rejected": true,
+      "damage_duplicate_rejected": true,
+      "old_epoch_rejected": true
+    },
+    "guest_report": {
+      "result": "PASS",
+      "scope": "guest-model",
+      "native_gameplay": false
+    }
+  },
+  "wrong_key": {
+    "host_exit": 1,
+    "guest_exit": 1,
+    "host_error": "acz-coop: peer authentication failed",
+    "guest_error": "acz-coop: unexpected end of file",
+    "result": "correctly rejected"
+  },
+  "tcp_probe_consumes_one_accept": {
+    "host_exit": 1,
+    "host_error": "acz-coop: unexpected end of file",
+    "restart_required": true
+  },
+  "result": "PASS"
+}

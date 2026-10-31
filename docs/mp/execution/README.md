@@ -3,6 +3,8 @@
 基线：`mp@7507e5f`。本轮按“先规范 → 对照真实代码 → 单模块实现/验收 → 跨模块审计”执行。
 总目标仍为 [双人在线战役合作](../COOP_PATCH_IMPLEMENTATION.zh-CN.md)。
 
+要先运行现有成果，直接阅读 [demo 操作说明](../../usage/COOP_DEMO.zh-CN.md)。
+
 阅读顺序：
 
 1. [项目结构扫描](REPOSITORY_SURVEY.md)

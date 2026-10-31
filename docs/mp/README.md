@@ -1,6 +1,7 @@
 # Multiplayer research and implementation plan
 
 中文入口：[双人在线战役合作补丁实行书](COOP_PATCH_IMPLEMENTATION.zh-CN.md)。
+运行入口：[完整 demo 操作说明](../usage/COOP_DEMO.zh-CN.md)。
 本轮提交的是可追溯的静态研究、逆向任务矩阵和实施规范；运行时门槛仍需在完整游戏安装上验证。
 
 Goal: **two people, two networked game instances, one shared campaign world,

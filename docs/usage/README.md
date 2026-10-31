@@ -6,6 +6,7 @@ No new game-RVA hook is production-approved by these documents.
 
 | Document | Purpose |
 | --- | --- |
+| [COOP_DEMO.zh-CN.md](COOP_DEMO.zh-CN.md) | Complete Windows demo walkthrough: one-PC two-process CLI, LAN, EXE checks, and experimental game observation |
 | [RESEARCH_TOOLING.md](RESEARCH_TOOLING.md) | Run the exact CLI extraction and inspect the archived indexes |
 | [NATIVE_ADAPTERS.md](NATIVE_ADAPTERS.md) | Read the recovered code as ABI, lifetime and authority contracts |
 | [CODE_READING_NOTES.md](CODE_READING_NOTES.md) | Findings/corrections from following code across subsystem boundaries |
