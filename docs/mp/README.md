@@ -1,5 +1,8 @@
 # Multiplayer research and implementation plan
 
+当前方向已更新为 [主机单飞机双视图与共享机头HUD](cockpit/REVERSE_PLAN.md)。五轮递归逆向及模块接口已归档；下方双游戏实例/僚机目标是历史方案。
+
+
 中文入口：[双人在线战役合作补丁实行书](COOP_PATCH_IMPLEMENTATION.zh-CN.md)。
 运行入口：[完整 demo 操作说明](../usage/COOP_DEMO.zh-CN.md)。
 本轮提交的是可追溯的静态研究、逆向任务矩阵和实施规范；运行时门槛仍需在完整游戏安装上验证。

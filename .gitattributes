@@ -7,3 +7,5 @@
 *.exe -text
 *.dll -text
 *.addon64 -text
+# Preserve verbatim Ghidra output, including its generated blank lines/spaces.
+docs/reverse-engineering/coop/cockpit/decompiled/*.c whitespace=-blank-at-eol,-blank-at-eof

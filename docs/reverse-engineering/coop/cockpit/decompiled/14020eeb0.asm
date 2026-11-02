@@ -1,0 +1,36 @@
+0x14020eeb0  SUB RSP,0x48
+0x14020eeb4  MOV RAX,qword ptr [0x140309040]
+0x14020eebb  XOR RAX,RSP
+0x14020eebe  MOV qword ptr [RSP + 0x30],RAX
+0x14020eec3  CMP ECX,dword ptr [0x14031e0d0]
+0x14020eec9  MOV R10D,ECX
+0x14020eecc  JNZ 0x14020eee8
+0x14020eece  CMP EDX,dword ptr [0x14031e0d4]
+0x14020eed4  JNZ 0x14020eee8
+0x14020eed6  CMP R8D,dword ptr [0x14031e0d8]
+0x14020eedd  JNZ 0x14020eee8
+0x14020eedf  CMP R9D,dword ptr [0x14031e0dc]
+0x14020eee6  JZ 0x14020ef3d
+0x14020eee8  MOV dword ptr [0x14031e0d0],R10D
+0x14020eeef  MOV dword ptr [0x14031e0d4],EDX
+0x14020eef5  MOV dword ptr [0x14031e0d8],R8D
+0x14020eefc  MOV dword ptr [0x14031e0dc],R9D
+0x14020ef03  TEST R10D,R10D
+0x14020ef06  JS 0x14020ef3d
+0x14020ef08  TEST EDX,EDX
+0x14020ef0a  JS 0x14020ef3d
+0x14020ef0c  MOV RAX,qword ptr [0x14033da48]
+0x14020ef13  MOV dword ptr [RSP + 0x24],EDX
+0x14020ef17  MOV EDX,0x1
+0x14020ef1c  MOV dword ptr [RSP + 0x28],R8D
+0x14020ef21  LEA R8,[RSP + 0x20]
+0x14020ef26  MOV dword ptr [RSP + 0x20],R10D
+0x14020ef2b  MOV RCX,qword ptr [RAX + 0x10]
+0x14020ef2f  MOV dword ptr [RSP + 0x2c],R9D
+0x14020ef34  MOV RAX,qword ptr [RCX]
+0x14020ef37  CALL qword ptr [RAX + 0xb0]
+0x14020ef3d  MOV RCX,qword ptr [RSP + 0x30]
+0x14020ef42  XOR RCX,RSP
+0x14020ef45  CALL 0x14022d480
+0x14020ef4a  ADD RSP,0x48
+0x14020ef4e  RET

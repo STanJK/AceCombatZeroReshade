@@ -1,5 +1,8 @@
 # Using the co-op research code and evidence
 
+最新阅读入口：[双视图五轮研究与复现](DUAL_VIEW_RESEARCH.zh-CN.md)。这是当前方向；旧demo和僚机记录继续保留。
+
+
 This is the third-stage reading/usage handoff. It covers extraction tooling,
 the collected code corpus and the native seams that a future patch would use.
 No new game-RVA hook is production-approved by these documents.

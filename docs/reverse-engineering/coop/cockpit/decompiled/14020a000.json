@@ -1,0 +1,57 @@
+{
+  "va": "0x14020a000",
+  "rva": "0x20a000",
+  "name": "FUN_14020a000",
+  "prototype": "undefined FUN_14020a000()",
+  "size": 714,
+  "callers": [
+    "0x14020abe0",
+    "0x14020b9c0",
+    "0x14020e000",
+    "0x14020e490"
+  ],
+  "callees": [
+    "0x14020eeb0",
+    "0x140211b80",
+    "0x14022d480"
+  ],
+  "incoming_references": [
+    {
+      "type": "DATA",
+      "function": "",
+      "from": "0x1437f2cf0"
+    },
+    {
+      "type": "DATA",
+      "function": "",
+      "from": "0x140300ac4"
+    },
+    {
+      "type": "DATA",
+      "function": "",
+      "from": "0x140300ad4"
+    },
+    {
+      "type": "UNCONDITIONAL_CALL",
+      "function": "0x14020e000",
+      "from": "0x14020e454"
+    },
+    {
+      "type": "UNCONDITIONAL_CALL",
+      "function": "0x14020abe0",
+      "from": "0x14020affd"
+    },
+    {
+      "type": "UNCONDITIONAL_CALL",
+      "function": "0x14020e490",
+      "from": "0x14020e4ce"
+    },
+    {
+      "type": "UNCONDITIONAL_CALL",
+      "function": "0x14020b9c0",
+      "from": "0x14020bf18"
+    }
+  ],
+  "decompile_completed": true,
+  "decompile_error": ""
+}

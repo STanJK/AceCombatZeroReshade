@@ -1,5 +1,8 @@
 # Two-player campaign co-op research
 
+最新研究：[单飞机双视图五轮递归档案](cockpit/README.md)（2026-11-02 UTC）。当前方向为主机单世界、P1飞行/机炮、P2武器、共享机头HUD；下方保留历史双机/僚机研究。
+
+
 2026-10-31 supplemental [campaign-wingman investigation](wingman/README.md) records
 three recursive rounds, 169 selected exports (including rechecks), native probe modules
 and the remaining unimplemented takeover gates. It adds no new gameplay-confirmed claims.

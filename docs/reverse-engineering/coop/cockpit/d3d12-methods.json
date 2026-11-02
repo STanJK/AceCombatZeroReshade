@@ -1,0 +1,36 @@
+{
+  "url": "https://raw.githubusercontent.com/microsoft/DirectX-Headers/main/include/directx/d3d12.h",
+  "header_sha256": "8c8ec60b15cd72856db521b5cffb0cb497f86bf47d8b1e089b91b668c1c3c0b1",
+  "methods": [
+    {
+      "name": "Close",
+      "slot": 9,
+      "offset": "0x48"
+    },
+    {
+      "name": "DrawInstanced",
+      "slot": 12,
+      "offset": "0x60"
+    },
+    {
+      "name": "DrawIndexedInstanced",
+      "slot": 13,
+      "offset": "0x68"
+    },
+    {
+      "name": "RSSetViewports",
+      "slot": 21,
+      "offset": "0xa8"
+    },
+    {
+      "name": "RSSetScissorRects",
+      "slot": 22,
+      "offset": "0xb0"
+    },
+    {
+      "name": "OMSetRenderTargets",
+      "slot": 46,
+      "offset": "0x170"
+    }
+  ]
+}
