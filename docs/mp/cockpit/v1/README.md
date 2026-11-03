@@ -8,6 +8,8 @@
 | R7 | [计划](ROUND_7_PLAN.md) | [结果](ROUND_7_RESULT.md) | 相机存储、乘法、角度、裁剪以及同眼点重投影 |
 | R8 | [计划](ROUND_8_PLAN.md) | [结果](ROUND_8_RESULT.md) | 两视图共用命令 arena，容量预留与链接租约 |
 | R9 | [计划](ROUND_9_PLAN.md) | [结果](ROUND_9_RESULT.md) | 一次 HUD 生产、带来源批次和透明合成适用范围 |
-| R10 | [计划](ROUND_10_PLAN.md) | [结果](ROUND_10_RESULT.md) | 按消费者分权，区分取消与短按释放 |
+| R10 | [计划](ROUND_10_PLAN.md) | [结果](ROUND_10_RESULT.md) | 历史消费者分析，区分取消与短按释放 |
 
 原生接口、放行条件及运行检查按模块收录。证据归档包含各批导出、日志、矩阵样例、入口字节与校验命令。[接入与运行验收](INTEGRATION.md) · [本次证据归档](../../../reverse-engineering/coop/cockpit/v1/README.md)
+
+M1 现采用设备层分流和 Bridge 分时回写。接入契约与新增五轮记录见[输入专项 R11–R15](input/README.md)。

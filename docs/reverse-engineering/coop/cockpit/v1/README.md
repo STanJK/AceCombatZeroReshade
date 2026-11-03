@@ -19,3 +19,5 @@ python tools/ghidra/cockpit_v1_camera_fixture.py --binary /path/to/acz.exe
 ```
 
 复现导出时先按 manifest 工具版本分析原 PE。应用 ApplyKnownInputContracts.java 与 ApplyCockpitContracts.java 后，以各批 seeds.txt 为 ExportSelectedFunctions.java 的输入。R6 额外使用 ExportProgramIndex.java 和 ExportOperandCandidates.java。脚本读取 PE 与反编译结果，无需运行游戏。
+
+后续输入专项证据见 [R11–R15](input/README.md)。

@@ -87,14 +87,14 @@
       "sha256": "0223d754406c3cfc1914bbba3553563eb8c17e9b9625623f677d9ea7e44b7c7e"
     },
     {
-      "bytes": 2967,
+      "bytes": 3053,
       "path": "docs/mp/cockpit/v1/INTEGRATION.md",
-      "sha256": "070e63ca29471e334a086be432e11e2b553ea8528b61884602a4fb4b5f17514f"
+      "sha256": "af6a173941b965f0e8ca441a58ad8d6a0756fae0289e6969281bf18f5117a140"
     },
     {
-      "bytes": 1361,
+      "bytes": 1499,
       "path": "docs/mp/cockpit/v1/README.md",
-      "sha256": "d29522981845e51569f5354b1cdcff4741f3c8ce41453a4052ccaa7b1e2b8cf8"
+      "sha256": "8750206f23c656ae1abe73e64bfab2d59d4b620a75e573430b7ed095fa7578f7"
     },
     {
       "bytes": 851,
@@ -147,9 +147,64 @@
       "sha256": "86788ef1d723e5b69d83faf24ab91d44870c453690ee45bdf137b7a02382efbd"
     },
     {
-      "bytes": 3416,
+      "bytes": 3443,
       "path": "docs/mp/cockpit/v1/SPEC.md",
-      "sha256": "3c484568424035145a34d122f846fd8ea200c686f49e60f80363018e1630b00a"
+      "sha256": "e7f450c48b50f94114271a28715b078f7d63449171c8f9705b6e5dbcf1e190b0"
+    },
+    {
+      "bytes": 2482,
+      "path": "docs/mp/cockpit/v1/input/README.md",
+      "sha256": "b397eee58ae6d8c8200a90dedb139172db7414606763e7cde4460f489d42ed0c"
+    },
+    {
+      "bytes": 670,
+      "path": "docs/mp/cockpit/v1/input/ROUND_11_PLAN.md",
+      "sha256": "d6f185f47283a8dd2897c3650866eb34189923f79664549a7e7afd04b0075946"
+    },
+    {
+      "bytes": 2232,
+      "path": "docs/mp/cockpit/v1/input/ROUND_11_RESULT.md",
+      "sha256": "a4f5abb58320a994d78adf9385a881a20a50ece557bd4b06efc4912669b6dfff"
+    },
+    {
+      "bytes": 639,
+      "path": "docs/mp/cockpit/v1/input/ROUND_12_PLAN.md",
+      "sha256": "70475902f0660e2ec8e669282d421f36fc058b64f15007241f62f548d9afa09c"
+    },
+    {
+      "bytes": 1823,
+      "path": "docs/mp/cockpit/v1/input/ROUND_12_RESULT.md",
+      "sha256": "86797aa3b7ccfdb4942b672efc20c93f273bb46a1cb53e7426fb229ffd58e5e1"
+    },
+    {
+      "bytes": 431,
+      "path": "docs/mp/cockpit/v1/input/ROUND_13_PLAN.md",
+      "sha256": "265220366b1bd1b6ce44dc046773705c9636d139647ac0e59a12b47a021f774e"
+    },
+    {
+      "bytes": 1870,
+      "path": "docs/mp/cockpit/v1/input/ROUND_13_RESULT.md",
+      "sha256": "a5f94da8da6dfd562b4a983119eae83a6594dbb6e8e8ab4e351c24040041e0b1"
+    },
+    {
+      "bytes": 620,
+      "path": "docs/mp/cockpit/v1/input/ROUND_14_PLAN.md",
+      "sha256": "492b0739e86bcd8b99a7e34d1e45bb5027e34fb570a9aeb725ad8da474b1ea3f"
+    },
+    {
+      "bytes": 2637,
+      "path": "docs/mp/cockpit/v1/input/ROUND_14_RESULT.md",
+      "sha256": "be3557dcdc88d12e37d3ac5da28628d848f2ac1ba3d555a08be9bfb9c41427cd"
+    },
+    {
+      "bytes": 862,
+      "path": "docs/mp/cockpit/v1/input/ROUND_15_PLAN.md",
+      "sha256": "4d556f7040236b157ba33e8dd450efad458a227d9a6fdeb6020764c1ead236dc"
+    },
+    {
+      "bytes": 3010,
+      "path": "docs/mp/cockpit/v1/input/ROUND_15_RESULT.md",
+      "sha256": "9dc12b343b548f4314b0012cc6558da3cc3a238c884a309cdd8d643b23f41931"
     },
     {
       "bytes": 1891,
