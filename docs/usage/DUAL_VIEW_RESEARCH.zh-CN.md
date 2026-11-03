@@ -1,5 +1,7 @@
 # 阅读与复现五轮双视图研究
 
+V1 已定版，新增五轮逆向及逐模块运行验收。[V1 研究索引](../mp/cockpit/v1/README.md)
+
 此处交付逆向证据和实施契约，没有可运行的双视图补丁。当前目标：主机单飞机，P1飞行/机炮，P2其余武器，
 两独立摄像机；语义HUD共享，显示锚在机头。开始阅读 [本轮索引](../reverse-engineering/coop/cockpit/README.md)，
 再读 [模块合同](../mp/cockpit/IMPLEMENTATION_CONTRACT.md) 和 [最小运行实验](../reverse-engineering/coop/cockpit/IMPLEMENTATION_GATES.md)。

@@ -26,6 +26,7 @@ jobs:
       - run: python tools/ghidra/verify_coop_archive.py
       - run: python tools/ghidra/verify_wingman_evidence.py
       - run: python tools/ghidra/verify_cockpit_evidence.py
+      - run: python tools/ghidra/cockpit_v1_evidence.py
       - name: Stage Windows observer
         if: runner.os == 'Windows'
         shell: pwsh

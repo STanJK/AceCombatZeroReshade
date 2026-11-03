@@ -27,9 +27,9 @@
       "sha256": "3b7686238867c65a04bec85cbc2e4b73e77ecf45cf3e9db2d2ec0a937808d078"
     },
     {
-      "bytes": 4966,
+      "bytes": 5089,
       "path": "docs/mp/cockpit/IMPLEMENTATION_CONTRACT.md",
-      "sha256": "1a3bb84381b39191fe415e59e37f1d38501cd928809d11788205c3dce0d512a6"
+      "sha256": "7c57e0edc5c342cc45ee4b0627a8ed97670f622c785b7bcadebb5ea2202d3efe"
     },
     {
       "bytes": 5710,
@@ -85,6 +85,71 @@
       "bytes": 5701,
       "path": "docs/mp/cockpit/ROUND_5_RESULT.md",
       "sha256": "0223d754406c3cfc1914bbba3553563eb8c17e9b9625623f677d9ea7e44b7c7e"
+    },
+    {
+      "bytes": 2967,
+      "path": "docs/mp/cockpit/v1/INTEGRATION.md",
+      "sha256": "070e63ca29471e334a086be432e11e2b553ea8528b61884602a4fb4b5f17514f"
+    },
+    {
+      "bytes": 1361,
+      "path": "docs/mp/cockpit/v1/README.md",
+      "sha256": "d29522981845e51569f5354b1cdcff4741f3c8ce41453a4052ccaa7b1e2b8cf8"
+    },
+    {
+      "bytes": 851,
+      "path": "docs/mp/cockpit/v1/ROUND_10_PLAN.md",
+      "sha256": "837e9aed2d67e630050f3b1996b9c617f717cfa51485f6bd1b76c5fd92eba328"
+    },
+    {
+      "bytes": 4259,
+      "path": "docs/mp/cockpit/v1/ROUND_10_RESULT.md",
+      "sha256": "adf6a11507b2145e4b19672d24b9d02d9288e3d97a3c9d960e863af4168b77cc"
+    },
+    {
+      "bytes": 946,
+      "path": "docs/mp/cockpit/v1/ROUND_6_PLAN.md",
+      "sha256": "30978d32726f36ae4aec36c1d05a13565ac40ded2d8558e221a150b5a799974f"
+    },
+    {
+      "bytes": 3130,
+      "path": "docs/mp/cockpit/v1/ROUND_6_RESULT.md",
+      "sha256": "8383465047336f46c14776c10cc1495c1df75ed02e201cd6ffed2783ab35295d"
+    },
+    {
+      "bytes": 855,
+      "path": "docs/mp/cockpit/v1/ROUND_7_PLAN.md",
+      "sha256": "8c9f29569fe04c86ceb17cecd6237197237b01977212b3b3ddd3c86e560951b1"
+    },
+    {
+      "bytes": 3494,
+      "path": "docs/mp/cockpit/v1/ROUND_7_RESULT.md",
+      "sha256": "f4bd09ec4138d0573aa13e74572b464e81b43b987fd8009721d74b077fd349bf"
+    },
+    {
+      "bytes": 935,
+      "path": "docs/mp/cockpit/v1/ROUND_8_PLAN.md",
+      "sha256": "1002f59cddac8065771920d5a69b6aae5e77aabb3a2ad98dcd330d6fa20f3659"
+    },
+    {
+      "bytes": 4704,
+      "path": "docs/mp/cockpit/v1/ROUND_8_RESULT.md",
+      "sha256": "74774b99d2040fa19fce0bd558ee475a566cd448957c633580360486ab223ebc"
+    },
+    {
+      "bytes": 907,
+      "path": "docs/mp/cockpit/v1/ROUND_9_PLAN.md",
+      "sha256": "fe1e8f16b644bff6089593a74d635344d2dbc19cfc362a98a66b33e2871dedfb"
+    },
+    {
+      "bytes": 4370,
+      "path": "docs/mp/cockpit/v1/ROUND_9_RESULT.md",
+      "sha256": "86788ef1d723e5b69d83faf24ab91d44870c453690ee45bdf137b7a02382efbd"
+    },
+    {
+      "bytes": 3416,
+      "path": "docs/mp/cockpit/v1/SPEC.md",
+      "sha256": "3c484568424035145a34d122f846fd8ea200c686f49e60f80363018e1630b00a"
     },
     {
       "bytes": 1891,
@@ -277,9 +342,9 @@
       "sha256": "14de05616579a1fd0c56fecfb9488345de104d09fcfccc8a2f1cc92617a626b4"
     },
     {
-      "bytes": 3239,
+      "bytes": 3346,
       "path": "docs/usage/DUAL_VIEW_RESEARCH.zh-CN.md",
-      "sha256": "c5058dbc2440c3cbc58ab0a41d8ba201ec2a74c459d03ca589a1ae55624d97ef"
+      "sha256": "4dfe4e1af26685fca335567908aeaada1e30a0ca402a06a904facec45fad3bb8"
     },
     {
       "bytes": 74669,
@@ -313,6 +378,6 @@
     }
   ],
   "format": 1,
-  "research_date": "2026-11-02 UTC",
+  "research_date": "2026-11-03 Asia/Shanghai",
   "target_sha256": "43814d4b3292efd0a07fd71bef2f1670c0e5ac7cf2595c9e136d78451380a664"
 }

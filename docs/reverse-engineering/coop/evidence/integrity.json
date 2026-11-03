@@ -6,9 +6,9 @@
       "sha256": "f37917df5df5969ae06a18877d8839735b117fb3d6bbeb9e27df2725f83d113e"
     },
     {
-      "bytes": 1831,
+      "bytes": 1887,
       "path": ".github/workflows/coop.yml",
-      "sha256": "23a6cd9eccd4dbb0a289a8391b4c318c43fae9cccd9dbb105b3dd50f49e257e3"
+      "sha256": "d140ff353487912184f7376d5686c9ef9746ea1282f63132019047d362980c22"
     },
     {
       "bytes": 5328,
@@ -256,9 +256,9 @@
       "sha256": "3b7686238867c65a04bec85cbc2e4b73e77ecf45cf3e9db2d2ec0a937808d078"
     },
     {
-      "bytes": 4966,
+      "bytes": 5089,
       "path": "docs/mp/cockpit/IMPLEMENTATION_CONTRACT.md",
-      "sha256": "1a3bb84381b39191fe415e59e37f1d38501cd928809d11788205c3dce0d512a6"
+      "sha256": "7c57e0edc5c342cc45ee4b0627a8ed97670f622c785b7bcadebb5ea2202d3efe"
     },
     {
       "bytes": 5710,
@@ -314,6 +314,71 @@
       "bytes": 5701,
       "path": "docs/mp/cockpit/ROUND_5_RESULT.md",
       "sha256": "0223d754406c3cfc1914bbba3553563eb8c17e9b9625623f677d9ea7e44b7c7e"
+    },
+    {
+      "bytes": 2967,
+      "path": "docs/mp/cockpit/v1/INTEGRATION.md",
+      "sha256": "070e63ca29471e334a086be432e11e2b553ea8528b61884602a4fb4b5f17514f"
+    },
+    {
+      "bytes": 1361,
+      "path": "docs/mp/cockpit/v1/README.md",
+      "sha256": "d29522981845e51569f5354b1cdcff4741f3c8ce41453a4052ccaa7b1e2b8cf8"
+    },
+    {
+      "bytes": 851,
+      "path": "docs/mp/cockpit/v1/ROUND_10_PLAN.md",
+      "sha256": "837e9aed2d67e630050f3b1996b9c617f717cfa51485f6bd1b76c5fd92eba328"
+    },
+    {
+      "bytes": 4259,
+      "path": "docs/mp/cockpit/v1/ROUND_10_RESULT.md",
+      "sha256": "adf6a11507b2145e4b19672d24b9d02d9288e3d97a3c9d960e863af4168b77cc"
+    },
+    {
+      "bytes": 946,
+      "path": "docs/mp/cockpit/v1/ROUND_6_PLAN.md",
+      "sha256": "30978d32726f36ae4aec36c1d05a13565ac40ded2d8558e221a150b5a799974f"
+    },
+    {
+      "bytes": 3130,
+      "path": "docs/mp/cockpit/v1/ROUND_6_RESULT.md",
+      "sha256": "8383465047336f46c14776c10cc1495c1df75ed02e201cd6ffed2783ab35295d"
+    },
+    {
+      "bytes": 855,
+      "path": "docs/mp/cockpit/v1/ROUND_7_PLAN.md",
+      "sha256": "8c9f29569fe04c86ceb17cecd6237197237b01977212b3b3ddd3c86e560951b1"
+    },
+    {
+      "bytes": 3494,
+      "path": "docs/mp/cockpit/v1/ROUND_7_RESULT.md",
+      "sha256": "f4bd09ec4138d0573aa13e74572b464e81b43b987fd8009721d74b077fd349bf"
+    },
+    {
+      "bytes": 935,
+      "path": "docs/mp/cockpit/v1/ROUND_8_PLAN.md",
+      "sha256": "1002f59cddac8065771920d5a69b6aae5e77aabb3a2ad98dcd330d6fa20f3659"
+    },
+    {
+      "bytes": 4704,
+      "path": "docs/mp/cockpit/v1/ROUND_8_RESULT.md",
+      "sha256": "74774b99d2040fa19fce0bd558ee475a566cd448957c633580360486ab223ebc"
+    },
+    {
+      "bytes": 907,
+      "path": "docs/mp/cockpit/v1/ROUND_9_PLAN.md",
+      "sha256": "fe1e8f16b644bff6089593a74d635344d2dbc19cfc362a98a66b33e2871dedfb"
+    },
+    {
+      "bytes": 4370,
+      "path": "docs/mp/cockpit/v1/ROUND_9_RESULT.md",
+      "sha256": "86788ef1d723e5b69d83faf24ab91d44870c453690ee45bdf137b7a02382efbd"
+    },
+    {
+      "bytes": 3416,
+      "path": "docs/mp/cockpit/v1/SPEC.md",
+      "sha256": "3c484568424035145a34d122f846fd8ea200c686f49e60f80363018e1630b00a"
     },
     {
       "bytes": 1891,
@@ -541,14 +606,14 @@
       "sha256": "086a4b224efbd7244c0b6cdec9916608a2d1262b6c5f1b07fa41d7b40103f195"
     },
     {
-      "bytes": 10969,
+      "bytes": 13168,
       "path": "docs/reverse-engineering/coop/archive/manifest.json",
-      "sha256": "e66328ed83f02af5d509c5f9c8f2604207b6f6607f9fbcc1280a85d32c2d604b"
+      "sha256": "b942f421ee10d499c1ae155b836b3c9d8af71663003eabcb4c6dac5afdea722d"
     },
     {
-      "bytes": 129553,
+      "bytes": 144410,
       "path": "docs/reverse-engineering/coop/archive/plans-and-usage.tar.gz",
-      "sha256": "087f9b5c9b6af78e85371358d092e75f46646c125d4c25001cd18351ffd0eb01"
+      "sha256": "f07e1e57501e5315ca3c6dda9190c90221d93bc4f77c171768006c93a82dd39f"
     },
     {
       "bytes": 3907,
@@ -561,9 +626,9 @@
       "sha256": "593474f12d612b0690bdd4ed38bce9e83bd3eb8587bf364e0d30615b38f9c40c"
     },
     {
-      "bytes": 3559,
+      "bytes": 3695,
       "path": "docs/reverse-engineering/coop/cockpit/README.md",
-      "sha256": "c934e652e46d464237bad8ef113d46ea0dac53a6be0676d1f68fea719194ceed"
+      "sha256": "eda97aa2326c9141a16cedda92fa88c6ff2f5c0167e2d015cd426e9f5dec4b24"
     },
     {
       "bytes": 729,
@@ -724,6 +789,31 @@
       "bytes": 4729,
       "path": "docs/reverse-engineering/coop/cockpit/operand-candidates.json.gz",
       "sha256": "77c84f430b4871de95b6e7c98c6c2da43aaae0d552f378605a8e7272a07b5b90"
+    },
+    {
+      "bytes": 1820,
+      "path": "docs/reverse-engineering/coop/cockpit/v1/README.md",
+      "sha256": "4987a4116ee5082726c2daf59ef66f326ba97789ea2f7eda99b2ddb8bfa1ad04"
+    },
+    {
+      "bytes": 3133,
+      "path": "docs/reverse-engineering/coop/cockpit/v1/camera-fixtures.json",
+      "sha256": "c5b503ec0fdc13aede38378a81775afd895f13ae68c18fadfe314160b016d515"
+    },
+    {
+      "bytes": 493642,
+      "path": "docs/reverse-engineering/coop/cockpit/v1/exports.tar.gz",
+      "sha256": "5e87fdbb6b333c167752bf7c01d9168ab6c9b46fc1542fafb659e4f33a37da3b"
+    },
+    {
+      "bytes": 49485,
+      "path": "docs/reverse-engineering/coop/cockpit/v1/manifest.json",
+      "sha256": "b2b69fa870f369a0b2c248b797ff03c2d74b1915608c30e49696a4c0335b77b1"
+    },
+    {
+      "bytes": 227,
+      "path": "docs/reverse-engineering/coop/cockpit/v1/verification.json",
+      "sha256": "051c747fdc10bc8defdcebd350fc97e6082ca40af8ad6fdf87c81df471d6ab87"
     },
     {
       "bytes": 187,
@@ -5026,9 +5116,9 @@
       "sha256": "14de05616579a1fd0c56fecfb9488345de104d09fcfccc8a2f1cc92617a626b4"
     },
     {
-      "bytes": 3239,
+      "bytes": 3346,
       "path": "docs/usage/DUAL_VIEW_RESEARCH.zh-CN.md",
-      "sha256": "c5058dbc2440c3cbc58ab0a41d8ba201ec2a74c459d03ca589a1ae55624d97ef"
+      "sha256": "4dfe4e1af26685fca335567908aeaada1e30a0ca402a06a904facec45fad3bb8"
     },
     {
       "bytes": 74669,
@@ -5096,6 +5186,16 @@
       "sha256": "9f937bf9018dc96ba8fe86468e733f16627f72f496c2a045e1bb056a483f9110"
     },
     {
+      "bytes": 3587,
+      "path": "tools/ghidra/cockpit_v1_camera_fixture.py",
+      "sha256": "a4448e13bbd2fea91d2b83825df15d992d07a932979a6a581b66f12923e99507"
+    },
+    {
+      "bytes": 8032,
+      "path": "tools/ghidra/cockpit_v1_evidence.py",
+      "sha256": "689bc66731d0f4912ebb06e9427ee61295c70e42e229efd23b7451f61afa5d2f"
+    },
+    {
       "bytes": 14461,
       "path": "tools/ghidra/coop_catalog.json",
       "sha256": "5d494a136f1265b6f8894e3d4268c03574144797cdb20fe2257c56520b833353"
@@ -5131,9 +5231,9 @@
       "sha256": "7305274ccad7575db86f9fa32ed2955f7057e59d5a7e7fa40954181fee4f135e"
     },
     {
-      "bytes": 11237,
+      "bytes": 11247,
       "path": "tools/ghidra/verify_coop_archive.py",
-      "sha256": "f92b377fee85709a60946cabeb10d848385cf1e9368cb3cc0b9dfdd2ab881340"
+      "sha256": "cf55e297c3c8a3dc5a627654c31b749ca140f9693f34ff7766ed0b6318f17eda"
     },
     {
       "bytes": 3612,
